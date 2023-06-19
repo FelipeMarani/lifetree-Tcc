@@ -2,7 +2,7 @@ package br.com.lifetree.lifetreeTcc.service;
 
 import org.springframework.stereotype.Service;
 
-import br.com.lifetree.lifetreeTcc.model.TpProdutoRepository;
+import br.com.lifetree.lifetreeTcc.repository.TpProdutoRepository;
 
 @Service
 public class TpProdutoService {
