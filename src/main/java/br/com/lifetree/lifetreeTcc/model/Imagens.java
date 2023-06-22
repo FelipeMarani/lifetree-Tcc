@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -16,7 +18,10 @@ public class Imagens {
 	
 	private String img;
 	private String StatusImg;
-	private int produto_id;
+	
+	@ManyToOne
+	@JoinColumn(name = "produto_id")
+	private Produto produto;
 	public long getId() {
 		return id;
 	}
@@ -35,12 +40,11 @@ public class Imagens {
 	public void setStatusImg(String statusImg) {
 		StatusImg = statusImg;
 	}
-	public int getProduto_id() {
-		return produto_id;
+	public Produto getProduto() {
+		return produto;
 	}
-	public void setProduto_id(int produto_id) {
-		this.produto_id = produto_id;
+	public void setProduto(Produto produto) {
+		this.produto = produto;
 	}
 	
-
 }

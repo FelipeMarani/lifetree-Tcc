@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -14,70 +16,95 @@ public class Produto {
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private long id;
 	
-	private String nome;
-	private double preco;
-	private int quantidade;
+	private String Nome;
+	private double Preco;
+	private int Quantidade;
 	private String cod_barra;
-	private double peso;
-	private int tpProduto_id;
-	private int mcProduto_id;
+	private double Peso;
 	private String descricao;
 	
+	@ManyToOne
+	@JoinColumn(name = "tpProduto_id")
+	private TpProduto tpProduto;
 	
+	@ManyToOne
+	@JoinColumn(name = "mcProduto_id")
+	private McProduto mcProduto;
+
 	public long getId() {
 		return id;
 	}
+
 	public void setId(long id) {
 		this.id = id;
 	}
+
 	public String getNome() {
-		return nome;
+		return Nome;
 	}
+
 	public void setNome(String nome) {
-		this.nome = nome;
+		Nome = nome;
 	}
+
 	public double getPreco() {
-		return preco;
+		return Preco;
 	}
+
 	public void setPreco(double preco) {
-		this.preco = preco;
+		Preco = preco;
 	}
+
 	public int getQuantidade() {
-		return quantidade;
+		return Quantidade;
 	}
+
 	public void setQuantidade(int quantidade) {
-		this.quantidade = quantidade;
+		Quantidade = quantidade;
 	}
+
 	public String getCod_barra() {
 		return cod_barra;
 	}
+
 	public void setCod_barra(String cod_barra) {
 		this.cod_barra = cod_barra;
 	}
+
 	public double getPeso() {
-		return peso;
+		return Peso;
 	}
+
 	public void setPeso(double peso) {
-		this.peso = peso;
+		Peso = peso;
 	}
-	public int getTpProduto_id() {
-		return tpProduto_id;
-	}
-	public void setTpProduto_id(int tpProduto_id) {
-		this.tpProduto_id = tpProduto_id;
-	}
-	public int getMcProduto_id() {
-		return mcProduto_id;
-	}
-	public void setMcProduto_id(int mcProduto_id) {
-		this.mcProduto_id = mcProduto_id;
-	}
+
 	public String getDescricao() {
 		return descricao;
 	}
+
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+
+	public TpProduto getTpProduto() {
+		return tpProduto;
+	}
+
+	public void setTpProduto(TpProduto tpProduto) {
+		this.tpProduto = tpProduto;
+	}
+
+	public McProduto getMcProduto() {
+		return mcProduto;
+	}
+
+	public void setMcProduto(McProduto mcProduto) {
+		this.mcProduto = mcProduto;
+	}
+	
+	
+	
 	
 	
 	

@@ -17,10 +17,10 @@ public class Endereco {
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private long id;
 	
+	
+	//exemplo feito pelo Cruz
 	@Column(name = "Logradouro")
 	private String Logradouro;
-	
-	
 	private String CEP;
 	private String Numcasa;
 	private String Bairro;

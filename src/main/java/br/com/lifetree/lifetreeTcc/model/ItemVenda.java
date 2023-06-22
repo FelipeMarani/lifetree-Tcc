@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -16,9 +18,18 @@ public class ItemVenda {
 	
 	private int Quant;
  	private String StatusItem;
-	private int Produto_id;
-	private int Venda_id;
-	private int Cliente_id;
+ 	
+ 	@ManyToOne
+ 	@JoinColumn(name = "Produto_id")
+	private Produto produto;
+ 	
+ 	@ManyToOne
+ 	@JoinColumn(name = "Venda_id")
+	private Venda venda;
+ 	
+ 	@ManyToOne
+ 	@JoinColumn(name = "Cliente_id")
+	private Cliente cliente;
 	public long getId() {
 		return id;
 	}
@@ -37,23 +48,23 @@ public class ItemVenda {
 	public void setStatusItem(String statusItem) {
 		StatusItem = statusItem;
 	}
-	public int getProduto_id() {
-		return Produto_id;
+	public Produto getProduto() {
+		return produto;
 	}
-	public void setProduto_id(int produto_id) {
-		Produto_id = produto_id;
+	public void setProduto(Produto produto) {
+		this.produto = produto;
 	}
-	public int getVenda_id() {
-		return Venda_id;
+	public Venda getVenda() {
+		return venda;
 	}
-	public void setVenda_id(int venda_id) {
-		Venda_id = venda_id;
+	public void setVenda(Venda venda) {
+		this.venda = venda;
 	}
-	public int getCliente_id() {
-		return Cliente_id;
+	public Cliente getCliente() {
+		return cliente;
 	}
-	public void setCliente_id(int cliente_id) {
-		Cliente_id = cliente_id;
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 	
 }
