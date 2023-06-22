@@ -30,7 +30,7 @@ public class ItemVendaController {
 	}
 	
 	//ROTA POST
-		@PostMapping
+		@PostMapping("/save")
 		public ResponseEntity<Object> saveItemVenda(ItemVenda itemvenda){
 			return ResponseEntity.status(HttpStatus.CREATED)
 					.body(ItemVendaService.save(itemvenda));
@@ -39,7 +39,7 @@ public class ItemVendaController {
 
 		//ROTA GET
 		
-		@GetMapping 
+		@GetMapping ("/all")
 		public ResponseEntity<List<ItemVenda>> getAllItemVenda(){
 			return ResponseEntity.status(HttpStatus.OK)
 					.body(ItemVendaService.findAll());

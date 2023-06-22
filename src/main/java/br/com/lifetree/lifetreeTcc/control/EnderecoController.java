@@ -28,7 +28,7 @@ public class EnderecoController {
 	}
 	
 	//ROTA POST
-		@PostMapping
+		@PostMapping ("/save")
 		public ResponseEntity<Object> saveEndereco(Endereco endereco){
 			return ResponseEntity.status(HttpStatus.CREATED)
 					.body(enderecoService.save(endereco));
@@ -36,8 +36,7 @@ public class EnderecoController {
 		}
 
 		//ROTA GET
-	
-		@GetMapping 
+		@GetMapping ("/all")
 		public ResponseEntity<List<Endereco>> getAllEndereco(){
 			return ResponseEntity.status(HttpStatus.OK)
 					.body(enderecoService.findAll());

@@ -19,7 +19,7 @@ public class EnderecoService {
 		this.enderecoRepository = _enderecoService;
 	}
 
-	//METODO INSERT INTO PRODUTO 
+	//METODO INSERT INTO ENDEREÇO 
 	
 		@Transactional
 		public Endereco save(Endereco _endereco) {
@@ -27,7 +27,7 @@ public class EnderecoService {
 		}
 		
 		
-		//METODO SELECT * FROM PRODUTO
+		//METODO SELECT * FROM ENDEREÇO
 				public List<Endereco> findAll(){
 					List<Endereco> lista = enderecoRepository.findAll();
 					return lista;

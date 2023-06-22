@@ -27,14 +27,14 @@ public class ImagensController {
 				
 
 				//ROTA POST
-				@PostMapping
+				@PostMapping("/save")
 				public ResponseEntity<Object> saveImagens(Imagens imagens){
 					return ResponseEntity.status(HttpStatus.CREATED)
 							.body(imagensService.save(imagens));
 
 				}
 				//ROTA GET
-				@GetMapping 
+				@GetMapping ("/all")
 				public ResponseEntity<List<Imagens>> getAllCliente(){
 					return ResponseEntity.status(HttpStatus.OK)
 							.body(imagensService.findAll());

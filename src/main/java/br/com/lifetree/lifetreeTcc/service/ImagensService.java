@@ -21,13 +21,13 @@ public class ImagensService {
 		
 	}
 	
-	//METODO INSERT INTO PRODUTO 
+	//METODO INSERT INTO IMAGENS 
 		@Transactional
 		public Imagens save(Imagens _imagens) {
 			return imagensRepository.save(_imagens);
 		}
 
-		//METODO SELECT * FROM PRODUTO
+		//METODO SELECT * FROM IMAGENS
 		public List<Imagens> findAll(){
 			List<Imagens> lista = imagensRepository.findAll();
 			return lista;

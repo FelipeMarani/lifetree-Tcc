@@ -19,12 +19,12 @@ public class ItemVendaService {
 		this.itemVendaRepository = _itemVendaService;
 	}
 	
-	//METODO INSERT INTO PRODUTO 
+	//METODO INSERT INTO ITEMVENDA
 	@Transactional
 	public ItemVenda save(ItemVenda _itemvenda) {
 		return itemVendaRepository.save(_itemvenda);
 	}
-	//METODO SELECT * FROM ItemVenda
+	//METODO SELECT * FROM ITEMVENDA
 	public List<ItemVenda> findAll(){
 		List<ItemVenda> lista = itemVendaRepository.findAll();
 		return lista;

@@ -28,7 +28,7 @@ public class ProdutoController {
 			}
 			
 			//ROTA POST
-				@PostMapping
+				@PostMapping("/save")
 				public ResponseEntity<Object> saveProduto(Produto produto){
 					return ResponseEntity.status(HttpStatus.CREATED)
 							.body(produtoService.save(produto));
@@ -36,8 +36,7 @@ public class ProdutoController {
 				}
 
 				//ROTA GET
-				
-				@GetMapping 
+				@GetMapping ("/all")
 				public ResponseEntity<List<Produto>> getAllProduto(){
 					return ResponseEntity.status(HttpStatus.OK)
 							.body(produtoService.findAll());

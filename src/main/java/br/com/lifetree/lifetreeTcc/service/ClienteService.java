@@ -19,13 +19,13 @@ public class ClienteService {
 		this.clienteRepository = _clienteService;
 	}
 	
-	//METODO INSERT INTO PRODUTO 
+	//METODO INSERT INTO CLIENTE 
 	@Transactional
 	public Cliente save(Cliente _cliente) {
 		return clienteRepository.save(_cliente);
 	}
 
-	//METODO SELECT * FROM PRODUTO
+	//METODO SELECT * FROM CLIENTE
 	public List<Cliente> findAll(){
 		List<Cliente> lista = clienteRepository.findAll();
 		return lista;
