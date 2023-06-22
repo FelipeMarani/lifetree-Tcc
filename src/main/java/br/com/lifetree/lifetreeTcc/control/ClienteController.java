@@ -29,14 +29,14 @@ public class ClienteController {
 			
 
 			//ROTA POST
-			@PostMapping
+			@PostMapping ("/save")
 			public ResponseEntity<Object> saveCliente(Cliente cliente){
 				return ResponseEntity.status(HttpStatus.CREATED)
 						.body(clienteService.save(cliente));
 
 			}
 			//ROTA GET
-			@GetMapping 
+			@GetMapping ("/all")
 			public ResponseEntity<List<Cliente>> getAllCliente(){
 				return ResponseEntity.status(HttpStatus.OK)
 						.body(clienteService.findAll());

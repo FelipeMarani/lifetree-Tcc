@@ -1,9 +1,12 @@
 package br.com.lifetree.lifetreeTcc.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -14,14 +17,20 @@ public class Endereco {
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private long id;
 	
+	@Column(name = "Logradouro")
 	private String Logradouro;
+	
+	
 	private String CEP;
 	private String Numcasa;
 	private String Bairro;
 	private String Cidade;
 	private String UF;
 	private String Complemento;
-	private int Cliente_id;
+	
+	@ManyToOne
+	@JoinColumn(name = "Cliente_id")
+	private Cliente cliente;
 	
 	public long getId() {
 		return id;
@@ -71,12 +80,14 @@ public class Endereco {
 	public void setComplemento(String complemento) {
 		Complemento = complemento;
 	}
-	public int getCliente_id() {
-		return Cliente_id;
+	
+	public Cliente getCliente() {
+		return cliente;
 	}
-	public void setCliente_id(int cliente_id) {
-		Cliente_id = cliente_id;
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
+	
 	
 	
 }
