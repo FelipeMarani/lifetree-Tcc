@@ -19,6 +19,8 @@ public class Venda {
 	private int Pagamento_id;
 	private int Cliente_id;
 	private int Produto_id;
+	
+	
 	public long getId() {
 		return id;
 	}

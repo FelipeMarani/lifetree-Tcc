@@ -14,7 +14,7 @@ import br.com.lifetree.lifetreeTcc.model.Cliente;
 import br.com.lifetree.lifetreeTcc.service.ClienteService;
 
 @RestController
-@RequestMapping("/cliente")
+@RequestMapping("/clientes")
 @CrossOrigin(origins="*", maxAge = 3600, allowCredentials = "false")
 public class ClienteController {
 	

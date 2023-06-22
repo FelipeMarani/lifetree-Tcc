@@ -20,7 +20,6 @@ public class EnderecoService {
 	}
 
 	//METODO INSERT INTO ENDEREÇO 
-	
 		@Transactional
 		public Endereco save(Endereco _endereco) {
 			return enderecoRepository.save(_endereco);
