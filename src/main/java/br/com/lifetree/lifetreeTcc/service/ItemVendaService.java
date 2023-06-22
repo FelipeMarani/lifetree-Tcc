@@ -22,11 +22,11 @@ public class ItemVendaService {
 	//METODO INSERT INTO PRODUTO 
 	@Transactional
 	public ItemVenda save(ItemVenda _itemvenda) {
-		return ItemVendaRepository.save(_itemvenda);
+		return itemVendaRepository.save(_itemvenda);
 	}
 	//METODO SELECT * FROM ItemVenda
 	public List<ItemVenda> findAll(){
-		List<ItemVenda> lista = ItemVendaRepository.findAll();
+		List<ItemVenda> lista = itemVendaRepository.findAll();
 		return lista;
 	}
 

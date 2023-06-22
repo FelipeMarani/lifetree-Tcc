@@ -26,7 +26,7 @@ public class ItemVendaController {
 	// INJEÇÃO DE DEPENDENCIA 
 	
 	public ItemVendaController(ItemVendaService _itemvendaService) {
-		this.itemvendaService = _itemvendaService;
+		this.ItemVendaService = _itemvendaService;
 	}
 	
 	//ROTA POST
