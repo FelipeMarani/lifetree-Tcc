@@ -14,7 +14,7 @@ import br.com.lifetree.lifetreeTcc.model.Endereco;
 import br.com.lifetree.lifetreeTcc.service.EnderecoService;
 
 @RestController
-@RequestMapping("/endereço")
+@RequestMapping("/endereços")
 @CrossOrigin(origins="*", maxAge = 3600, allowCredentials = "false")
 public class EnderecoController {
 	

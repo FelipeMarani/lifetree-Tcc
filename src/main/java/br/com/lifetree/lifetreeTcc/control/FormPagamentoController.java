@@ -14,7 +14,7 @@ import br.com.lifetree.lifetreeTcc.model.FormPagamento;
 import br.com.lifetree.lifetreeTcc.service.FormPagamentoService;
 
 @RestController
-@RequestMapping("/formapagamento")
+@RequestMapping("/formapagamentos")
 @CrossOrigin(origins="*", maxAge = 3600, allowCredentials = "false")
 public class FormPagamentoController {
 
