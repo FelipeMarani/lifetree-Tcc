@@ -3,7 +3,7 @@ package br.com.lifetree.lifetreeTcc.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import br.com.lifetree.lifetreeTcc.model.Produto;
+import br.com.lifetree.lifetreeTcc.model.entity.Produto;
 
 @Repository
 public interface ProdutoRepository extends JpaRepository<Produto, Long> {

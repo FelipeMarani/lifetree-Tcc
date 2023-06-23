@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.lifetree.lifetreeTcc.model.McProduto;
+import br.com.lifetree.lifetreeTcc.model.entity.McProduto;
 import br.com.lifetree.lifetreeTcc.service.McProdutoService;
 
 @RestController

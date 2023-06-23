@@ -1,4 +1,4 @@
-package br.com.lifetree.lifetreeTcc.model;
+package br.com.lifetree.lifetreeTcc.model.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,7 +12,7 @@ public class Cliente {
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	private long id;
+	private int id;
 	
 	
 	private String Nome;
@@ -25,10 +25,10 @@ public class Cliente {
 	private String status;
 	
 	
-	public long getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getNome() {

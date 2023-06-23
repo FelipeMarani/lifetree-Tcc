@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import br.com.lifetree.lifetreeTcc.model.FormPagamento;
+import br.com.lifetree.lifetreeTcc.model.entity.FormPagamento;
 import br.com.lifetree.lifetreeTcc.repository.FormPagamentoRepository;
 import jakarta.transaction.Transactional;
 

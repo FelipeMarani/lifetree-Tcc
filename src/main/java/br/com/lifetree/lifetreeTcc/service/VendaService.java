@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import br.com.lifetree.lifetreeTcc.model.Venda;
+import br.com.lifetree.lifetreeTcc.model.entity.Venda;
 import br.com.lifetree.lifetreeTcc.repository.VendaRepository;
 import jakarta.transaction.Transactional;
 

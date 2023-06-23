@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import br.com.lifetree.lifetreeTcc.model.McProduto;
+import br.com.lifetree.lifetreeTcc.model.entity.McProduto;
 import br.com.lifetree.lifetreeTcc.repository.McProdutoRepository;
 import jakarta.transaction.Transactional;
 

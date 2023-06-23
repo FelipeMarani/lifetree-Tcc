@@ -1,4 +1,4 @@
-package br.com.lifetree.lifetreeTcc.model;
+package br.com.lifetree.lifetreeTcc.model.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

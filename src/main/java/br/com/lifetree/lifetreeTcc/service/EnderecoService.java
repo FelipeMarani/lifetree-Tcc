@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import br.com.lifetree.lifetreeTcc.model.Endereco;
+import br.com.lifetree.lifetreeTcc.model.entity.Endereco;
 import br.com.lifetree.lifetreeTcc.repository.EnderecoRepository;
 import jakarta.transaction.Transactional;
 
