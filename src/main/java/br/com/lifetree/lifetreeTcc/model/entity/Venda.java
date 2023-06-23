@@ -24,14 +24,9 @@ public class Venda {
 	@JoinColumn(name = "Pagamento_id")
 	private FormPagamento pagamento;
 	
-	@OneToMany
+	@ManyToOne
 	@JoinColumn(name = "Cliente_id")
 	private Cliente cliente;
-	
-	@OneToMany
-	@JoinColumn(name = "Produto_id")
-	private Produto produto;
-	
 	
 	public long getId() {
 		return id;
@@ -63,12 +58,5 @@ public class Venda {
 	}
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
-	}
-	public Produto getProduto() {
-		return produto;
-	}
-	public void setProduto(Produto produto) {
-		this.produto = produto;
-	}
-	
+	}	
 }

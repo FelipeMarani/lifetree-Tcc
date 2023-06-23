@@ -27,12 +27,6 @@ public class ItemVenda {
  	@JoinColumn(name = "Venda_id")
 	private Venda venda;
  	
- 	@ManyToOne
- 	@JoinColumn(name = "Cliente_id")
-	private Cliente cliente;
-	public long getId() {
-		return id;
-	}
 	public void setId(long id) {
 		this.id = id;
 	}
@@ -59,12 +53,6 @@ public class ItemVenda {
 	}
 	public void setVenda(Venda venda) {
 		this.venda = venda;
-	}
-	public Cliente getCliente() {
-		return cliente;
-	}
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
 	}
 	
 }
