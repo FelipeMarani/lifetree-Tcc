@@ -1,5 +1,7 @@
 package br.com.lifetree.lifetreeTcc.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import br.com.lifetree.lifetreeTcc.model.entity.Cupom;
@@ -17,10 +19,16 @@ public class CupomService {
 		this.cupomRepository = _cupomService;
 	}
 	
-	//Metodo INSERT INTO CUPOM
+	//Metodo INSERT INTO 
 	@Transactional
 	public Cupom save(Cupom _cupom) {
 		return cupomRepository.save(_cupom);
 	}
-
+	
+	//METODO SELECT * FROM CLIENTE
+	public List<Cupom> findall(){
+		List<Cupom> lista = cupomRepository.findAll();
+		return lista;
+	}
+	
 }
