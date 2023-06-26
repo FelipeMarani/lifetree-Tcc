@@ -31,4 +31,27 @@ public class ClienteService {
 		return lista;
 	}
 	
+	//Verificação de usuário
+	@Transactional
+	public int entrar(String email, String senha) {
+		Cliente cliente = clienteRepository.findByEmail(email);
+		
+		if(cliente != null && cliente.getStatus().equals("Ativo")) {
+			
+			if(cliente.getSenha().equals(senha)) {
+				
+				if(cliente.getNivelAcesso().equals("ADMIN")) {
+					return 1;
+				}else if(cliente.getNivelAcesso().equals("User")){
+					return 2;}
+				} 
+			else {
+				return 0;
+			}
+		}
+		return 0;		
+	}
+	
 }
+		
+	

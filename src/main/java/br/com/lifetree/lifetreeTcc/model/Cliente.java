@@ -22,6 +22,7 @@ public class Cliente {
 	private String Email;
 	private String Senha;
 	private byte[] img;
+	private String NivelAcesso;
 	private String status;
 	
 	
@@ -72,6 +73,13 @@ public class Cliente {
 	}
 	public void setImg(byte[] img) {
 		this.img = img;
+	}
+	
+	public String getNivelAcesso() {
+		return NivelAcesso;
+	}
+	public void setNivelAcesso(String nivelAcesso) {
+		NivelAcesso = nivelAcesso;
 	}
 	public String getStatus() {
 		return status;
