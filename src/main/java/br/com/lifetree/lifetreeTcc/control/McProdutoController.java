@@ -10,39 +10,36 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.lifetree.lifetreeTcc.model.entity.ItemVenda;
-import br.com.lifetree.lifetreeTcc.service.ItemVendaService;
+import br.com.lifetree.lifetreeTcc.model.entity.McProduto;
+import br.com.lifetree.lifetreeTcc.service.McProdutoService;
 
 @RestController
-@RequestMapping("/itemvendas")
+@RequestMapping("/marcaprodutos")
 @CrossOrigin(origins="*", maxAge = 3600, allowCredentials = "false")
-public class ItemVendaController {
-	
-	
+public class McProdutoController {
 	
 	//Criação do objeto de serviço 
-	final ItemVendaService ItemVendaService;
-	
-	// INJEÇÃO DE DEPENDENCIA 
-	
-	public ItemVendaController(ItemVendaService _itemvendaService) {
-		this.ItemVendaService = _itemvendaService;
-	}
-	
-	//ROTA POST
-		@PostMapping("/save")
-		public ResponseEntity<Object> saveItemVenda(ItemVenda itemvenda){
-			return ResponseEntity.status(HttpStatus.CREATED)
-					.body(ItemVendaService.save(itemvenda));
-
-		}
-
-		//ROTA GET
+		final McProdutoService mcProdutoService;
 		
-		@GetMapping ("/all")
-		public ResponseEntity<List<ItemVenda>> getAllItemVenda(){
-			return ResponseEntity.status(HttpStatus.OK)
-					.body(ItemVendaService.findAll());
+		// INJEÇÃO DE DEPENDENCIA 
+		public McProdutoController(McProdutoService _McProdutoService) {
+			this.mcProdutoService = _McProdutoService;
 		}
+		
+		// ROTA POST
+		@PostMapping("/save")
+		public ResponseEntity<Object> saveMcProduto(McProduto mcProduto){
+			return ResponseEntity.status(HttpStatus.CREATED)
+					.body(mcProdutoService.save(mcProduto));		
+		}
+		
+		//ROTA GET 
+		@GetMapping("/all")
+		public ResponseEntity<List<McProduto>> getAllMcProduto(){
+			return ResponseEntity.status(HttpStatus.OK)
+					.body(mcProdutoService.findAll());
+		}
+		
+	
 
 }

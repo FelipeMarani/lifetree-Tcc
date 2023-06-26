@@ -10,41 +10,38 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.lifetree.lifetreeTcc.model.entity.FormPagamento;
-import br.com.lifetree.lifetreeTcc.service.FormPagamentoService;
+import br.com.lifetree.lifetreeTcc.model.entity.TpProduto;
+import br.com.lifetree.lifetreeTcc.service.TpProdutoService;
 
 @RestController
-@RequestMapping("/formapagamentos")
+@RequestMapping("/tipodeprodutos")
 @CrossOrigin(origins="*", maxAge = 3600, allowCredentials = "false")
-public class FormPagamentoController {
-
+public class TpProdutoController {
+	
+	
 	//Criação do objeto de serviço 
-	final FormPagamentoService formpagamentoService; 
+	final TpProdutoService tpProdutoService;
 	
-	// INJEÇÃO DE DEPENDENCIA 
-	public FormPagamentoController(FormPagamentoService _formpagamentoService) {
-		this.formpagamentoService = _formpagamentoService;
+	//INJEÇÃO DE DEPENDENCIA 
+	
+	public TpProdutoController(TpProdutoService _tpProdutoService) {
+		this.tpProdutoService = _tpProdutoService;
 	}
 	
-	
-	//ROTA POST 
-	@PostMapping ("/save")
-	public ResponseEntity<Object> saveFormPagamento(FormPagamento formpagamento){
+	// ROTA POST 
+	@PostMapping("/save")
+		public ResponseEntity<Object> saveTpProduto(TpProduto tpProduto){
 		return ResponseEntity.status(HttpStatus.CREATED)
-						.body(formpagamentoService.save(formpagamento));
+				.body(tpProdutoService.save(tpProduto));
 		
 	}
 	
-	//ROTA GET 
 	@GetMapping("/all")
-	public ResponseEntity <List<FormPagamento>> getAllFormPagamento(){
+		public ResponseEntity<List<TpProduto>> getAllTpProduto(){
 		return ResponseEntity.status(HttpStatus.OK)
-				.body(formpagamentoService.findAll());
-		
+				.body(tpProdutoService.findAll());
 	}
 	
 	
-	
-			
-	
+
 }

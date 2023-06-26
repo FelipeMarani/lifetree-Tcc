@@ -10,41 +10,39 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.lifetree.lifetreeTcc.model.entity.FormPagamento;
-import br.com.lifetree.lifetreeTcc.service.FormPagamentoService;
+import br.com.lifetree.lifetreeTcc.model.entity.Venda;
+import br.com.lifetree.lifetreeTcc.service.VendaService;
+
 
 @RestController
-@RequestMapping("/formapagamentos")
+@RequestMapping("/vendas")
 @CrossOrigin(origins="*", maxAge = 3600, allowCredentials = "false")
-public class FormPagamentoController {
-
+public class VendaController {
+	
+	
 	//Criação do objeto de serviço 
-	final FormPagamentoService formpagamentoService; 
+	final VendaService vendaService;
 	
 	// INJEÇÃO DE DEPENDENCIA 
-	public FormPagamentoController(FormPagamentoService _formpagamentoService) {
-		this.formpagamentoService = _formpagamentoService;
+	public VendaController(VendaService _vendaService) {
+		this.vendaService = _vendaService;
 	}
 	
-	
-	//ROTA POST 
-	@PostMapping ("/save")
-	public ResponseEntity<Object> saveFormPagamento(FormPagamento formpagamento){
+	//ROTA POST
+	@PostMapping("/save")
+	public ResponseEntity<Object> saveVenda(Venda venda){
 		return ResponseEntity.status(HttpStatus.CREATED)
-						.body(formpagamentoService.save(formpagamento));
-		
+				.body(vendaService.save(venda));
 	}
 	
-	//ROTA GET 
+//Rota Get 
 	@GetMapping("/all")
-	public ResponseEntity <List<FormPagamento>> getAllFormPagamento(){
+	public ResponseEntity<List<Venda>> getAllVenda(){
 		return ResponseEntity.status(HttpStatus.OK)
-				.body(formpagamentoService.findAll());
-		
+				.body(vendaService.findAll());
 	}
 	
 	
 	
-			
-	
+
 }
