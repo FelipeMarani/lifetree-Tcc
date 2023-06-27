@@ -1,17 +1,7 @@
-use master if exists(select * from SYS.databases where name = 'LifeTree')
-drop database LifeTree
---criar banco de dados
-create database LifeTree
-GO
---Acessar bd
-use LifeTree
-Go
-
---criar tabela
-
+use [lifetree-tcc]
 
 CREATE TABLE Cupom(
-	ID INT IDENTITY,
+	ID BIGINT IDENTITY,
 	NOME VARCHAR(10)NOT NULL,
 	STATUSCP VARCHAR(20)NOT NULL,
 	Primary key(id)
@@ -20,7 +10,7 @@ CREATE TABLE Cupom(
 
 create table Cliente
 (	
-	id int identity,
+	id bigint identity,
 	Nome varchar(150)not null,
 	CPF char(11)not null,
 	dtNasc date not null,
@@ -28,15 +18,16 @@ create table Cliente
 	Email varchar(200)not null,
 	senha varchar(150)not null,
 	img varbinary(max)null,
+	NivelAcess varchar(10)null,
 	statusCliente varchar(20)not null,
-	Cupom_id int not null,
+	Cupom_id bigint not null,
 	primary key(id),
 	foreign key(Cupom_id)
 		references Cupom(id)
 )
 
 create table Endereco(
-	id int identity,
+	id bigint identity,
 	Logradouro varchar(250)not null,
 	CEP char(8)not null,
 	NumCasa char(5)not null,
@@ -45,14 +36,14 @@ create table Endereco(
 	UF char(2)not null,
 	Complemento varchar(250)null,
 	primary key(id),
-	Cliente_id int not null,
+	Cliente_id bigint not null,
 	foreign key(Cliente_id) 
 		references Cliente(id)
 )
 
 create table Funcionario
 (	
-   id   INT IDENTITY,
+   id   BIGINT IDENTITY,
    Nome VARCHAR(100)NOT NULL,
    CPF  CHAR(11)NOT NULL,
    RG VARCHAR(12)NOT NULL,
@@ -61,6 +52,7 @@ create table Funcionario
    Img VARBINARY(MAX)NULL,
    telefone VARCHAR(9)NOT NULL,
    Email VARCHAR(100)NULL, 
+   NivelAcess varchar(10)null,
    Logradouro VARCHAR(100)NOT NULL, -- nome da rua, avenida e etc
    Numero_resid VARCHAR(10)NOT NULL,
    Complemento VARCHAR(100)NULL,
@@ -72,7 +64,7 @@ create table Funcionario
 )
 
 create table tpProduto
-(	id int identity,
+(	id BIGint identity,
 	TpProduto varchar(150)not null,
 	primary key(id)
 )
@@ -108,21 +100,21 @@ values('Baixo carboidrato');
 
 
 create table mcProduto
-(	id int identity,
+(	id bigint identity,
 	Marca varchar(100)not null,
 	primary key(id)
 )
 
 create table Produto
-(	id int identity,
+(	id bigint identity,
 	Nome varchar(100)not null,
 	Preco decimal(10,2)not null,
 	Imagem varchar(MAX),
 	Quantidade int,
 	cod_barra varchar(13)not null,
 	Peso decimal(6,2),
-	tpProduto_id int not null,
-	mcProduto_id int not null,
+	tpProduto_id bigint not null,
+	mcProduto_id bigint not null,
 	Complemento varchar(250)not null
 	primary key(id),
 	foreign key(tpProduto_id)
@@ -132,18 +124,18 @@ create table Produto
 )
 
 create table Imagem(
-	id int identity,
+	id bigint identity,
 	nomeImg varchar(100)not null,
 	Img varchar(max)not null,
 	StatusImg varchar(20)not null,
-	produto_id int not null,
+	produto_id bigint not null,
 	primary key(id),
 	foreign key(produto_id)
 	references Produto(id)
 )
 
 create table Form_Pagamento
-(	id int identity,
+(	id bigint identity,
 	Fm_pagamento varchar(50)not null,
 	StatusPg varchar(20)null,
 	primary key(id)
@@ -161,11 +153,11 @@ values('Dinheiro')
 
 
 create table Venda
-(	id int identity,
+(	id bigint identity,
 	TT_compra decimal(10,2)not null,
 	Dt_Venda date not null,
-	Pagamento_id int not null,
-	Cliente_id int not null,
+	Pagamento_id bigint not null,
+	Cliente_id bigint not null,
 	primary key(id),
 	foreign key(Pagamento_id) 
 		references Form_pagamento(id),
@@ -174,19 +166,14 @@ create table Venda
 )
 
 create table ItemVenda(
-	id int identity,
+	id bigint identity,
 	Quant int not null,
 	StatusItem varchar(20) not null,
-	Produto_id int not null,
-	Venda_id int not null,
+	Produto_id bigint not null,
+	Venda_id bigint not null,
 	primary key(id),
 	foreign key(Produto_id)
 		references Produto(id),
 	foreign key(Venda_id)
 		references Venda(id)
 )
-
-
---Consulta todos os(*) campos
---E todos os registros da tabela
---select*from tpProduto
