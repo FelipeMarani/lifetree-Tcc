@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="src/main/resources/static/css/estilização.css">
+    <link rel="stylesheet" href="/css/estilização.css">
 
 
 </head>
@@ -16,16 +16,17 @@
         <h1>Life Tree</h1>
     </header>
     <section>
-        <div on>
-            <input type="text" id="text" placeholder="Usuário" onkeyup="verify()">
+        <form action="#" method="post" th:object="${cliente}" th:action="@{/cliente/acessar}">
+        <div method="post">
+            <input type="text" id="text" placeholder="Email" th:field="*{email}">
  
-            <input type="password" id="senha" placeholder="Senha" onkeyup="verificar()" onfocus="esconder()">
+            <input type="password" id="senha" placeholder="Senha" th:field="*{senha}">
             
 
             <a href="/Recuperação de Senha/recuperação.html" id="esquecisenha">Esqueceu a senha?</a>
-            <!-- <a href="/TelasADM/Tela Dashboard ADM/TelaDashboard.html"><button id="botão">Entrar</button></a> -->
             <button id="botão">Entrar</button>
         </div>
+    </form>
 
     </section>
     <footer>
@@ -34,8 +35,8 @@
     </footer>
     <div class="Imagem">
 
-        <img src="src/main/resources/static/img/arvorelogo1.png" alt="Imagem" class="imagem-lateral">
-        <img src="src/main/resources/static/img/arvorelogo1.png" alt="Imagem" class="imagem-lateral2">
+        <img src="/img/arvorelogo1.png" alt="Imagem" class="imagem-lateral">
+        <img src="/img/arvorelogo1.png" alt="Imagem" class="imagem-lateral2">
 
 
     </div>
@@ -44,5 +45,4 @@
 
 
 </body>
-
 </html>
