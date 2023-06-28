@@ -4,12 +4,12 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.ModelMap;
+//import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+//import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.lifetree.lifetreeTcc.model.entity.Cliente;
@@ -43,38 +43,31 @@ public class ClienteController {
 				return ResponseEntity.status(HttpStatus.OK)
 						.body(clienteService.findAll());
 			}
-			private String serverMessage = null;
-			
-			@GetMapping("/login")
-			public String getLogin(ModelMap model) {
-				
-			model.addAttribute("cliente", new Cliente());
-			model.addAttribute("serverMessage", serverMessage);
-			return "login";
-				
-			}
-			
-			//Rota POST para acessar o site
-			@PostMapping("/entrar")
-			public String entrar(
-					@RequestParam("email") String email,
-					@RequestParam("senha") String senha, ModelMap model) {
-			
-				int entrar = clienteService.entrar(email, senha);
-				
-				if(entrar == 1) {
-					return "Admin_page";
-					
-				}else if(entrar == 2) {
-					return "user_page";
-				}
-				
-				serverMessage = "Dados icorretos";
-				model.addAttribute("serverMessage", serverMessage);
-				
-				return "redirect:/login";
-				
-			}
+//			private String serverMessage = null;
+//			
+//			@GetMapping("/login")
+//			public String getLogin(ModelMap model) {
+//				
+//			model.addAttribute("cliente", new Cliente());
+//			model.addAttribute("serverMessage", serverMessage);
+//			return "login";
+//				
+//			}
+//			
+//			//Rota POST para acessar o site
+//			@PostMapping("/acessar")
+//			public String acessar(
+//					@RequestParam("email") String email,
+//					@RequestParam("senha") String senha, ModelMap model) {
+//			
+//				int acessar = clienteService.acessar(email, senha);
+//				
+//				serverMessage = "Dados icorretos";
+//				model.addAttribute("serverMessage", serverMessage);
+//				
+//				return "redirect:/login";
+//				
+//			}
 
 	
 }

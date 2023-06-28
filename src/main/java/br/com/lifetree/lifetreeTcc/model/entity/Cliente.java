@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Table;
 
 @Entity
@@ -14,17 +15,18 @@ public class Cliente {
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int id;
 	
-	
 	private String Nome;
 	private String CPF;
+	
 	private String dtNasc;
 	private String Tel;
+	@JoinColumn(name = "Email")
 	private String Email;
+	@JoinColumn(name = "senha")
 	private String Senha;
 	private byte[] img;
-	private String NivelAcesso;
+	@JoinColumn(name = "statusCliente")
 	private String status;
-	
 	
 	public int getId() {
 		return id;
@@ -74,19 +76,11 @@ public class Cliente {
 	public void setImg(byte[] img) {
 		this.img = img;
 	}
-	
-	public String getNivelAcesso() {
-		return NivelAcesso;
-	}
-	public void setNivelAcesso(String nivelAcesso) {
-		NivelAcesso = nivelAcesso;
-	}
 	public String getStatus() {
 		return status;
 	}
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
 	
 }

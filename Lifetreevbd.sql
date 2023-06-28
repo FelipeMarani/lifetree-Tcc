@@ -18,7 +18,6 @@ create table Cliente
 	Email varchar(200)not null,
 	senha varchar(150)not null,
 	img varbinary(max)null,
-	NivelAcess varchar(10)null,
 	statusCliente varchar(20)not null,
 	Cupom_id bigint not null,
 	primary key(id),
@@ -70,27 +69,27 @@ create table tpProduto
 )
 
 insert into tpProduto(TpProduto)
-values('Chá e Infusões');
+values('Chï¿½ e Infusï¿½es');
 insert into tpProduto(TpProduto)
 values('A Granel');
 insert into tpProduto(TpProduto)
 values('Vitaminas e Suplementos');
 insert into tpProduto(TpProduto)
-values('Mercearia e Empório');
+values('Mercearia e Empï¿½rio');
 insert into tpProduto(TpProduto)
 values('Bem-estar e Beleza');
 insert into tpProduto(TpProduto)
 values('Refrigerados');
 insert into tpProduto(TpProduto)
-values('Promoções');
+values('Promoï¿½ï¿½es');
 insert into tpProduto(TpProduto)
-values('Sem Açucar');
+values('Sem Aï¿½ucar');
 insert into tpProduto(TpProduto)
-values('Sem Glúten');
+values('Sem Glï¿½ten');
 insert into tpProduto(TpProduto)
 values('Sem Lactose');
 insert into tpProduto(TpProduto)
-values('Orgânico');
+values('Orgï¿½nico');
 insert into tpProduto(TpProduto)
 values('Vegano');
 insert into tpProduto(TpProduto)
@@ -141,9 +140,9 @@ create table Form_Pagamento
 	primary key(id)
 )
 insert Form_Pagamento(Fm_pagamento)
-values('Cartão de Debito')
+values('Cartï¿½o de Debito')
 insert Form_Pagamento(Fm_pagamento)
-values('Cartão de Credito')
+values('Cartï¿½o de Credito')
 insert Form_Pagamento(Fm_pagamento)
 values('Pix')
 insert Form_Pagamento(Fm_pagamento)
