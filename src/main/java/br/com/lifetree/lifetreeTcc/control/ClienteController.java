@@ -18,7 +18,7 @@ import br.com.lifetree.lifetreeTcc.model.entity.Cliente;
 import br.com.lifetree.lifetreeTcc.service.ClienteService;
 
 @RestController
-@RequestMapping("/clientes")
+@RequestMapping("/cliente")
 @CrossOrigin(origins="*", maxAge = 3600, allowCredentials = "false")
 public class ClienteController {
 	
@@ -30,6 +30,31 @@ public class ClienteController {
 			public ClienteController(ClienteService _clienteService) {
 				this.clienteService = _clienteService;
 			}
+			@GetMapping("/login")
+			public String getLogin(ModelMap model) {
+				
+			model.addAttribute("cliente", new Cliente());
+			model.addAttribute("serverMessage", serverMessage);
+			return "login";
+				
+			}
+			//Rota POST para acessar o site
+			@PostMapping("/acessar")
+			public String acessar(
+					@RequestParam("email") String email,
+					@RequestParam("senha") String senha, ModelMap model) {
+			
+				int acessar = clienteService.acessar(email, senha);
+				if(acessar == 1) {
+					return "redirect:/home";
+				}
+				serverMessage = "Dados icorretos";
+				model.addAttribute("serverMessage", serverMessage);
+				
+				return "redirect:/login";
+				
+			}
+
 			
 
 			//ROTA POST para salvar
@@ -52,31 +77,6 @@ public class ClienteController {
 			} 
 			private String serverMessage = null;
 			
-			@GetMapping("/login")
-			public String getLogin(ModelMap model) {
-				
-			model.addAttribute("cliente", new Cliente());
-			model.addAttribute("serverMessage", serverMessage);
-			return "login";
-				
-			}
-			
-			//Rota POST para acessar o site
-			@PostMapping("/acessar")
-			public String acessar(
-					@RequestParam("email") String email,
-					@RequestParam("senha") String senha, ModelMap model) {
-			
-				int acessar = clienteService.acessar(email, senha);
-				if(acessar == 1) {
-					return "redirect:/home";
-				}
-				serverMessage = "Dados icorretos";
-				model.addAttribute("serverMessage", serverMessage);
-				
-				return "redirect:/login";
-				
-			}
-
+		
 	
 }

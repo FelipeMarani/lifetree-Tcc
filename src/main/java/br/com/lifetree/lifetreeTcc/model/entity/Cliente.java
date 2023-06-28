@@ -5,6 +5,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -29,6 +32,10 @@ public class Cliente {
 	private byte[] img;
 	@Column(name = "statusCliente")
 	private String status;
+	
+//	@ManyToOne
+//	@JoinColumn(name = "Cupom_id")
+//	private long cupom;
 	
 	public int getId() {
 		return id;
@@ -84,6 +91,12 @@ public class Cliente {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+//	public long getCupom() {
+//		return cupom;
+//	}
+//	public void setCupom(long cupom) {
+//		this.cupom = cupom;
+//	}
 	
 	
 	
