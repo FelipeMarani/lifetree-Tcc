@@ -1,10 +1,10 @@
 package br.com.lifetree.lifetreeTcc.model.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Table;
 
 @Entity
@@ -20,12 +20,14 @@ public class Cliente {
 	
 	private String dtNasc;
 	private String Tel;
-	@JoinColumn(name = "Email")
-	private String Email;
-	@JoinColumn(name = "senha")
+	
+	@Column(name = "Email")
+	private String email;
+	
+	@Column(name = "senha")
 	private String Senha;
 	private byte[] img;
-	@JoinColumn(name = "statusCliente")
+	@Column(name = "statusCliente")
 	private String status;
 	
 	public int getId() {
@@ -59,10 +61,10 @@ public class Cliente {
 		Tel = tel;
 	}
 	public String getEmail() {
-		return Email;
+		return email;
 	}
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
 	public String getSenha() {
 		return Senha;
@@ -82,5 +84,7 @@ public class Cliente {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	
+	
 	
 }
