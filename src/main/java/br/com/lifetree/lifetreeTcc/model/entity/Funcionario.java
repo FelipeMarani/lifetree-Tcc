@@ -16,13 +16,15 @@ public class Funcionario {
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private long id;
 
-	private String nome; 
+	private String Nome; 
 	private String CPF;
 	private String RG;
 	private String Sexo;
 	private String dataNasc;
-	private byte[] Img;;
-	private String Email;
+	private byte[] Img;
+	private String telefone;
+	@Column(name = "Email")
+	private String email;
 	private String Senha;
 	@Column(name = "NivelAcess")
 	private String Acesso;
@@ -42,10 +44,10 @@ public class Funcionario {
 		this.id = id;
 	}
 	public String getNome() {
-		return nome;
+		return Nome;
 	}
 	public void setNome(String nome) {
-		this.nome = nome;
+		Nome = nome;
 	}
 	public String getCPF() {
 		return CPF;
@@ -74,20 +76,26 @@ public class Funcionario {
 	public byte[] getImg() {
 		return Img;
 	}
+	public String getTelefone() {
+		return telefone;
+	}
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
 	public void setImg(byte[] img) {
 		Img = img;
 	}
 	public String getEmail() {
-		return Email;
+		return email;
 	}
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
 	public String getSenha() {
 		return Senha;
 	}
 	public void setSenha(String senha) {
-		this.Senha = senha;
+		Senha = senha;
 	}
 	public String getAcesso() {
 		return Acesso;
@@ -144,5 +152,5 @@ public class Funcionario {
 		UF = uF;
 	}
 
-
+	
 }

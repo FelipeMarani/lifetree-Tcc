@@ -33,7 +33,7 @@ public class FuncionarioController {
 
 	private String serverMessage = null;
 
-	@GetMapping("login")
+	@GetMapping("/login")
 	public String getLogin(ModelMap model) {
 
 		model.addAttribute("funcionario" , new Funcionario());
@@ -42,7 +42,7 @@ public class FuncionarioController {
 	}
 
 	@PostMapping("/acessar")
-	public int acessar(
+	public String acessar(
 			@RequestParam("email") String email,
 			@RequestParam("senha") String senha, ModelMap model) {
 
@@ -54,6 +54,10 @@ public class FuncionarioController {
 		(acessar == 2){
 			return "redirect:/funcionario/estoque";
 		}
+		serverMessage = "Dados Incorretos!";
+		model.addAttribute("serverMessage", serverMessage);
+
+		return "redirect:/funcionario/login";
 	}
 
 	//ROTA GET
