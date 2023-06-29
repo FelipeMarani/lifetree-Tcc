@@ -7,5 +7,6 @@ import br.com.lifetree.lifetreeTcc.model.entity.Funcionario;
 
 @Repository
 public interface FuncionarioRepository extends JpaRepository<Funcionario, Long> {
-
+	Funcionario findByEmail(String email);
+	
 }

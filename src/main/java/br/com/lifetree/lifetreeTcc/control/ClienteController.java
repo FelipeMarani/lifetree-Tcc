@@ -28,6 +28,9 @@ public class ClienteController {
 	public ClienteController(ClienteService _clienteService) {
 		this.clienteService = _clienteService;
 	}
+	
+	private String serverMessage = null;
+	
 	@GetMapping("/login")
 	public String getLogin(ModelMap model) {
 
@@ -37,23 +40,26 @@ public class ClienteController {
 
 	}
 	//Rota POST para acessar o site
-	private String serverMessage = null;
+	
 	@PostMapping("/acessar")
 	public String acessar(
 			@RequestParam("email") String email,
 			@RequestParam("senha") String senha, ModelMap model) {
 
 		int acessar = clienteService.acessar(email, senha);
+		
+		
 		if(acessar == 1) {
 			return "redirect:/cliente/home";
 		}
-		serverMessage = "Dados icorretos";
-		model.addAttribute("serverMessage", serverMessage);
+			serverMessage = "Dados incorretos";
+			model.addAttribute("serverMessage", serverMessage);
 
-		return "redirect:/cliente/login";
+			return "redirect:/cliente/login";
+		}
+		
 
-	}
-
+	
 
 
 	//ROTA POST para salvar
