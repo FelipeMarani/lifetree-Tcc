@@ -39,8 +39,8 @@ public class ClienteController {
 		return "login";
 
 	}
-	//Rota POST para acessar o site
 	
+	//Rota POST para acessar o site
 	@PostMapping("/acessar")
 	public String acessar(
 			@RequestParam("email") String email,
