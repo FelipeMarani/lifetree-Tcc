@@ -21,6 +21,10 @@
             <input type="text" id="text" placeholder="Email" th:field="*{email}">
  
             <input type="password" id="senha" placeholder="Senha" th:field="*{senha}">
+
+           
+				<span th:text="${serverMessage}"></span>
+		
             
 
             <a href="/Recuperação de Senha/recuperação.html" id="esquecisenha">Esqueceu a senha?</a>

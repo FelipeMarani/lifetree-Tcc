@@ -1,5 +1,6 @@
 package br.com.lifetree.lifetreeTcc.model.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,6 +23,11 @@ public class Funcionario {
 	private String dataNasc;
 	private byte[] Img;;
 	private String Email;
+	private String Senha;
+	@Column(name = "NivelAcess")
+	private String Acesso;
+	@Column(name = "statusFunc")
+	private String status;
 	private String Logradouro;
 	private String Numero_resid;
 	private String Complemento;
@@ -76,6 +82,24 @@ public class Funcionario {
 	}
 	public void setEmail(String email) {
 		Email = email;
+	}
+	public String getSenha() {
+		return Senha;
+	}
+	public void setSenha(String senha) {
+		Senha = senha;
+	}
+	public String getAcesso() {
+		return Acesso;
+	}
+	public void setAcesso(String acesso) {
+		Acesso = acesso;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	public String getLogradouro() {
 		return Logradouro;

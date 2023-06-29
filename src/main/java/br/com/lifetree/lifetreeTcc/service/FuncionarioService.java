@@ -18,8 +18,20 @@ public class FuncionarioService {
 	}
 	
 	@Transactional
-	public Funcionario save(Funcionario _funcionario) {
-		return funcionarioRepository.save(_funcionario);
+	public int acessar(String email, String senha) {
+		Funcionario funcionario = funcionarioRepository.findByEmail(email);
+		
+		if(funcionario != null && funcionario.getStatus().equals("Ativo")) {
+			
+			if(funcionario.getSenha().equals(senha)) {
+				if(funcionario.getAcesso().equals("ADMIN")) {
+					return 1;
+				}else if(funcionario.getAcesso().equals("func")) {
+					return 2;
+				}
+			}else {return 0;}
+		}
+		return 0;
 	}
 	
 	public List<Funcionario> findAll(){

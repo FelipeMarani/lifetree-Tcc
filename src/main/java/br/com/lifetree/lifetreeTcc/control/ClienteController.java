@@ -28,6 +28,9 @@ public class ClienteController {
 	public ClienteController(ClienteService _clienteService) {
 		this.clienteService = _clienteService;
 	}
+	
+	private String serverMessage = null;
+	
 	@GetMapping("/login")
 	public String getLogin(ModelMap model) {
 
@@ -37,7 +40,6 @@ public class ClienteController {
 
 	}
 	//Rota POST para acessar o site
-	private String serverMessage = null;
 	@PostMapping("/acessar")
 	public String acessar(
 			@RequestParam("email") String email,
@@ -47,7 +49,7 @@ public class ClienteController {
 		if(acessar == 1) {
 			return "redirect:/cliente/home";
 		}
-		serverMessage = "Dados icorretos";
+		 serverMessage = "Dados icorretos";
 		model.addAttribute("serverMessage", serverMessage);
 
 		return "redirect:/cliente/login";
@@ -74,8 +76,5 @@ public class ClienteController {
 	public String getHome(){
 		return "home";
 	} 
-
-
-
 
 }
