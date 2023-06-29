@@ -20,69 +20,53 @@ import br.com.lifetree.lifetreeTcc.service.FuncionarioService;
 @CrossOrigin(origins="*", maxAge = 3600, allowCredentials = "false")
 public class FuncionarioController {
 
-		// CRIAÇÃO DO OBJETO DE SERVIÇO 
-			final FuncionarioService funcionarioService;
-			
-			
-		//INJEÇÃO DE DEPENDENCIA 
-			
-			public FuncionarioController(FuncionarioService _funcionarioService) {
-				this.funcionarioService = _funcionarioService;
-			
-			}
-			
-			private String serverMessage = null;
-			
-			@GetMapping("login")
-			public String getLogin(ModelMap model) {
-				
-				model.addAttribute("funcionario" , new Funcionario());
-				model.addAttribute("serverMessage" , serverMessage);
-				return "login";
-			}
-			
-			
-			
-			
-			
-			
-			@PostMapping("/acessar")
-			public String acessar(
-					@RequestParam("email") String email,
-					@RequestParam("senha") String senha, ModelMap model) {
-				
-				int acessar = funcionarioService.acessar(email,senha);
-				
-				if(acessar == 1 ) {
-					return "redirect:/func/editarfuncionario"
-				} else if
-				(acessar == 2){
-					return "redirect:/func/estoque"
-				}
-				
-		
-				
-			}
-		
-			
-		// ROTA POST 
-			@PostMapping("/save")
-			public ResponseEntity<Object> saveFuncionario(Funcionario funcionario){
-				return ResponseEntity.status(HttpStatus.CREATED)
-						.body(funcionarioService.save(funcionario));
-			}
-			
-			//ROTA GET
-			@GetMapping ("/all")
-			public ResponseEntity<List<Funcionario>> getAllFuncionario(){
-				return ResponseEntity.status(HttpStatus.OK)
-						.body(funcionarioService.findAll());
-			}
-			
-			@GetMapping ("/estoque")
-			public String getEstoque(){
-				return "estoque";
-			} 
+	// CRIAÇÃO DO OBJETO DE SERVIÇO 
+	final FuncionarioService funcionarioService;
 
-	
+
+	//INJEÇÃO DE DEPENDENCIA 
+
+	public FuncionarioController(FuncionarioService _funcionarioService) {
+		this.funcionarioService = _funcionarioService;
+
+	}
+
+	private String serverMessage = null;
+
+	@GetMapping("login")
+	public String getLogin(ModelMap model) {
+
+		model.addAttribute("funcionario" , new Funcionario());
+		model.addAttribute("serverMessage" , serverMessage);
+		return "login";
+	}
+
+	@PostMapping("/acessar")
+	public int acessar(
+			@RequestParam("email") String email,
+			@RequestParam("senha") String senha, ModelMap model) {
+
+		int acessar = funcionarioService.acessar(email,senha);
+
+		if(acessar == 1 ) {
+			return "redirect:/funcionario/editarfuncionario";
+		} else if
+		(acessar == 2){
+			return "redirect:/funcionario/estoque";
+		}
+	}
+
+	//ROTA GET
+	@GetMapping ("/all")
+	public ResponseEntity<List<Funcionario>> getAllFuncionario(){
+		return ResponseEntity.status(HttpStatus.OK)
+				.body(funcionarioService.findAll());
+	}
+
+	@GetMapping ("/estoque")
+	public String getEstoque(){
+		return "estoque";
+	} 
+
+
 }

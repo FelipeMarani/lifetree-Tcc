@@ -11,11 +11,11 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "Funcionario")
 public class Funcionario {
-	
+
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private long id;
-	
+
 	private String nome; 
 	private String CPF;
 	private String RG;
@@ -87,7 +87,7 @@ public class Funcionario {
 		return Senha;
 	}
 	public void setSenha(String senha) {
-		Senha = senha;
+		this.Senha = senha;
 	}
 	public String getAcesso() {
 		return Acesso;
@@ -143,6 +143,6 @@ public class Funcionario {
 	public void setUF(String uF) {
 		UF = uF;
 	}
-	
+
 
 }
