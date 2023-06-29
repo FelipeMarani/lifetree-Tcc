@@ -37,6 +37,7 @@ public class ClienteController {
 
 	}
 	//Rota POST para acessar o site
+	private String serverMessage = null;
 	@PostMapping("/acessar")
 	public String acessar(
 			@RequestParam("email") String email,
@@ -44,12 +45,12 @@ public class ClienteController {
 
 		int acessar = clienteService.acessar(email, senha);
 		if(acessar == 1) {
-			return "redirect:/home";
+			return "redirect:/cliente/home";
 		}
 		serverMessage = "Dados icorretos";
 		model.addAttribute("serverMessage", serverMessage);
 
-		return "redirect:/login";
+		return "redirect:/cliente/login";
 
 	}
 
@@ -73,7 +74,7 @@ public class ClienteController {
 	public String getHome(){
 		return "home";
 	} 
-	private String serverMessage = null;
+
 
 
 
