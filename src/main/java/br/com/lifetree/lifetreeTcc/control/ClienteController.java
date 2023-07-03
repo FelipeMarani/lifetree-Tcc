@@ -16,8 +16,8 @@ import br.com.lifetree.lifetreeTcc.model.entity.Cliente;
 import br.com.lifetree.lifetreeTcc.service.ClienteService;
 
 @Controller
-@RequestMapping("/cliente")
-@CrossOrigin(origins="*", maxAge = 3600, allowCredentials = "false")
+@RequestMapping("lifetree/cliente")
+@CrossOrigin(origins="*", maxAge = 3600, allowCredentials = "false", allowedHeaders = "*")
 public class ClienteController {
 
 	//Criação do objeto de serviço 
@@ -50,16 +50,14 @@ public class ClienteController {
 
 
 		if(acessar == 1) {
-			return "redirect:/cliente/home";
+			return "redirect:lifetree/cliente/home";
 		}
 		serverMessage = "Dados icorretos";
 		model.addAttribute("serverMessage", serverMessage);
 
-		return "redirect:/cliente/login";
+		return "redirect:lifetree/cliente/login";
 	}
-
-
-
+	
 
 
 	//ROTA POST para salvar
@@ -80,5 +78,12 @@ public class ClienteController {
 	public String getHome(){
 		return "home";
 	} 
+	
+	@GetMapping ("/criarconta")
+	public String getCriarConta(){
+		return "CriarConta";
+	} 
+	
+	
 
 }
