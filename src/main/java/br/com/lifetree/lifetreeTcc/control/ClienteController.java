@@ -1,6 +1,6 @@
 package br.com.lifetree.lifetreeTcc.control;
 
-
+import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -67,8 +67,6 @@ public class ClienteController {
 				.body(clienteService.save(cliente));
 
 	}
-	
-
 	@GetMapping ("/home")
 	public String getHome(){
 		return "home";
@@ -79,9 +77,6 @@ public class ClienteController {
 		return "CriarConta";
 	} 
 	
-	@GetMapping("/recuperaçãosenha")
-	public String getRecuperaçãoSenha() {
-		return "RecuperaçãoSenha";
-	}
+	
 
 }

@@ -29,49 +29,49 @@
                     <label for="CPF">Insira seu CPF</label>
                 </div>
                 <div class="input">
-                    <input type="text" name="CPF" id="CPF" class="inf" placeholder="xxx.xxx.xxx-xx">
+                    <input type="text" name="CPF" id="CPF" th:field="*{CPF}" class="inf" placeholder="xxx.xxx.xxx-xx">
                 </div>
 
                 <div class="label">
                     <label for="tel">Telefone</label>
                 </div>
                 <div class="input">
-                    <input type="text" name="tel" id="tel" class="inf" required placeholder="(xx) xxxxx-xxxx">
+                    <input type="text" name="tel" id="tel" th:field="*{Tel}" class="inf" required placeholder="(xx) xxxxx-xxxx">
                 </div>
 
                 <div class="input">
                     <label for="date">Insira sua data de Nascimento</label>
                 </div>
                 <div class="input">
-                    <input type="date" name="dtNsc" id="dtNsc" class="inf" placeholder="Digite seu aniversário">
+                    <input type="date" name="dtNsc" id="dtNsc" th:field="*{dtNsc}" class="inf" placeholder="Digite seu aniversário">
                 </div>
 
                 <div class="label">
                     <label for="email">Email</label>
                 </div>
                 <div class="input">
-                    <input type="text" name="email" id="email" class="inf" placeholder="Insira o seu Email">
+                    <input type="text" name="email" id="email" th:field="*{email}" class="inf" placeholder="Insira o seu Email">
                 </div>
 
                 <div class="label">
                     <label for="email2">Confirme seu email</label>
                 </div>
                 <div class="input">
-                    <input type="text" name="email" id="email2" class="inf" placeholder="Confirme o email">
+                    <input type="text" name="email" id="email2" th:field="*{email}" class="inf" placeholder="Confirme o email">
                 </div>
 
                 <div class="label">
                     <label for="password">Crie uma senha</label>
                 </div>
                 <div class="input">
-                    <input type="password" name="password" id="password" placeholder="Crie uma senha">
+                    <input type="password" name="password" id="password" th:field="*{Senha}" placeholder="Crie uma senha">
                 </div>
 
                 <div class="label">
                     <label for="password2">Confirme sua senha</label>
                 </div>
                 <div class="input">
-                    <input type="password" name="password2" id="password2" placeholder="Confirme sua senha">
+                    <input type="password" name="password2" id="password2" th:field="*{Senha}" placeholder="Confirme sua senha">
                 </div>
 
                <Button type="submit" id="botão">Confirmar</Button>
