@@ -16,7 +16,7 @@
     </header>
 		
         <div class="container">
-            <form action="@{/lifetree/cliente/save}" th:object="${cliente}" method="post">
+            <form th:action="@{/lifetree/cliente/save}" th:object="${cliente}" method="post">
 
                 <div class="label">
                     <label for="username">Nome</label>
@@ -43,7 +43,7 @@
                     <label for="date">Insira sua data de Nascimento</label>
                 </div>
                 <div class="input">
-                    <input type="date" name="dtNsc" id="dtNsc" th:field="*{dtNsc}" class="inf" placeholder="Digite seu aniversário">
+                    <input type="date" name="dtNsc" id="dtNsc" th:field="*{dtNasc}" class="inf" placeholder="Digite seu aniversário">
                 </div>
 
                 <div class="label">
@@ -57,7 +57,7 @@
                     <label for="email2">Confirme seu email</label>
                 </div>
                 <div class="input">
-                    <input type="text" name="email" id="email2" th:field="*{email}" class="inf" placeholder="Confirme o email">
+                    <input type="text" name="email" id="email2" class="inf" placeholder="Confirme o email">
                 </div>
 
                 <div class="label">
@@ -71,7 +71,7 @@
                     <label for="password2">Confirme sua senha</label>
                 </div>
                 <div class="input">
-                    <input type="password" name="password2" id="password2" th:field="*{Senha}" placeholder="Confirme sua senha">
+                    <input type="password" name="password2" id="password2" placeholder="Confirme sua senha">
                 </div>
 
                <Button type="submit" id="botão">Confirmar</Button>

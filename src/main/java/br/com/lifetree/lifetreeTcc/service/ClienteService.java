@@ -46,5 +46,11 @@ public class ClienteService {
 		}
 		return 0;
 	}
+	
+	@Transactional
+	public Cliente saveNewCliente(Cliente cliente) {
+		cliente.setStatus("Ativo");
+		return clienteRepository.save(cliente);
+	}
 
 }

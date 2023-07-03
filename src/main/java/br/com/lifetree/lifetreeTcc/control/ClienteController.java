@@ -1,13 +1,14 @@
 package br.com.lifetree.lifetreeTcc.control;
 
-import java.util.List;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+
+//import org.springframework.http.HttpStatus;
+//import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -62,20 +63,30 @@ public class ClienteController {
 
 	//ROTA POST para salvar
 	@PostMapping ("/save")
-	public ResponseEntity<Object> saveCliente(Cliente cliente){
-		return ResponseEntity.status(HttpStatus.CREATED)
-				.body(clienteService.save(cliente));
-
+	public String saveCliente(@ModelAttribute Cliente cliente) {
+				
+		clienteService.saveNewCliente(cliente);
+		
+		return "redirect:/login";
 	}
+
+
 	@GetMapping ("/home")
 	public String getHome(){
 		return "home";
 	} 
 	
 	@GetMapping ("/criarconta")
-	public String getCriarConta(){
+	public String getCriarConta(ModelMap map){
+		
+		map.addAttribute("cliente", new Cliente());
 		return "CriarConta";
 	} 
+	
+	@GetMapping("/recuperaçãosenha")
+	public String getRecuperaçãoSenha() {
+		return "RecuperaçãoSenha";
+	}
 	
 	
 
