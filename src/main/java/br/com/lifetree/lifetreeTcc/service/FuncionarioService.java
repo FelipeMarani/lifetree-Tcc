@@ -26,7 +26,7 @@ public class FuncionarioService {
 			if(funcionario.getSenha().equals(senha)) {
 				if(funcionario.getAcesso().equals("ADMIN")) {
 					return 1;
-				}else if(funcionario.getAcesso().equals("func")) {
+				}else if(funcionario.getAcesso().equals("FUNC")) {
 					return 2;
 				}
 			}else {return 0;}
