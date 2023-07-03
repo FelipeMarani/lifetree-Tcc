@@ -16,13 +16,13 @@
     </header>
 		
         <div class="container">
-            <form action="" id="form" class="form">
+            <form action="@{/lifetree/cliente/save}" th:object="${cliente}" method="post">
 
                 <div class="label">
                     <label for="username">Nome</label>
                 </div>
                 <div class="input">
-                    <input type="text" name="name" id="name" class="inf" placeholder="Nome Completo">
+                    <input type="text" name="name" id="name" th:field="*{Nome}" class="inf" placeholder="Nome Completo">
                 </div>
 
                 <div class="label">
