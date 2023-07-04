@@ -24,13 +24,6 @@ public class ClienteService {
 	public Cliente save(Cliente _cliente) {
 		return clienteRepository.save(_cliente);
 	}
-
-	// METODO SELECT * FROM CLIENTE
-	public List<Cliente> findAll() {
-		List<Cliente> lista = clienteRepository.findAll();
-		return lista;
-	}
-
 	// Verificação de usuário
 	@Transactional
 	public int acessar(String email, String senha) {
