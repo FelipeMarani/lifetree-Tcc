@@ -48,10 +48,10 @@ public class FuncionarioController {
 
 		int acessar = funcionarioService.acessar(email,senha);
 
-		if(acessar == 1 ) {
+		if(acessar == 2 ) {
 			return "redirect:/funcionario/editarfuncionario";
 		} else if
-		(acessar == 2){
+		(acessar == 3){
 			return "redirect:/funcionario/estoque";
 		}
 		serverMessage = "Dados Incorretos!";
