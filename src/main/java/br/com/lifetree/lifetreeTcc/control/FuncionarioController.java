@@ -34,7 +34,10 @@ public class FuncionarioController {
 	private String serverMessage = null;
 
 	@GetMapping("/Funclogin")
-	public String getFuncLogin() {
+	public String getFuncLogin(ModelMap model) {
+
+		model.addAttribute("funcionario" , new Funcionario());
+		model.addAttribute("serverMessage" , serverMessage);
 		return "Funclogin";
 	}
 
