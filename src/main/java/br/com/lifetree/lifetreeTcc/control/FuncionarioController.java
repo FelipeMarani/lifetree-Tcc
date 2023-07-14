@@ -16,7 +16,7 @@ import br.com.lifetree.lifetreeTcc.model.entity.Funcionario;
 import br.com.lifetree.lifetreeTcc.service.FuncionarioService;
 
 @RestController
-@RequestMapping("/funcionario")
+@RequestMapping("/lifetree/funcionario")
 @CrossOrigin(origins="*", maxAge = 3600, allowCredentials = "false")
 public class FuncionarioController {
 
@@ -33,31 +33,28 @@ public class FuncionarioController {
 
 	private String serverMessage = null;
 
-	@GetMapping("/login")
-	public String getLogin(ModelMap model) {
-
-		model.addAttribute("funcionario" , new Funcionario());
-		model.addAttribute("serverMessage" , serverMessage);
-		return "login";
+	@GetMapping("/Funclogin")
+	public String getFuncLogin() {
+		return "Funclogin";
 	}
 
-	@PostMapping("/acessar")
+	@PostMapping("/logar")
 	public String acessar(
 			@RequestParam("email") String email,
 			@RequestParam("senha") String senha, ModelMap model) {
 
-		int acessar = funcionarioService.acessar(email,senha);
+		int acessar = funcionarioService.logar(email,senha);
 
-		if(acessar == 2 ) {
+		if(acessar == 1 ) {
 			return "redirect:/funcionario/editarfuncionario";
 		} else if
-		(acessar == 3){
+		(acessar == 2){
 			return "redirect:/funcionario/estoque";
 		}
 		serverMessage = "Dados Incorretos!";
 		model.addAttribute("serverMessage", serverMessage);
 
-		return "redirect:/funcionario/login";
+		return "redirect:/lifetree/funcionario/login";
 	}
 
 	//ROTA GET

@@ -32,10 +32,7 @@ public class ClienteService {
 		if (cliente != null && cliente.getStatus().equals("Ativo")) {
 
 			if (cliente.getSenha().equals(senha)) {
-
-				return 1;
-
-			}
+				return 1;}
 		}
 		return 0;
 	}
