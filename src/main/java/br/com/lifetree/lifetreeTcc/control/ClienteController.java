@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import br.com.lifetree.lifetreeTcc.model.entity.Cliente;
 import br.com.lifetree.lifetreeTcc.service.ClienteService;
 
@@ -58,15 +57,15 @@ public class ClienteController {
 
 		return "redirect:/lifetree/cliente/login";
 	}
-	
+
 
 
 	//ROTA POST para salvar
 	@PostMapping ("/save")
 	public String saveCliente(@ModelAttribute Cliente cliente) {
-				
+
 		clienteService.saveNewCliente(cliente);
-		
+
 		return "redirect:/lifetree/cliente/login";
 	}
 
@@ -75,19 +74,19 @@ public class ClienteController {
 	public String getHome(){
 		return "home";
 	} 
-	
+
 	@GetMapping ("/criarconta")
 	public String getCriarConta(ModelMap map){
-		
+
 		map.addAttribute("cliente", new Cliente());
 		return "CriarConta";
 	} 
-	
+
 	@GetMapping("/recuperaçãosenha")
 	public String getRecuperaçãoSenha() {
 		return "RecuperaçãoSenha";
 	}
-	
-	
+
+
 
 }
