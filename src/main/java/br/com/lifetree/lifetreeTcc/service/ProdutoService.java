@@ -38,7 +38,23 @@ public class ProdutoService {
 	public List<Produto> listarTodosFiltro(String nome){
 		return produtoRepository.listarProdutosFiltro(nome);
 	}
-	
+	@Transactional
+	public void inativarProd(Produto produto) {
+		
+		Produto _produto = produto;
+		Categoria catagoria = categoriaRepository.findByNomeCat(produto.getCategoria().getNomeCat());
+		
+		_produto.setPreco(0.0);
+		_produto.setDestaque("NÃO");
+		_produto.setImagem(null);
+		_produto.setStatusProd("INATIVO");
+		_produto.setCategoria(catagoria);
+		produtoRepository.save(_produto);
+	}
+
+	public List<Categoria> listarCategorias() {
+		return categoriaRepository.findAll();
+	}
 	
 	
 	
