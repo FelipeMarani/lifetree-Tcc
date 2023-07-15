@@ -22,6 +22,7 @@ public class Produto {
 	private String cod_barra;
 	private double Peso;
 	private String descricao;
+	private byte[] Imagem;
 	
 	@ManyToOne
 	@JoinColumn(name = "tpProduto_id")
@@ -101,6 +102,14 @@ public class Produto {
 
 	public void setMcProduto(McProduto mcProduto) {
 		this.mcProduto = mcProduto;
+	}
+
+	public byte[] getImagem() {
+		return Imagem;
+	}
+
+	public void setImagem(byte[] imagem) {
+		Imagem = imagem;
 	}
 	
 	
