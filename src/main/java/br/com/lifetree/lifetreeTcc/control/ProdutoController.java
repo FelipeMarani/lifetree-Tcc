@@ -28,7 +28,7 @@ public class ProdutoController {
 
 			final ProdutoService produtoService;
 			
-			private String foto = "";
+			private String image = "";
 			
 			// CASO O PRODUTO NÃO TENHA UMA IMAGEM CADASTRADA NO BANCO DE DADOS
 			private String semImagem = "/images/semImagem.png";
@@ -81,13 +81,6 @@ public class ProdutoController {
 				}
 				return "todos-produtos-filtro";
 			}
-			
-			
-			
-			
-			
-			
-			
 			
 			//ROTA POST
 				@PostMapping("/save")

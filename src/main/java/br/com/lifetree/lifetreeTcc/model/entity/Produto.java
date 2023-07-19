@@ -1,5 +1,6 @@
 package br.com.lifetree.lifetreeTcc.model.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,7 +21,9 @@ public class Produto {
 	private double Preco;
 	private int Quantidade;
 	private String cod_barra;
-	private double Peso;
+	private String Destaque;
+	@Column(name = "StatusProd")
+	private String Status; 
 	private String descricao;
 	private byte[] Imagem;
 	
@@ -71,13 +74,19 @@ public class Produto {
 	public void setCod_barra(String cod_barra) {
 		this.cod_barra = cod_barra;
 	}
-
-	public double getPeso() {
-		return Peso;
+	public String getDestaque() {
+		return Destaque;
 	}
 
-	public void setPeso(double peso) {
-		Peso = peso;
+	public void setDestaque(String destaque) {
+		Destaque = destaque;
+	}
+	public String getStatus() {
+		return Status;
+	}
+
+	public void setStatus(String status) {
+		Status = status;
 	}
 
 	public String getDescricao() {

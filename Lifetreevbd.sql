@@ -111,7 +111,8 @@ create table Produto
 	Imagem varchar(MAX),
 	Quantidade int,
 	cod_barra varchar(13)not null,
-	Peso decimal(6,2),
+	Destaque varchar(3),
+	StatusProd varchar(20),
 	tpProduto_id bigint not null,
 	mcProduto_id bigint not null,
 	Complemento varchar(250)not null
@@ -121,6 +122,7 @@ create table Produto
 	foreign key(mcProduto_id)
 		references mcProduto(id)
 )
+
 
 create table Imagem(
 	id bigint identity,

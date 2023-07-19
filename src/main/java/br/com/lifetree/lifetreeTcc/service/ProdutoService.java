@@ -1,10 +1,11 @@
 package br.com.lifetree.lifetreeTcc.service;
 
+import java.io.IOException;
 import java.util.List;
-
 import org.springframework.stereotype.Service;
-
+import org.springframework.web.multipart.MultipartFile;
 import br.com.lifetree.lifetreeTcc.model.entity.Produto;
+import br.com.lifetree.lifetreeTcc.model.entity.TpProduto;
 import br.com.lifetree.lifetreeTcc.repository.McProdutoRepository;
 import br.com.lifetree.lifetreeTcc.repository.ProdutoRepository;
 import br.com.lifetree.lifetreeTcc.repository.TpProdutoRepository;
@@ -19,17 +20,14 @@ public class ProdutoService {
 	private McProdutoRepository mcprodutoRepository;
  	
 	//Injeção de dependência
-	public ProdutoService(ProdutoRepository produtoService , TpProdutoRepository TpProdutoRepository , McProdutoRepository McProdutoRepository) {
+	public ProdutoService(ProdutoRepository produtoRepository , TpProdutoRepository tpprodutoRepository , McProdutoRepository mcProdutoRepository) {
 		super();
 		this.produtoRepository = produtoRepository;
 		this.tpprodutoRepository = tpprodutoRepository;
-		this.mcprodutoRepository = mcprodutoRepository;
+		this.mcprodutoRepository = mcProdutoRepository;
 	}
 	public Produto findById(long id) {
 		return produtoRepository.findById(id).get();
-		//return usuarioRepository.findById(id).orElse(null);
-		//return usuarioRepository.findById(id)
-						//.orElseThrow(() -> new IllegalArgumentException("Invalid Id:" + id));
 	}
 	public List<Produto>ListarTodos(){
 		return produtoRepository.ListarTodosProd();
@@ -42,29 +40,70 @@ public class ProdutoService {
 	public void inativarProd(Produto produto) {
 		
 		Produto _produto = produto;
-		Categoria catagoria = categoriaRepository.findByNomeCat(produto.getCategoria().getNomeCat());
 		
 		_produto.setPreco(0.0);
 		_produto.setDestaque("NÃO");
 		_produto.setImagem(null);
-		_produto.setStatusProd("INATIVO");
-		_produto.setCategoria(catagoria);
+		_produto.setStatus("INATIVO");
+		_produto.setTpProduto(null);
 		produtoRepository.save(_produto);
 	}
 
-	public List<Categoria> listarCategorias() {
-		return categoriaRepository.findAll();
+	public List<TpProduto> ListarTiposdeProduto() {
+		return tpprodutoRepository.findAll();
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	@Transactional
+	public Produto gravarNovoProd(MultipartFile file, Produto produto) {
+
+		if (file != null && file.getSize() > 0) {
+			try {
+				produto.setImagem(file.getBytes());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} else {
+			produto.setImagem(null);
+		}
+
+		if (produto.getDestaque() == null) {
+			produto.setDestaque("NÃO");
+		}
+		produto.setStatus("ATIVO");
+		
+		return produtoRepository.save(produto);
+	}
+	@Transactional
+	public void atualizarProd(MultipartFile file, Produto produto, byte[] foto) {
+
+		Produto _produto = produto;
+		
+		TpProduto tpproduto = tpprodutoRepository.findByNome(produto.getTpProduto().getTpProduto());
+
+		if (file.getSize() == 0 && foto.length == 0) {
+			_produto.setImagem(null);
+		} 
+		
+		if (file.getSize() == 0 && foto.length > 0) {
+			_produto.setImagem(null);
+		} 
+
+		if (file != null && file.getSize() > 0 ) {
+			try {
+				_produto.setImagem(file.getBytes());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
+		if (produto.getDestaque() == null) {
+			_produto.setDestaque("NÃO");
+		}
+		
+		_produto.setTpProduto(tpproduto);
+		_produto.setStatus("ATIVO");
+		produtoRepository.save(_produto);
+	}
 	
 	//METODO INSERT INTO PRODUTO 
 			@Transactional

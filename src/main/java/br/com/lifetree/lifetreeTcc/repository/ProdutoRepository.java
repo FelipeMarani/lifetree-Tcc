@@ -13,10 +13,10 @@ import br.com.lifetree.lifetreeTcc.model.entity.Produto;
 public interface ProdutoRepository extends JpaRepository<Produto, Long> {
 		
 		// JPQL: A CONSULTA É FEITA NO OBJETO REFERENTE A TABELA
-		@Query("SELECT p FROM Produto")
+		@Query("SELECT * FROM Produto")
 		List<Produto> ListarTodosProd();
 		
-		@Query("SELECT p FROM Produto p WHERE p.nome like %?1%")
+		@Query("SELECT * FROM Produto  WHERE Nome like %??%")
 		List<Produto> listarProdutosFiltro(@Param("nome") String nome);
 	
 
