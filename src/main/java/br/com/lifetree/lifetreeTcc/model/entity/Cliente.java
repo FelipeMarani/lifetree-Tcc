@@ -13,30 +13,30 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name="Cliente")
 public class Cliente {
-	
+
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int id;
-	
+
 	private String Nome;
 	private String CPF;
-	
+
 	private String dtNasc;
 	private String Tel;
-	
+
 	@Column(name = "Email")
 	private String email;
-	
+
 	@Column(name = "senha")
 	private String Senha;
 	private byte[] img;
 	@Column(name = "statusCliente")
 	private String status;
-	
-//	@ManyToOne
-//	@JoinColumn(name = "Cupom_id")
-//	private long cupom;
-	
+
+	//	@ManyToOne
+	//	@JoinColumn(name = "Cupom_id")
+	//	private long cupom;
+
 	public int getId() {
 		return id;
 	}
@@ -91,13 +91,13 @@ public class Cliente {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-//	public long getCupom() {
-//		return cupom;
-//	}
-//	public void setCupom(long cupom) {
-//		this.cupom = cupom;
-//	}
-	
-	
-	
+	//	public long getCupom() {
+	//		return cupom;
+	//	}
+	//	public void setCupom(long cupom) {
+	//		this.cupom = cupom;
+	//	}
+
+
+
 }

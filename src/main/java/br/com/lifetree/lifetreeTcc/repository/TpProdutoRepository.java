@@ -9,6 +9,6 @@ import br.com.lifetree.lifetreeTcc.model.entity.TpProduto;
 @Repository
 public interface TpProdutoRepository extends JpaRepository<TpProduto, Long> {
 	
-	TpProduto findByNome(String TpProduto);
+	TpProduto findByTpProduto(String TpProduto);
 
 }

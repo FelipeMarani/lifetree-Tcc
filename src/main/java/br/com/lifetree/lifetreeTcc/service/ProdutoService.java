@@ -2,8 +2,10 @@ package br.com.lifetree.lifetreeTcc.service;
 
 import java.io.IOException;
 import java.util.List;
+
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+
 import br.com.lifetree.lifetreeTcc.model.entity.Produto;
 import br.com.lifetree.lifetreeTcc.model.entity.TpProduto;
 import br.com.lifetree.lifetreeTcc.repository.McProdutoRepository;
@@ -13,12 +15,12 @@ import jakarta.transaction.Transactional;
 
 @Service
 public class ProdutoService {
-	
+
 	//objeto repository
 	private  ProdutoRepository produtoRepository; 
 	private TpProdutoRepository tpprodutoRepository;
 	private McProdutoRepository mcprodutoRepository;
- 	
+
 	//Injeção de dependência
 	public ProdutoService(ProdutoRepository produtoRepository , TpProdutoRepository tpprodutoRepository , McProdutoRepository mcProdutoRepository) {
 		super();
@@ -30,17 +32,17 @@ public class ProdutoService {
 		return produtoRepository.findById(id).get();
 	}
 	public List<Produto>ListarTodos(){
-		return produtoRepository.ListarTodosProd();
+		return produtoRepository.findAll();
 	}
-	
+
 	public List<Produto> listarTodosFiltro(String nome){
-		return produtoRepository.listarProdutosFiltro(nome);
+		return produtoRepository.findByNomeContaining(nome);
 	}
 	@Transactional
 	public void inativarProd(Produto produto) {
-		
+
 		Produto _produto = produto;
-		
+
 		_produto.setPreco(0.0);
 		_produto.setDestaque("NÃO");
 		_produto.setImagem(null);
@@ -49,10 +51,8 @@ public class ProdutoService {
 		produtoRepository.save(_produto);
 	}
 
-	public List<TpProduto> ListarTiposdeProduto() {
-		return tpprodutoRepository.findAll();
-	}
 	
+
 	@Transactional
 	public Produto gravarNovoProd(MultipartFile file, Produto produto) {
 
@@ -70,20 +70,20 @@ public class ProdutoService {
 			produto.setDestaque("NÃO");
 		}
 		produto.setStatus("ATIVO");
-		
+
 		return produtoRepository.save(produto);
 	}
 	@Transactional
 	public void atualizarProd(MultipartFile file, Produto produto, byte[] foto) {
 
 		Produto _produto = produto;
-		
-		TpProduto tpproduto = tpprodutoRepository.findByNome(produto.getTpProduto().getTpProduto());
+
+		TpProduto tpproduto = tpprodutoRepository.findByTpProduto(produto.getTpProduto().getTpProduto());
 
 		if (file.getSize() == 0 && foto.length == 0) {
 			_produto.setImagem(null);
 		} 
-		
+
 		if (file.getSize() == 0 && foto.length > 0) {
 			_produto.setImagem(null);
 		} 
@@ -99,22 +99,22 @@ public class ProdutoService {
 		if (produto.getDestaque() == null) {
 			_produto.setDestaque("NÃO");
 		}
-		
+
 		_produto.setTpProduto(tpproduto);
 		_produto.setStatus("ATIVO");
 		produtoRepository.save(_produto);
 	}
-	
+
 	//METODO INSERT INTO PRODUTO 
-			@Transactional
-			public Produto save(Produto _produto) {
-				return produtoRepository.save(_produto);
-			}
-			//METODO SELECT * FROM PRODUTO
-			public List<Produto> findAll(){
-				List<Produto> lista = produtoRepository.findAll();
-				return lista;
-			}
-			
+	@Transactional
+	public Produto save(Produto _produto) {
+		return produtoRepository.save(_produto);
+	}
+	//METODO SELECT * FROM PRODUTO
+	public List<Produto> ListarTodosProd(){
+		List<Produto> lista = produtoRepository.findAll();
+		return lista;
+	}
 	
+
 }

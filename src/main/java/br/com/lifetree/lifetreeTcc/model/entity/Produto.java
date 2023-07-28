@@ -17,7 +17,8 @@ public class Produto {
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private long id;
 	
-	private String Nome;
+	@Column(name = "Nome")
+	private String nome;
 	private double Preco;
 	private int Quantidade;
 	private String cod_barra;
@@ -44,11 +45,11 @@ public class Produto {
 	}
 
 	public String getNome() {
-		return Nome;
+		return nome;
 	}
 
 	public void setNome(String nome) {
-		Nome = nome;
+		this.nome = nome;
 	}
 
 	public double getPreco() {

@@ -10,19 +10,19 @@ import jakarta.transaction.Transactional;
 
 @Service
 public class FuncionarioService {
-	
+
 	final FuncionarioRepository funcionarioRepository;
-	
+
 	public FuncionarioService(FuncionarioRepository _funcionarioRepository) {
 		this.funcionarioRepository = _funcionarioRepository;
 	}
-	
+
 	@Transactional
 	public int logar(String email, String senha) {
 		Funcionario funcionario = funcionarioRepository.findByEmail(email);
-		
+
 		if(funcionario != null && funcionario.getStatus().equals("Ativo")) {
-			
+
 			if(funcionario.getSenha().equals(senha)) {
 				if(funcionario.getAcesso().equals("ADMIN")) {
 					return 1;
@@ -33,10 +33,10 @@ public class FuncionarioService {
 		}
 		return 0;
 	}
-	
+
 	public List<Funcionario> findAll(){
 		List<Funcionario> lista = funcionarioRepository.findAll();
 		return lista;
 	}
-	
+
 }

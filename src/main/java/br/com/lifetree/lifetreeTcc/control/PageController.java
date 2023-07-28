@@ -8,21 +8,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/lifetree")
 public class PageController {
-	
-//	@GetMapping("/login")
-//	public String getLogin(){
-//		return "login";
-//	}
+
+	//	@GetMapping("/login")
+	//	public String getLogin(){
+	//		return "login";
+	//	}
 
 	@GetMapping ("/home")
 	public String getHome(){
 		return "home";
 	} 
-	
+
 	@GetMapping("/criarconta")
 	public String getcriarconta() {
 		return "CriarConta";
 	}
 
-	
+
 }
