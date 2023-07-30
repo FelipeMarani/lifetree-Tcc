@@ -19,14 +19,19 @@ public class Produto {
 	
 	@Column(name = "Nome")
 	private String nome;
-	private double Preco;
-	private int Quantidade;
+	@Column(name = "Preco")
+	private double preco;
+	@Column(name = "Quantidade")
+	private int quantidade;
 	private String cod_barra;
-	private String Destaque;
+	@Column(name = "Destaque")
+	private String destaque;
 	@Column(name = "StatusProd")
-	private String Status; 
+	private String status;
+	@Column(name = "Complemento")
 	private String descricao;
-	private byte[] Imagem;
+	@JoinColumn(name ="imagem_id")
+	private byte[] imagem;
 	
 	@ManyToOne
 	@JoinColumn(name = "tpProduto_id")
@@ -35,6 +40,7 @@ public class Produto {
 	@ManyToOne
 	@JoinColumn(name = "mcProduto_id")
 	private McProduto mcProduto;
+
 
 	public long getId() {
 		return id;
@@ -53,19 +59,19 @@ public class Produto {
 	}
 
 	public double getPreco() {
-		return Preco;
+		return preco;
 	}
 
 	public void setPreco(double preco) {
-		Preco = preco;
+		this.preco = preco;
 	}
 
 	public int getQuantidade() {
-		return Quantidade;
+		return quantidade;
 	}
 
 	public void setQuantidade(int quantidade) {
-		Quantidade = quantidade;
+		this.quantidade = quantidade;
 	}
 
 	public String getCod_barra() {
@@ -75,19 +81,21 @@ public class Produto {
 	public void setCod_barra(String cod_barra) {
 		this.cod_barra = cod_barra;
 	}
+
 	public String getDestaque() {
-		return Destaque;
+		return destaque;
 	}
 
 	public void setDestaque(String destaque) {
-		Destaque = destaque;
+		this.destaque = destaque;
 	}
+
 	public String getStatus() {
-		return Status;
+		return status;
 	}
 
 	public void setStatus(String status) {
-		Status = status;
+		this.status = status;
 	}
 
 	public String getDescricao() {
@@ -96,6 +104,14 @@ public class Produto {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	public byte[] getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(byte[] imagem) {
+		this.imagem = imagem;
 	}
 
 	public TpProduto getTpProduto() {
@@ -114,17 +130,6 @@ public class Produto {
 		this.mcProduto = mcProduto;
 	}
 
-	public byte[] getImagem() {
-		return Imagem;
-	}
-
-	public void setImagem(byte[] imagem) {
-		Imagem = imagem;
-	}
-	
-	
-	
-	
 	
 	
 

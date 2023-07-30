@@ -21,8 +21,8 @@ public class TpProdutoService {
 	
 	// Metodo Insert INTO TipoDoProduto
 	@Transactional 
-	public TpProduto save (TpProduto _TpProduto) {
-		return tpProdutoRepository.save(_TpProduto);
+	public TpProduto save (TpProduto _tpProduto) {
+		return tpProdutoRepository.save(_tpProduto);
 	}
 	
 	// Metodo Select * From TipoDoProduto

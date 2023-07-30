@@ -1,5 +1,6 @@
 package br.com.lifetree.lifetreeTcc.model.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,8 +15,12 @@ public class FormPagamento {
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private long id;
 	
-	private String Fm_pagamento;
-	private String Statuspg;
+	@Column(name = "Fm_pagamento")
+	private String fm_pagamento;
+	@Column(name = "Statuspg")
+	private String statuspg;
+	
+	
 	public long getId() {
 		return id;
 	}
@@ -23,17 +28,18 @@ public class FormPagamento {
 		this.id = id;
 	}
 	public String getFm_pagamento() {
-		return Fm_pagamento;
+		return fm_pagamento;
 	}
 	public void setFm_pagamento(String fm_pagamento) {
-		Fm_pagamento = fm_pagamento;
+		this.fm_pagamento = fm_pagamento;
 	}
 	public String getStatuspg() {
-		return Statuspg;
+		return statuspg;
 	}
 	public void setStatuspg(String statuspg) {
-		Statuspg = statuspg;
+		this.statuspg = statuspg;
 	}
+	
 	
 	
 }

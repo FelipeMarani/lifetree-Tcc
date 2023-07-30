@@ -1,5 +1,6 @@
 package br.com.lifetree.lifetreeTcc.model.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,24 +14,23 @@ public class McProduto {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private long id;
+	@Column(name = "Marca")
+	private String marca;
 	
-	private String Marca;
-
+	
 	public long getId() {
 		return id;
 	}
-
 	public void setId(long id) {
 		this.id = id;
 	}
-
 	public String getMarca() {
-		return Marca;
+		return marca;
+	}
+	public void setMarca(String marca) {
+		this.marca = marca;
 	}
 
-	public void setMarca(String marca) {
-		Marca = marca;
-	}
-	
+
 	
 }

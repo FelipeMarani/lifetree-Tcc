@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import br.com.lifetree.lifetreeTcc.model.entity.Cliente;
 import br.com.lifetree.lifetreeTcc.service.ClienteService;
+import br.com.lifetree.lifetreeTcc.service.FuncionarioService;
 
 @Controller
 @RequestMapping("/lifetree/cliente")
@@ -22,12 +24,20 @@ public class ClienteController {
 
 	//Criação do objeto de serviço 
 	final ClienteService clienteService;
+	
+//	final FuncionarioService funcionarioService;
+
 
 
 	// INJEÇÃO DE DEPENDENCIA 
 	public ClienteController(ClienteService _clienteService) {
 		this.clienteService = _clienteService;
 	}
+
+//	public FuncionarioController(FuncionarioService _funcionarioService) {
+//		this.funcionarioService = _funcionarioService;
+//
+//	}
 
 	private String serverMessage = null;
 
@@ -51,6 +61,10 @@ public class ClienteController {
 
 		if(acessar == 1) {
 			return "redirect:/lifetree/cliente/home";
+		}else if(acessar == 2){
+			return "redirect:/funcionario/editarfuncionario";
+		}else if(acessar == 3) {
+			return "redirect:/funcionario/estoque";
 		}
 		serverMessage = "Dados icorretos";
 		model.addAttribute("serverMessage", serverMessage);

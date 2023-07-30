@@ -16,27 +16,39 @@ public class Funcionario {
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private long id;
 
-	private String Nome; 
-	private String CPF;
-	private String RG;
-	private String Sexo;
+	@Column(name = "Nome")
+	private String nome; 
+	@Column(name ="CPF")
+	private String cpf;
+	@Column(name = "RG")
+	private String rg;
+	@Column(name = "Sexo")
+	private String sexo;
 	private String dataNasc;
-	private byte[] Img;
+	@Column(name = "Img")
+	private byte[] img;
 	private String telefone;
 	@Column(name = "Email")
 	private String email;
 	private String Senha;
 	@Column(name = "NivelAcess")
-	private String Acesso;
+	private String acesso;
 	@Column(name = "statusFunc")
 	private String status;
-	private String Logradouro;
-	private String Numero_resid;
-	private String Complemento;
-	private String CEP;
-	private String Bairro;
-	private String Cidade;
-	private String UF;
+	@Column(name = "Logradouro")
+	private String logradouro;
+	@Column(name = "Numero_resid")
+	private String nm_resid;
+	@Column(name = "Complemento")
+	private String complemento;
+	@Column(name = "CEP")
+	private String cep;
+	@Column(name = "Bairro")
+	private String bairro;
+	@Column(name = "Cidade")
+	private String cidade;
+	@Column(name = "UF")
+	private String uf;
 	public long getId() {
 		return id;
 	}
@@ -44,28 +56,28 @@ public class Funcionario {
 		this.id = id;
 	}
 	public String getNome() {
-		return Nome;
+		return nome;
 	}
 	public void setNome(String nome) {
-		Nome = nome;
+		this.nome = nome;
 	}
-	public String getCPF() {
-		return CPF;
+	public String getCpf() {
+		return cpf;
 	}
-	public void setCPF(String cPF) {
-		CPF = cPF;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
-	public String getRG() {
-		return RG;
+	public String getRg() {
+		return rg;
 	}
-	public void setRG(String rG) {
-		RG = rG;
+	public void setRg(String rg) {
+		this.rg = rg;
 	}
 	public String getSexo() {
-		return Sexo;
+		return sexo;
 	}
 	public void setSexo(String sexo) {
-		Sexo = sexo;
+		this.sexo = sexo;
 	}
 	public String getDataNasc() {
 		return dataNasc;
@@ -74,16 +86,16 @@ public class Funcionario {
 		this.dataNasc = dataNasc;
 	}
 	public byte[] getImg() {
-		return Img;
+		return img;
+	}
+	public void setImg(byte[] img) {
+		this.img = img;
 	}
 	public String getTelefone() {
 		return telefone;
 	}
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
-	}
-	public void setImg(byte[] img) {
-		Img = img;
 	}
 	public String getEmail() {
 		return email;
@@ -98,10 +110,10 @@ public class Funcionario {
 		Senha = senha;
 	}
 	public String getAcesso() {
-		return Acesso;
+		return acesso;
 	}
 	public void setAcesso(String acesso) {
-		Acesso = acesso;
+		this.acesso = acesso;
 	}
 	public String getStatus() {
 		return status;
@@ -110,47 +122,46 @@ public class Funcionario {
 		this.status = status;
 	}
 	public String getLogradouro() {
-		return Logradouro;
+		return logradouro;
 	}
 	public void setLogradouro(String logradouro) {
-		Logradouro = logradouro;
+		this.logradouro = logradouro;
 	}
-	public String getNumero_resid() {
-		return Numero_resid;
+	public String getNm_resid() {
+		return nm_resid;
 	}
-	public void setNumero_resid(String numero_resid) {
-		Numero_resid = numero_resid;
+	public void setNm_resid(String nm_resid) {
+		this.nm_resid = nm_resid;
 	}
 	public String getComplemento() {
-		return Complemento;
+		return complemento;
 	}
 	public void setComplemento(String complemento) {
-		Complemento = complemento;
+		this.complemento = complemento;
 	}
-	public String getCEP() {
-		return CEP;
+	public String getCep() {
+		return cep;
 	}
-	public void setCEP(String cEP) {
-		CEP = cEP;
+	public void setCep(String cep) {
+		this.cep = cep;
 	}
 	public String getBairro() {
-		return Bairro;
+		return bairro;
 	}
 	public void setBairro(String bairro) {
-		Bairro = bairro;
+		this.bairro = bairro;
 	}
 	public String getCidade() {
-		return Cidade;
+		return cidade;
 	}
 	public void setCidade(String cidade) {
-		Cidade = cidade;
+		this.cidade = cidade;
 	}
-	public String getUF() {
-		return UF;
+	public String getUf() {
+		return uf;
 	}
-	public void setUF(String uF) {
-		UF = uF;
+	public void setUf(String uf) {
+		this.uf = uf;
 	}
-
 	
 }

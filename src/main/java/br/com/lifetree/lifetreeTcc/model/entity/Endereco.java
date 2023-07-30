@@ -20,74 +20,95 @@ public class Endereco {
 	
 	//exemplo feito pelo Cruz
 	@Column(name = "Logradouro")
-	private String Logradouro;
-	private String CEP;
-	private String Numcasa;
-	private String Bairro;
-	private String Cidade;
-	private String UF;
-	private String Complemento;
+	private String logradouro;
+	@Column(name = "CEP")
+	private String cep;
+	@Column(name = "Numcasa")
+	private String numcasa;
+	@Column(name = "Bairro")
+	private String bairro;
+	@Column(name = "Cidade")
+	private String cidade;
+	@Column(name = "UF")
+	private String uf;
+	@Column(name = "Complemento")
+	private String complemento;
 	
 	@ManyToOne
 	@JoinColumn(name = "Cliente_id")
 	private Cliente cliente;
-	
+
 	public long getId() {
 		return id;
 	}
+
 	public void setId(long id) {
 		this.id = id;
 	}
+
 	public String getLogradouro() {
-		return Logradouro;
+		return logradouro;
 	}
+
 	public void setLogradouro(String logradouro) {
-		Logradouro = logradouro;
+		this.logradouro = logradouro;
 	}
-	public String getCEP() {
-		return CEP;
+
+	public String getCep() {
+		return cep;
 	}
-	public void setCEP(String cEP) {
-		CEP = cEP;
+
+	public void setCep(String cep) {
+		this.cep = cep;
 	}
+
 	public String getNumcasa() {
-		return Numcasa;
+		return numcasa;
 	}
+
 	public void setNumcasa(String numcasa) {
-		Numcasa = numcasa;
+		this.numcasa = numcasa;
 	}
+
 	public String getBairro() {
-		return Bairro;
+		return bairro;
 	}
+
 	public void setBairro(String bairro) {
-		Bairro = bairro;
+		this.bairro = bairro;
 	}
+
 	public String getCidade() {
-		return Cidade;
+		return cidade;
 	}
+
 	public void setCidade(String cidade) {
-		Cidade = cidade;
+		this.cidade = cidade;
 	}
-	public String getUF() {
-		return UF;
+
+	public String getUf() {
+		return uf;
 	}
-	public void setUF(String uF) {
-		UF = uF;
+
+	public void setUf(String uf) {
+		this.uf = uf;
 	}
+
 	public String getComplemento() {
-		return Complemento;
+		return complemento;
 	}
+
 	public void setComplemento(String complemento) {
-		Complemento = complemento;
+		this.complemento = complemento;
 	}
-	
+
 	public Cliente getCliente() {
 		return cliente;
 	}
+
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-	
 	
 	
 }

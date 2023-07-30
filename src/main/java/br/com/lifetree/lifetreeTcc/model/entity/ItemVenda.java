@@ -1,5 +1,6 @@
 package br.com.lifetree.lifetreeTcc.model.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,8 +17,10 @@ public class ItemVenda {
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private long id;
 	
-	private int Quant;
- 	private String StatusItem;
+	@Column(name = "Quant")
+	private int quant;
+	@Column(name = "StatusItem")
+ 	private String statusItem;
  	
  	@ManyToOne
  	@JoinColumn(name = "Produto_id")
@@ -26,33 +29,46 @@ public class ItemVenda {
  	@ManyToOne
  	@JoinColumn(name = "Venda_id")
 	private Venda venda;
- 	
+
+	public long getId() {
+		return id;
+	}
+
 	public void setId(long id) {
 		this.id = id;
 	}
+
 	public int getQuant() {
-		return Quant;
+		return quant;
 	}
+
 	public void setQuant(int quant) {
-		Quant = quant;
+		this.quant = quant;
 	}
+
 	public String getStatusItem() {
-		return StatusItem;
+		return statusItem;
 	}
+
 	public void setStatusItem(String statusItem) {
-		StatusItem = statusItem;
+		this.statusItem = statusItem;
 	}
+
 	public Produto getProduto() {
 		return produto;
 	}
+
 	public void setProduto(Produto produto) {
 		this.produto = produto;
 	}
+
 	public Venda getVenda() {
 		return venda;
 	}
+
 	public void setVenda(Venda venda) {
 		this.venda = venda;
 	}
+ 	
 	
 }

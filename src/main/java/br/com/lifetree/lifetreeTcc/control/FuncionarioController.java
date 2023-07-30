@@ -41,24 +41,24 @@ public class FuncionarioController {
 		return "Funclogin";
 	}
 
-	@PostMapping("/logar")
-	public String acessar(
-			@RequestParam("email") String email,
-			@RequestParam("senha") String senha, ModelMap model) {
-
-		int acessar = funcionarioService.logar(email,senha);
-
-		if(acessar == 1 ) {
-			return "redirect:/funcionario/editarfuncionario";
-		} else if
-		(acessar == 2){
-			return "redirect:/funcionario/estoque";
-		}
-		serverMessage = "Dados Incorretos!";
-		model.addAttribute("serverMessage", serverMessage);
-
-		return "redirect:/lifetree/funcionario/login";
-	}
+//	@PostMapping("/logar")
+//	public String acessar(
+//			@RequestParam("email") String email,
+//			@RequestParam("senha") String senha, ModelMap model) {
+//
+//		int acessar = funcionarioService.logar(email,senha);
+//
+//		if(acessar == 1 ) {
+//			return "redirect:/funcionario/editarfuncionario";
+//		} else if
+//		(acessar == 2){
+//			return "redirect:/funcionario/estoque";
+//		}
+//		serverMessage = "Dados Incorretos!";
+//		model.addAttribute("serverMessage", serverMessage);
+//
+//		return "redirect:/lifetree/funcionario/login";
+//	}
 
 	//ROTA GET
 	@GetMapping ("/all")
