@@ -18,7 +18,7 @@ public class FuncionarioService {
 	}
 
 	@Transactional
-	public int acessar(String email, String senha) {
+	public int logar(String email, String senha) {
 		Funcionario funcionario = funcionarioRepository.findByEmail(email);
 
 		if(funcionario != null && funcionario.getStatus().equals("Ativo")) {

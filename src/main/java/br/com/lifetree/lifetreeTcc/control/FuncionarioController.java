@@ -4,18 +4,19 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
+import br.com.lifetree.lifetreeTcc.model.entity.Cliente;
 import br.com.lifetree.lifetreeTcc.model.entity.Funcionario;
 import br.com.lifetree.lifetreeTcc.service.FuncionarioService;
 
-@RestController
+@Controller
 @RequestMapping("/lifetree/funcionario")
 @CrossOrigin(origins="*", maxAge = 3600, allowCredentials = "false")
 public class FuncionarioController {
@@ -33,25 +34,17 @@ public class FuncionarioController {
 
 	private String serverMessage = null;
 
-	@GetMapping("/Funclogin")
-	public String getFuncLogin(ModelMap model) {
-
-		model.addAttribute("funcionario" , new Funcionario());
-		model.addAttribute("serverMessage" , serverMessage);
-		return "Funclogin";
-	}
-
 //	@PostMapping("/logar")
-//	public String acessar(
+//	public String logar(
 //			@RequestParam("email") String email,
 //			@RequestParam("senha") String senha, ModelMap model) {
 //
 //		int acessar = funcionarioService.logar(email,senha);
 //
-//		if(acessar == 1 ) {
+//		if(acessar == 2 ) {
 //			return "redirect:/funcionario/editarfuncionario";
 //		} else if
-//		(acessar == 2){
+//		(acessar == 3){
 //			return "redirect:/funcionario/estoque";
 //		}
 //		serverMessage = "Dados Incorretos!";
@@ -67,9 +60,10 @@ public class FuncionarioController {
 				.body(funcionarioService.findAll());
 	}
 
-	@GetMapping ("/estoque")
-	public String getEstoque(){
-		return "estoque";
+	@GetMapping ("/Estoque")
+	public String getEstoque(ModelMap model){
+		model.addAttribute("funcionario", new Funcionario());
+		return "Estoque";
 	} 
 
 

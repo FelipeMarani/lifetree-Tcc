@@ -53,8 +53,7 @@ public class ClienteController {
 			@RequestParam("email") String email,
 			@RequestParam("senha") String senha, ModelMap model) {
 
-		int acessar = clienteService.acessar(email, senha);
-
+		int acessar = clienteService.acessar(email, senha)+funcionarioService.logar(email, senha);
 
 		if(acessar == 1) {
 			return "redirect:/lifetree/cliente/home";
