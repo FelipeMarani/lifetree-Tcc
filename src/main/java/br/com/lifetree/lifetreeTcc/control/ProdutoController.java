@@ -82,10 +82,6 @@ public class ProdutoController {
 		return "todos-produtos-filtro";
 	}
 	
-	@GetMapping("/AdicionarProduto")
-	public String getAdd() {
-		return "AdicionarProduto";
-	}
 	
 	//ROTA POST
 	@PostMapping("/save")
@@ -101,6 +97,12 @@ public class ProdutoController {
 		return ResponseEntity.status(HttpStatus.OK)
 				.body(produtoService.ListarTodos());
 	}
+	
+	@GetMapping("/AdicionarProduto")
+	public String getadicionarProdutos() {
+		return "AdicionarProduto";
+	}
+	
 
 
 }

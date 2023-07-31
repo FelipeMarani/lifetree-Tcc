@@ -24,5 +24,9 @@ public class PageController {
 		return "CriarConta";
 	}
 
+	@GetMapping("/AdicionarProduto")
+	public String getadicionarProdutos() {
+		return "AdicionarProduto";
+	}
 
 }

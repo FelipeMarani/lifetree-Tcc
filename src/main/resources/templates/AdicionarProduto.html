@@ -47,7 +47,7 @@
 
         <div class="informations">
 
-        <form th:action="@{/lifetree/produtos/save}" th:object="${produto}" method="post">
+        <form action="#" th:action="@{/lifetree/produtos/save}" th:object="${produto}" method="post">
 
             <p>Nome do produto<input type="text" th:field="*{nome}"> </p>
             <p>Quantidade <input type="number" th:field="*{quantidade}"></p>
