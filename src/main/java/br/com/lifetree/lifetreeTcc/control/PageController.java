@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/lifetree")
 public class PageController {
 
-	//	@GetMapping("/login")
-	//	public String getLogin(){
-	//		return "login";
-	//	}
+		@GetMapping("/login")
+		public String getLogin(){
+			return "login";
+		}
 
 	@GetMapping ("/home")
 	public String getHome(){

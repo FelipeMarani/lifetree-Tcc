@@ -25,21 +25,18 @@ public class ClienteController {
 	//Criação do objeto de serviço 
 	final ClienteService clienteService;
 	
-//	final FuncionarioService funcionarioService;
-
-
+	final FuncionarioService funcionarioService;
 
 	// INJEÇÃO DE DEPENDENCIA 
-	public ClienteController(ClienteService _clienteService) {
-		this.clienteService = _clienteService;
+	public ClienteController(ClienteService clienteService, FuncionarioService funcionarioService) {
+		super();
+		this.clienteService = clienteService;
+		this.funcionarioService = funcionarioService;
 	}
-
-//	public FuncionarioController(FuncionarioService _funcionarioService) {
-//		this.funcionarioService = _funcionarioService;
-//
-//	}
-
+	
 	private String serverMessage = null;
+
+	
 
 	@GetMapping("/login")
 	public String getLogin(ModelMap model) {

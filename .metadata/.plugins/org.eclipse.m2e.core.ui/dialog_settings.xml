@@ -2,6 +2,8 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="Z:\TCC\workspace_tcc\lifetree-Tcc"/>
+			<item value="Z:\TCC\workspace_tcc"/>
 			<item value="C:\Users\diego\workspace-felps\lifetree-Tcc"/>
 		</list>
 		<list key="projectNameTemplate">
