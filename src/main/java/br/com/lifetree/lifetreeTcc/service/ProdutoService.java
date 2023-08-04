@@ -28,7 +28,8 @@ public class ProdutoService {
 		this.tpprodutoRepository = tpprodutoRepository;
 		this.mcprodutoRepository = mcProdutoRepository;
 	}
-	public Produto findById(long id) {
+	
+public Produto findById(long id) {
 		return produtoRepository.findById(id).get();
 	}
 	public List<Produto>ListarTodos(){
@@ -38,6 +39,13 @@ public class ProdutoService {
 	public List<Produto> listarTodosFiltro(String nome){
 		return produtoRepository.findByNomeContaining(nome);
 	}
+
+	public List<Produto> listarStatus() {
+		return produtoRepository.listarProdutosAtivos("Ativo");
+		
+	}
+	
+	
 	@Transactional
 	public void inativarProd(Produto produto) {
 
@@ -115,6 +123,7 @@ public class ProdutoService {
 		List<Produto> lista = produtoRepository.findAll();
 		return lista;
 	}
+	
 	
 
 }
