@@ -21,9 +21,8 @@ h1{
  } 
 
 .container {
+  height: auto;
     border: 2px solid #ffffff;
-    width: 450px;
-    max-width: 100%;
     background-color: white;
     border-radius: 15px;
     padding: 35px;
@@ -33,38 +32,38 @@ h1{
     
 }
 
+
 input{
-    border: 2px solid black;
-    border-radius: 50px;
-    width: 250pt;
-    padding: 15px;
-    font-size: 15px;
-    margin: 15px;
-    margin-top: 10px;
+  border: 1px solid black;
+  border-radius: 18px;
+  height: 10px;
+  width: 300px;
+  padding: 15px;
+  font-size: 15px;
+  margin: 15px;
+
 }
 
-.inf.success{
-  border: 3px solid #4eca64;
-}
-.inf.error{
-  border: 3px solid #db5a5a;
+.span-required{
+  font-size: 0px;
+  display: none;
+  color: red;
 }
 
-
-#botão {
+button[type="submit"] {
     display: block;
-  margin-right: auto;
-  margin-left: auto;
-  width: 100pt;
-  height: 50px;
-  border-radius: 20px;
-  background-color: #038c5a; 
-  color: white;
-  cursor: pointer;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10px;
+    width: 150px;
+    height: 45px;
+    border-radius: 15px;
+    background-color: #7DA88E;
+    color: white;
 }
 
 #botão:hover {
-    background-color: #42dd9d;
+  background-color: #0fbd7d;
     transition: 0.2s;
 }
 
@@ -74,11 +73,11 @@ footer {
   }
   .imagem-lateral {
     position: absolute;
-    top: 580px;
+    top: 585px;
     left: -205px;
     width: 470px;
     max-width: 100%;
-    height: auto;
+    
   }
   .imagem-lateral2 {
     position: absolute;
@@ -88,5 +87,6 @@ footer {
   }
   
   label{
+    font-weight: bold;
     margin-left: 20px;
   }
