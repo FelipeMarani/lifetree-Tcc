@@ -27,7 +27,7 @@ public class Produto {
 	@Column(name = "Destaque")
 	private String destaque;
 	@Column(name = "StatusProd")
-	private String status;
+	private String statusProd;
 	@Column(name = "Complemento")
 	private String descricao;
 	@JoinColumn(name ="imagem_id")
@@ -89,12 +89,14 @@ public class Produto {
 		this.destaque = destaque;
 	}
 
-	public String getStatus() {
-		return status;
+	
+
+	public String getStatusProd() {
+		return statusProd;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setStatusProd(String statusProd) {
+		this.statusProd = statusProd;
 	}
 
 	public String getDescricao() {

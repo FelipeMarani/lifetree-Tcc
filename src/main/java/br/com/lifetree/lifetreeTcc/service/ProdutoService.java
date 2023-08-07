@@ -54,7 +54,7 @@ public Produto findById(long id) {
 		_produto.setPreco(0.0);
 		_produto.setDestaque("NÃO");
 		_produto.setImagem(null);
-		_produto.setStatus("INATIVO");
+		_produto.setStatusProd("INATIVO");
 		_produto.setTpProduto(null);
 		produtoRepository.save(_produto);
 	}
@@ -77,7 +77,7 @@ public Produto findById(long id) {
 		if (produto.getDestaque() == null) {
 			produto.setDestaque("NÃO");
 		}
-		produto.setStatus("ATIVO");
+		produto.setStatusProd("ATIVO");
 
 		return produtoRepository.save(produto);
 	}
@@ -109,7 +109,7 @@ public Produto findById(long id) {
 		}
 
 		_produto.setTpProduto(tpproduto);
-		_produto.setStatus("ATIVO");
+		_produto.setStatusProd("ATIVO");
 		produtoRepository.save(_produto);
 	}
 
