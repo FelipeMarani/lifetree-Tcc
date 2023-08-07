@@ -50,12 +50,17 @@
         <form action="#" th:action="@{/lifetree/produtos/save}" th:object="${produto}" method="post">
 
             <p>Nome do produto<input type="text" th:field="*{nome}"> </p>
-            <p>Quantidade <input type="number" th:field="*{quantidade}"></p>
+            <p>Quantidade <input type="number" th:field="*{quantidade}" maxlength="10"></p>
             <p>Preço <input type="number" min="0.00" max="10000.00" step="0.01" th:field="*{preco}"></p>
-            <p>Descrição do Produto <input type="text" min="000001" max="999999" th:field="*{descricao}"/></p>
-                       
+            <p>Descrição do Produto <input type="text" min="50" max="250" th:field="*{descricao}"/></p>
+            <p>Código de Barra <input type="number" min="1" max="13" th:field="*{cod_barra}"/></p>
+            <p>Tipo de produto<input type="text" min="10" max="100" th:field="*{tpProduto.tpProduto}"/></p>
+            <p>Marca do produto<input type="text" min="000001" max="999999" th:field="*{mcProduto.Marca}"/></p>    
+            <label type ="text">Destaque</label>
+            <input type ="checkbox" value ="SIM" checked id="checkbox" th:field="*{destaque}"></label> 
+                     
             <div class="form-group col-md-4">
-                <label for="uploadImage" class="form-label">Foto</label>
+                <label for="uploadImage" class="form-label">Insira uma foto para o produto</label>
                 <input class="form-control" type="file" onchange="preViewImg();" name="file" accept="image/*" id="uploadImage">
             </div>
             <div class="form-group1">
@@ -74,6 +79,6 @@
     </section>
 
 </section>
-    <script src="script.js"></script>
+    <script src="/js/TelaAdicionarProduto.js"></script>
 </body>
 </html>
