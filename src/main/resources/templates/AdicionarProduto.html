@@ -54,12 +54,14 @@
             <p>Preço <input type="number" min="0.00" max="10000.00" step="0.01" th:field="*{preco}"></p>
             <p>Descrição do Produto <input type="text" min="000001" max="999999" th:field="*{descricao}"/></p>
                        
-            <div class="prod-imagem">
-                <label class="picture" for="picture__input" tabIndex="0">
-                    <span class="picture__image"></span>   
-                  <input type="file" name="picture__input" id="picture__input"></label> 
-                  <script src="TelaAdicionarProduto.js">
-                </script>
+            <div class="form-group col-md-4">
+                <label for="uploadImage" class="form-label">Foto</label>
+                <input class="form-control" type="file" onchange="preViewImg();" name="file" accept="image/*" id="uploadImage">
+            </div>
+            <div class="form-group1">
+                <label for="preView" class="form-label">Imagem Escolhida:</label>
+                <img id="preView" alt="..." th:src="*{Imagem} ? @{${''+ produto.id}} : ${semImagem}"
+                class="rounded mx-auto d-block img-fluid" />
             </div>
         </div>
         
