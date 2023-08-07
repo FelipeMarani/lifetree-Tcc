@@ -40,10 +40,10 @@ public Produto findById(long id) {
 		return produtoRepository.findByNomeContaining(nome);
 	}
 
-	public List<Produto> listarStatus() {
-		return produtoRepository.listarProdutosAtivos("Ativo");
-		
-	}
+//	public List<Produto> listarStatus() {
+//		return produtoRepository.listarProdutosAtivos("Ativo");
+//		
+//	}
 	
 	
 	@Transactional
@@ -122,6 +122,18 @@ public Produto findById(long id) {
 	public List<Produto> ListarTodosProd(){
 		List<Produto> lista = produtoRepository.findAll();
 		return lista;
+	}
+	
+	public List<Produto> listarProdutosAtivos(){
+		return produtoRepository.findByStatusProd("ATIVO");
+	}
+	
+	public List<Produto> listar3Destaques(){
+		return produtoRepository.listar3Destaques();
+	}
+	
+	public List<Produto> listarProdutosFiltro(String nomeProd){
+		return produtoRepository.listarProdutosFiltro(nomeProd);
 	}
 	
 	

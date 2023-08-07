@@ -92,7 +92,7 @@ public class ProdutoController {
 
 	}
 
-	//ROTA GET
+//ROTA GET
 	@GetMapping ("/all")
 	public ResponseEntity<List<Produto>> getAllProduto(){
 		return ResponseEntity.status(HttpStatus.OK)

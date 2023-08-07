@@ -16,7 +16,7 @@ public interface ProdutoRepository extends JpaRepository<Produto, Long> {
 	
 		List<Produto> findByNomeContaining(String nome);
 		
-		List<Produto> findByStatusProd(String statusProd);
+		List<Produto> findByStatusProd(String status);
 		
 		// JPQL: A CONSULTA É FEITA NO OBJETO REFERENTE A TABELA
 		@Query("SELECT p FROM Produto p WHERE p.statusProd = 'ATIVO'")

@@ -41,7 +41,6 @@ public class Produto {
 	@JoinColumn(name = "mcProduto_id")
 	private McProduto mcProduto;
 
-
 	public long getId() {
 		return id;
 	}
@@ -130,7 +129,7 @@ public class Produto {
 		this.mcProduto = mcProduto;
 	}
 
-	
-	
+
+
 
 }
