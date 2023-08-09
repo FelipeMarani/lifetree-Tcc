@@ -14,7 +14,7 @@ create table Cliente
 	Nome varchar(150)not null,
 	CPF char(11)not null,
 	dtNasc date not null,
-	Tel char(13)not null,
+	Tel char(15)not null,
 	Email varchar(200)not null,
 	senha varchar(150)not null,
 	img varbinary(max)null,
@@ -46,19 +46,10 @@ create table Funcionario
    Nome VARCHAR(100)NOT NULL,
    CPF  CHAR(11)NOT NULL,
    RG VARCHAR(12)NOT NULL,
-   Sexo CHAR(1)NOT NULL,
    dataNasc DATE NOT NULL,
-   Img VARBINARY(MAX)NULL,
-   telefone VARCHAR(9)NOT NULL,
+   telefone VARCHAR(11)NOT NULL,
    Email VARCHAR(100)NULL, 
    NivelAcess varchar(10)null,
-   Logradouro VARCHAR(100)NOT NULL, -- nome da rua, avenida e etc
-   Numero_resid VARCHAR(10)NOT NULL,
-   Complemento VARCHAR(100)NULL,
-   CEP CHAR(8)NOT NULL,
-   Bairro VARCHAR(100)NOT NULL,
-   Cidade VARCHAR(100)NOT NULL,
-   UF CHAR(2)NOT NULL,
    PRIMARY KEY (id)
 )
 
