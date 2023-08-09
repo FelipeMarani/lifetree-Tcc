@@ -51,7 +51,7 @@
         </div>
 
 
-        <div class="api">
+        <div class="api" th:src="${produto.foto} ? @{${'/lifetree/produto/showImage/'+ produto.id}}>
             <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
             <script type="text/javascript">
                 google.charts.load('current', { 'packages': ['table'] });
@@ -59,11 +59,11 @@
 
                 function drawTable() {
                     var data = new google.visualization.DataTable();
-                    data.addColumn('string', 'Nome');
-                    data.addColumn('number', 'Preço');
-                    data.addColumn('boolean', 'Estoque');
+                    data.addColumn('string', "${produto.nome}");
+                    data.addColumn('number', "${produto.preco}");
+                    data.addColumn('boolean', "${produto.quantidade}");
                     data.addRows([
-                        ['Whey Pro Protein - 1kg - Max Titanium', { v: 10000, f: 'R$ 99,99' }, true],
+                        [thtext="${produto.nome}", { v: thtext="${produto.quantidade}", f: thtext="${produto.preco}" }, true],
                         ['Granola 100g', { v: 8000, f: 'R$ 7,99' }, false],
                         ['Hambúrguer Vegetal Fazenda Futuro 230g', { v: 12500, f: 'R$ 21,99' }, true],
                         ['Leite de Amedôas Nuts 1L', { v: 7000, f: 'R$ 12,99' }, true],

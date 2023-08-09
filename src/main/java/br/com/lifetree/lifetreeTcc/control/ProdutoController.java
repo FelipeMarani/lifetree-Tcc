@@ -2,6 +2,7 @@ package br.com.lifetree.lifetreeTcc.control;
 
 
 import java.io.IOException;
+import java.util.Base64;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -16,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import br.com.lifetree.lifetreeTcc.model.entity.Cliente;
 import br.com.lifetree.lifetreeTcc.model.entity.Produto;
 import br.com.lifetree.lifetreeTcc.service.ProdutoService;
 import jakarta.servlet.ServletException;
@@ -29,7 +29,7 @@ public class ProdutoController {
 
 	final ProdutoService produtoService;
 
-	private String image = "";
+	private String foto = "";
 
 	// CASO O PRODUTO NÃO TENHA UMA IMAGEM CADASTRADA NO BANCO DE DADOS
 	private String semImagem = "/images/semImagem.png";
@@ -105,6 +105,41 @@ public class ProdutoController {
 		return "AdicionarProduto";
 	}
 	
+	@GetMapping("/ver/{id}")
+	public String verProduto(@PathVariable("id") long id, ModelMap model) {
+
+		Produto produto = produtoService.findById(id);
+		
+		if (produto.getImagem() != null) {
+			if (produto.getImagem().length > 0) {
+				foto = Base64.getEncoder().encodeToString(produto.getImagem());
+			}
+		}
+
+		model.addAttribute("produto", produto);
+		model.addAttribute("semImagem", semImagem);
+		
+
+		return "Estoque";
+	}
+	
+	@GetMapping("/showImage/{id}")
+	@ResponseBody
+	public void showImage(
+			@PathVariable("id") long id, HttpServletResponse response, Produto produto)
+			throws ServletException, IOException {
+
+		produto = produtoService.findById(id);
+
+		response.setContentType("image/jpeg, image/jpg, image/png, image/gif");
+		if (produto.getImagem() != null) {
+			response.getOutputStream().write(produto.getImagem());
+		} else {
+			response.getOutputStream().write(null);
+		}
+
+		response.getOutputStream().close();
+	}
 
 
 }

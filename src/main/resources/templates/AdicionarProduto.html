@@ -53,7 +53,7 @@
             <p>Quantidade <input type="number" th:field="*{quantidade}" maxlength="10"></p>
             <p>Preço <input type="number" min="0.00" max="10000.00" step="0.01" th:field="*{preco}"></p>
             <p>Descrição do Produto <input type="text" min="50" max="250" th:field="*{descricao}"/></p>
-            <p>Código de Barra <input type="number" min="1" max="13" th:field="*{cod_barra}"/></p>
+            <p>Código de Barra <input type="number" th:field="*{cod_barra}"/></p>
             <p>Tipo de produto<input type="text" min="10" max="100" th:field="*{tpProduto.tpProduto}"/></p>
             <p>Marca do produto<input type="text" min="000001" max="999999" th:field="*{mcProduto.Marca}"/></p>    
             <label type ="text">Destaque</label>

@@ -46,14 +46,15 @@ public class ClienteController {
 		return "login";
 
 	}
-
+// AQUI 
+	
 	//Rota POST para acessar o site
 	@PostMapping("/acessar")
 	public String acessar(
 			@RequestParam("email") String email,
 			@RequestParam("senha") String senha, ModelMap model) {
 
-		int acessar = clienteService.acessar(email, senha)+funcionarioService.logar(email, senha);
+		int acessar = clienteService.acessar(email, senha);
 
 		if(acessar == 1) {
 			return "redirect:/lifetree/cliente/home";
