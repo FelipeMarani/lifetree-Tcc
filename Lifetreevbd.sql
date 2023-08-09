@@ -19,7 +19,7 @@ create table Cliente
 	senha varchar(150)not null,
 	img varbinary(max)null,
 	statusCliente varchar(20)not null,
-	Cupom_id bigint not null,
+	Cupom_id bigint,
 	primary key(id),
 	foreign key(Cupom_id)
 		references Cupom(id)

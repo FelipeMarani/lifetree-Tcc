@@ -15,17 +15,17 @@ const senhaRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]
 
 
 // Verificar se os campos foram preenchidos 
-form.addEventListener('submit', (event) =>{
-    event.preventDefault();
-    nomeValidate();
-    cpfValidate();
-    telefoneValidate();
-    datanascValidate();
-    emailValidate();
-    compareEmail();
-    mainPasswordValidate();
-    comparePassword();
-}  )
+// form.addEventListener('submit', (event) =>{
+//     event.preventDefault();
+//     nomeValidate();
+//     cpfValidate();
+//     telefoneValidate();
+//     datanascValidate();
+//     emailValidate();
+//     compareEmail();
+//     mainPasswordValidate();
+//     comparePassword();
+// }  )
 
 // Mostrar erro (borda dos inputs em cor vermelha)
 function setError(index) {
