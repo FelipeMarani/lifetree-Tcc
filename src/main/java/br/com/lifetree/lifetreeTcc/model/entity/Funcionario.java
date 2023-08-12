@@ -17,13 +17,7 @@ public class Funcionario {
 	private long id;
 
 	@Column(name = "Nome")
-	private String nome; 
-	@Column(name ="CPF")
-	private String cpf;
-	@Column(name = "RG")
-	private String rg;
-	private String dataNasc;
-	private String telefone;
+	private String nome;
 	@Column(name = "Email")
 	private String email;
 	private String Senha;
@@ -42,30 +36,6 @@ public class Funcionario {
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-	public String getCpf() {
-		return cpf;
-	}
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-	public String getRg() {
-		return rg;
-	}
-	public void setRg(String rg) {
-		this.rg = rg;
-	}
-	public String getDataNasc() {
-		return dataNasc;
-	}
-	public void setDataNasc(String dataNasc) {
-		this.dataNasc = dataNasc;
-	}
-	public String getTelefone() {
-		return telefone;
-	}
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
 	}
 	public String getEmail() {
 		return email;
