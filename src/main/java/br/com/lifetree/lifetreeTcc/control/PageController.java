@@ -28,5 +28,9 @@ public class PageController {
 	public String getadicionarProdutos() {
 		return "AdicionarProduto";
 	}
+	@GetMapping("/loginfuncionario")
+	public String getloginfuncionario() {
+		return "loginfuncionario";
+	}
 
 }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/CSS/TelaAdicionarProduto.css">
+    <link rel="stylesheet" href="/lifetree-Tcc-1/src/main/resources/static/css/TelaAdicionarProduto.css">
     
     <title>Adicionar Produto</title>
 </head>
@@ -30,10 +30,10 @@
         <strong>
           <h1>Adicionar Produto</h1>
         </strong>
-      <a href="#">Dashboard</a>
+   
       <a href="#">Adicionar Produto</a>
       <a href="#">Editar Produto</a>
-      <a href="#">Estoque</a>
+      <a href="/lifetree/funcionario/Estoque">Estoque</a>
   
         <br>
         <hr>
@@ -48,14 +48,20 @@
         <div class="informations">
 
         <form action="#" th:action="@{/lifetree/produtos/save}" th:object="${produto}" method="post">
-
+            <div class="form-group1">
+              
+                <img id="preView" alt="..." th:src="*{Imagem} ? @{${''+ produto.id}} : ${semImagem}"
+                class="rounded mx-auto d-block img-fluid" />
+            </div>
+            <div class="desc-prod">
             <p>Nome do produto<input type="text" th:field="*{nome}"> </p>
             <p>Quantidade <input type="number" th:field="*{quantidade}" maxlength="10"></p>
-            <p>Preço <input type="number" min="0.00" max="10000.00" step="0.01" th:field="*{preco}"></p>
-            <p>Descrição do Produto <input type="text" min="50" max="250" th:field="*{descricao}"/></p>
+            <p>Preço <input type="number" th:field="*{preco}"></p>
+            <p>Descrição do Produto <input type="text" th:field="*{descricao}"/></p>
             <p>Código de Barra <input type="number" th:field="*{cod_barra}"/></p>
-            <p>Tipo de produto<input type="text" min="10" max="100" th:field="*{tpProduto.tpProduto}"/></p>
-            <p>Marca do produto<input type="text" min="000001" max="999999" th:field="*{mcProduto.Marca}"/></p>    
+            <p>Tipo de produto<input type="text"  th:field="*{tpProduto.tpProduto}"/></p>
+            <p>Marca do produto<input type="text"  th:field="*{mcProduto.Marca}"/></p>    
+
             <label type ="text">Destaque</label>
             <input type ="checkbox" value ="SIM" checked id="checkbox" th:field="*{destaque}"></label> 
                      
@@ -63,11 +69,8 @@
                 <label for="uploadImage" class="form-label">Insira uma foto para o produto</label>
                 <input class="form-control" type="file" onchange="preViewImg();" name="file" accept="image/*" id="uploadImage">
             </div>
-            <div class="form-group1">
-                <label for="preView" class="form-label">Imagem Escolhida:</label>
-                <img id="preView" alt="..." th:src="*{Imagem} ? @{${''+ produto.id}} : ${semImagem}"
-                class="rounded mx-auto d-block img-fluid" />
-            </div>
+        </div>
+           
         </div>
         
 
@@ -79,6 +82,6 @@
     </section>
 
 </section>
-    <script src="/js/TelaAdicionarProduto.js"></script>
+    <script src="/lifetree-Tcc-1/src/main/resources/static/js/TelaAdicionarProduto.js"></script>
 </body>
 </html>

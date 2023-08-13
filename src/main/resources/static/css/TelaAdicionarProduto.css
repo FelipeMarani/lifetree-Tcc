@@ -14,6 +14,30 @@ header {
   padding: 5px 2%;
   height: 80px;
 }
+#preView{
+  margin-left: 35%;
+  margin-top:90px;
+  position: absolute;
+  width: 450px; /* Define a largura */
+  height: 450px;
+  background-color: #f2f2f2;
+  border-color: #038c5a ;
+  border: 1px solid black;
+}
+
+.desc-prod{
+  margin-top: -10px;
+  position: static;
+}
+.form-label {
+  margin-top: -35rem;
+  margin-left: 62%;
+}
+
+.form-control{
+  margin-top: -33rem;
+  margin-left: 62%;
+}
 
 #logo {
   height: 7px;

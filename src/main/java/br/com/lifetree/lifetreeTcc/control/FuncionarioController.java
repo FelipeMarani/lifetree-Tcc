@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import br.com.lifetree.lifetreeTcc.model.entity.Cliente;
 import br.com.lifetree.lifetreeTcc.model.entity.Funcionario;
 import br.com.lifetree.lifetreeTcc.service.FuncionarioService;
 
@@ -34,24 +33,21 @@ public class FuncionarioController {
 
 	private String serverMessage = null;
 
-//	@PostMapping("/logar")
-//	public String logar(
-//			@RequestParam("email") String email,
-//			@RequestParam("senha") String senha, ModelMap model) {
-//
-//		int acessar = funcionarioService.logar(email,senha);
-//
-//		if(acessar == 2 ) {
-//			return "redirect:/funcionario/editarfuncionario";
-//		} else if
-//		(acessar == 3){
-//			return "redirect:/funcionario/estoque";
-//		}
-//		serverMessage = "Dados Incorretos!";
-//		model.addAttribute("serverMessage", serverMessage);
-//
-//		return "redirect:/lifetree/funcionario/login";
-//	}
+@PostMapping("/logar")
+	public String logar(
+		@RequestParam("email") String email,
+		@RequestParam("senha") String senha, ModelMap model) {
+
+		int acessar = funcionarioService.logar(email,senha);
+
+		if(acessar == 2 ) {
+			return "redirect:/funcionario/estoque";
+		}
+		serverMessage = "Dados Incorretos!";
+		model.addAttribute("serverMessage", serverMessage);
+
+		return "redirect:/lifetree/funcionario/login";
+	}
 
 	//ROTA GET
 	@GetMapping ("/all")
@@ -66,5 +62,11 @@ public class FuncionarioController {
 		return "Estoque";
 	} 
 
+	@GetMapping("/loginfuncionario")
+	public String getLoginFuncionario(ModelMap model) {
+		model.addAttribute("funcionario" , new Funcionario());
+		return "loginFuncionario";
+	}
+	
 
 }
