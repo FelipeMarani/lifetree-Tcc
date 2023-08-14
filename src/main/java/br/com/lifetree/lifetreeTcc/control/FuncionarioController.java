@@ -34,14 +34,14 @@ public class FuncionarioController {
 	private String serverMessage = null;
 
 @PostMapping("/logar")
-	public String logar(
+	public String Logar(
 		@RequestParam("email") String email,
 		@RequestParam("senha") String senha, ModelMap model) {
 
 		int acessar = funcionarioService.logar(email,senha);
 
 		if(acessar == 2 ) {
-			return "redirect:/funcionario/estoque";
+			return "redirect:/lifetree/funcionario/Estoque";
 		}
 		serverMessage = "Dados Incorretos!";
 		model.addAttribute("serverMessage", serverMessage);

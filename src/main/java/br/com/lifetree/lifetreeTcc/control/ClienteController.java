@@ -58,10 +58,6 @@ public class ClienteController {
 
 		if(acessar == 1) {
 			return "redirect:/lifetree/cliente/home";
-		}else if(acessar == 2){
-			return "redirect:/funcionario/editarfuncionario";
-		}else if(acessar == 3) {
-			return "redirect:/funcionario/estoque";
 		}
 		serverMessage = "Dados icorretos";
 		model.addAttribute("serverMessage", serverMessage);

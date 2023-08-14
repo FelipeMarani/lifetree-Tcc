@@ -23,8 +23,7 @@ public class Funcionario {
 	private String Senha;
 	@Column(name = "NivelAcess")
 	private String acesso;
-	@Column(name = "statusFunc")
-	private String status;
+	
 	public long getId() {
 		return id;
 	}
@@ -54,12 +53,6 @@ public class Funcionario {
 	}
 	public void setAcesso(String acesso) {
 		this.acesso = acesso;
-	}
-	public String getStatus() {
-		return status;
-	}
-	public void setStatus(String status) {
-		this.status = status;
 	}
 	
 	

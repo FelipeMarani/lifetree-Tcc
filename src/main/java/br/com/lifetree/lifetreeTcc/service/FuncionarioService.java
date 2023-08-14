@@ -21,7 +21,7 @@ public class FuncionarioService {
 	public int logar(String email, String senha) {
 		Funcionario funcionario = funcionarioRepository.findByEmail(email);
 
-		if(funcionario != null && funcionario.getStatus().equals("Ativo")) {
+		if(funcionario != null) {
 
 			if(funcionario.getSenha().equals(senha)) {
 				if(funcionario.getAcesso().equals("ADMIN")) {

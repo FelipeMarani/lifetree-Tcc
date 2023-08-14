@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/Estoque.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
     <title>Estoque</title>
 </head>
 
@@ -31,8 +34,7 @@
     <section class="main">
         <div class="sidebar">
             <h1>Painel de Controle</h1>
-            <a href="#">Dashboard</a>
-            <a href="#">Adicionar Produto</a>
+            <a href="/lifetree/produtos/AdicionarProduto">Adicionar Produto</a>
             <a href="#">Editar Produto</a>
             <a href="#">Estoque</a>
             <br>
@@ -51,35 +53,45 @@
         </div>
 
 
-        <div class="api" th:src="${produto.foto} ? @{${'/lifetree/produto/showImage/'+ produto.id}}>
-            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-            <script type="text/javascript">
-                google.charts.load('current', { 'packages': ['table'] });
-                google.charts.setOnLoadCallback(drawTable);
-
-                function drawTable() {
-                    var data = new google.visualization.DataTable();
-                    data.addColumn('string', "${produto.nome}");
-                    data.addColumn('number', "${produto.preco}");
-                    data.addColumn('boolean', "${produto.quantidade}");
-                    data.addRows([
-                        [thtext="${produto.nome}", { v: thtext="${produto.quantidade}", f: thtext="${produto.preco}" }, true],
-                        ['Granola 100g', { v: 8000, f: 'R$ 7,99' }, false],
-                        ['Hambúrguer Vegetal Fazenda Futuro 230g', { v: 12500, f: 'R$ 21,99' }, true],
-                        ['Leite de Amedôas Nuts 1L', { v: 7000, f: 'R$ 12,99' }, true],
-                        ['Erva Doce 100g ', { v: 7000, f: 'R$ 5,99' }, true],
-                        ['Bold thin', { v: 7000, f: 'R$ 12,99' }, false],
-                        ['Garrafinha Proteína Vegetal Chocolate Avelã Muke 34g ', { v: 7000, f: 'R$ 16,90' }, false],
-                        ['Creatina 250g Monohidratada', { v: 7000, f: 'R$ 94,91' }, true]
-                        
-                    ]);
-
-                    var table = new google.visualization.Table(document.getElementById('table_div'));
-
-                    table.draw(data, { showRowNumber: false, width: '900px', height: '400px' });
-                }
-            </script>
-            <div id="table_div"></div>
+        <div class="api">
+            
+          <table class="table table-striped table-hover my-5 border-top">
+				<thead>
+					<tr>
+						<th scope="col">ID</th>
+						<th scope="col">Nome</th>
+						<th scope="col">Código de Barras</th>
+						<th scope="col">Preço</th>
+						<th scope="col">Categoria</th>
+						<th scope="col">Status</th>
+						<th scope="col">Editar</th>
+						
+					</tr>
+					<tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+      <td>@mdo</td>
+      <td>@mdo</td>
+      <td>@mdo</td>
+     
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+				</thead>
         </div>
     </section>
 
