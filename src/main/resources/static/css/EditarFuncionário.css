@@ -15,6 +15,13 @@ header {
   padding: 5px 2%;
   height: 80px;
 }
+.api{
+  margin-left: 25%;
+  width: 60%;
+  height: 50%;
+  margin-top: -40%;
+}
+
 
 #logo{
   height: 7px;

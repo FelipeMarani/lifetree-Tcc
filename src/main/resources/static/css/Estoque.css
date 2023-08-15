@@ -13,10 +13,6 @@ body {
    height: 100%;
    font-family: Arial, Helvetica, sans-serif;
    background-color: rgb(212, 225, 212);
-
-}
-table {
-	margin-top: 30px;
 }
 
 
@@ -123,6 +119,14 @@ header {
    height: 100%;
 }
 
+.api{
+   margin-left: 25%;
+   width: 60%;
+   height: 50%;
+   margin-top: -40%;
+}
+
+
 
 .sidebar {
    width: 17%;
@@ -165,38 +169,8 @@ header {
    top: 150px;
 }
 
-.container {
-   background-color: #d2d2db;
-   margin-top: 10%;
-   height: 39%;
-   width: 55%;
-   margin-left: 25px;
-   display: flex;
-   flex-direction: column;
-}
 
-.container-items {
-   display: inline-flex;
-}
 
-.container-items img {
-   height: 15px;
-   width: 15px;
-   margin: 30px;
-}
 
-.container-items h4 {
-   margin-top: 3%;
-   margin-left: 10%;
-}
 
-.tabela {
-   display: inline-flex;
-   background-color: #F2F2F2;
-}
 
-.tabela {
-   height: 15px;
-   width: 15px;
-   margin: 30px;
-}
