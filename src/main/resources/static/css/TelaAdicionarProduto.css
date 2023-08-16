@@ -140,6 +140,11 @@ header {
   margin-top: 40px;
 
 }
+#botão:hover {
+  background-color: #42dd9d;
+  transition: 0.2s;
+}
+
 
 .acc a {
   text-decoration: none;
