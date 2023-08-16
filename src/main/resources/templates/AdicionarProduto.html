@@ -59,8 +59,21 @@
             <p>Preço <input type="number" th:field="*{preco}"></p>
             <p>Descrição do Produto <input type="text" th:field="*{descricao}"/></p>
             <p>Código de Barra <input type="number" th:field="*{cod_barra}"/></p>
-            <p>Tipo de produto<input type="text"  th:field="*{tpProduto.tpProduto}"/></p>
-            <p>Marca do produto<input type="text"  th:field="*{mcProduto.Marca}"/></p>    
+            <p>Tipo de produto
+                <select name="Tipo-produto"  th:field="*{tpProduto}" onChange="onstatechange(this)">
+                    <option value="0">Escolha os tipos de produtos</option>
+                    <option th:each="tpProduto: ${tpProduto}" 
+                            th:text="${tpProduto.TpProduto}" th:value="${tpProduto.id}">
+                    </option>	
+                </select>
+            </p>
+            <p>Marca do produto
+                <select name="categoria"  th:field="*{mcProduto}" onChange="onstatechange(this)">
+                    <option value="0">Escolha uma marca do produto</option>
+                    <option th:each="mcProduto : ${mcProduto}" 
+                            th:text="${mcProduto.Marca}" th:value="${mcProduto.id}">
+                    </option>	
+                </select>   
 
             <label type ="text">Destaque</label>
             <input type ="checkbox" value ="SIM" checked id="checkbox" th:field="*{destaque}"></label> 
