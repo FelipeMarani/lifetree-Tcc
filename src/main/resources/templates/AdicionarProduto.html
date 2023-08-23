@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/AdicionarProduto.css">
+    <link rel="stylesheet" href="/src/main/resources/static/css/AdicionarProduto.css">
     
     <title>Adicionar Produto</title>
 </head>
@@ -54,11 +54,11 @@
                 class="rounded mx-auto d-block img-fluid" />
             </div>
             <div class="desc-prod">
-            <p>Nome do produto<input type="text" th:field="*{nome}"> </p>
-            <p>Quantidade <input type="number" th:field="*{quantidade}" maxlength="10"></p>
-            <p>Preço <input type="number" th:field="*{preco}"></p>
-            <p>Descrição do Produto <input type="text" th:field="*{descricao}"/></p>
-            <p>Código de Barra <input type="number" th:field="*{cod_barra}"/></p>
+            <p>Nome do produto<input class="Imput" type="text" th:field="*{nome}"> </p>
+            <p>Quantidade <input class="Imput" type="number" th:field="*{quantidade}" maxlength="10"></p>
+            <p>Preço <input class="Imput" type="number" th:field="*{preco}"></p>
+            <p>Descrição do Produto <input class="Imput" type="text" th:field="*{descricao}"/></p>
+            <p>Código de Barra <input class="Imput" type="number" th:field="*{cod_barra}"/></p>
             <p>Tipo de produto
                 <select name="Tipo-produto"  th:field="*{tpProduto}" onChange="onstatechange(this)">
                     <option value="0">Escolha os tipos de produtos</option>
@@ -67,6 +67,7 @@
                     </option>	
                 </select>
             </p>
+            <br>
             <p>Marca do produto
                 <select name="categoria"  th:field="*{mcProduto}" onChange="onstatechange(this)">
                     <option value="0">Escolha uma marca do produto</option>
@@ -74,7 +75,7 @@
                             th:text="${mcProduto.Marca}" th:value="${mcProduto.id}">
                     </option>	
                 </select>   
-
+                    <br><br>
             <label type ="text">Destaque</label>
             <input type ="checkbox" value ="SIM" checked id="checkbox" th:field="*{destaque}"></label> 
                      
@@ -95,6 +96,6 @@
     </section>
 
 </section>
-    <script src="/js/AdicionarProduto.js"></script>
+    <script src="/src/main/resources/static/js/AdicionarProduto.js"></script>
 </body>
 </html>
