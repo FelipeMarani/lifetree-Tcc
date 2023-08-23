@@ -62,8 +62,6 @@ create table tpProduto
 insert into tpProduto(TpProduto)
 values('Ch� e Infus�es');
 insert into tpProduto(TpProduto)
-values('A Granel');
-insert into tpProduto(TpProduto)
 values('Vitaminas e Suplementos');
 insert into tpProduto(TpProduto)
 values('Mercearia e Emp�rio');
@@ -73,20 +71,7 @@ insert into tpProduto(TpProduto)
 values('Refrigerados');
 insert into tpProduto(TpProduto)
 values('Promo��es');
-insert into tpProduto(TpProduto)
-values('Sem A�ucar');
-insert into tpProduto(TpProduto)
-values('Sem Gl�ten');
-insert into tpProduto(TpProduto)
-values('Sem Lactose');
-insert into tpProduto(TpProduto)
-values('Org�nico');
-insert into tpProduto(TpProduto)
-values('Vegano');
-insert into tpProduto(TpProduto)
-values('Vegetariano');
-insert into tpProduto(TpProduto)
-values('Baixo carboidrato');
+
 
 
 create table mcProduto

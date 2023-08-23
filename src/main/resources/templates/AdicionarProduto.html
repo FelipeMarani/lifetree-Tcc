@@ -32,8 +32,7 @@
         </strong>
    
       <a href="#">Adicionar Produto</a>
-      <a href="#">Editar Produto</a>
-      <a href="/lifetree/funcionario/Estoque">Estoque</a>
+      <a href="/lifetree/produtos/Estoque">Estoque</a>
   
         <br>
         <hr>
@@ -62,15 +61,15 @@
             <p>Tipo de produto
                 <select name="Tipo-produto"  th:field="*{tpProduto}" onChange="onstatechange(this)">
                     <option value="0">Escolha os tipos de produtos</option>
-                    <option th:each="tpProduto: ${tpProduto}" 
-                            th:text="${tpProduto.TpProduto}" th:value="${tpProduto.id}">
+                    <option th:each="tpProduto: ${tpProdutos}" 
+                            th:text="${tpProduto.tpProduto}" th:value="${tpProduto.id}">
                     </option>	
                 </select>
             </p>
             <p>Marca do produto
                 <select name="categoria"  th:field="*{mcProduto}" onChange="onstatechange(this)">
                     <option value="0">Escolha uma marca do produto</option>
-                    <option th:each="mcProduto : ${mcProduto}" 
+                    <option th:each="mcProduto : ${mcProdutos}" 
                             th:text="${mcProduto.Marca}" th:value="${mcProduto.id}">
                     </option>	
                 </select>   

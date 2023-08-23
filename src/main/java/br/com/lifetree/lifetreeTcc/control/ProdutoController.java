@@ -18,7 +18,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.lifetree.lifetreeTcc.model.entity.Produto;
+import br.com.lifetree.lifetreeTcc.service.McProdutoService;
 import br.com.lifetree.lifetreeTcc.service.ProdutoService;
+import br.com.lifetree.lifetreeTcc.service.TpProdutoService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletResponse;
 
@@ -28,15 +30,25 @@ import jakarta.servlet.http.HttpServletResponse;
 public class ProdutoController {
 
 	final ProdutoService produtoService;
+	final TpProdutoService tpProdutoService;
+	final McProdutoService mcProdutoService;
 
 	private String foto = "";
 
 	// CASO O PRODUTO NÃO TENHA UMA IMAGEM CADASTRADA NO BANCO DE DADOS
 	private String semImagem = "/images/semImagem.png";
 
-	public ProdutoController(ProdutoService _produtoService) {
-		this.produtoService = _produtoService;
+	
+	
+
+	public ProdutoController(ProdutoService produtoService, TpProdutoService tpProdutoService,
+			McProdutoService mcProdutoService) {
+		super();
+		this.produtoService = produtoService;
+		this.tpProdutoService = tpProdutoService;
+		this.mcProdutoService = mcProdutoService;
 	}
+
 	// CARREGA A IMAGEM DO SERVIDOR NA PÁGINA DE ACORDO COM O "ID" DO PRODUTO
 	// NA PÁGINA HTML FICA ASSIM: src="/api/v1/produto/show/image/1"
 	// CARREGA A URL DA IMAGEM
@@ -95,12 +107,16 @@ public class ProdutoController {
 //ROTA GET
 	@GetMapping ("/all")
 	public ResponseEntity<List<Produto>> getAllProduto(){
+		
 		return ResponseEntity.status(HttpStatus.OK)
 				.body(produtoService.ListarTodos());
 	}
 	
 	@GetMapping("/AdicionarProduto")
 	public String getadicionarProdutos(ModelMap model) {
+		
+		model.addAttribute("tpProdutos", tpProdutoService.findAll());
+		model.addAttribute("mcProdutos", mcProdutoService.findAll());
 		model.addAttribute("produto", new Produto());
 		return "AdicionarProduto";
 	}
@@ -139,6 +155,30 @@ public class ProdutoController {
 		}
 
 		response.getOutputStream().close();
+	}
+	
+	@GetMapping ("/Estoque")
+	public String getEstoque(ModelMap model){
+		model.addAttribute("produtos",  produtoService.ListarTodos());
+		return "Estoque";
+	} 
+	
+	@GetMapping("/editar/{id}")
+	public String editarProduto(@PathVariable("id") int id, ModelMap model) {
+		
+		Produto produto = produtoService.findById(id);
+
+    	if (produto.getImagem() != null) {
+    		if (produto.getImagem().length > 0) {
+			foto = Base64.getEncoder().encodeToString(produto.getImagem());
+    		}
+		}
+    	
+    	model.addAttribute("tpProdutos", tpProdutoService.findAll());
+		model.addAttribute("mcProdutos", mcProdutoService.findAll());
+		model.addAttribute("produto", produto);
+		
+		return "AdicionarProduto";
 	}
 
 
