@@ -60,9 +60,7 @@ create table tpProduto
 )
 
 insert into tpProduto(TpProduto)
-values('Ch� e Infus�es');
-insert into tpProduto(TpProduto)
-values('A Granel');
+values('Ch� e Infus�es')
 insert into tpProduto(TpProduto)
 values('Vitaminas e Suplementos');
 insert into tpProduto(TpProduto)
@@ -73,20 +71,6 @@ insert into tpProduto(TpProduto)
 values('Refrigerados');
 insert into tpProduto(TpProduto)
 values('Promo��es');
-insert into tpProduto(TpProduto)
-values('Sem A�ucar');
-insert into tpProduto(TpProduto)
-values('Sem Gl�ten');
-insert into tpProduto(TpProduto)
-values('Sem Lactose');
-insert into tpProduto(TpProduto)
-values('Org�nico');
-insert into tpProduto(TpProduto)
-values('Vegano');
-insert into tpProduto(TpProduto)
-values('Vegetariano');
-insert into tpProduto(TpProduto)
-values('Baixo carboidrato');
 
 
 create table mcProduto
@@ -94,6 +78,18 @@ create table mcProduto
 	Marca varchar(100)not null,
 	primary key(id)
 )
+
+insert into mcProduto(Marca)
+values('Leão')
+insert into mcProduto(Marca)
+values('coca-cola')
+insert into mcProduto(Marca)
+values('Maizena')
+insert into mcProduto(Marca)
+values('Nestlé')
+insert into mcProduto(Marca)
+values('Aurora')
+
 
 create table Produto
 (	id bigint identity,
