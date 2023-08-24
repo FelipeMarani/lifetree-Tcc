@@ -46,12 +46,17 @@
 
         <div class="informations">
 
-        <form action="#" th:action="@{/lifetree/produtos/save}" th:object="${produto}" method="post">
+            <label class="picture" for="picture__input" tabIndex="0">
+                <span class="picture__image"></span>
+              </label>
+              
+              <input type="file" name="picture__input" id="picture__input">
+        <!--<form action="#" th:action="@{/lifetree/produtos/save}" th:object="${produto}" method="post">
             <div class="form-group1">
               
                 <img id="preView" alt="..." th:src="*{Imagem} ? @{${''+ produto.id}} : ${semImagem}"
                 class="rounded mx-auto d-block img-fluid" />
-            </div>
+            </div>-->
             <div class="desc-prod">
             <p>Nome do produto<input class="Imput" type="text" th:field="*{nome}"> </p>
             <p>Quantidade <input class="Imput" type="number" th:field="*{quantidade}" maxlength="10"></p>
@@ -78,10 +83,11 @@
             <label type ="text">Destaque</label>
             <input type ="checkbox" value ="SIM" checked id="checkbox" th:field="*{destaque}"></label> 
                      
-            <div class="form-group col-md-4">
+           <!--<div class="form-group col-md-4">
                 <label for="uploadImage" class="form-label">Insira uma foto para o produto</label>
                 <input class="form-control" type="file" onchange="preViewImg();" name="file" accept="image/*" id="uploadImage">
-            </div>
+            </div>--> 
+            
         </div>
            
         </div>
