@@ -60,7 +60,7 @@ create table tpProduto
 )
 
 insert into tpProduto(TpProduto)
-values('Ch� e Infus�es');
+values('Ch� e Infus�es')
 insert into tpProduto(TpProduto)
 values('Vitaminas e Suplementos');
 insert into tpProduto(TpProduto)
@@ -73,12 +73,23 @@ insert into tpProduto(TpProduto)
 values('Promo��es');
 
 
-
 create table mcProduto
 (	id bigint identity,
 	Marca varchar(100)not null,
 	primary key(id)
 )
+
+insert into mcProduto(Marca)
+values('Leão')
+insert into mcProduto(Marca)
+values('coca-cola')
+insert into mcProduto(Marca)
+values('Maizena')
+insert into mcProduto(Marca)
+values('Nestlé')
+insert into mcProduto(Marca)
+values('Aurora')
+
 
 create table Produto
 (	id bigint identity,
