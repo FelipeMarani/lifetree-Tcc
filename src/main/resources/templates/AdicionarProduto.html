@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/TelaAdicionarProduto.css">
+    <link rel="stylesheet" href="/src/main/resources/static/css/AdicionarProduto.css">
     
     <title>Adicionar Produto</title>
 </head>
@@ -32,8 +32,7 @@
         </strong>
    
       <a href="#">Adicionar Produto</a>
-      <a href="#">Editar Produto</a>
-      <a href="/lifetree/funcionario/Estoque">Estoque</a>
+      <a href="/lifetree/produtos/Estoque">Estoque</a>
   
         <br>
         <hr>
@@ -54,6 +53,7 @@
                 class="rounded mx-auto d-block img-fluid" />
             </div>
             <div class="desc-prod">
+<<<<<<< HEAD
             <p>Nome do produto<input type="text" th:field="*{nome}"> </p>
             <p>Quantidade <input type="number" th:field="*{quantidade}" maxlength="10"></p>
             <p>Preço <input type="number" th:field="*{preco}"></p>
@@ -74,6 +74,30 @@
               </div>
               
          -->
+=======
+            <p>Nome do produto<input class="Imput" type="text" th:field="*{nome}"> </p>
+            <p>Quantidade <input class="Imput" type="number" th:field="*{quantidade}" maxlength="10"></p>
+            <p>Preço <input class="Imput" type="number" th:field="*{preco}"></p>
+            <p>Descrição do Produto <input class="Imput" type="text" th:field="*{descricao}"/></p>
+            <p>Código de Barra <input class="Imput" type="number" th:field="*{cod_barra}"/></p>
+            <p>Tipo de produto
+                <select name="Tipo-produto"  th:field="*{tpProduto}" onChange="onstatechange(this)">
+                    <option value="0">Escolha os tipos de produtos</option>
+                    <option th:each="tpProduto: ${tpProdutos}" 
+                            th:text="${tpProduto.tpProduto}" th:value="${tpProduto.id}">
+                    </option>	
+                </select>
+            </p>
+            <br>
+            <p>Marca do produto
+                <select name="categoria"  th:field="*{mcProduto}" onChange="onstatechange(this)">
+                    <option value="0">Escolha uma marca do produto</option>
+                    <option th:each="mcProduto : ${mcProdutos}" 
+                            th:text="${mcProduto.Marca}" th:value="${mcProduto.id}">
+                    </option>	
+                </select>   
+                    <br><br>
+>>>>>>> 61120aa038bc0ba4b5da1bf012052021b4b9f42e
             <label type ="text">Destaque</label>
             <input type ="checkbox" value ="SIM" checked id="checkbox" th:field="*{destaque}"></label> 
                      
@@ -94,6 +118,6 @@
     </section>
 
 </section>
-    <script src="/js/TelaAdicionarProduto.js"></script>
+    <script src="/src/main/resources/static/js/AdicionarProduto.js"></script>
 </body>
 </html>

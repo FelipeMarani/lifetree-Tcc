@@ -60,11 +60,7 @@ create table tpProduto
 )
 
 insert into tpProduto(TpProduto)
-<<<<<<< HEAD
 values('Ch� e Infus�es')
-=======
-values('Ch� e Infus�es');
->>>>>>> 61120aa038bc0ba4b5da1bf012052021b4b9f42e
 insert into tpProduto(TpProduto)
 values('Vitaminas e Suplementos');
 insert into tpProduto(TpProduto)
@@ -75,10 +71,6 @@ insert into tpProduto(TpProduto)
 values('Refrigerados');
 insert into tpProduto(TpProduto)
 values('Promo��es');
-<<<<<<< HEAD
-=======
-
->>>>>>> 61120aa038bc0ba4b5da1bf012052021b4b9f42e
 
 
 create table mcProduto
