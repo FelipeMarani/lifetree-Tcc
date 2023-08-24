@@ -178,7 +178,7 @@ public class ProdutoController {
 
 		produtoService.inativarProd(produto);
 		
-		return "redirect:/api/v1/produto/todos";
+		return "Estoque";
 	}
 
 
