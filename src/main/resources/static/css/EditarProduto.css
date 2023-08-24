@@ -130,6 +130,17 @@ header {
 
 }
 
+#inativar {
+  width: 100pt;
+  height: 50px;
+  border-radius: 25px;
+  background-color: #038c5a;
+  color: white;
+  border-color: black;
+  margin-top: 40px;
+  margin-left: 70px;
+
+}
 #botão {
   width: 100pt;
   height: 50px;

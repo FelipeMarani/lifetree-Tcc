@@ -14,7 +14,16 @@ header {
   padding: 5px 2%;
   height: 80px;
 }
-
+#preView{
+  margin-left: 35%;
+  margin-top:90px;
+  position: absolute;
+  width: 450px; /* Define a largura */
+  height: 450px;
+  background-color: #f2f2f2;
+  border-color: #038c5a ;
+  border: 1px solid black;
+}
 
 .desc-prod{
   margin-top: -10px;
@@ -258,60 +267,4 @@ section.module.box {
 .botão:hover {
   background-color: #42dd9d;
   transition: 0.2s;
-}
-
-#picture__input {
-  display: none;
-}
-
-/*margin-left: 35%;
-  margin-top:90px;
-  position: absolute;
-  width: 450px; /* Define a largura 
-  height: 450px;
-  background-color: #f2f2f2;
-  border-color: #038c5a ;
-  border: 1px solid black;*/
-
-.picture {
-  margin-left: 30%;
-  margin-top:30px;
-  padding: 0;
-  width: 550px;
-  height: 500px;
-  background-color: #f2f2f2;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  position: absolute;
-  color: #aaa;
-  border-color: #038c5a ;
-  border: 1px solid black;
-  cursor: pointer;
-  font-family: sans-serif;
-  transition: color 300ms ease-in-out, background 300ms ease-in-out;
-  outline: none;
-  overflow: hidden;
-  
-}
-
-.picture:hover {
-  color: #777;
-  background: #ccc;
-}
-
-.picture:active {
-  border-color: turquoise;
-  color: turquoise;
-  background: #eee;
-}
-
-.picture:focus {
-  color: #777;
-  background: #ccc;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
-
-.picture__img {
-  max-width: 100%;
 }
