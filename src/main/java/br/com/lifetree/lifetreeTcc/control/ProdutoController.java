@@ -36,7 +36,7 @@ public class ProdutoController {
 	private String foto = "";
 
 	// CASO O PRODUTO NÃO TENHA UMA IMAGEM CADASTRADA NO BANCO DE DADOS
-	private String semImagem = "/images/semImagem.png";
+	private String semImagem = "/img/semImagem.png";
 
 	
 	
@@ -85,14 +85,17 @@ public class ProdutoController {
 
 	@PostMapping("/todos-filtro")
 	public String mostrarTodosFiltro(ModelMap model, 
-			@RequestParam(value = "nomeProd", required = false) String nomeProd) {
-
-		if (nomeProd.trim().equals("")) {
+			@RequestParam(value = "Produtos", required = false) String Produto) {
+// problemas 
+		// erro no "trim" falar com o cruz para usar o input de pesquisar os prods
+		// assim q eu edito o produto, ele esta gerando outro produto dublicado
+		
+		if (Produto.equals("")) {
 			model.addAttribute("produtos", produtoService.ListarTodos());
 		} else {
-			model.addAttribute("produtos", produtoService.listarTodosFiltro(nomeProd));
+			model.addAttribute("produtos", produtoService.listarTodosFiltro(Produto));
 		}
-		return "todos-produtos-filtro";
+		return "Estoque";
 	}
 	
 	
@@ -140,23 +143,7 @@ public class ProdutoController {
 		return "Estoque";
 	}
 	
-	@GetMapping("/showImage/{id}")
-	@ResponseBody
-	public void showImage(
-			@PathVariable("id") long id, HttpServletResponse response, Produto produto)
-			throws ServletException, IOException {
-
-		produto = produtoService.findById(id);
-
-		response.setContentType("image/jpeg, image/jpg, image/png, image/gif");
-		if (produto.getImagem() != null) {
-			response.getOutputStream().write(produto.getImagem());
-		} else {
-			response.getOutputStream().write(null);
-		}
-
-		response.getOutputStream().close();
-	}
+	
 	
 	@GetMapping ("/Estoque")
 	public String getEstoque(ModelMap model){
@@ -180,6 +167,15 @@ public class ProdutoController {
 		model.addAttribute("produto", produto);
 		
 		return "AdicionarProduto";
+	}
+	
+	@PostMapping("/inativar/{id}")
+	public String excluirProduto(
+			@PathVariable("id") int id, Produto produto, ModelMap model) {
+
+		produtoService.inativarProd(produto);
+		
+		return "redirect:/api/v1/produto/todos";
 	}
 
 
