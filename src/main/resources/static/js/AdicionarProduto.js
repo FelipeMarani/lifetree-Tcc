@@ -9,10 +9,6 @@ function preViewImg() {
 
 	imgPreView.onload = function(imgPreViewEvent) {
 		document.getElementById("preView").src = imgPreViewEvent.target.result;
-		document.getElementById("preView").style.width = '450px';
-		document.getElementById("preView").style.height = '450px';
-
 	}
-	
 }
   

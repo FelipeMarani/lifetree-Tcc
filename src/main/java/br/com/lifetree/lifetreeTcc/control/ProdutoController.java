@@ -100,9 +100,6 @@ public class ProdutoController {
 	
 	//ROTA POST
 	@PostMapping("/save")
-	// public ResponseEntity<Object> saveProduto(Produto produto){
-	// 	return ResponseEntity.status(HttpStatus.CREATED)
-	// 			.body(produtoService.save(produto));
 	public String gravarProduto(
 			@RequestParam(value = "file", required = false) MultipartFile file,
 			Produto produto,  ModelMap model) {
