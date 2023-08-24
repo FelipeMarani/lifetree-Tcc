@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import br.com.lifetree.lifetreeTcc.model.entity.Produto;
 import br.com.lifetree.lifetreeTcc.service.McProdutoService;
@@ -99,9 +100,16 @@ public class ProdutoController {
 	
 	//ROTA POST
 	@PostMapping("/save")
-	public ResponseEntity<Object> saveProduto(Produto produto){
-		return ResponseEntity.status(HttpStatus.CREATED)
-				.body(produtoService.save(produto));
+	// public ResponseEntity<Object> saveProduto(Produto produto){
+	// 	return ResponseEntity.status(HttpStatus.CREATED)
+	// 			.body(produtoService.save(produto));
+	public String gravarProduto(
+			@RequestParam(value = "file", required = false) MultipartFile file,
+			Produto produto,  ModelMap model) {
+
+		produtoService.gravarNovoProd(file, produto);
+		return "Estoque";
+		
 		
 
 	}
