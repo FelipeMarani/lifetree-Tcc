@@ -86,15 +86,13 @@ public class ProdutoController {
 
 	@PostMapping("/todos-filtro")
 	public String mostrarTodosFiltro(ModelMap model, 
-			@RequestParam(value = "Produtos", required = false) String Produto) {
-// problemas 
-		// erro no "trim" falar com o cruz para usar o input de pesquisar os prods
+			@RequestParam(value = "nomeProd", required = false) String nome) {
 		// assim q eu edito o produto, ele esta gerando outro produto dublicado
 		
-		if (Produto.equals("")) {
+		if (nome.trim().equals("")) {
 			model.addAttribute("produtos", produtoService.ListarTodos());
 		} else {
-			model.addAttribute("produtos", produtoService.listarTodosFiltro(Produto));
+			model.addAttribute("produtos", produtoService.listarTodosFiltro(nome));
 		}
 		return "Estoque";
 	}
@@ -158,8 +156,13 @@ public class ProdutoController {
 		model.addAttribute("produtos",  produtoService.ListarTodos());
 		return "Estoque";
 	} 
+	@GetMapping ("/Editarproduto")
+	public String getEditarProduto(ModelMap model){
+		model.addAttribute("produtos",  produtoService.ListarTodos());
+		return "Editarproduto";
+	} 
 	
-	@GetMapping("/editar/{id}")
+	@GetMapping("/Editarproduto/{id}")
 	public String editarProduto(@PathVariable("id") int id, ModelMap model) {
 		
 		Produto produto = produtoService.findById(id);
@@ -174,7 +177,7 @@ public class ProdutoController {
 		model.addAttribute("mcProdutos", mcProdutoService.findAll());
 		model.addAttribute("produto", produto);
 		
-		return "AdicionarProduto";
+		return "Editarproduto";
 	}
 	
 	@PostMapping("/inativar/{id}")

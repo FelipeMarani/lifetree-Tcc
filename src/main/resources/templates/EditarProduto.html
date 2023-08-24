@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/src/main/resources/static/css/AdicionarProduto.css">
+    <link rel="stylesheet" href="/CSS/EditarProduto.css">
     
     <title>Adicionar Produto</title>
 </head>
@@ -32,7 +32,7 @@
         </strong>
    
       <a href="#">Adicionar Produto</a>
-      <a href="/src/main/resources/templates/Estoque.html">Estoque</a>
+      <a href="/lifetree/produtos/Estoque">Estoque</a>
   
         <br>
         <hr>
@@ -53,6 +53,7 @@
                 class="rounded mx-auto d-block img-fluid" />
             </div>
             <div class="desc-prod">
+            <p>ID:</p><td type="text" th:text="${produto.id}">ID: </td>
             <p>Nome do produto<input class="Imput" type="text" th:field="*{nome}"> </p>
             <p>Quantidade <input class="Imput" type="number" th:field="*{quantidade}" maxlength="10"></p>
             <p>Preço <input class="Imput" type="number" th:field="*{preco}"></p>
@@ -90,11 +91,12 @@
         <div class="button">
             <Button type="submit" id="botão">Confirmar</Button>
               </form>
+             <bu
               
         </div>
     </section>
 
 </section>
-    <script src="/src/main/resources/static/js/AdicionarProduto.js"></script>
+    <script src="/js/EditarProduto.js"></script>
 </body>
 </html>

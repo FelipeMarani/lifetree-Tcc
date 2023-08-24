@@ -48,7 +48,7 @@
         
         <div class="infClick">
 			<form th:action="@{/lifetree/produtos/todos-filtro}" method="post">         
-				<input type="search" id="barraP" > 
+				<input type="text" id="barraP" name="nomeProd"> 
             <input type="button" id="pesquisaP" value="Pesquisar">
             </form>
         </div>
@@ -77,7 +77,7 @@
 						<td th:text="${produto.tpProduto.tpProduto}"></td>
 						<td th:text="${produto.statusProd}"></td>
 						<td>
-							<a th:href="@{/lifetree/produtos/editar/{id}(id=${produto.id})}" class="btn btn-primary btn-sm pb-0">
+							<a th:href="@{/lifetree/produtos/Editarproduto/{id}(id=${produto.id})}" class="btn btn-primary btn-sm pb-0">
 								Editar
 							</a>
 			
