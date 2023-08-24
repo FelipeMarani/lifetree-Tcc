@@ -47,8 +47,10 @@
         <br>
         
         <div class="infClick">
-            <input type="search" id="barraP"> 
-            <input type="button" id="pesquisaP" value="Pesquisar produto">
+			<form th:action="@{/lifetree/produtos/todos-filtro}" method="post">         
+				<input type="search" id="barraP" > 
+            <input type="button" id="pesquisaP" value="Pesquisar">
+            </form>
         </div>
     </section>
 
