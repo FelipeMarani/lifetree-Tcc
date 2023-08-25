@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/src/main/resources/static/css/AdicionarProduto.css">
+    <link rel="stylesheet" href="/css/AdicionarProduto.css">
     
     <title>Adicionar Produto</title>
 </head>
@@ -51,12 +51,12 @@
               </label>
               
               <input type="file" name="picture__input" id="picture__input">
-        <!--<form action="#" th:action="@{/lifetree/produtos/save}" th:object="${produto}" method="post">
+        <form action="#" th:action="@{/lifetree/produtos/save}" th:object="${produto}" method="post">
             <div class="form-group1">
               
                 <img id="preView" alt="..." th:src="*{Imagem} ? @{${''+ produto.id}} : ${semImagem}"
                 class="rounded mx-auto d-block img-fluid" />
-            </div>-->
+            </div>
             <div class="desc-prod">
             <p>Nome do produto<input class="Imput" type="text" th:field="*{nome}"> </p>
             <p>Quantidade <input class="Imput" type="number" th:field="*{quantidade}" maxlength="10"></p>
@@ -83,10 +83,10 @@
             <label type ="text">Destaque</label>
             <input type ="checkbox" value ="SIM" checked id="checkbox" th:field="*{destaque}"></label> 
                      
-           <!--<div class="form-group col-md-4">
+           <div class="form-group col-md-4">
                 <label for="uploadImage" class="form-label">Insira uma foto para o produto</label>
                 <input class="form-control" type="file" onchange="preViewImg();" name="file" accept="image/*" id="uploadImage">
-            </div>--> 
+            </div> 
             
         </div>
            
