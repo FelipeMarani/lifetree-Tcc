@@ -35,8 +35,8 @@ header {
 }
 
 .form-control{
-  margin-top: -33rem;
-  margin-left: 62%;
+  margin-top: 2rem;
+  margin-left: 51.5%;
 }
 
 #logo {
@@ -179,12 +179,18 @@ header {
   left: 200px;
 }
 
-input{
+.Imput{
   height: 30px;
   width: 220pt;
   display: block;
   margin-bottom: 20px;
 
+}
+
+.check{
+  height: 20px;
+  width: 40px;
+  position: absolute;
 }
 
 section.module.box {

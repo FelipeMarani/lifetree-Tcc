@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/EditarProduto.css">
+    <link rel="stylesheet" href="/src/main/resources/static/css/EditarProduto.css">
     
-    <title>Adicionar Produto</title>
+    <title>Editar Produto</title>
 </head>
 <body>
     <header>    
@@ -28,7 +28,7 @@
 
     <div class="sidebar">
         <strong>
-          <h1>Adicionar Produto</h1>
+          <h1>Editar Produto</h1>
         </strong>
    
       <a href="/lifetree/produtos/AdicionarProduto">Adicionar Produto</a>
@@ -40,7 +40,7 @@
 
     <section class="module box">
         <div class="title">
-            <h2> Adicionar produto</h2>
+            <h2> Editar produto</h2>
             <hr>
         </div>
 
@@ -53,7 +53,7 @@
                 class="rounded mx-auto d-block img-fluid" />
             </div>
             <div class="desc-prod">
-            <p>ID:</p><td type="text" th:text="${produto.id}">ID: </td>
+            <p>ID<input class="Imput" type="text" th:text="${produto.id}"></p>
             <p>Nome do produto<input class="Imput" type="text" th:field="*{nome}"> </p>
             <p>Quantidade <input class="Imput" type="number" th:field="*{quantidade}" maxlength="10"></p>
             <p>Preço <input class="Imput" type="number" th:field="*{preco}"></p>
@@ -76,8 +76,9 @@
                     </option>	
                 </select>   
                     <br><br>
-            <label type ="text">Destaque</label>
-            <input type ="checkbox" value ="SIM" checked id="checkbox" th:field="*{destaque}"></label> 
+        <label type ="text">Destaque
+            <input class="check" type ="checkbox" value ="SIM" checked id="checkbox" th:field="*{destaque}">
+        </label> 
                      
             <div class="form-group col-md-4">
                 <label for="uploadImage" class="form-label">Insira uma foto para o produto</label>
@@ -97,6 +98,6 @@
     </section>
 
 </section>
-    <script src="/js/EditarProduto.js"></script>
+    <script src="/src/main/resources/static/js/EditarProduto.js"></script>
 </body>
 </html>
