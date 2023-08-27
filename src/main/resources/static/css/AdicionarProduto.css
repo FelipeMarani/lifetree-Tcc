@@ -16,7 +16,7 @@ header {
 }
 #preView{
   margin-left: 35%;
-  margin-top:90px;
+  margin-top:0px;
   position: absolute;
   width: 450px; /* Define a largura */
   height: 450px;
@@ -34,9 +34,15 @@ header {
   margin-left: 62%;
 }
 
+.check{
+  height: 20px;
+  width: 40px;
+  position: absolute;
+}
+
 .form-control{
-  margin-top: -33rem;
-  margin-left: 62%;
+  margin-top: 0.5rem;
+  margin-left: 51.5%;
 }
 
 #logo {
@@ -173,7 +179,7 @@ header {
   left: 200px;
 }
 
-input{
+.Imput{
   height: 30px;
   width: 220pt;
   display: block;

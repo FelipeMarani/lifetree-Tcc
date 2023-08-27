@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/AdicionarProduto.css">
+    <link rel="stylesheet" href="/src/main/resources/static/css/AdicionarProduto.css">
     
     <title>Adicionar Produto</title>
 </head>
@@ -46,7 +46,10 @@
 
         <div class="informations">
 
+<<<<<<< HEAD
            
+=======
+>>>>>>> ab22dc88ae0f3775db611f8e79bb9b32bd072892
               
               <input type="file" name="picture__input" id="picture__input">
         <form action="#" th:action="@{/lifetree/produtos/save}" th:object="${produto}" method="post">
@@ -79,7 +82,7 @@
                 </select>   
                     <br><br>
             <label type ="text">Destaque</label>
-            <input type ="checkbox" value ="SIM" checked id="checkbox" th:field="*{destaque}"></label> 
+            <input class="check" type ="checkbox" value ="SIM" checked id="checkbox" th:field="*{destaque}"></label> 
                      
            <div class="form-group col-md-4">
                 <label for="uploadImage" class="form-label">Insira uma foto para o produto</label>
