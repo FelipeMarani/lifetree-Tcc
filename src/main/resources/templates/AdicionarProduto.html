@@ -32,7 +32,7 @@
         </strong>
    
       <a href="#">Adicionar Produto</a>
-      <a href="/src/main/resources/templates/Estoque.html">Estoque</a>
+      <a href="/lifetree/produtos/Estoque">Estoque</a>
   
         <br>
         <hr>
@@ -46,9 +46,7 @@
 
         <div class="informations">
 
-            <label class="picture" for="picture__input" tabIndex="0">
-                <span class="picture__image"></span>
-              </label>
+           
               
               <input type="file" name="picture__input" id="picture__input">
         <form action="#" th:action="@{/lifetree/produtos/save}" th:object="${produto}" method="post">
