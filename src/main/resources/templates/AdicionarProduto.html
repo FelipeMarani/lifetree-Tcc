@@ -48,7 +48,7 @@
 
               
               <input type="file" name="picture__input" id="picture__input">
-        <form action="#" th:action="@{/lifetree/produtos/save}" th:object="${produto}" method="post">
+        <form action="#" th:action="@{/lifetree/produtos/save}" enctype="multipart/form-data" th:object="${produto}" method="post">
             <div class="form-group1">
               
                 <img id="preView" alt="..." th:src="*{Imagem} ? @{${''+ produto.id}} : ${semImagem}"
@@ -57,7 +57,7 @@
             <div class="desc-prod">
             <p>Nome do produto<input class="Imput" type="text" th:field="*{nome}"> </p>
             <p>Quantidade <input class="Imput" type="number" th:field="*{quantidade}" maxlength="10"></p>
-            <p>Preço <input class="Imput" type="number" th:field="*{preco}"></p>
+            <p>Preço <input class="Imput" type="text" th:field="*{preco}"></p>
             <p>Descrição do Produto <input class="Imput" type="text" th:field="*{descricao}"/></p>
             <p>Código de Barra <input class="Imput" type="number" th:field="*{cod_barra}"/></p>
             <p>Tipo de produto
@@ -98,6 +98,6 @@
     </section>
 
 </section>
-    <script src="/src/main/resources/static/js/AdicionarProduto.js"></script>
+    <script src="/js/AdicionarProduto.js"></script>
 </body>
 </html>

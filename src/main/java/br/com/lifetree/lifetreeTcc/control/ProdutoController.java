@@ -39,6 +39,7 @@ public class ProdutoController {
 
 	// CASO O PRODUTO NÃO TENHA UMA IMAGEM CADASTRADA NO BANCO DE DADOS
 	private String semImagem = "/img/semImagem.png";
+	private String foto = "";
 
 
 

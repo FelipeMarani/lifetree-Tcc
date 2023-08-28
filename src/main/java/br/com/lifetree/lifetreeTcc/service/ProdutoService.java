@@ -2,8 +2,10 @@ package br.com.lifetree.lifetreeTcc.service;
 
 import java.io.IOException;
 import java.util.List;
+
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+
 import br.com.lifetree.lifetreeTcc.model.entity.Produto;
 import br.com.lifetree.lifetreeTcc.model.entity.TpProduto;
 import br.com.lifetree.lifetreeTcc.repository.McProdutoRepository;
@@ -18,7 +20,7 @@ public class ProdutoService {
 	private  ProdutoRepository produtoRepository; 
 	private TpProdutoRepository tpprodutoRepository;
 	private McProdutoRepository mcprodutoRepository;
-	final ImagensService imagensService;
+	private ImagensService imagensService;
 
 	//Injeção de dependência
 	public ProdutoService(ProdutoRepository produtoRepository , TpProdutoRepository tpprodutoRepository , McProdutoRepository mcProdutoRepository, ImagensService imagensService) {

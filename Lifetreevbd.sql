@@ -95,7 +95,7 @@ create table Produto
 (	id bigint identity,
 	Nome varchar(100)not null,
 	Preco decimal(10,2)not null,
-	Imagem varchar(MAX),
+	Imagem varbinary(MAX),
 	Quantidade int,
 	cod_barra varchar(13)not null,
 	Destaque varchar(3),
@@ -110,17 +110,16 @@ create table Produto
 		references mcProduto(id)
 )
 
-
 create table Imagem(
 	id bigint identity,
 	nomeImg varchar(100)not null,
-	Img varchar(max)not null,
+	Img varbinary(max)not null,
 	StatusImg varchar(20)not null,
 	produto_id bigint not null,
 	primary key(id),
 	foreign key(produto_id)
 	references Produto(id)
-)
+	)
 
 create table Form_Pagamento
 (	id bigint identity,
@@ -153,7 +152,7 @@ create table Venda
 		references Cliente(id)
 )
 
-create table ItemVenda(
+	create table ItemVenda(
 	id bigint identity,
 	Quant int not null,
 	StatusItem varchar(20) not null,
@@ -165,3 +164,4 @@ create table ItemVenda(
 	foreign key(Venda_id)
 		references Venda(id)
 )
+
