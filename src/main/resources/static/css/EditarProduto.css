@@ -16,7 +16,7 @@ header {
 }
 #preView{
   margin-left: 35%;
-  margin-top:0px;
+  margin-top:90px;
   position: absolute;
   width: 450px; /* Define a largura */
   height: 450px;
@@ -34,14 +34,8 @@ header {
   margin-left: 62%;
 }
 
-.check{
-  height: 20px;
-  width: 40px;
-  position: absolute;
-}
-
 .form-control{
-  margin-top: 0.5rem;
+  margin-top: 2rem;
   margin-left: 51.5%;
 }
 
@@ -136,6 +130,17 @@ header {
 
 }
 
+#inativar {
+  width: 100pt;
+  height: 50px;
+  border-radius: 25px;
+  background-color: #038c5a;
+  color: white;
+  border-color: black;
+  margin-top: 40px;
+  margin-left: 70px;
+
+}
 #botão {
   width: 100pt;
   height: 50px;
@@ -146,11 +151,6 @@ header {
   margin-top: 40px;
 
 }
-#botão:hover {
-  background-color: #42dd9d;
-  transition: 0.2s;
-}
-
 
 .acc a {
   text-decoration: none;
@@ -185,6 +185,12 @@ header {
   display: block;
   margin-bottom: 20px;
 
+}
+
+.check{
+  height: 20px;
+  width: 40px;
+  position: absolute;
 }
 
 section.module.box {

@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/AdicionarProduto.css">
+    <link rel="stylesheet" href="/src/main/resources/static/css/EditarProduto.css">
     
-    <title>Adicionar Produto</title>
+    <title>Editar Produto</title>
 </head>
 <body>
     <header>    
@@ -28,10 +28,10 @@
 
     <div class="sidebar">
         <strong>
-          <h1>Adicionar Produto</h1>
+          <h1>Editar Produto</h1>
         </strong>
    
-      <a href="#">Adicionar Produto</a>
+      <a href="/lifetree/produtos/AdicionarProduto">Adicionar Produto</a>
       <a href="/lifetree/produtos/Estoque">Estoque</a>
   
         <br>
@@ -40,24 +40,23 @@
 
     <section class="module box">
         <div class="title">
-            <h2> Adicionar produto</h2>
+            <h2> Editar produto</h2>
             <hr>
         </div>
 
         <div class="informations">
 
-              
-              <input type="file" name="picture__input" id="picture__input">
-        <form action="#" th:action="@{/lifetree/produtos/save}" enctype="multipart/form-data" th:object="${produto}" method="post">
+        <form action="#" th:action="@{/lifetree/produtos/save}" th:object="${produto}" method="post">
             <div class="form-group1">
               
                 <img id="preView" alt="..." th:src="*{Imagem} ? @{${''+ produto.id}} : ${semImagem}"
                 class="rounded mx-auto d-block img-fluid" />
             </div>
             <div class="desc-prod">
+            <p>ID<input class="Imput" type="text" th:text="${produto.id}"></p>
             <p>Nome do produto<input class="Imput" type="text" th:field="*{nome}"> </p>
             <p>Quantidade <input class="Imput" type="number" th:field="*{quantidade}" maxlength="10"></p>
-            <p>Preço <input class="Imput" type="text" th:field="*{preco}"></p>
+            <p>Preço <input class="Imput" type="number" th:field="*{preco}"></p>
             <p>Descrição do Produto <input class="Imput" type="text" th:field="*{descricao}"/></p>
             <p>Código de Barra <input class="Imput" type="number" th:field="*{cod_barra}"/></p>
             <p>Tipo de produto
@@ -77,14 +76,14 @@
                     </option>	
                 </select>   
                     <br><br>
-            <label type ="text">Destaque</label>
-            <input class="check" type ="checkbox" value ="SIM" checked id="checkbox" th:field="*{destaque}"></label> 
+        <label type ="text">Destaque
+            <input class="check" type ="checkbox" value ="SIM" checked id="checkbox" th:field="*{destaque}">
+        </label> 
                      
-           <div class="form-group col-md-4">
+            <div class="form-group col-md-4">
                 <label for="uploadImage" class="form-label">Insira uma foto para o produto</label>
                 <input class="form-control" type="file" onchange="preViewImg();" name="file" accept="image/*" id="uploadImage">
-            </div> 
-            
+            </div>
         </div>
            
         </div>
@@ -92,12 +91,13 @@
 
         <div class="button">
             <Button type="submit" id="botão">Confirmar</Button>
-              </form>
               
+             <button type="submit" id="inativar">Inativar</button>
+              </form>
         </div>
     </section>
 
 </section>
-    <script src="/js/AdicionarProduto.js"></script>
+    <script src="/src/main/resources/static/js/EditarProduto.js"></script>
 </body>
 </html>

@@ -56,11 +56,7 @@ public class FuncionarioController {
 				.body(funcionarioService.findAll());
 	}
 
-	@GetMapping ("/Estoque")
-	public String getEstoque(ModelMap model){
-		model.addAttribute("funcionario", new Funcionario());
-		return "Estoque";
-	} 
+
 
 	@GetMapping("/loginfuncionario")
 	public String getLoginFuncionario(ModelMap model) {

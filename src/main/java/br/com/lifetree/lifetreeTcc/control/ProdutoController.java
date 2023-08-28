@@ -16,9 +16,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import br.com.lifetree.lifetreeTcc.model.entity.Produto;
+import br.com.lifetree.lifetreeTcc.repository.ImagensRepository;
+import br.com.lifetree.lifetreeTcc.service.ImagensService;
+import br.com.lifetree.lifetreeTcc.service.McProdutoService;
 import br.com.lifetree.lifetreeTcc.service.ProdutoService;
+import br.com.lifetree.lifetreeTcc.service.TpProdutoService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletResponse;
 
@@ -28,15 +33,26 @@ import jakarta.servlet.http.HttpServletResponse;
 public class ProdutoController {
 
 	final ProdutoService produtoService;
-
-	private String foto = "";
+	final TpProdutoService tpProdutoService;
+	final McProdutoService mcProdutoService;
+	final ImagensService imagensService;
 
 	// CASO O PRODUTO NÃO TENHA UMA IMAGEM CADASTRADA NO BANCO DE DADOS
-	private String semImagem = "/images/semImagem.png";
+	private String semImagem = "/img/semImagem.png";
+	private String foto = "";
 
-	public ProdutoController(ProdutoService _produtoService) {
-		this.produtoService = _produtoService;
+
+
+
+	public ProdutoController(ProdutoService produtoService, TpProdutoService tpProdutoService,
+			McProdutoService mcProdutoService, ImagensService imagensService) {
+		super();
+		this.produtoService = produtoService;
+		this.tpProdutoService = tpProdutoService;
+		this.mcProdutoService = mcProdutoService;
+		this.imagensService = imagensService;
 	}
+
 	// CARREGA A IMAGEM DO SERVIDOR NA PÁGINA DE ACORDO COM O "ID" DO PRODUTO
 	// NA PÁGINA HTML FICA ASSIM: src="/api/v1/produto/show/image/1"
 	// CARREGA A URL DA IMAGEM
@@ -73,43 +89,45 @@ public class ProdutoController {
 
 	@PostMapping("/todos-filtro")
 	public String mostrarTodosFiltro(ModelMap model, 
-			@RequestParam(value = "nomeProd", required = false) String nomeProd) {
+			@RequestParam(value = "nomeProd", required = false) String nome) {
+		// assim q eu edito o produto, ele esta gerando outro produto dublicado
 
-		if (nomeProd.trim().equals("")) {
+		if (nome.trim().equals("")) {
 			model.addAttribute("produtos", produtoService.ListarTodos());
 		} else {
-			model.addAttribute("produtos", produtoService.listarTodosFiltro(nomeProd));
+			model.addAttribute("produtos", produtoService.listarTodosFiltro(nome));
 		}
-		return "todos-produtos-filtro";
+		return "Estoque";
 	}
-	
-	
+
+
 	//ROTA POST
 	@PostMapping("/save")
-	public ResponseEntity<Object> saveProduto(Produto produto){
-		return ResponseEntity.status(HttpStatus.CREATED)
-				.body(produtoService.save(produto));
-
+	public String gravarProduto(
+			@RequestParam(value = "file", required = false) MultipartFile file,
+			Produto produto,  ModelMap model) {
+		produtoService.gravarNovoProd(file, produto);
+		return "Estoque";
 	}
 
-//ROTA GET
+	//ROTA GET
 	@GetMapping ("/all")
 	public ResponseEntity<List<Produto>> getAllProduto(){
 		return ResponseEntity.status(HttpStatus.OK)
 				.body(produtoService.ListarTodos());
 	}
-	
+
 	@GetMapping("/AdicionarProduto")
 	public String getadicionarProdutos(ModelMap model) {
+		model.addAttribute("tpProdutos", tpProdutoService.findAll());
+		model.addAttribute("mcProdutos", mcProdutoService.findAll());
 		model.addAttribute("produto", new Produto());
 		return "AdicionarProduto";
 	}
-	
+
 	@GetMapping("/ver/{id}")
 	public String verProduto(@PathVariable("id") long id, ModelMap model) {
-
 		Produto produto = produtoService.findById(id);
-		
 		if (produto.getImagem() != null) {
 			if (produto.getImagem().length > 0) {
 				foto = Base64.getEncoder().encodeToString(produto.getImagem());
@@ -118,27 +136,49 @@ public class ProdutoController {
 
 		model.addAttribute("produto", produto);
 		model.addAttribute("semImagem", semImagem);
-		
+
 
 		return "Estoque";
 	}
-	
-	@GetMapping("/showImage/{id}")
-	@ResponseBody
-	public void showImage(
-			@PathVariable("id") long id, HttpServletResponse response, Produto produto)
-			throws ServletException, IOException {
 
-		produto = produtoService.findById(id);
 
-		response.setContentType("image/jpeg, image/jpg, image/png, image/gif");
+
+	@GetMapping ("/Estoque")
+	public String getEstoque(ModelMap model){
+		model.addAttribute("produtos",  produtoService.ListarTodos());
+		return "Estoque";
+	} 
+	@GetMapping ("/Editarproduto")
+	public String getEditarProduto(ModelMap model){
+		model.addAttribute("produtos",  produtoService.ListarTodos());
+		return "Editarproduto";
+	} 
+
+	@GetMapping("/Editarproduto/{id}")
+	public String editarProduto(@PathVariable("id") int id, ModelMap model) {
+
+		Produto produto = produtoService.findById(id);
+
 		if (produto.getImagem() != null) {
-			response.getOutputStream().write(produto.getImagem());
-		} else {
-			response.getOutputStream().write(null);
+			if (produto.getImagem().length > 0) {
+				foto = Base64.getEncoder().encodeToString(produto.getImagem());
+			}
 		}
 
-		response.getOutputStream().close();
+		model.addAttribute("tpProdutos", tpProdutoService.findAll());
+		model.addAttribute("mcProdutos", mcProdutoService.findAll());
+		model.addAttribute("produto", produto);
+
+		return "Editarproduto";
+	}
+
+	@PostMapping("/inativar/{id}")
+	public String excluirProduto(
+			@PathVariable("id") int id, Produto produto, ModelMap model) {
+
+		produtoService.inativarProd(produto);
+
+		return "Estoque";
 	}
 
 

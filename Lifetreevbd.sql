@@ -60,33 +60,17 @@ create table tpProduto
 )
 
 insert into tpProduto(TpProduto)
-values('Ch� e Infus�es');
-insert into tpProduto(TpProduto)
-values('A Granel');
+values('Chá e Infusões')
 insert into tpProduto(TpProduto)
 values('Vitaminas e Suplementos');
 insert into tpProduto(TpProduto)
-values('Mercearia e Emp�rio');
+values('Mercearia e Empório');
 insert into tpProduto(TpProduto)
 values('Bem-estar e Beleza');
 insert into tpProduto(TpProduto)
 values('Refrigerados');
 insert into tpProduto(TpProduto)
-values('Promo��es');
-insert into tpProduto(TpProduto)
-values('Sem A�ucar');
-insert into tpProduto(TpProduto)
-values('Sem Gl�ten');
-insert into tpProduto(TpProduto)
-values('Sem Lactose');
-insert into tpProduto(TpProduto)
-values('Org�nico');
-insert into tpProduto(TpProduto)
-values('Vegano');
-insert into tpProduto(TpProduto)
-values('Vegetariano');
-insert into tpProduto(TpProduto)
-values('Baixo carboidrato');
+values('Promoções');
 
 
 create table mcProduto
@@ -95,11 +79,23 @@ create table mcProduto
 	primary key(id)
 )
 
+insert into mcProduto(Marca)
+values('Leão')
+insert into mcProduto(Marca)
+values('coca-cola')
+insert into mcProduto(Marca)
+values('Maizena')
+insert into mcProduto(Marca)
+values('Nestlé')
+insert into mcProduto(Marca)
+values('Aurora')
+
+
 create table Produto
 (	id bigint identity,
 	Nome varchar(100)not null,
 	Preco decimal(10,2)not null,
-	Imagem varchar(MAX),
+	Imagem varbinary(MAX),
 	Quantidade int,
 	cod_barra varchar(13)not null,
 	Destaque varchar(3),
@@ -114,17 +110,16 @@ create table Produto
 		references mcProduto(id)
 )
 
-
 create table Imagem(
 	id bigint identity,
 	nomeImg varchar(100)not null,
-	Img varchar(max)not null,
+	Img varbinary(max)not null,
 	StatusImg varchar(20)not null,
 	produto_id bigint not null,
 	primary key(id),
 	foreign key(produto_id)
 	references Produto(id)
-)
+	)
 
 create table Form_Pagamento
 (	id bigint identity,
@@ -157,7 +152,7 @@ create table Venda
 		references Cliente(id)
 )
 
-create table ItemVenda(
+	create table ItemVenda(
 	id bigint identity,
 	Quant int not null,
 	StatusItem varchar(20) not null,
@@ -169,3 +164,4 @@ create table ItemVenda(
 	foreign key(Venda_id)
 		references Venda(id)
 )
+
