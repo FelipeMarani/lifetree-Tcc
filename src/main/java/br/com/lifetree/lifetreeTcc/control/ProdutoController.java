@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import br.com.lifetree.lifetreeTcc.model.entity.Produto;
+import br.com.lifetree.lifetreeTcc.repository.ImagensRepository;
+import br.com.lifetree.lifetreeTcc.service.ImagensService;
 import br.com.lifetree.lifetreeTcc.service.McProdutoService;
 import br.com.lifetree.lifetreeTcc.service.ProdutoService;
 import br.com.lifetree.lifetreeTcc.service.TpProdutoService;
@@ -33,21 +35,21 @@ public class ProdutoController {
 	final ProdutoService produtoService;
 	final TpProdutoService tpProdutoService;
 	final McProdutoService mcProdutoService;
-
-	private String foto = "";
+	final ImagensService imagensService;
 
 	// CASO O PRODUTO NÃO TENHA UMA IMAGEM CADASTRADA NO BANCO DE DADOS
 	private String semImagem = "/img/semImagem.png";
 
-	
-	
+
+
 
 	public ProdutoController(ProdutoService produtoService, TpProdutoService tpProdutoService,
-			McProdutoService mcProdutoService) {
+			McProdutoService mcProdutoService, ImagensService imagensService) {
 		super();
 		this.produtoService = produtoService;
 		this.tpProdutoService = tpProdutoService;
 		this.mcProdutoService = mcProdutoService;
+		this.imagensService = imagensService;
 	}
 
 	// CARREGA A IMAGEM DO SERVIDOR NA PÁGINA DE ACORDO COM O "ID" DO PRODUTO
@@ -88,7 +90,7 @@ public class ProdutoController {
 	public String mostrarTodosFiltro(ModelMap model, 
 			@RequestParam(value = "nomeProd", required = false) String nome) {
 		// assim q eu edito o produto, ele esta gerando outro produto dublicado
-		
+
 		if (nome.trim().equals("")) {
 			model.addAttribute("produtos", produtoService.ListarTodos());
 		} else {
@@ -96,43 +98,35 @@ public class ProdutoController {
 		}
 		return "Estoque";
 	}
-	
-	
+
+
 	//ROTA POST
 	@PostMapping("/save")
 	public String gravarProduto(
 			@RequestParam(value = "file", required = false) MultipartFile file,
 			Produto produto,  ModelMap model) {
-
 		produtoService.gravarNovoProd(file, produto);
 		return "Estoque";
-		
-		
-
 	}
 
-//ROTA GET
+	//ROTA GET
 	@GetMapping ("/all")
 	public ResponseEntity<List<Produto>> getAllProduto(){
-		
 		return ResponseEntity.status(HttpStatus.OK)
 				.body(produtoService.ListarTodos());
 	}
-	
+
 	@GetMapping("/AdicionarProduto")
 	public String getadicionarProdutos(ModelMap model) {
-		
 		model.addAttribute("tpProdutos", tpProdutoService.findAll());
 		model.addAttribute("mcProdutos", mcProdutoService.findAll());
 		model.addAttribute("produto", new Produto());
 		return "AdicionarProduto";
 	}
-	
+
 	@GetMapping("/ver/{id}")
 	public String verProduto(@PathVariable("id") long id, ModelMap model) {
-
 		Produto produto = produtoService.findById(id);
-		
 		if (produto.getImagem() != null) {
 			if (produto.getImagem().length > 0) {
 				foto = Base64.getEncoder().encodeToString(produto.getImagem());
@@ -141,13 +135,13 @@ public class ProdutoController {
 
 		model.addAttribute("produto", produto);
 		model.addAttribute("semImagem", semImagem);
-		
+
 
 		return "Estoque";
 	}
-	
-	
-	
+
+
+
 	@GetMapping ("/Estoque")
 	public String getEstoque(ModelMap model){
 		model.addAttribute("produtos",  produtoService.ListarTodos());
@@ -158,31 +152,31 @@ public class ProdutoController {
 		model.addAttribute("produtos",  produtoService.ListarTodos());
 		return "Editarproduto";
 	} 
-	
+
 	@GetMapping("/Editarproduto/{id}")
 	public String editarProduto(@PathVariable("id") int id, ModelMap model) {
-		
+
 		Produto produto = produtoService.findById(id);
 
-    	if (produto.getImagem() != null) {
-    		if (produto.getImagem().length > 0) {
-			foto = Base64.getEncoder().encodeToString(produto.getImagem());
-    		}
+		if (produto.getImagem() != null) {
+			if (produto.getImagem().length > 0) {
+				foto = Base64.getEncoder().encodeToString(produto.getImagem());
+			}
 		}
-    	
-    	model.addAttribute("tpProdutos", tpProdutoService.findAll());
+
+		model.addAttribute("tpProdutos", tpProdutoService.findAll());
 		model.addAttribute("mcProdutos", mcProdutoService.findAll());
 		model.addAttribute("produto", produto);
-		
+
 		return "Editarproduto";
 	}
-	
+
 	@PostMapping("/inativar/{id}")
 	public String excluirProduto(
 			@PathVariable("id") int id, Produto produto, ModelMap model) {
 
 		produtoService.inativarProd(produto);
-		
+
 		return "Estoque";
 	}
 

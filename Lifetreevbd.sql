@@ -60,17 +60,17 @@ create table tpProduto
 )
 
 insert into tpProduto(TpProduto)
-values('Ch� e Infus�es')
+values('Chá e Infusões')
 insert into tpProduto(TpProduto)
 values('Vitaminas e Suplementos');
 insert into tpProduto(TpProduto)
-values('Mercearia e Emp�rio');
+values('Mercearia e Empório');
 insert into tpProduto(TpProduto)
 values('Bem-estar e Beleza');
 insert into tpProduto(TpProduto)
 values('Refrigerados');
 insert into tpProduto(TpProduto)
-values('Promo��es');
+values('Promoções');
 
 
 create table mcProduto

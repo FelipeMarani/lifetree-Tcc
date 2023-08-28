@@ -2,10 +2,8 @@ package br.com.lifetree.lifetreeTcc.service;
 
 import java.io.IOException;
 import java.util.List;
-
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-
 import br.com.lifetree.lifetreeTcc.model.entity.Produto;
 import br.com.lifetree.lifetreeTcc.model.entity.TpProduto;
 import br.com.lifetree.lifetreeTcc.repository.McProdutoRepository;
@@ -20,16 +18,18 @@ public class ProdutoService {
 	private  ProdutoRepository produtoRepository; 
 	private TpProdutoRepository tpprodutoRepository;
 	private McProdutoRepository mcprodutoRepository;
+	final ImagensService imagensService;
 
 	//Injeção de dependência
-	public ProdutoService(ProdutoRepository produtoRepository , TpProdutoRepository tpprodutoRepository , McProdutoRepository mcProdutoRepository) {
+	public ProdutoService(ProdutoRepository produtoRepository , TpProdutoRepository tpprodutoRepository , McProdutoRepository mcProdutoRepository, ImagensService imagensService) {
 		super();
 		this.produtoRepository = produtoRepository;
 		this.tpprodutoRepository = tpprodutoRepository;
 		this.mcprodutoRepository = mcProdutoRepository;
+		this.imagensService = imagensService;
 	}
-	
-public Produto findById(long id) {
+
+	public Produto findById(long id) {
 		return produtoRepository.findById(id).get();
 	}
 	public List<Produto>ListarTodos(){
@@ -40,12 +40,12 @@ public Produto findById(long id) {
 		return produtoRepository.findByNomeContaining(nome);
 	}
 
-//	public List<Produto> listarStatus() {
-//		return produtoRepository.listarProdutosAtivos("Ativo");
-//		
-//	}
-	
-	
+	//	public List<Produto> listarStatus() {
+	//		return produtoRepository.listarProdutosAtivos("Ativo");
+	//		
+	//	}
+
+
 	@Transactional
 	public void inativarProd(Produto produto) {
 
@@ -59,7 +59,7 @@ public Produto findById(long id) {
 		produtoRepository.save(_produto);
 	}
 
-	
+
 
 	@Transactional
 	public Produto gravarNovoProd(MultipartFile file, Produto produto) {
@@ -123,19 +123,16 @@ public Produto findById(long id) {
 		List<Produto> lista = produtoRepository.findAll();
 		return lista;
 	}
-	
+
 	public List<Produto> listarProdutosAtivos(){
 		return produtoRepository.findByStatusProd("ATIVO");
 	}
-	
+
 	public List<Produto> listar3Destaques(){
 		return produtoRepository.listar3Destaques();
 	}
-	
+
 	public List<Produto> listarProdutosFiltro(String nomeProd){
 		return produtoRepository.listarProdutosFiltro(nomeProd);
 	}
-	
-	
-
 }
