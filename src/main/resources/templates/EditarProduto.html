@@ -49,8 +49,7 @@
         <form action="#" th:action="@{/lifetree/produtos/save}" th:object="${produto}" method="post">
             <div class="form-group1">
               
-                <img id="preView" alt="..." th:src="*{Imagem} ? @{${''+ produto.id}} : ${semImagem}"
-                class="rounded mx-auto d-block img-fluid" />
+   
             </div>
             <div class="desc-prod">
             <p>ID</p>
