@@ -114,12 +114,12 @@
   <div class="vitrine-mês">
     <h1>Promoções do dia</h1>
 
-    <div class="container">
+    <div class="container"  th:each="produto : ${produtos}">
       <div class="products-container">
          <div class="product" data-name="p-1">
             <img src="/img/Creatina.png" alt="">
-            <h3>Creatina Integralmédica 300g</h3>
-            <div class="price">R$109,99</div>
+            <h3  th:text="${produto.nome}"></h3>
+            <div class="price" th:text="${produto.preco}"></div>
          </div>
    
          <div class="product" data-name="p-2">
