@@ -97,7 +97,7 @@ create table Produto
 	Preco decimal(10,2)not null,
 	Imagem varbinary(MAX),
 	Quantidade int,
-	cod_barra varchar(13)not null,
+	cod_barra varchar(13) unique not null,
 	Destaque varchar(3),
 	StatusProd varchar(20),
 	tpProduto_id bigint not null,
@@ -108,6 +108,17 @@ create table Produto
 		references tpProduto(id),
 	foreign key(mcProduto_id)
 		references mcProduto(id)
+)
+
+create table Estoque
+(	id bigint identity,
+	Nome varchar(100)not null,
+	Preco decimal(10,2)not null,
+	Quantidade int,
+	cod_barra varchar(13) unique not null,
+	StatusProd varchar(20), -- NORMAL ou BAIXO
+
+	primary key(id),
 )
 
 create table Imagem(
@@ -144,12 +155,9 @@ create table Venda
 	TT_compra decimal(10,2)not null,
 	Dt_Venda date not null,
 	Pagamento_id bigint not null,
-	Cliente_id bigint not null,
 	primary key(id),
 	foreign key(Pagamento_id) 
-		references Form_pagamento(id),
-	foreign key(Cliente_id) 
-		references Cliente(id)
+		references Form_pagamento(id)
 )
 
 	create table ItemVenda(
