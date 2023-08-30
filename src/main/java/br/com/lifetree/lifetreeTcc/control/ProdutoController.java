@@ -107,7 +107,7 @@ public class ProdutoController {
 			@RequestParam(value = "file", required = false) MultipartFile file,
 			Produto produto,  ModelMap model) {
 		produtoService.gravarNovoProd(file, produto);
-		return "Estoque";
+		return "redirect:/lifetree/produtos/Estoque";
 	}
 
 	//ROTA GET
