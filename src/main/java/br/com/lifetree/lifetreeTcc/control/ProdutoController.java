@@ -99,7 +99,7 @@ public class ProdutoController {
 		} else {
 			model.addAttribute("produtos", produtoService.listarTodosFiltro(nome));
 		}
-		return "Estoque";
+		return "redirect:/lifetree/produtos/Estoque";
 	}
 
 
@@ -124,7 +124,7 @@ public class ProdutoController {
 		model.addAttribute("tpProdutos", tpProdutoService.findAll());
 		model.addAttribute("mcProdutos", mcProdutoService.findAll());
 		model.addAttribute("produto", new Produto());
-		return "AdicionarProduto";
+		return "redirect:lifetree/produtos/AdicionarProduto";
 	}
 
 	@GetMapping("/ver/{id}")
@@ -140,7 +140,7 @@ public class ProdutoController {
 		model.addAttribute("semImagem", semImagem);
 
 
-		return "Estoque";
+		return "redirect:/lifetree/produtos/Estoque";
 	}
 
 
@@ -171,7 +171,7 @@ public class ProdutoController {
 		model.addAttribute("mcProdutos", mcProdutoService.findAll());
 		model.addAttribute("produto", produto);
 
-		return "Editarproduto";
+		return "redirect:lifetree/produtos/Editarproduto";
 	}
 
 	@PostMapping("/inativar/{id}")
@@ -180,7 +180,7 @@ public class ProdutoController {
 
 		produtoService.inativarProd(produto);
 
-		return "Estoque";
+		return "redirect:/lifetree/produtos/Estoque";
 	}
 
 
