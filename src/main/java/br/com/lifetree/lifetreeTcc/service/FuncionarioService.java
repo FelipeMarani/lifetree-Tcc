@@ -30,10 +30,10 @@ public class FuncionarioService {
 		if (funcionario != null && funcionario.getAcesso().equals("ADMIN")) {
 
 			if (funcionario.getSenha().equals(senha)) {
-				return 1;}
+				return 2;}
 		}
 		else if (funcionario.getAcesso().equals("FUNC")) {
-			return 2;
+			return 1;
 		}
 		else {
 			return 0;
