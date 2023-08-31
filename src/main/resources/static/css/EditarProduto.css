@@ -16,17 +16,21 @@ header {
 }
 
 #preView{
-  margin-top: -27%;
-  margin-left: 40%;
+  margin-top: -22%;
+  margin-left: 37%;
   position: absolute;
-  width: 450px; /* Define a largura */
-  height: 450px;
+  width: 400px; /* Define a largura */
+  height: 400px;
   background-color: #f2f2f2;
   border-color: #038c5a ;
   border: 1px solid black;
 }
 
 
+#uploadImage{
+  margin-top: 20px;
+  margin-left: 60%;
+}
 
 
 
@@ -35,6 +39,10 @@ header {
   position: static;
 }
 
+.form-label{
+  margin-left: 65%;
+
+}
 
 .form-control{
   margin-top: 2rem;
