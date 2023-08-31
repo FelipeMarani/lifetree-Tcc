@@ -124,7 +124,7 @@ public class ProdutoController {
 		model.addAttribute("tpProdutos", tpProdutoService.findAll());
 		model.addAttribute("mcProdutos", mcProdutoService.findAll());
 		model.addAttribute("produto", new Produto());
-		return "redirect:lifetree/produtos/AdicionarProduto";
+		return "AdicionarProduto";
 	}
 
 	@GetMapping("/ver/{id}")

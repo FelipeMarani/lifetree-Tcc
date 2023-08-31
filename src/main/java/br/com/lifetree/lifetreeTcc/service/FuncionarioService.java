@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import br.com.lifetree.lifetreeTcc.model.entity.Cliente;
 import br.com.lifetree.lifetreeTcc.model.entity.Funcionario;
 import br.com.lifetree.lifetreeTcc.repository.FuncionarioRepository;
 import jakarta.transaction.Transactional;
@@ -17,6 +16,12 @@ public class FuncionarioService {
 	public FuncionarioService(FuncionarioRepository _funcionarioRepository) {
 		this.funcionarioRepository = _funcionarioRepository;
 	}
+	
+	@Transactional
+	public Funcionario save(Funcionario funcionario) {
+		return funcionarioRepository.save(funcionario);
+		
+	}
 
 	@Transactional
 	public int acessar(String email, String senha) {
@@ -27,6 +32,12 @@ public class FuncionarioService {
 			if (funcionario.getSenha().equals(senha)) {
 				return 1;}
 		}
+		else if (funcionario.getAcesso().equals("FUNC")) {
+			return 2;
+		}
+		else {
+			return 0;
+		}
 		return 0;
 	}
 
@@ -34,5 +45,12 @@ public class FuncionarioService {
 		List<Funcionario> lista = funcionarioRepository.findAll();
 		return lista;
 	}
+	
+	@Transactional
+	public Funcionario saveNewFuncionario(Funcionario funcionario) {
+		funcionario.setAcesso("FUNC");
+		return funcionarioRepository.save(funcionario);
+	}
 
 }
+

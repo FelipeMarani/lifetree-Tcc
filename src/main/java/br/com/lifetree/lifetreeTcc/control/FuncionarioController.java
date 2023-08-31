@@ -8,10 +8,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import br.com.lifetree.lifetreeTcc.model.entity.Cliente;
 import br.com.lifetree.lifetreeTcc.model.entity.Funcionario;
 import br.com.lifetree.lifetreeTcc.service.FuncionarioService;
 
@@ -32,6 +34,16 @@ public class FuncionarioController {
 	}
 
 	private String serverMessage = null;
+	
+	
+	@GetMapping("/login")
+	public String getLogin(ModelMap model) {
+
+		model.addAttribute("funcionario", new Funcionario());
+		model.addAttribute("serverMessage", serverMessage);
+		return "login";
+
+	}
 
 @PostMapping("/logar")
 	public String Acessar(
@@ -41,13 +53,24 @@ public class FuncionarioController {
 		int acessar = funcionarioService.acessar(email,senha);
 
 		if(acessar == 2 ) {
-			return "redirect:/lifetree/funcionario/Estoque";
+			return "redirect:/lifetree/funcionario/EditarFuncionario";
+		}
+		else if(acessar == 1) {
+			return "redirect:/lifetree/produtos/Estoque";
 		}
 		serverMessage = "Dados Incorretos!";
 		model.addAttribute("serverMessage", serverMessage);
 
-		return "redirect:/lifetree/funcionario/login";
+	return "redirect:/lifetree/funcionario/login";
 	}
+
+	@PostMapping ("/save")
+	public String saveFuncionario(@ModelAttribute Funcionario funcionario) {
+
+	funcionarioService.saveNewFuncionario(funcionario);
+
+	return "redirect:/lifetree/funcionario/login";
+}
 
 	//ROTA GET
 	@GetMapping ("/all")
@@ -62,6 +85,18 @@ public class FuncionarioController {
 	public String getLoginFuncionario(ModelMap model) {
 		model.addAttribute("funcionario" , new Funcionario());
 		return "loginFuncionario";
+	}
+	
+	@GetMapping ("/criarconta")
+	public String getCriarConta(ModelMap map){
+
+		map.addAttribute("funcionario", new Funcionario());
+		return "CriarConta";
+	} 
+	
+	@GetMapping("/recuperaçãosenha")
+	public String getRecuperaçãoSenha() {
+		return "RecuperaçãoSenha";
 	}
 	
 

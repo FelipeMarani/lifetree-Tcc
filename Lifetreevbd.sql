@@ -1,54 +1,11 @@
 use [lifetree-tcc]
 
-CREATE TABLE Cupom(
-	ID BIGINT IDENTITY,
-	NOME VARCHAR(10)NOT NULL,
-	STATUSCP VARCHAR(20)NOT NULL,
-	Primary key(id)
-)
-
-
-create table Cliente
-(	
-	id bigint identity,
-	Nome varchar(150)not null,
-	CPF char(11)not null,
-	dtNasc date not null,
-	Tel char(15)not null,
-	Email varchar(200)not null,
-	senha varchar(150)not null,
-	img varbinary(max)null,
-	statusCliente varchar(20)not null,
-	Cupom_id bigint,
-	primary key(id),
-	foreign key(Cupom_id)
-		references Cupom(id)
-)
-
-create table Endereco(
-	id bigint identity,
-	Logradouro varchar(250)not null,
-	CEP char(8)not null,
-	NumCasa char(5)not null,
-	Bairro varchar(180)not null,
-	Cidade varchar(50)not null,
-	UF char(2)not null,
-	Complemento varchar(250)null,
-	primary key(id),
-	Cliente_id bigint not null,
-	foreign key(Cliente_id) 
-		references Cliente(id)
-)
-
 create table Funcionario
 (	
    id   BIGINT IDENTITY,
-   Nome VARCHAR(100)NOT NULL,
-   CPF  CHAR(11)NOT NULL,
-   RG VARCHAR(12)NOT NULL,
-   dataNasc DATE NOT NULL,
-   telefone VARCHAR(11)NOT NULL,
-   Email VARCHAR(100)NULL, 
+   Nome VARCHAR(100)not null,
+   Email VARCHAR(100) unique not null, 
+   Senha VARCHAR(100)not null,
    NivelAcess varchar(10)null,
    PRIMARY KEY (id)
 )
