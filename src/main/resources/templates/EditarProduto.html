@@ -82,20 +82,24 @@
         </label> 
                      
 
-    
-<div class="imagem">
-          <div class="form-group col-md-4">
-                <label for="uploadImage" class="form-label">Insira uma foto para o produto</label>
+        <label for="uploadImage" class="form-label">Imagem escolhida</label>
+
+          <div class="form-group-col-md-4">
+                <label for="uploadImage" class="form-label2">Insira uma foto para o produto</label>
                 <input class="form-control" type="file" onchange="preViewImg();" name="file" accept="image/*" id="uploadImage">
+            
             </div>
 
-            <div class="form-group col-md-8">
+            <div class="form-group-col-md-8">
+                <img id="preView" alt="..." th:src="*{Imagem} ? @{${'/lifetree/produtos/show/image/' + produto.id}} :${semImagem}">
                 <label for="uploadImage" class="form-label">Imagem escolhida</label>
-                <img id="preView" alt="..." th:src="*{Imagem} ? @{${'/lifetree/produtos/show/image/' + produto.id}} :${semImagem}" >
             </div>
+
+            
+            
+        
         </div>
-        </div>
-           
+        
         </div>
         
 
