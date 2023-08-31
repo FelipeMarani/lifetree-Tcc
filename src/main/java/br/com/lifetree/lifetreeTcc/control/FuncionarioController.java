@@ -98,6 +98,13 @@ public class FuncionarioController {
 	public String getRecuperaçãoSenha() {
 		return "RecuperaçãoSenha";
 	}
+
+	@GetMapping ("/EditarFuncionario")
+	public String getCriarConta(ModelMap map){
+
+		map.addAttribute("funcionario", new Funcionario());
+		return "EditarFuncionario";
+	} 
 	
 
 }
