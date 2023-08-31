@@ -16,7 +16,8 @@ header {
 }
 
 #preView{
- 
+  margin-top: -27%;
+  margin-left: 40%;
   position: absolute;
   width: 450px; /* Define a largura */
   height: 450px;
@@ -24,6 +25,10 @@ header {
   border-color: #038c5a ;
   border: 1px solid black;
 }
+
+
+
+
 
 .desc-prod{
   margin-top: -10px;
@@ -211,6 +216,7 @@ section.module.box {
   margin-top: 40px;
   flex-direction: row;
 }
+
 
 .prod-imagem {
   margin: 20px 0;
