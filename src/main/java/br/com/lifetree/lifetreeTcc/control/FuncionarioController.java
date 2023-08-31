@@ -34,11 +34,11 @@ public class FuncionarioController {
 	private String serverMessage = null;
 
 @PostMapping("/logar")
-	public String Logar(
+	public String Acessar(
 		@RequestParam("email") String email,
 		@RequestParam("senha") String senha, ModelMap model) {
 
-		int acessar = funcionarioService.logar(email,senha);
+		int acessar = funcionarioService.acessar(email,senha);
 
 		if(acessar == 2 ) {
 			return "redirect:/lifetree/funcionario/Estoque";
