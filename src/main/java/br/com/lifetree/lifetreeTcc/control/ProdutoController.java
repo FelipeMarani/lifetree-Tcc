@@ -62,8 +62,10 @@ public class ProdutoController {
 			throws ServletException, IOException {
 
 		produto = produtoService.findById(id);
+		
+		System.out.println("aqui"+ produto.getImagem());
 
-		response.setContentType("image/jpeg, image/jpg, image/png, image/gif");
+		response.setContentType("+image/jpeg, image/jpg, image/png, image/gif");
 		if (produto.getImagem() != null) {
 			response.getOutputStream().write(produto.getImagem());
 		} else {
