@@ -27,12 +27,12 @@ public class FuncionarioService {
 	public int acessar(String email, String senha) {
 		Funcionario funcionario = funcionarioRepository.findByEmail(email);
 
-		if (funcionario != null && funcionario.getAcesso().equals("ADMIN")) {
+		if (funcionario != null && funcionario.getAcesso().equals("FUNC")) {
 
 			if (funcionario.getSenha().equals(senha)) {
 				return 1;}
 		}
-		else if (funcionario.getAcesso().equals("FUNC")) {
+		else if (funcionario.getAcesso().equals("ADMIN")) {
 			return 2;
 		}
 		else {
