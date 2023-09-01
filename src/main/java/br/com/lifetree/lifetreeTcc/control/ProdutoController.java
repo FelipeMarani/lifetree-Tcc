@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import br.com.lifetree.lifetreeTcc.model.entity.Produto;
-import br.com.lifetree.lifetreeTcc.repository.ImagensRepository;
 import br.com.lifetree.lifetreeTcc.service.ImagensService;
 import br.com.lifetree.lifetreeTcc.service.McProdutoService;
 import br.com.lifetree.lifetreeTcc.service.ProdutoService;
@@ -63,7 +62,6 @@ public class ProdutoController {
 
 		produto = produtoService.findById(id);
 		
-		System.out.println("aqui"+ produto.getImagem());
 
 		response.setContentType("+image/jpeg, image/jpg, image/png, image/gif");
 		if (produto.getImagem() != null) {
@@ -110,6 +108,19 @@ public class ProdutoController {
 			Produto produto,  ModelMap model) {
 		produtoService.gravarNovoProd(file, produto);
 		return "redirect:/lifetree/produtos/Estoque";
+	}
+	//arrumar aqui pra atualizar 
+	@PostMapping("/atualizar/{id}")
+	public String atualizarProduto(
+			@RequestParam(value = "file", required = false) MultipartFile file,
+			@PathVariable("id") int id, Produto produto, ModelMap model) {
+		
+		byte[] _foto = Base64.getDecoder().decode(foto);
+			
+		produtoService.atualizarProd(file, produto, _foto);
+		
+
+		return "Estoque";
 	}
 
 	//ROTA GET
@@ -171,7 +182,7 @@ public class ProdutoController {
 		model.addAttribute("mcProdutos", mcProdutoService.findAll());
 		model.addAttribute("produto", produto);
 
-		return "redirect:lifetree/produtos/Editarproduto";
+		return "Editarproduto";
 	}
 
 	@PostMapping("/inativar/{id}")

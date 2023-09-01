@@ -100,7 +100,7 @@ public class FuncionarioController {
 	}
 
 	@GetMapping ("/EditarFuncionario")
-	public String getCriarConta(ModelMap map){
+	public String getEditarFuncionario(ModelMap map){
 
 		map.addAttribute("funcionario", new Funcionario());
 		return "EditarFuncionario";

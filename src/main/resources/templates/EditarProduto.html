@@ -46,14 +46,14 @@
 
         <div class="informations">
 
-        <form action="#" th:action="@{/lifetree/produtos/save}" th:object="${produto}" method="post">
+        <form action="#" th:action="@{/lifetree/produtos/atualizar/{id}}" th:object="${produto}" method="post">
             <div class="form-group1">
               
    
             </div>
             <div class="desc-prod">
-            <p>ID</p>
-            <p th:text="${produto.id}"></p>
+                <strong><p>ID</p>
+            <p th:text="${produto.id}" id="id-prod"></p></strong>
 
             <p>Nome do produto<input class="Imput" type="text" th:field="*{nome}"> </p>
             <p>Quantidade <input class="Imput" type="number" th:field="*{quantidade}" maxlength="10"></p>
