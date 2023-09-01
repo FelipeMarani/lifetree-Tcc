@@ -84,18 +84,21 @@ public class ProdutoService {
 		return produtoRepository.save(produto);
 	}
 	@Transactional
-	public void atualizarProd(MultipartFile file, Produto produto, byte[] foto) {
-
-		Produto _produto = produto;
-
-		TpProduto tpproduto = tpprodutoRepository.findByTpProduto(produto.getTpProduto().getTpProduto());
+	public void atualizarProd(MultipartFile file, Produto _produto, byte[] foto) {
+//
+//		Produto _produto = produto;
+//
+//		TpProduto tpproduto = tpprodutoRepository.findByTpProduto(produto.getTpProduto().getTpProduto());
+		
+		System.out.println("fi"+file.getSize());
+		System.out.println("fo"+foto.length);
 
 		if (file.getSize() == 0 && foto.length == 0) {
 			_produto.setImagem(null);
 		} 
 
 		if (file.getSize() == 0 && foto.length > 0) {
-			_produto.setImagem(null);
+			_produto.setImagem(foto);
 		} 
 
 		if (file != null && file.getSize() > 0 ) {
@@ -105,12 +108,14 @@ public class ProdutoService {
 				e.printStackTrace();
 			}
 		}
+		
+		
 
-		if (produto.getDestaque() == null) {
+		if (_produto.getDestaque() == null) {
 			_produto.setDestaque("NÃO");
 		}
 
-		_produto.setTpProduto(tpproduto);
+		//_produto.setTpProduto(tpproduto);
 		_produto.setStatusProd("ATIVO");
 		produtoRepository.save(_produto);
 	}

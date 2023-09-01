@@ -116,11 +116,14 @@ public class ProdutoController {
 			@PathVariable("id") int id, Produto produto, ModelMap model) {
 		
 		byte[] _foto = Base64.getDecoder().decode(foto);
+		
 			
 		produtoService.atualizarProd(file, produto, _foto);
 		
+		foto = "";
+		
 
-		return "Estoque";
+		return "redirect:/lifetree/produtos/Estoque";
 	}
 
 	//ROTA GET
@@ -137,22 +140,23 @@ public class ProdutoController {
 		model.addAttribute("produto", new Produto());
 		return "AdicionarProduto";
 	}
-
-	@GetMapping("/ver/{id}")
-	public String verProduto(@PathVariable("id") long id, ModelMap model) {
-		Produto produto = produtoService.findById(id);
-		if (produto.getImagem() != null) {
-			if (produto.getImagem().length > 0) {
-				foto = Base64.getEncoder().encodeToString(produto.getImagem());
-			}
-		}
-
-		model.addAttribute("produto", produto);
-		model.addAttribute("semImagem", semImagem);
-
-
-		return "redirect:/lifetree/produtos/Estoque";
-	}
+//
+//	@GetMapping("/ver/{id}")
+//	public String verProduto(@PathVariable("id") long id, ModelMap model) {
+//		Produto produto = produtoService.findById(id);
+//		
+//		if (produto.getImagem() != null) {
+//			if (produto.getImagem().length > 0) {
+//				foto = Base64.getEncoder().encodeToString(produto.getImagem());
+//			}
+//		}
+//
+//		model.addAttribute("produto", produto);
+//		model.addAttribute("semImagem", semImagem);
+//
+//
+//		return "Estoque";
+//	}
 
 
 
@@ -180,13 +184,14 @@ public class ProdutoController {
 
 		model.addAttribute("tpProdutos", tpProdutoService.findAll());
 		model.addAttribute("mcProdutos", mcProdutoService.findAll());
+		model.addAttribute("semImagem", semImagem);
 		model.addAttribute("produto", produto);
 
 		return "Editarproduto";
 	}
 
 	@PostMapping("/inativar/{id}")
-	public String excluirProduto(
+	public String inativarProduto(
 			@PathVariable("id") int id, Produto produto, ModelMap model) {
 
 		produtoService.inativarProd(produto);

@@ -54,6 +54,8 @@ public class FuncionarioController {
 
 		if(acessar == 1 ) {
 			return "redirect:/lifetree/produtos/Estoque";
+		}else if (acessar == 2){
+			return "redirect:/lifetree/funcionario/EditarFuncionario";
 		}
 		
 		serverMessage = "Dados Incorretos!";
