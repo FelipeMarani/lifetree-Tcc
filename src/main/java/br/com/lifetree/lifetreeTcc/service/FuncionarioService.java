@@ -32,8 +32,10 @@ public class FuncionarioService {
 			if (funcionario.getSenha().equals(senha)) {
 				return 1;}
 		}
-		else if (funcionario.getAcesso().equals("FUNC")) {
-			return 2;
+		else if (funcionario != null && funcionario.getAcesso().equals("FUNC")) {
+
+			if (funcionario.getSenha().equals(senha)) {
+				return 2;}
 		}
 		else {
 			return 0;

@@ -191,7 +191,7 @@ public class ProdutoController {
 	}
 
 	@PostMapping("/inativar/{id}")
-	public String inativarProduto(
+	public String inativarProd(
 			@PathVariable("id") int id, Produto produto, ModelMap model) {
 
 		produtoService.inativarProd(produto);

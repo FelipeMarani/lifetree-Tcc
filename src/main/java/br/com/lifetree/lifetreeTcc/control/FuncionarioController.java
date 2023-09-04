@@ -52,9 +52,12 @@ public class FuncionarioController {
 
 		int acessar = funcionarioService.acessar(email,senha);
 
-		if(acessar == 1 ) {
+		if(acessar == 2 ) {
 			return "redirect:/lifetree/produtos/Estoque";
+		}else if(acessar ==1) {
+			return "redirect:/lifetree/produtos/EditarProduto";
 		}
+		
 		
 		serverMessage = "Dados Incorretos!";
 		model.addAttribute("serverMessage", serverMessage);
