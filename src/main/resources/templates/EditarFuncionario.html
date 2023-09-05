@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/lifetree-Tcc/src/main/resources//static/css/EditarFuncionário.css">
+    <link rel="stylesheet" href="/css/EditarFuncionário.css">
 
-    <link rel="stylesheet" href="/lifetree-Tcc/src/main/resources/static/css/Estoque.css">
+    <link rel="stylesheet" href="/css/Estoque.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
@@ -20,10 +20,10 @@
         <div class="info-header">
             <div class="logo">
                 <h2>Funcionários</h2>
-                <img src="/lifetree-Tcc/src/main/resources/static//img/arvorelogo1.png" id="logo">
+                <img src="/img/arvorelogo1.png" id="logo">
             </div>
             <div class="icon-header">
-                <img src="/lifetree-Tcc/src/main/resources/static/img/Adm-Icon.png" alt="ADM">
+                <img src="/img/Adm-Icon.png" alt="ADM">
                 <h2>Administrador</h2>
             </div>
         </div>
@@ -38,9 +38,9 @@
             <strong>
                 <h1>Estatisticas</h1>
             </strong>
-            <a href="#">Estoque</a>
-            <a href="#">Adicionar Produto</a>
-            <a href="#">Editar Funcionários</a>
+            <a href="/lifetree/produtos/Estoque">Estoque</a>
+            <a href="/lifetree/produtos/AdicionarProduto">Adicionar Produto</a>
+            <a href="/lifetree/funcionario/EditarFuncionario">Editar Funcionários</a>
 
             <br>
             <hr>
@@ -51,10 +51,10 @@
             <h1>Funcionários</h1>
         </div>
 
-        <div class="api" th:action="@{/lifetree/funcionario/all}" th:object="${funcionario}" method="get">        
+        <div class="api" th:action="@{/lifetree/funcionario/todos}" th:object="${funcionario}" method="get">        
             <table class="table table-striped table-hover my-5 border-top">
         
-            <thead>
+         <thead>
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Nome</th>
@@ -67,21 +67,12 @@
                     <td scope="row" th:text="${funcionario.id}"></td>
                     <td th:text="${funcionario.nome}"></td>
                     <td th:text="${funcionario.email}"></td>
-                    <td th:text="${funcionario.senha}"></td>
+                    <td th:text="${funcionario.Senha}"></td>
                     <td th:text="${funcionario.acesso}"></td>
                     
                 </tr>
             </tbody>
-            
-
-                 
-            
-         
-          
-          
-          
-            
-              </thead>
+      </thead>
             </div>
 
         

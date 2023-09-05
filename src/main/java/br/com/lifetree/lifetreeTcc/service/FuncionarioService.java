@@ -46,7 +46,7 @@ public class FuncionarioService {
 		return 0;
 	}
 
-	public List<Funcionario> findAll(){
+	public List<Funcionario> TodosFuncionarios(){
 		List<Funcionario> lista = funcionarioRepository.findAll();
 		return lista;
 	}

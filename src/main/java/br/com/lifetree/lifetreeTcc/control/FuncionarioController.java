@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import br.com.lifetree.lifetreeTcc.model.entity.Cliente;
 import br.com.lifetree.lifetreeTcc.model.entity.Funcionario;
 import br.com.lifetree.lifetreeTcc.service.FuncionarioService;
 
@@ -55,7 +54,7 @@ public class FuncionarioController {
 		if(acessar == 2 ) {
 			return "redirect:/lifetree/produtos/Estoque";
 		}else if(acessar ==1) {
-			return "redirect:/lifetree/produtos/EditarProduto";
+			return "redirect:/lifetree/produtos/EditarFuncionario";
 		}
 		
 		
@@ -74,10 +73,10 @@ public class FuncionarioController {
 }
 
 	//ROTA GET
-	@GetMapping ("/all")
+	@GetMapping ("/todos")
 	public ResponseEntity<List<Funcionario>> getAllFuncionario(){
 		return ResponseEntity.status(HttpStatus.OK)
-				.body(funcionarioService.findAll());
+				.body(funcionarioService.TodosFuncionarios());
 	}
 
 

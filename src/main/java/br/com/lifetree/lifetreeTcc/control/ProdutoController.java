@@ -140,25 +140,6 @@ public class ProdutoController {
 		model.addAttribute("produto", new Produto());
 		return "AdicionarProduto";
 	}
-//
-//	@GetMapping("/ver/{id}")
-//	public String verProduto(@PathVariable("id") long id, ModelMap model) {
-//		Produto produto = produtoService.findById(id);
-//		
-//		if (produto.getImagem() != null) {
-//			if (produto.getImagem().length > 0) {
-//				foto = Base64.getEncoder().encodeToString(produto.getImagem());
-//			}
-//		}
-//
-//		model.addAttribute("produto", produto);
-//		model.addAttribute("semImagem", semImagem);
-//
-//
-//		return "Estoque";
-//	}
-
-
 
 	@GetMapping ("/Estoque")
 	public String getEstoque(ModelMap model){
