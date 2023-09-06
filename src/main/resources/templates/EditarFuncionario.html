@@ -39,7 +39,6 @@
                 <h1>Estatisticas</h1>
             </strong>
             <a href="/lifetree/produtos/Estoque">Estoque</a>
-            <a href="/lifetree/produtos/AdicionarProduto">Adicionar Produto</a>
             <a href="/lifetree/funcionario/EditarFuncionario">Editar Funcionários</a>
 
             <br>
@@ -51,7 +50,7 @@
             <h1>Funcionários</h1>
         </div>
 
-        <div class="api" th:action="@{/lifetree/funcionario/todos}" th:object="${funcionario}" method="get">        
+        <div class="api" th:action="@{/lifetree/funcionario/all}" th:object="${funcionario}" method="get">        
             <table class="table table-striped table-hover my-5 border-top">
         
          <thead>
@@ -63,14 +62,15 @@
                     <th scope="col">Cargo</th>  
                 </tr>
             <tbody>
-                <tr>
+              
+					<tr th:each="funcionario : ${funcionario}">
                     <td scope="row" th:text="${funcionario.id}"></td>
-                    <td th:text="${funcionario.nome}"></td>
-                    <td th:text="${funcionario.email}"></td>
+                    <td th:text="${funcionario.Nome}"></td>
+                    <td th:text="${funcionario.Email}"></td>
                     <td th:text="${funcionario.Senha}"></td>
                     <td th:text="${funcionario.acesso}"></td>
-                    
-                </tr>
+                    </tr>
+            
             </tbody>
       </thead>
             </div>

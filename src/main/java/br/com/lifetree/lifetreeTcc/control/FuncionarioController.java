@@ -73,10 +73,10 @@ public class FuncionarioController {
 }
 
 	//ROTA GET
-	@GetMapping ("/todos")
+	@GetMapping ("/all")
 	public ResponseEntity<List<Funcionario>> getAllFuncionario(){
 		return ResponseEntity.status(HttpStatus.OK)
-				.body(funcionarioService.TodosFuncionarios());
+				.body(funcionarioService.ListarTodos());
 	}
 
 
