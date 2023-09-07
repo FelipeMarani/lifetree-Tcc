@@ -73,11 +73,11 @@ public class FuncionarioController {
 }
 
 	//ROTA GET
-	@GetMapping ("/all")
-	public ResponseEntity<List<Funcionario>> getAllFuncionario(){
-		return ResponseEntity.status(HttpStatus.OK)
-				.body(funcionarioService.ListarTodos());
-	}
+//	@GetMapping ("/EditarFuncionario")
+//	public String getFuncionario(ModelMap model){
+//		model.addAttribute("funcionario",  funcionarioService.ListarTodos());
+//		return "EditarFuncionario";
+//	}
 
 
 
@@ -89,20 +89,13 @@ public class FuncionarioController {
 	
 	@GetMapping ("/criarconta")
 	public String getCriarConta(ModelMap map){
-
 		map.addAttribute("funcionario", new Funcionario());
 		return "CriarConta";
 	} 
 	
-	@GetMapping("/recuperaçãosenha")
-	public String getRecuperaçãoSenha() {
-		return "RecuperaçãoSenha";
-	}
-
 	@GetMapping ("/EditarFuncionario")
 	public String getEditarFuncionario(ModelMap map){
-
-		map.addAttribute("funcionario", new Funcionario());
+		map.addAttribute("funcionario", funcionarioService.ListarTodos());
 		return "EditarFuncionario";
 	} 
 	

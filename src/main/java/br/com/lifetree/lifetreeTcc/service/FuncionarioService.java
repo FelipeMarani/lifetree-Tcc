@@ -45,11 +45,13 @@ public class FuncionarioService {
 		
 		return 0;
 	}
-
+	//filtro
 	public List<Funcionario> TodosFuncionarios(){
 		List<Funcionario> lista = funcionarioRepository.findAll();
 		return lista;
 	}
+	
+	//todos
 	public List<Funcionario>ListarTodos(){
 		return funcionarioRepository.findAll();
 	}
