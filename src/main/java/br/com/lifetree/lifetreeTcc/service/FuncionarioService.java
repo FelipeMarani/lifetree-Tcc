@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import br.com.lifetree.lifetreeTcc.model.entity.Funcionario;
+import br.com.lifetree.lifetreeTcc.model.entity.Produto;
 import br.com.lifetree.lifetreeTcc.repository.FuncionarioRepository;
 import jakarta.transaction.Transactional;
 
@@ -22,6 +23,7 @@ public class FuncionarioService {
 		return funcionarioRepository.save(funcionario);
 		
 	}
+
 
 	@Transactional
 	public int acessar(String email, String senha) {

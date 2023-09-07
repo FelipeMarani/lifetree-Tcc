@@ -1,5 +1,7 @@
 package br.com.lifetree.lifetreeTcc.control;
 
+
+import java.util.Base64;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -9,6 +11,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -44,6 +47,9 @@ public class FuncionarioController {
 	}
 
 	private String serverMessage = null;
+	private String semImagem = "/img/semImagem.png";
+	private String foto = "";
+
 	
 	
 	@GetMapping("/login")
@@ -53,6 +59,11 @@ public class FuncionarioController {
 		model.addAttribute("serverMessage", serverMessage);
 		return "login";
 
+	}
+	@GetMapping ("/all")
+	public ResponseEntity<List<Produto>> getAllProduto(){
+		return ResponseEntity.status(HttpStatus.OK)
+				.body(produtoService.ListarTodos());
 	}
 
 @PostMapping("/logar")
@@ -137,11 +148,20 @@ public String getEstoque(ModelMap model){
 	
 
 
-	@GetMapping ("/EditarFuncionario")
+	@GetMapping ("/ListaFuncionarios")
 	public String getEditarFuncionario(ModelMap map){
 		map.addAttribute("funcionario", funcionarioService.ListarTodos());
-		return "EditarFuncionario";
+		return "ListaFunc";
 	} 
+	@GetMapping("/Editarfuncionario/{id}")
+	public String editarFuncionario(@PathVariable("id") int id, ModelMap model) {
+
+		//Funcionario funcionario = funcionarioService.findById(id);
+
+	
+
+		return "EditarProdutoADM";
+	}
 	
 
 }

@@ -19,7 +19,7 @@
 
         <div class="info-header">
             <div class="logo">
-                <h2>Funcionários</h2>
+                <h2>Funcionarios disponiveis</h2>
                 <img src="/img/arvorelogo1.png" id="logo">
             </div>
             <div class="icon-header">
@@ -38,8 +38,9 @@
             <strong>
                 <h1>Estatisticas</h1>
             </strong>
-            <a href="/lifetree/produtos/Estoque">Estoque</a>
-            <a href="/lifetree/funcionario/EditarFuncionario">Editar Funcionários</a>
+            <a href="/lifetree/funcionario/AdicionarProdutoADM">Adicionar Produto</a>
+            <a href="/lifetree/funcionario/EstoqueADM">Estoque</a>
+            <a href="/lifetree/funcionario/ListaFuncionarios">Vizualizar Funcionários</a>
 
             <br>
             <hr>
@@ -60,6 +61,7 @@
                     <th scope="col">Email</th>  
                     <th scope="col">Senha</th>  
                     <th scope="col">Cargo</th>  
+                     <th scope="col">Editar</th> 
                 </tr>
             <tbody>
               
@@ -69,6 +71,12 @@
                     <td th:text="${funcionario.Email}"></td>
                     <td th:text="${funcionario.Senha}"></td>
                     <td th:text="${funcionario.acesso}"></td>
+                    <td>
+							<a th:href="@{/lifetree/funcionario/Editarfuncionario/{id}(id=${funcionario.id})}" class="btn btn-primary btn-sm pb-0">
+								Editar
+							</a>
+			
+						</td>
                     </tr>
             
             </tbody>
