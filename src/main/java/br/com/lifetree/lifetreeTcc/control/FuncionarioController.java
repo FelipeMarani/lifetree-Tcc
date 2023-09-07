@@ -129,15 +129,14 @@ public String getEstoque(ModelMap model){
 		return "CriarConta";
 	} 
 	
-<<<<<<< HEAD
+
 	@GetMapping("/recuperaçãosenha")
 	public String getRecuperaçãoSenha() {
 		return "RecuperaçãoSenha";
 	}
 	
 
-=======
->>>>>>> d8ed66aabe3bc1dc71b12e9bd8b07e4e52368748
+
 	@GetMapping ("/EditarFuncionario")
 	public String getEditarFuncionario(ModelMap map){
 		map.addAttribute("funcionario", funcionarioService.ListarTodos());
