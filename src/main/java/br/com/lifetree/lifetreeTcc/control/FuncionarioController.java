@@ -109,11 +109,11 @@ public String getEstoque(ModelMap model){
 
 
 	//ROTA GET
-	@GetMapping ("/all")
-	public ResponseEntity<List<Funcionario>> getAllFuncionario(){
-		return ResponseEntity.status(HttpStatus.OK)
-				.body(funcionarioService.ListarTodos());
-	}
+//	@GetMapping ("/EditarFuncionario")
+//	public String getFuncionario(ModelMap model){
+//		model.addAttribute("funcionario",  funcionarioService.ListarTodos());
+//		return "EditarFuncionario";
+//	}
 
 
 
@@ -125,21 +125,22 @@ public String getEstoque(ModelMap model){
 	
 	@GetMapping ("/criarconta")
 	public String getCriarConta(ModelMap map){
-
 		map.addAttribute("funcionario", new Funcionario());
 		return "CriarConta";
 	} 
 	
+<<<<<<< HEAD
 	@GetMapping("/recuperaçãosenha")
 	public String getRecuperaçãoSenha() {
 		return "RecuperaçãoSenha";
 	}
 	
 
+=======
+>>>>>>> d8ed66aabe3bc1dc71b12e9bd8b07e4e52368748
 	@GetMapping ("/EditarFuncionario")
 	public String getEditarFuncionario(ModelMap map){
-
-		map.addAttribute("funcionario", new Funcionario());
+		map.addAttribute("funcionario", funcionarioService.ListarTodos());
 		return "EditarFuncionario";
 	} 
 	

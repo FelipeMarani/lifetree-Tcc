@@ -77,12 +77,8 @@
                 </select>   
                     <br>
                     <br>
-        <label type ="text">Destaque
-            <input class="check" type ="checkbox" value ="SIM" checked id="checkbox" th:field="*{destaque}">
-        </label> 
+
                      
-
-
             <div class="form-group-col-md-8">
                 
                 <img id="preView" alt="..." th:src="*{Imagem} ? @{${'/lifetree/produtos/show/image/' + produto.id}} :${semImagem}">

@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import br.com.lifetree.lifetreeTcc.model.entity.Funcionario;
-import br.com.lifetree.lifetreeTcc.model.entity.Produto;
 import br.com.lifetree.lifetreeTcc.repository.FuncionarioRepository;
 import jakarta.transaction.Transactional;
 
@@ -46,11 +45,13 @@ public class FuncionarioService {
 		
 		return 0;
 	}
-
+	//filtro
 	public List<Funcionario> TodosFuncionarios(){
 		List<Funcionario> lista = funcionarioRepository.findAll();
 		return lista;
 	}
+	
+	//todos
 	public List<Funcionario>ListarTodos(){
 		return funcionarioRepository.findAll();
 	}
