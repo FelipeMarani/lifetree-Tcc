@@ -86,12 +86,16 @@ public class ProdutoController {
 
 		return "home";
 	}
+	
+	@GetMapping("/todos-filtro")
+	public String mostrarTodos(ModelMap model) {
+		model.addAttribute("produtos", produtoService.ListarTodos());
+		return "todos-produtos-filtro";
+	}
 
 	@PostMapping("/todos-filtro")
 	public String mostrarTodosFiltro(ModelMap model, 
 			@RequestParam(value = "nomeProd", required = false) String nome) {
-		// assim q eu edito o produto, ele esta gerando outro produto dublicado
-
 		if (nome.trim().equals("")) {
 			model.addAttribute("produtos", produtoService.ListarTodos());
 		} else {

@@ -135,10 +135,6 @@ public class ProdutoService {
 		return produtoRepository.findByStatusProd("ATIVO");
 	}
 
-	public List<Produto> listar3Destaques(){
-		return produtoRepository.listar3Destaques();
-	}
-
 	public List<Produto> listarProdutosFiltro(String nomeProd){
 		return produtoRepository.listarProdutosFiltro(nomeProd);
 	}

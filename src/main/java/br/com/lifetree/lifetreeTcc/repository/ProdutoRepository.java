@@ -24,11 +24,7 @@ public interface ProdutoRepository extends JpaRepository<Produto, Long> {
 		
 		@Query("SELECT p FROM Produto p WHERE p.nome like %?1%")
 		List<Produto> listarProdutosFiltro(@Param("nome") String nome);
-		
 
-		// nativeQuery: PERMITE FAZER O COMANDO TAL QUAL NO SQL
-		@Query(value="SELECT TOP 3 * FROM Produto p WHERE p.destaque = 'SIM' ORDER BY p.id DESC", nativeQuery = true)
-		List<Produto> listar3Destaques();
 		
 
 }
