@@ -33,7 +33,7 @@
    
         <a href="/lifetree/funcionario/AdicionarProdutoADM">Adicionar Produto</a>
         <a href="/lifetree/funcionario/EstoqueADM">Estoque</a>
-       <a href="/lifetree/funcionario/ListaFuncionarios">Vizualizar Funcionários</a>
+       <a href="/lifetree/funcionario/ListaFunc">Funcionários</a>
   
         <br>
         <hr>
@@ -46,38 +46,14 @@
         </div>
 
         <div class="informations">
-
-        <form action="#" th:action="@{/lifetree/produtos/atualizar/{id}(id=*{id})}" enctype="multipart/form-data" th:object="${produto}" method="post">
+//
+        <form action="#" th:action="@{/lifetree/funcionario/atualizar/{id}(id=*{id})}" enctype="multipart/form-data" th:object="${funcionario}" method="post">
             <div class="form-group1">
               
    
             </div>
             <div class="desc-prod">
-                <strong><p>ID:<input class="Imput" type="text" th:field="*{id}" readonly/></p></strong>
-
-            <p>Nome do produto<input class="Imput" type="text" th:field="*{nome}"> </p>
-            <p>Quantidade <input class="Imput" type="number" th:field="*{quantidade}" maxlength="10"></p>
-            <p>Preço <input class="Imput" type="text" th:field="*{preco}"></p>
-            <p>Descrição do Produto <input class="Imput" type="text" th:field="*{descricao}"/></p>
-            <p>Código de Barra <input class="Imput" type="number" th:field="*{cod_barra}"/></p>
-            <p>Tipo de produto
-                <select name="Tipo-produto"  th:field="*{tpProduto}" onChange="onstatechange(this)">
-                    <option value="0">Escolha os tipos de produtos</option>
-                    <option th:each="tpProduto: ${tpProdutos}" 
-                            th:text="${tpProduto.tpProduto}" th:value="${tpProduto.id}">
-                    </option>	
-                </select>
-            </p>
-            <br>
-            <p>Marca do produto
-                <select name="categoria"  th:field="*{mcProduto}" onChange="onstatechange(this)">
-                    <option value="0">Escolha uma marca do produto</option>
-                    <option th:each="mcProduto : ${mcProdutos}" 
-                            th:text="${mcProduto.Marca}" th:value="${mcProduto.id}">
-                    </option>	
-                </select>   
-                    <br>
-                    <br>
+                
 
                      
             <div class="form-group-col-md-8">
