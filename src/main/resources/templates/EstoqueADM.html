@@ -36,7 +36,7 @@
             <h1>Painel de Controle</h1>
             <a href="/lifetree/funcionario/AdicionarProdutoADM">Adicionar Produto</a>
             <a href="/lifetree/funcionario/EstoqueADM">Estoque</a>
-           <a href="/lifetree/funcionario/ListaFuncionarios">Vizualizar Funcionários</a>
+           <a href="/lifetree/funcionario/ListaFunc"> Funcionários</a>
             <br>
             <hr>
         </div><!--side bar-->
@@ -80,7 +80,7 @@
 						<td th:text="${produto.tpProduto.tpProduto}"></td>
 						<td th:text="${produto.statusProd}"></td>
 						<td>
-							<a th:href="@{/lifetree/funcionario/Editarproduto/{id}(id=${produto.id})}" class="btn btn-primary btn-sm pb-0">
+							<a th:href="@{/lifetree/funcionario/EditarProdutoADM/{id}(id=${produto.id})}" class="btn btn-primary btn-sm pb-0">
 								Editar
 							</a>
 			
