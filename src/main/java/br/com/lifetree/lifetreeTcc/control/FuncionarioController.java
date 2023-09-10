@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import br.com.lifetree.lifetreeTcc.model.entity.Funcionario;
 import br.com.lifetree.lifetreeTcc.model.entity.Produto;
@@ -73,15 +74,14 @@ public class FuncionarioController {
 
 		int acessar = funcionarioService.acessar(email,senha);
 
-		if(acessar == 2 ) {
+		if (acessar == 2 ) {
+			
 			return "redirect:/lifetree/produtos/Estoque";
 		}else if(acessar ==1) {
-			return "redirect:/lifetree/funcionario/EditarFuncionario";
+			
+			return "redirect:/lifetree/funcionario/ListaFunc";
 		}
-		
-		
-		serverMessage = "Dados Incorretos!";
-		model.addAttribute("serverMessage", serverMessage);
+	
 
 	return "redirect:/lifetree/funcionario/login";
 	}
@@ -118,16 +118,6 @@ public String getEstoque(ModelMap model){
 		return "redirect:/lifetree/funcionario/EstoqueADM";
 	}
 
-
-	//ROTA GET
-//	@GetMapping ("/EditarFuncionario")
-//	public String getFuncionario(ModelMap model){
-//		model.addAttribute("funcionario",  funcionarioService.ListarTodos());
-//		return "EditarFuncionario";
-//	}
-
-
-
 	@GetMapping("/loginfuncionario")
 	public String getLoginFuncionario(ModelMap model) {
 		model.addAttribute("funcionario" , new Funcionario());
@@ -140,28 +130,33 @@ public String getEstoque(ModelMap model){
 		return "CriarConta";
 	} 
 	
-
-	@GetMapping("/recuperaçãosenha")
-	public String getRecuperaçãoSenha() {
-		return "RecuperaçãoSenha";
+	
+	@GetMapping("/EditarProdutoADM")
+	public String getEditarProdutoADM() {
+		return "EditarProdutoADM";
 	}
 	
+	@PostMapping("/atualizar/{id}")
+	public String atualizarProduto(
+			@RequestParam(value = "file", required = false) MultipartFile file,
+			@PathVariable("id") int id, Funcionario funcionario, ModelMap model) {
+		
 
-
-	@GetMapping ("/ListaFuncionarios")
-	public String getEditarFuncionario(ModelMap map){
-		map.addAttribute("funcionario", funcionarioService.ListarTodos());
-		return "ListaFunc";
-	} 
-	@GetMapping("/Editarfuncionario/{id}")
-	public String editarFuncionario(@PathVariable("id") int id, ModelMap model) {
-
-		//Funcionario funcionario = funcionarioService.findById(id);
-
-	
+		funcionarioService.atualizarFunc(file, funcionario);
+		
+		foto = "";
+		
 
 		return "EditarProdutoADM";
 	}
 	
+
+
+	@GetMapping ("/ListaFunc")
+	public String getEditarFuncionario(ModelMap map){
+		map.addAttribute("funcionario", funcionarioService.ListarTodos());
+		return "ListaFunc";
+	} 
+
 
 }
