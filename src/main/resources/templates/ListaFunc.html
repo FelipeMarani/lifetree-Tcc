@@ -40,7 +40,7 @@
             </strong>
             <a href="/lifetree/funcionario/AdicionarProdutoADM">Adicionar Produto</a>
             <a href="/lifetree/funcionario/EstoqueADM">Estoque</a>
-            <a href="/lifetree/funcionario/ListaFuncionarios">Vizualizar Funcionários</a>
+            <a href="/lifetree/funcionario/ListaFunc">Funcionarios</a>
 
             <br>
             <hr>
@@ -72,7 +72,7 @@
                     <td th:text="${funcionario.Senha}"></td>
                     <td th:text="${funcionario.acesso}"></td>
                     <td>
-							<a th:href="@{/lifetree/funcionario/Editarfuncionario/{id}(id=${funcionario.id})}" class="btn btn-primary btn-sm pb-0">
+							<a th:href="@{/lifetree/funcionario/atualizar/{id}(id=${funcionario.id})}" class="btn btn-primary btn-sm pb-0">
 								Editar
 							</a>
 			
