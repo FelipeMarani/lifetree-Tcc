@@ -274,3 +274,9 @@
     background-color: #42dd9d;
     transition: 0.2s;
   }
+
+  #arvore{
+    right: 20%;
+    height: 40%;
+    margin-top: 305px;
+  }

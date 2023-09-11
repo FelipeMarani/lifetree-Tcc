@@ -1,7 +1,6 @@
 package br.com.lifetree.lifetreeTcc.control;
 
 
-import java.util.Base64;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
 import br.com.lifetree.lifetreeTcc.model.entity.Funcionario;
 import br.com.lifetree.lifetreeTcc.model.entity.Produto;
@@ -108,7 +106,6 @@ public String getEstoque(ModelMap model){
 	@PostMapping("/todos-filtro")
 	public String mostrarTodosFiltro(ModelMap model, 
 			@RequestParam(value = "nomeProd", required = false) String nome) {
-		// assim q eu edito o produto, ele esta gerando outro produto dublicado
 
 		if (nome.trim().equals("")) {
 			model.addAttribute("produtos", produtoService.ListarTodos());
@@ -136,6 +133,7 @@ public String getEstoque(ModelMap model){
 		return "EditarProdutoADM";
 	}
 	
+<<<<<<< HEAD
 //	@PostMapping("/atualizar/{id}")
 //	public String atualizarProduto(
 //			@RequestParam(value = "file", required = false) MultipartFile file,
@@ -149,6 +147,13 @@ public String getEstoque(ModelMap model){
 	@GetMapping("/EditarFuncionario")
 	public String getEditarFuncionario() {
 		return "EditarFuncionario";
+=======
+	@GetMapping("/atualizar/{id}")
+	public String atualizarProduto(@PathVariable("id") int id, ModelMap model) {
+		
+
+		return "redirect:/lifetree/funcionario/ListaFunc";
+>>>>>>> a10a4d36d4206746ce7d05905c9cb0820f0e94fe
 	}
 	
 
@@ -159,5 +164,14 @@ public String getEstoque(ModelMap model){
 		return "ListaFunc";
 	} 
 
+	
+	@PostMapping("/inativar/{id}")
+	public String inativarFunc(
+			@PathVariable("id") int id, Funcionario funcionario, ModelMap model) {
+
+		funcionarioService.inativarFunc(funcionario);
+
+		return "redirect:/lifetree/funcionario/ListaFunc";
+	}
 
 }
