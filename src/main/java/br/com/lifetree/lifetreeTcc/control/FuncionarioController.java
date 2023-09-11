@@ -1,7 +1,6 @@
 package br.com.lifetree.lifetreeTcc.control;
 
 
-import java.util.Base64;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
 import br.com.lifetree.lifetreeTcc.model.entity.Funcionario;
 import br.com.lifetree.lifetreeTcc.model.entity.Produto;
@@ -108,7 +106,6 @@ public String getEstoque(ModelMap model){
 	@PostMapping("/todos-filtro")
 	public String mostrarTodosFiltro(ModelMap model, 
 			@RequestParam(value = "nomeProd", required = false) String nome) {
-		// assim q eu edito o produto, ele esta gerando outro produto dublicado
 
 		if (nome.trim().equals("")) {
 			model.addAttribute("produtos", produtoService.ListarTodos());
@@ -136,19 +133,18 @@ public String getEstoque(ModelMap model){
 		return "EditarProdutoADM";
 	}
 	
-	@PostMapping("/atualizar/{id}")
-	public String atualizarProduto(
-			@RequestParam(value = "file", required = false) MultipartFile file,
-			@PathVariable("id") int id, Funcionario funcionario, ModelMap model) {
-		
-
-		funcionarioService.atualizarFunc(file, funcionario);
-		
-		foto = "";
-		
-
-		return "EditarProdutoADM";
-	}
+//	@PostMapping("/atualizar/{id}")
+//	public String atualizarProduto(@PathVariable("id") int id, ModelMap model) {
+//		
+//		Funcionario funcionario = FuncionarioService.fin
+//	
+//		model.addAttribute("", tpProdutoService.findAll());
+//		model.addAttribute("", mcProdutoService.findAll());
+//		model.addAttribute("", funcionario);
+//		
+//
+////		return "EditarProdutoADM";
+//	}
 	
 
 
@@ -158,5 +154,14 @@ public String getEstoque(ModelMap model){
 		return "ListaFunc";
 	} 
 
+	
+	@PostMapping("/inativar/{id}")
+	public String inativarFunc(
+			@PathVariable("id") int id, Funcionario funcionario, ModelMap model) {
+
+		funcionarioService.inativarFunc(funcionario);
+
+		return "redirect:/lifetree/funcionario/ListaFunc";
+	}
 
 }

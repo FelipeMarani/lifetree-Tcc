@@ -3,9 +3,11 @@ package br.com.lifetree.lifetreeTcc.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import br.com.lifetree.lifetreeTcc.model.entity.Funcionario;
-import br.com.lifetree.lifetreeTcc.model.entity.Produto;
 import br.com.lifetree.lifetreeTcc.repository.FuncionarioRepository;
 import jakarta.transaction.Transactional;
 
@@ -22,6 +24,10 @@ public class FuncionarioService {
 	public Funcionario save(Funcionario funcionario) {
 		return funcionarioRepository.save(funcionario);
 		
+	}
+	
+	public Funcionario findById(long id) {
+		return funcionarioRepository.findById(id).get();
 	}
 
 
@@ -47,6 +53,16 @@ public class FuncionarioService {
 		
 		return 0;
 	}
+	
+	@Transactional
+	public void atualizarFunc(Funcionario funcionario) {
+		
+		Funcionario _funcionario = funcionario;
+		
+	
+		}
+	
+	
 	//filtro
 	public List<Funcionario> TodosFuncionarios(){
 		List<Funcionario> lista = funcionarioRepository.findAll();
@@ -63,6 +79,20 @@ public class FuncionarioService {
 		funcionario.setAcesso("FUNC");
 		return funcionarioRepository.save(funcionario);
 	}
+	
+	@Transactional
+	public void inativarFunc(Funcionario funcionario) {
+
+		Funcionario _funcionario = funcionario;
+
+		_funcionario.setEmail("NULL");
+		_funcionario.setSenha("NULL");
+		_funcionario.setAcesso("INATIVO");
+		funcionarioRepository.save(_funcionario);
+	}
+	
+	
+
 
 }
 
