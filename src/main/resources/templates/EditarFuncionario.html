@@ -41,37 +41,34 @@
     <section class="module box">
         <div class="title">
             <h2> Editar produto</h2>
-            <hr>
+            <hr />
         </div>
 
-        <div class="informations">
+    
 
-        <form action="#" th:action="@{/lifetree/funcionario/atualizar/{id}(id=*{id})}" th:object="${funcionario}" method="post">
-            <div class="form-group1">
-              
-   
-            </div>
-            <div class="desc-prod">
-                <strong><p>ID:<input class="Imput" type="text" th:field="*{id}" readonly/></p></strong>
+		<form action="#" th:action="@{/lifetree/funcionario/atualizar/{id}(id=*{id})}" th:object="${funcionario}"
+			method="post">
+		
+			<div class="desc-prod">
+				<strong>
+					<p>ID:<input class="Imput" type="text" th:field="*{id}" readonly /></p>
+				</strong>
+		
+				<p>Nome do Funcionario<input class="Imput" type="text" th:field="*{Nome}"> </p>
+				<p>Senha <input class="Imput" type="text" th:field="*{Senha}"></p>
+				<p>Email <input class="Imput" type="text" th:field="*{Email}"></p>
+				<p>Nivel de Acesso <input class="Imput" type="text" th:field="*{acesso}" /></p>
+			</div>
 
-            <p>Nome do Funcionario<input class="Imput" type="text" th:field="*{Nome}"> </p>
-            <p>Senha <input class="Imput" type="text" th:field="*{Senha}"></p>
-            <p>Email <input class="Imput" type="text" th:field="*{Email}"></p>
-            <p>Nivel de Acesso <input class="Imput" type="text" th:field="*{NivelAcess}"/></p>
-       
-         
-
-        </div>
-        
-        </div>
-        
-
-        <div class="button">
-            <Button type="submit" id="botão">Editar</Button>
-              
-             <button type="submit" id="inativar" th:href="@{/lifetree/funcionario/inativar/{id}(id=${funcionario.id})}">Inativar</button>
-              </form>
-        </div>
+			<div class="button">
+				<button type="submit" id="botão">Editar</button>
+		
+				<a type="button" id="inativar"
+					th:href="@{/lifetree/funcionario/inativar/{id}(id=${funcionario.id})}">Inativar</a>
+		
+			</div>
+		
+		</form>
     </section>
 
 </section>

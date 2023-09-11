@@ -1,6 +1,7 @@
 package br.com.lifetree.lifetreeTcc.control;
 
 
+import java.util.Base64;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import br.com.lifetree.lifetreeTcc.model.entity.Funcionario;
 import br.com.lifetree.lifetreeTcc.model.entity.Produto;
@@ -133,33 +135,22 @@ public String getEstoque(ModelMap model){
 		return "EditarProdutoADM";
 	}
 	
-<<<<<<< HEAD
-//	@PostMapping("/atualizar/{id}")
-//	public String atualizarProduto(
-//			@RequestParam(value = "file", required = false) MultipartFile file,
-//			@PathVariable("id") int id, Funcionario funcionario, ModelMap model) {
-//
-//		funcionarioService.atualizarFunc(file, funcionario);
-//	
-//		return "EditarFuncionario";
-//	}
-	
-	@GetMapping("/EditarFuncionario")
-	public String getEditarFuncionario() {
-		return "EditarFuncionario";
-=======
-	@GetMapping("/atualizar/{id}")
+	@PostMapping("/atualizar/{id}")
 	public String atualizarProduto(@PathVariable("id") int id, ModelMap model) {
 		
+		Funcionario funcionario = funcionarioService.findById(id);
+		
+		model.addAttribute("Funcionario", funcionario);
 
+		
+		funcionarioService.atualizarFunc(funcionario);
 		return "redirect:/lifetree/funcionario/ListaFunc";
->>>>>>> a10a4d36d4206746ce7d05905c9cb0820f0e94fe
 	}
 	
 
 
 	@GetMapping ("/ListaFunc")
-	public String getEditarFuncionario(ModelMap map){
+	public String getLista(ModelMap map){
 		map.addAttribute("funcionario", funcionarioService.ListarTodos());
 		return "ListaFunc";
 	} 
@@ -173,5 +164,16 @@ public String getEstoque(ModelMap model){
 
 		return "redirect:/lifetree/funcionario/ListaFunc";
 	}
+	
+
+	@GetMapping("/EditarFuncionario/{id}")
+	public String getEditarFuncionario(@PathVariable("id") int id, ModelMap map) {
+		Funcionario funcionario = funcionarioService.findById(id);
+
+		map.addAttribute("funcionario", funcionario);
+		
+		return "EditarFuncionario";
+	}
+	
 
 }
