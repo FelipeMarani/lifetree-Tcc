@@ -133,18 +133,12 @@ public String getEstoque(ModelMap model){
 		return "EditarProdutoADM";
 	}
 	
-//	@PostMapping("/atualizar/{id}")
-//	public String atualizarProduto(@PathVariable("id") int id, ModelMap model) {
-//		
-//		Funcionario funcionario = FuncionarioService.fin
-//	
-//		model.addAttribute("", tpProdutoService.findAll());
-//		model.addAttribute("", mcProdutoService.findAll());
-//		model.addAttribute("", funcionario);
-//		
-//
-////		return "EditarProdutoADM";
-//	}
+	@GetMapping("/atualizar/{id}")
+	public String atualizarProduto(@PathVariable("id") int id, ModelMap model) {
+		
+
+		return "redirect:/lifetree/funcionario/ListaFunc";
+	}
 	
 
 
