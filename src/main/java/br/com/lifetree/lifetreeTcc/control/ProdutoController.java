@@ -175,12 +175,14 @@ public class ProdutoController {
 		return "Editarproduto";
 	}
 
-	@PostMapping("/inativar/{id}")
+	@GetMapping("/inativar/{id}")
 	public String inativarProd(
-			@PathVariable("id") int id, Produto produto, ModelMap model) {
-
+			@PathVariable("id") int id, ModelMap model) {
+		
+		Produto produto = produtoService.findById(id);
+		
 		produtoService.inativarProd(produto);
-
+		
 		return "redirect:/lifetree/produtos/Estoque";
 	}
 

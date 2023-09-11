@@ -1,8 +1,10 @@
 package br.com.lifetree.lifetreeTcc.service;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import br.com.lifetree.lifetreeTcc.model.entity.Funcionario;
 import br.com.lifetree.lifetreeTcc.model.entity.Produto;
@@ -62,6 +64,13 @@ public class FuncionarioService {
 	public Funcionario saveNewFuncionario(Funcionario funcionario) {
 		funcionario.setAcesso("FUNC");
 		return funcionarioRepository.save(funcionario);
+	}
+	
+	@Transactional
+	public void atualizarFunc( Funcionario _funcionario) {
+
+		_funcionario.setAcesso("ADMIN");
+		funcionarioRepository.save(_funcionario);
 	}
 
 }

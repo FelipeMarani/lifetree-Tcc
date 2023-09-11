@@ -136,18 +136,19 @@ public String getEstoque(ModelMap model){
 		return "EditarProdutoADM";
 	}
 	
-	@PostMapping("/atualizar/{id}")
-	public String atualizarProduto(
-			@RequestParam(value = "file", required = false) MultipartFile file,
-			@PathVariable("id") int id, Funcionario funcionario, ModelMap model) {
-		
-
-		funcionarioService.atualizarFunc(file, funcionario);
-		
-		foto = "";
-		
-
-		return "EditarProdutoADM";
+//	@PostMapping("/atualizar/{id}")
+//	public String atualizarProduto(
+//			@RequestParam(value = "file", required = false) MultipartFile file,
+//			@PathVariable("id") int id, Funcionario funcionario, ModelMap model) {
+//
+//		funcionarioService.atualizarFunc(file, funcionario);
+//	
+//		return "EditarFuncionario";
+//	}
+	
+	@GetMapping("/EditarFuncionario")
+	public String getEditarFuncionario() {
+		return "EditarFuncionario";
 	}
 	
 
