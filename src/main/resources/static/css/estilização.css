@@ -54,9 +54,9 @@ input {
     display: block;
     margin-right: auto;
     margin-left: auto;
-    width: 150px;
-    height: 50px;
-    border-radius: 25px;
+    width: 170px;
+    height: 45px;
+    border-radius: 23px;
     background-color: #038c5a;
     color: white;
     border-color: black;
@@ -87,6 +87,7 @@ input {
   text-decoration: none;
   display: flex;
   margin-left: 15px;
+  font-weight: 500;
 }
 
 .links a{
