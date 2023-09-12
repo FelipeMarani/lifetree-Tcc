@@ -113,6 +113,7 @@ input {
     left: -180px;
     width: 100%;
     max-width: 500px;
+    opacity: 0.70;
   }
   .imagem-lateral2 {
     position: absolute;
@@ -120,6 +121,7 @@ input {
     right: -120px;
     width: 100%;
     max-width: 260px;
+    opacity: 0.70;
   }
   .feed{
     font-size: 16px;
