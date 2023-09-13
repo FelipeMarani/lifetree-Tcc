@@ -56,6 +56,7 @@
             </div>
             <div class="desc-prod">
                 <strong><p>ID:<input class="Imput" type="text" th:field="*{id}" readonly/></p></strong>
+                <strong><p>Status do Produto<input class="Imput" type="text" th:field="*{statusProd}" readonly/></p></strong>
 
             <p>Nome do produto<input class="Imput" type="text" th:field="*{nome}"> </p>
             <p>Quantidade <input class="Imput" type="number" th:field="*{quantidade}" maxlength="10"></p>
@@ -103,6 +104,8 @@
             <button type="submit" id="botão">Editar</button>
               
              <a id="botão" th:href="@{/lifetree/produtos/inativar/{id}(id=${produto.id})}">Inativar</a>
+             <a id="botão" th:href="@{/lifetree/produtos/reativar/{id}(id=${produto.id})}">Reativar</a>
+             
               </form>
         </div>
     </section>

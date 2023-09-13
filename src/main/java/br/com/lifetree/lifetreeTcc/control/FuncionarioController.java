@@ -1,7 +1,7 @@
 package br.com.lifetree.lifetreeTcc.control;
 
 
-import java.util.Base64;
+
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
 import br.com.lifetree.lifetreeTcc.model.entity.Funcionario;
 import br.com.lifetree.lifetreeTcc.model.entity.Produto;
@@ -85,13 +84,14 @@ public class FuncionarioController {
 
 	return "redirect:/lifetree/funcionario/login";
 	}
-@GetMapping("/AdicionarProdutoADM")
-public String getadicionarProdutosADM(ModelMap model) {
-	model.addAttribute("tpProdutos", tpProdutoService.findAll());
-	model.addAttribute("mcProdutos", mcProdutoService.findAll());
-	model.addAttribute("produto", new Produto());
-	return "AdicionarProdutoADM";
-}
+
+	@GetMapping("/AdicionarProdutoADM")
+	public String getadicionarProdutosADM(ModelMap model) {
+		model.addAttribute("tpProdutos", tpProdutoService.findAll());
+		model.addAttribute("mcProdutos", mcProdutoService.findAll());
+		model.addAttribute("produto", new Produto());
+		return "AdicionarProdutoADM";
+	}
 @GetMapping ("/EstoqueADM")
 public String getEstoque(ModelMap model){
 	model.addAttribute("produtos",  produtoService.ListarTodos());
