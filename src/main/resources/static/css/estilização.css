@@ -52,7 +52,7 @@ button#botão{
 }
   
 #botão:hover{
-  background-color: rgb(61, 193, 138);
+  background-color: #669f8a;
   transition: 0.2s;
   cursor: pointer;
 }
@@ -111,7 +111,7 @@ footer{
   position: absolute;
   bottom: 0;
   left: -2px;
-  background-color: #038C5A;
+  background-color: #669f8a;
   width: 110%;
   height: 80px;
 }

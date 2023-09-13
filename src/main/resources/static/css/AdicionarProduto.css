@@ -4,9 +4,8 @@
   box-sizing: border-box;
 }
 
-html,body {
+html {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: rgb(212, 225, 212);
 }
 
 header {
@@ -14,35 +13,19 @@ header {
   padding: 5px 2%;
   height: 80px;
 }
-#preView{
-  margin-left: 35%;
-  margin-top:0px;
-  position: absolute;
-  width: 450px; /* Define a largura */
-  height: 450px;
-  background-color: #f2f2f2;
-  border-color: #038c5a ;
-  border: 1px solid black;
+
+.info-header {
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  margin: auto 10px;
+  margin-top: 5px;
+  align-items: center;
 }
 
-.desc-prod{
-  margin-top: -10px;
-  position: static;
-}
-.form-label {
-  margin-top: -35rem;
-  margin-left: 62%;
-}
-
-.check{
-  height: 20px;
-  width: 40px;
-  position: absolute;
-}
-
-.form-control{
-  margin-top: 0.5rem;
-  margin-left: 51.5%;
+.logo {
+  margin-top: 5px;
+  align-items: center;
 }
 
 #logo {
@@ -62,15 +45,6 @@ header {
   margin-left: 20px;
 }
 
-.info-header {
-  color: black;
-  display: flex;
-  justify-content: space-between;
-  margin: auto 10px;
-  margin-top: 5px;
-  align-items: center;
-}
-
 .icon-header h2 {
   font-size: 15px;
   float: right;
@@ -81,19 +55,23 @@ header {
   margin-top: 5px;
   margin-left: 20px;
   margin-right: 10px
-  
 }
 
-.logo {
-  margin-top: 5px;
-  align-items: center;
+.icon-header img {
+  height: 40px;
+  width: 40px;
+}
+
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
 }
 
 .sidebar {
   width: 17%;
   height: 890px;
   background-color: #d2d2db;
-
 }
 
 .sidebar h1 {
@@ -110,68 +88,23 @@ header {
   margin-top: 35px;
   margin-left: 30px;
   color: black;
-
 }
 
-
-.icon-header img {
-  height: 40px;
-  width: 40px;
-
+section.module.box {
+  width: 70%;
+  height: 70%;
+  border: 1px solid #ccc;
+  margin: 20px 0;
+  padding: 20px 20px;
+  border-radius: 5px;
+  margin-left: 7%;
+  margin-top: 7%;
+  background-color: #f2f2f2;
 }
 
-.main {
-  display: flex;
-  flex-wrap: wrap;
-  height: 100%;
-}
-
-
-#account {
-  height: 120px;
-}
-
-.acc {
-  font-size: 15px;
-
-}
-
-#botão {
-  width: 100pt;
-  height: 50px;
-  border-radius: 25px;
-  background-color: #038c5a;
-  color: white;
-  border-color: black;
+.informations {
   margin-top: 40px;
-
-}
-#botão:hover {
-  background-color: #42dd9d;
-  transition: 0.2s;
-}
-
-
-.acc a {
-  text-decoration: none;
-  color: white;
-}
-
-
-.info-header {
-  color: black;
-  display: flex;
-  justify-content: space-between;
-  margin: auto 10px;
-  margin-top: 5px;
-}
-
-#button {
-  margin-left: 50px;
-}
-
-.logo {
-  margin-top: 5px;
+  flex-direction: row;
 }
 
 .informations p {
@@ -184,29 +117,52 @@ header {
   width: 220pt;
   display: block;
   margin-bottom: 20px;
-
 }
 
-section.module.box {
-  width: 70%;
-  height: 70%;
-  border: 1px solid #ccc;
-  margin: 20px 0;
-  padding: 20px 20px;
-  border-radius: 5px;
-  margin-left: 5%;
-  margin-top: 50px;
+.desc-prod{
+  margin-top: -10px;
+  position: static;
+}
+
+.check{
+  height: 20px;
+  width: 40px;
+  position: absolute;
+}
+
+.form-control{
+  margin-top: 0.5rem;
+  margin-left: 51.5%;
+}
+
+.form-label {
+  margin-top: -35rem;
+  margin-left: 62%;
+}
+
+#preView{
+  margin-left: 35%;
+  margin-top:0px;
+  position: absolute;
+  width: 450px; /* Define a largura */
+  height: 450px;
   background-color: #f2f2f2;
+  border-color: #038c5a ;
+  border: 1px solid black;
+}
+
+.acc {
+  font-size: 15px;
+}
+
+.acc a {
+  text-decoration: none;
+  color: white;
 }
 
 #account {
   height: 60px;
   width: 60px;
-}
-
-.informations {
-  margin-top: 40px;
-  flex-direction: row;
 }
 
 .prod-imagem {
@@ -248,7 +204,6 @@ section.module.box {
   background: #eee;
 }
 
-
 .picture:focus {
   color: #777;
   background: #ccc;
@@ -259,21 +214,24 @@ section.module.box {
   max-width: 100%;
 }
 
-.botão {
-  display: block;
-  margin-left: 400px;
-  width: 100pt;
-  height: 50px;
-  border-radius: 20px;
+#botão {
+  width: 170px;
+  height: 45px;
+  border-radius: 23px;
   background-color: #038c5a;
-  margin-top: -35px;
   color: white;
+  border-color: black;
+  margin-left: 3%;
+  text-decoration: none;
 }
 
-.botão:hover {
-  background-color: #42dd9d;
-  transition: 0.2s;
+#botão:hover {
+  background-color: #669f8a;
+  transition: 0.3s;
+  cursor: pointer;
 }
+
+
 
 #arvore{
   right: 20%;
