@@ -1,44 +1,33 @@
-body {
-    font: normal 12pt Arial;
-    background-color: #bad9cc;
-    overflow: hidden
-  }
+body{
+  font: normal 12pt Arial;
+  background-color: #bad9cc;
+  overflow: hidden
+}
   
-  header {
-    color: rgb(0, 0, 0);
-    text-align: center;
-    margin-top: 50px;
-    
-    
-  }
+header{
+  color: rgb(0, 0, 0);
+  text-align: center;
+  margin-top: 50px;
+}
   
-  h1{
-    font-size: 30px;
-    margin-top: 170px;
-    
-  }
-  .info{
-    display: none;
-    font-size: 15px;
-    margin-top: 10px;
-    line-height: 20px;
-    color: red;
-    
-  } 
-  
-  section {
-    border-radius: 10px;
-    padding: 35px;
-    width: 400px;
-    margin: auto;
-    margin-top: 5%;
-  }
+h1{
+  font-size: 30px;
+  margin-top: 170px;
+}
+
+section{
+  border-radius: 10px;
+  padding: 35px;
+  width: 400px;
+  margin: auto;
+  margin-top: 5%;
+}
 
 section h1{
   margin-left: 70px;
 }
   
-input {
+input{
   border: 1px solid black;
   border-radius: 10px;
   height: 13px;
@@ -47,30 +36,26 @@ input {
   font-size: 15px;
   margin: 15px;
 }
-
-
   
-  button#botão {
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-    width: 170px;
-    height: 45px;
-    border-radius: 23px;
-    background-color: #038c5a;
-    color: white;
-    border-color: black;
-    margin-top: 40px;
-    text-decoration: none;
-   
-  }
+button#botão{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 170px;
+  height: 45px;
+  border-radius: 23px;
+  background-color: #038c5a;
+  color: white;
+  border-color: black;
+  margin-top: 40px;
+  text-decoration: none;
+}
   
-  #botão:hover {
-    background-color: rgb(61, 193, 138);
-    transition: 0.2s;
-    cursor: pointer;
-  }
-  
+#botão:hover{
+  background-color: rgb(61, 193, 138);
+  transition: 0.2s;
+  cursor: pointer;
+}
   
 .copyright p{
     font-style: italic, bold;
@@ -80,9 +65,7 @@ input {
   height: 50px;
   width: 50px;
 }
- 
- 
- 
+
 .links{
   text-decoration: none;
   display: flex;
@@ -105,65 +88,33 @@ input {
 #criarconta{
   margin-left: 90px;
 }
+  
+.imagem-lateral{
+  position: absolute;
+  bottom: 80px;
+  left: -180px;
+  width: 100%;
+  max-width: 500px;
+  opacity: 0.70;
+}
 
-  
-  .imagem-lateral {
-    position: absolute;
-    bottom: 80px;
-    left: -180px;
-    width: 100%;
-    max-width: 500px;
-    opacity: 0.70;
-  }
-  .imagem-lateral2 {
-    position: absolute;
-    bottom: 78px;
-    right: -120px;
-    width: 100%;
-    max-width: 260px;
-    opacity: 0.70;
-  }
-  .feed{
-    font-size: 16px;
-    color: red;
-    margin-left: 5%;
-   
-  }
-  
-  
-  @media screen and (max-width:768px) {
-      .imagem-lateral{
-        
-      }
-    
-  }
-  @media screen and (max-width:1440px) {
-      .imagem-lateral{
-        width: 100%;
-        left: -220px;
-        top: 300px;
-        max-width: 500px;
-      }
-      .imagem-lateral2{
-        width: 100%;
-        top: 640px;
-        right: 55px;
-  
-      }
-      .header{
-        margin-top: 30px;
-        
-      }
-  }
-  
+.imagem-lateral2{
+  position: absolute;
+  bottom: 78px;
+  right: -120px;
+  width: 100%;
+  max-width: 260px;
+  opacity: 0.70;
+}
+
 footer{
-    position: absolute;
-    bottom: 0;
-    background-color: #038C5A;
-    color: #FFF;
-    width: 1000%;
-    height: 80px;    
-    text-align: center;
-    line-height: 100px;
+  position: absolute;
+  bottom: 0;
+  background-color: #038C5A;
+  color: #FFF;
+  width: 1000%;
+  height: 80px;    
+  text-align: center;
+  line-height: 100px;
 }
   

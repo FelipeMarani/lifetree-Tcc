@@ -19,8 +19,6 @@
 
         <h1>Login Funcionário</h1>
 
-    <!--   <img src="/img/arvorelogo1.png" id="imagem-logo">--> 
-
         <form action="#" method="post" th:object="${funcionario}" th:action="@{/lifetree/funcionario/logar}">
         <div method="post">
             <input type="text" id="text" placeholder="Funcionário/ADM" th:field="*{email}">
@@ -37,7 +35,8 @@
 
             
             
-        <div class="links">
+        
+       <div class="links">
             <a href="/lifetree/funcionario/recuperaçãosenha" id="esquecisenha">Esqueceu a senha?</a>
             <br>
             <a href="/lifetree/funcionario/criarconta" id="criarconta">Crie sua conta</a>
@@ -45,7 +44,7 @@
          
             <button id="botão">LOGIN</button>
 
-        <!--    <div class="copyright">
+        <!--<div class="copyright">
                 <p> &copy;Life Tree</p>
             </div> -->
 
@@ -57,11 +56,8 @@
     </section>
     
     <div class="Imagem">
-
         <img src="/img/arvorelogo1.png" alt="Imagem" class="imagem-lateral">
         <img src="/img/arvorelogo1.png" alt="Imagem" class="imagem-lateral2">
-
-
     </div>
 
     <footer></footer>
