@@ -5,9 +5,10 @@
    margin: 0;
    padding: 0;
    box-sizing: border-box;
+   overflow: hidden;
 }
 .tabletable-stripedtable-hovermy-5border-top{
-   overflow: auto;
+
 }
 
 html,body {

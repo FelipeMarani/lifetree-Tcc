@@ -229,55 +229,7 @@
   }
   
   
-  .prod-imagem {
-    margin: 20px 0;
-    padding: 20px 20px;
-    margin-left: 55%;
-    margin-top: 8%;
-    height: 100px;
-  }
-  
-  #picture__input {
-    display: none;
-  }
-  
-  .picture {
-    width: 25rem;
-    height: 25rem ;
-    background: #ddd;
-    justify-content: center;
-    margin-left: 5%;
-    display: flex;
-    align-items: center;
-    margin-top: -300px;
-    color: black;
-    border: 1.5px dashed #038c5a;
-    cursor: pointer;
-    outline: none;
-    overflow: hidden;
-  }
-  
-  .picture:hover {
-    color: black;
-    background: #ccc;
-  }
-  
-  .picture:active {
-    border-color: turquoise;
-    color: turquoise;
-    background: #eee;
-  }
-  
-  
-  .picture:focus {
-    color: #777;
-    background: #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  }
-  
-  .picture__img {
-    max-width: 100%;
-  }
+
   
   .botão {
     display: block;
