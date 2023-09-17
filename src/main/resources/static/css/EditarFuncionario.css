@@ -142,8 +142,8 @@
     font-size: 15px;
   
   }
-  
-  #inativar {
+
+#botão, .button s{
     width: 100pt;
     height: 50px;
     border-radius: 25px;
@@ -151,19 +151,9 @@
     color: white;
     border-color: black;
     margin-top: 40px;
-    margin-left: 70px;
-  
-  }
-  #botão {
-    width: 100pt;
-    height: 50px;
-    border-radius: 25px;
-    background-color: #038c5a;
-    color: white;
-    border-color: black;
-    margin-top: 40px;
-  
-  }
+}
+
+.butto
   
   .acc a {
     text-decoration: none;
@@ -171,17 +161,14 @@
   }
   
   
-  .info-header {
-    color: black;
-    display: flex;
+.info-header {
+  color: black;
+  display: flex;
     justify-content: space-between;
     margin: auto 10px;
     margin-top: 5px;
   }
-  
-  #button {
-    margin-left: 50px;
-  }
+
   
   .logo {
     margin-top: 5px;
@@ -214,7 +201,7 @@
     padding: 20px 20px;
     border-radius: 5px;
     margin-left: 5%;
-    margin-top: 50px;
+    margin-top: 5%;
     background-color: #f2f2f2;
   }
   
@@ -228,19 +215,6 @@
     flex-direction: row;
   }
   
-  
-
-  
-  .botão {
-    display: block;
-    margin-left: 400px;
-    width: 100pt;
-    height: 50px;
-    border-radius: 20px;
-    background-color: #038c5a;
-    margin-top: -35px;
-    color: white;
-  }
   
   .botão:hover {
     background-color: #42dd9d;

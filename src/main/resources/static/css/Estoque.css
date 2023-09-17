@@ -8,10 +8,14 @@
    overflow: hidden;
 }
 
+body{
+
+}
 
 html,body {
    height: 100%;
    font-family: Arial, Helvetica, sans-serif;
+
 }
 
 header {
@@ -75,6 +79,7 @@ header {
 .main {
    display: flex;
    height: 100%;
+   background-color: rgb(212, 225, 212);
 }
 
 .sidebar {

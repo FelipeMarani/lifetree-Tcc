@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/EditarFuncionarioppp.css">
+    <link rel="stylesheet" href="/css/EditarFuncionario.css">
     
     <title>Editar Funcionário</title>
 </head>
@@ -12,7 +12,7 @@
     <header>    
         <div class="info-header">
             <div class="logo">
-            <h2>Adicionar de Produto</h2>
+            <h2>Editar Funcionário</h2>
             <img src="/img/arvorelogo.png" id="logo">
         </div>
         <div class="icon-header">
@@ -41,12 +41,14 @@
 
     <section class="module box">
         <div class="title">
-            <h2> Editar produto</h2>
-            <hr />
+            <h2>Funcionários</h2>
+            <hr/>
         </div>
 
     
 
+        <br>
+        <br>
 		<form action="#" th:action="@{/lifetree/funcionario/atualizar/{id}(id=*{id})}" th:object="${funcionario}"
 			method="post">
 		
@@ -64,8 +66,8 @@
 			<div class="button">
 				<button type="submit" id="botão">Editar</button>
 		
-				<a type="button" id="inativar"
-					th:href="@{/lifetree/funcionario/inativar/{id}(id=${funcionario.id})}">Inativar</a>
+				<button type="submit" id="botão"
+					th:href="@{/lifetree/funcionario/inativar/{id}(id=${funcionario.id})}">Inativar</button>
 		
 			</div>
 		

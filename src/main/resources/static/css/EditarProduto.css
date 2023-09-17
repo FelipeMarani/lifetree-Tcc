@@ -22,8 +22,8 @@ header {
   margin-top: -22%;
   margin-left: 37%;
   position: absolute;
-  width: 400px; /* Define a largura */
-  height: 400px;
+  width: 450px; /* Define a largura */
+  height: 450px;
   background-color: #f2f2f2;
   border-color: #038c5a ;
   border: 1px solid black;
@@ -143,17 +143,7 @@ header {
 
 }
 
-#inativar {
-  width: 100pt;
-  height: 50px;
-  border-radius: 25px;
-  background-color: #038c5a;
-  color: white;
-  border-color: black;
-  margin-top: 40px;
-  margin-left: 70px;
 
-}
 #botão {
   width: 100pt;
   height: 50px;
@@ -277,17 +267,6 @@ section.module.box {
 
 .picture__img {
   max-width: 100%;
-}
-
-.botão {
-  display: block;
-  margin-left: 400px;
-  width: 100pt;
-  height: 50px;
-  border-radius: 20px;
-  background-color: #038c5a;
-  margin-top: -35px;
-  color: white;
 }
 
 .botão:hover {

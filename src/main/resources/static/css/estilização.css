@@ -7,12 +7,17 @@ body{
 header{
   color: rgb(0, 0, 0);
   text-align: center;
-  margin-top: 50px;
+  margin-top: 5%;
 }
   
+
+#logo_nome{
+  height: 150px;
+  width: 150px;
+}
+
 h1{
   font-size: 30px;
-  margin-top: 170px;
 }
 
 section{
@@ -20,7 +25,6 @@ section{
   padding: 35px;
   width: 400px;
   margin: auto;
-  margin-top: 5%;
 }
 
 section h1{
@@ -83,10 +87,6 @@ button#botão{
 .links a:hover{
   color: #038C5A;
   transition: 0.5s;
-}
-
-#criarconta{
-  margin-left: 90px;
 }
   
 .imagem-lateral{
