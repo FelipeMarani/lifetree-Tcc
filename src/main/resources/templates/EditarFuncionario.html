@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/EditarProduto.css">
+    <link rel="stylesheet" href="/css/EditarFuncionario.css">
     
-    <title>Editar Produto</title>
+    <title>Editar Funcionário</title>
 </head>
 <body>
     <header>    
         <div class="info-header">
             <div class="logo">
-            <h2>Adicionar de Produto</h2>
+            <h2>Editar Funcionário</h2>
             <img src="/img/arvorelogo.png" id="logo">
         </div>
         <div class="icon-header">
@@ -28,11 +28,12 @@
 
     <div class="sidebar">
         <strong>
-          <h1>Editar Produto</h1>
+          <h1>Painel de Controle</h1>
         </strong>
    
       <a href="/lifetree/produtos/AdicionarProduto">Adicionar Produto</a>
       <a href="/lifetree/produtos/Estoque">Estoque</a>
+      <a href="/lifetree/funcionario/ListaFunc">Funcionários</a>
   
         <br>
         <hr>
@@ -40,12 +41,14 @@
 
     <section class="module box">
         <div class="title">
-            <h2> Editar produto</h2>
-            <hr />
+            <h2>Funcionários</h2>
+            <hr/>
         </div>
 
     
 
+        <br>
+        <br>
 		<form action="#" th:action="@{/lifetree/funcionario/atualizar/{id}(id=*{id})}" th:object="${funcionario}"
 			method="post">
 		
@@ -63,8 +66,8 @@
 			<div class="button">
 				<button type="submit" id="botão">Editar</button>
 		
-				<a type="button" id="inativar"
-					th:href="@{/lifetree/funcionario/inativar/{id}(id=${funcionario.id})}">Inativar</a>
+				<button type="submit" id="botão"
+					th:href="@{/lifetree/funcionario/inativar/{id}(id=${funcionario.id})}">Inativar</button>
 		
 			</div>
 		

@@ -186,5 +186,14 @@ public class ProdutoController {
 		return "redirect:/lifetree/produtos/Estoque";
 	}
 
+	@GetMapping("/reativar/{id}")
+	public String reativarProd(@PathVariable("id") int id, ModelMap model) {
+
+		Produto produto = produtoService.findById(id);
+
+		produtoService.reativarProd(produto);
+
+		return "redirect:/lifetree/produtos/Estoque";
+	}
 
 }

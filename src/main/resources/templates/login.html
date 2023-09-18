@@ -12,13 +12,16 @@
 
 <body>
     <header>
+        <img id="logo_nome" src="/img/arvorelogo1.png">
+        <h1>Login Funcionário</h1>
         
-        <h1>Life Tree</h1>
+        
     </header>
     <section>
+
         <form action="#" method="post" th:object="${funcionario}" th:action="@{/lifetree/funcionario/logar}">
         <div method="post">
-            <input type="text" id="text" placeholder="Email" th:field="*{email}">
+            <input type="text" id="text" placeholder="Funcionário/ADM" th:field="*{email}">
  
             <input type="password" id="senha" placeholder="Senha" th:field="*{senha}">
 
@@ -29,28 +32,33 @@
             <div class="text-center p-2 rounded-2">
 				<span class="fw-bold fs-5 text-danger" th:text="${serverMessage}"></span>
 			</div>
-            
 
-            <a href="/lifetree/funcionario/recuperaçãosenha" id="esquecisenha">Esqueceu a senha?</a>
-            <br>
-            <a href="/lifetree/funcionario/criarconta" id="esquecisenha">Crie sua conta</a>
             
-            <button id="botão">Entrar</button>
+            
+        
+       <div class="links">
+            <a href="/lifetree/funcionario/criarconta" id="criarconta">Crie sua conta</a>
+        </div>
+         
+            <button id="botão">LOGIN</button>
+
+        <!--<div class="copyright">
+                <p> &copy;Life Tree</p>
+            </div> -->
+
         </div>
     </form>
 
+    
+
     </section>
-    <footer>
-        <p> &copy; Life Tree</p>
-
-    </footer>
+    
     <div class="Imagem">
-
         <img src="/img/arvorelogo1.png" alt="Imagem" class="imagem-lateral">
         <img src="/img/arvorelogo1.png" alt="Imagem" class="imagem-lateral2">
-
-
     </div>
+
+    <footer></footer>
 
     <script src="script.js"></script>
 

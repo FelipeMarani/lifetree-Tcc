@@ -91,6 +91,8 @@ public class FuncionarioService {
 		funcionarioRepository.save(_funcionario);
 	}
 	
+//	public void reativar
+	
 	
 
 }

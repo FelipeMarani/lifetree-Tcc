@@ -60,6 +60,17 @@ public class ProdutoService {
 		_produto.setStatusProd("INATIVO");
 		produtoRepository.save(_produto);
 	}
+	
+	@Transactional
+	public void reativarProd(Produto produto) {
+
+		Produto _produto = produto;
+
+		_produto.setDestaque("NÃO");
+		_produto.setImagem(null);
+		_produto.setStatusProd("ATIVO");
+		produtoRepository.save(_produto);
+	}
 
 
 

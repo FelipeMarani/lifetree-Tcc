@@ -142,8 +142,8 @@
     font-size: 15px;
   
   }
-  
-  #inativar {
+
+#botão, .button s{
     width: 100pt;
     height: 50px;
     border-radius: 25px;
@@ -151,19 +151,9 @@
     color: white;
     border-color: black;
     margin-top: 40px;
-    margin-left: 70px;
-  
-  }
-  #botão {
-    width: 100pt;
-    height: 50px;
-    border-radius: 25px;
-    background-color: #038c5a;
-    color: white;
-    border-color: black;
-    margin-top: 40px;
-  
-  }
+}
+
+.butto
   
   .acc a {
     text-decoration: none;
@@ -171,17 +161,14 @@
   }
   
   
-  .info-header {
-    color: black;
-    display: flex;
+.info-header {
+  color: black;
+  display: flex;
     justify-content: space-between;
     margin: auto 10px;
     margin-top: 5px;
   }
-  
-  #button {
-    margin-left: 50px;
-  }
+
   
   .logo {
     margin-top: 5px;
@@ -214,7 +201,7 @@
     padding: 20px 20px;
     border-radius: 5px;
     margin-left: 5%;
-    margin-top: 50px;
+    margin-top: 5%;
     background-color: #f2f2f2;
   }
   
@@ -228,67 +215,6 @@
     flex-direction: row;
   }
   
-  
-  .prod-imagem {
-    margin: 20px 0;
-    padding: 20px 20px;
-    margin-left: 55%;
-    margin-top: 8%;
-    height: 100px;
-  }
-  
-  #picture__input {
-    display: none;
-  }
-  
-  .picture {
-    width: 25rem;
-    height: 25rem ;
-    background: #ddd;
-    justify-content: center;
-    margin-left: 5%;
-    display: flex;
-    align-items: center;
-    margin-top: -300px;
-    color: black;
-    border: 1.5px dashed #038c5a;
-    cursor: pointer;
-    outline: none;
-    overflow: hidden;
-  }
-  
-  .picture:hover {
-    color: black;
-    background: #ccc;
-  }
-  
-  .picture:active {
-    border-color: turquoise;
-    color: turquoise;
-    background: #eee;
-  }
-  
-  
-  .picture:focus {
-    color: #777;
-    background: #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  }
-  
-  .picture__img {
-    max-width: 100%;
-  }
-  
-  .botão {
-    display: block;
-    margin-left: 400px;
-    width: 100pt;
-    height: 50px;
-    border-radius: 20px;
-    background-color: #038c5a;
-    margin-top: -35px;
-    color: white;
-  }
   
   .botão:hover {
     background-color: #42dd9d;

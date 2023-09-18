@@ -12,7 +12,7 @@
     <header>    
         <div class="info-header">
             <div class="logo">
-            <h2>Adicionar de Produto</h2>
+            <h2>Editar Produto</h2>
             <img src="/img/arvorelogo.png" id="logo">
         </div>
         <div class="icon-header">
@@ -28,7 +28,7 @@
 
     <div class="sidebar">
         <strong>
-          <h1>Editar Produto</h1>
+          <h1>Painel de Controle</h1>
         </strong>
    
       <a href="/lifetree/produtos/AdicionarProduto">Adicionar Produto</a>
@@ -43,7 +43,7 @@
 
     <section class="module box">
         <div class="title">
-            <h2> Editar produto</h2>
+            <h2>Editar produto</h2>
             <hr>
         </div>
 
@@ -56,6 +56,7 @@
             </div>
             <div class="desc-prod">
                 <strong><p>ID:<input class="Imput" type="text" th:field="*{id}" readonly/></p></strong>
+                <strong><p>Status do Produto<input class="Imput" type="text" th:field="*{statusProd}" readonly/></p></strong>
 
             <p>Nome do produto<input class="Imput" type="text" th:field="*{nome}"> </p>
             <p>Quantidade <input class="Imput" type="number" th:field="*{quantidade}" maxlength="10"></p>
@@ -101,10 +102,11 @@
 
         <div class="button">
             <button type="submit" id="botão">Editar</button>
-              
              <a id="botão" th:href="@{/lifetree/produtos/inativar/{id}(id=${produto.id})}">Inativar</a>
-              </form>
+             <a id="botão" th:href="@{/lifetree/produtos/reativar/{id}(id=${produto.id})}">Reativar</a>
         </div>
+              </form>
+        
     </section>
 
 </section>
