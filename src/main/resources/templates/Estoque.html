@@ -72,11 +72,8 @@
        		<td th:text="${produto.tpProduto.tpProduto}"></td>
 			<td th:text="${produto.statusProd}"></td>
 			<td><a th:href="@{/lifetree/produtos/Editarproduto/{id}(id=${produto.id})}" class="btn btn-success btn-sm pb-0">Editar</a></td>
-			<td>	
-            <a id="botãoRea"th:href="@{/lifetree/produtos/inativar/{id}(id=${produto.id})}" class="btn btn-success btn-sm pb-0">
-                Inativar
-            </a>
-        </td>
+			<td><a th:href="@{/lifetree/produtos/inativar/{id}(id=${produto.id})}" class="btn btn-success btn-sm pb-0">Inativar</a></td>
+		
        </tr>
     </tbody>
       </thead>
