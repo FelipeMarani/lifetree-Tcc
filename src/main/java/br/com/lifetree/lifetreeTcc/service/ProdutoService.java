@@ -56,6 +56,10 @@ public class ProdutoService {
 		_produto.setPreco(0.0);
 		_produto.setQuantidade(0);
 		_produto.setDestaque("NÃO");
+<<<<<<< HEAD
+=======
+		
+>>>>>>> c2355988a57cd673ca1aa33b75e7813e1373357b
 		_produto.setStatusProd("INATIVO");
 		produtoRepository.save(_produto);
 	}
@@ -66,7 +70,7 @@ public class ProdutoService {
 		Produto _produto = produto;
 
 		_produto.setDestaque("NÃO");
-		_produto.setImagem(null);
+		
 		_produto.setStatusProd("ATIVO");
 		produtoRepository.save(_produto);
 	}

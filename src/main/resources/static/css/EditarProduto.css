@@ -142,6 +142,16 @@ header {
   font-size: 15px;
 
 }
+#botãoRea {
+  width: 100pt;
+  height: 50px;
+  border-radius: 25px;
+  background-color: #038c5a;
+  color: white;
+  border-color: black;
+  margin-top: 40px;
+
+}
 
 
 #botão {
