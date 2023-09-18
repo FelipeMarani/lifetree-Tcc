@@ -1,12 +1,9 @@
 package br.com.lifetree.lifetreeTcc.service;
 
-import java.io.IOException;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import br.com.lifetree.lifetreeTcc.model.entity.Funcionario;
 import br.com.lifetree.lifetreeTcc.repository.FuncionarioRepository;
@@ -90,6 +87,8 @@ public class FuncionarioService {
 		_funcionario.setAcesso("INATIVO");
 		funcionarioRepository.save(_funcionario);
 	}
+
+	
 	
 //	public void reativar
 	
