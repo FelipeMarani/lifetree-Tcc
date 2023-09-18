@@ -43,12 +43,7 @@
         </div>
         <br>
         
-        <div class="infClick">
-			<form th:action="@{/lifetree/produtos/todos-filtro}" method="post">         
-				<input type="text" id="barraP" name="nomeProd"> 
-            <input type="button" id="pesquisaP" value="Pesquisar">
-            </form>
-        </div>
+     
     </section>
 
     <div class="api" th:action="@{/lifetree/produtos/all}" th:object="${produto}" method="get">        
@@ -63,7 +58,8 @@
             <th scope="col">Preço</th>
             <th scope="col">Tipo de Produto</th>
             <th scope="col">Status</th>
-            <th scope="col">Editar</th>     
+            <th scope="col">Editar</th>   
+            <th scope="col">Inativar</th>   
         </tr>
 
     <tbody>
@@ -75,7 +71,12 @@
 			<td th:text="${produto.preco}"></td>
        		<td th:text="${produto.tpProduto.tpProduto}"></td>
 			<td th:text="${produto.statusProd}"></td>
-			<td><a th:href="@{/lifetree/produtos/Editarproduto/{id}(id=${produto.id})}" class="btn btn-primary btn-sm pb-0">Editar</a></td>
+			<td><a th:href="@{/lifetree/produtos/Editarproduto/{id}(id=${produto.id})}" class="btn btn-success btn-sm pb-0">Editar</a></td>
+			<td>	
+            <a id="botãoRea"th:href="@{/lifetree/produtos/inativar/{id}(id=${produto.id})}" class="btn btn-success btn-sm pb-0">
+                Inativar
+            </a>
+        </td>
        </tr>
     </tbody>
       </thead>
