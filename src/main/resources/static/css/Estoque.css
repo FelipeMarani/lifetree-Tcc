@@ -8,9 +8,6 @@
    overflow: hidden;
 }
 
-body{
-
-}
 
 html,body {
    height: 100%;
@@ -151,7 +148,8 @@ header {
    margin-left: 25%;
    width: 70%;
    height: 60%;
-   display: block;
+   display: flex;
+   overflow: auto;
 }
 
 
