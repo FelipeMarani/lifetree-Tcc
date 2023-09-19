@@ -15,8 +15,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import br.com.lifetree.lifetreeTcc.model.entity.Funcionario;
+import br.com.lifetree.lifetreeTcc.model.entity.Produto;
 import br.com.lifetree.lifetreeTcc.service.FuncionarioService;
+import br.com.lifetree.lifetreeTcc.service.ProdutoService;
 
 @RestController
 @RequestMapping("/api/lifetree/funcionario")
@@ -24,9 +27,12 @@ import br.com.lifetree.lifetreeTcc.service.FuncionarioService;
 public class FuncionarioApiController {
 
 	FuncionarioService funcionarioService;
+	ProdutoService produtoService;
 
-	public FuncionarioApiController(FuncionarioService _funcionarioService) {
+	public FuncionarioApiController(FuncionarioService _funcionarioService , ProdutoService produtoService) {
+		
 		this.funcionarioService = _funcionarioService;
+		this.produtoService = produtoService;
 
 	}
 
@@ -71,6 +77,24 @@ public class FuncionarioApiController {
 	      }
 
 	      return new ResponseEntity<>(tutorials, HttpStatus.OK);
+	    } catch (Exception e) {
+	      return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+	    }
+	  }
+	 
+	 @GetMapping("/produtosApi")
+	  public ResponseEntity<List<Produto>> getAllProdutos(@RequestParam(required = false) String title2) {
+	    try {
+	      List<Produto> produtosApi = new ArrayList<Produto>();
+
+	      if (title2 == null)
+	    	  produtoService.ListarTodosProd().forEach(produtosApi::add);
+	   
+	      if (produtosApi.isEmpty()) {
+	        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+	      }
+
+	      return new ResponseEntity<>(produtosApi, HttpStatus.OK);
 	    } catch (Exception e) {
 	      return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 	    }

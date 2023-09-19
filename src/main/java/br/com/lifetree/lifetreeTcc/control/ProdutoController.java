@@ -76,7 +76,7 @@ public class ProdutoController {
 	@GetMapping("/home")
 	public String home(ModelMap model) {
 
-		//List<Produto> produtos = produtoService.listar3Destaques();
+//		List<Produto> produtos = produtoService.listar3Destaques();
 
 		//PARA EXIBIR UMA QUANTIDADE MAIOR DE PRODUTOS EM DESTAQUE
 		List<Produto> produtos = produtoService.ListarTodos();
