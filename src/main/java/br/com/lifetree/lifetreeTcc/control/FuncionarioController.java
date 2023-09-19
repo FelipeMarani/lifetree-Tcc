@@ -165,6 +165,19 @@ public String getEstoque(ModelMap model){
 		return "redirect:/lifetree/funcionario/ListaFunc";
 	}
 	
+	@PostMapping("/inativarProdFunc/{id}")
+	public String inativarProdFunc(
+			@PathVariable("id") int id, Produto produto, ModelMap model) {
+		
+		Produto produtos = produtoService.findById(id);
+
+		funcionarioService.inativarProdFunc(produtos);
+
+		return "redirect:/lifetree/funcionario/EstoqueADM";
+	}
+	
+	
+	
 
 	@GetMapping("/EditarFuncionario/{id}")
 	public String getEditarFuncionario(@PathVariable("id") int id, ModelMap map) {

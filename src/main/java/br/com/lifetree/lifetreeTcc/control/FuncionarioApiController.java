@@ -29,39 +29,14 @@ public class FuncionarioApiController {
 	FuncionarioService funcionarioService;
 	ProdutoService produtoService;
 
+	private String serverMessage = null;
+
+
 	public FuncionarioApiController(FuncionarioService _funcionarioService , ProdutoService produtoService) {
 		
 		this.funcionarioService = _funcionarioService;
 		this.produtoService = produtoService;
 
-	}
-
-	private String serverMessage = null;
-
-	@GetMapping("/login")
-	@ResponseBody
-	public String getLogin(ModelMap model) {
-
-		model.addAttribute("funcionario", new Funcionario());
-		model.addAttribute("serverMessage", serverMessage);
-		return "login";
-
-	}
-
-	@PostMapping("/logar")
-	public String Acessar(@RequestParam("email") String email, @RequestParam("senha") String senha, ModelMap model) {
-
-		int acessar = funcionarioService.acessar(email, senha);
-
-		if (acessar == 2) {
-
-			return "redirect:/lifetree/produtos/Estoque";
-		} else if (acessar == 1) {
-
-			return "redirect:/lifetree/funcionario/ListaFunc";
-		}
-
-		return "redirect:/lifetree/funcionario/login";
 	}
 	
 	 @GetMapping("/tutorials")
@@ -101,9 +76,4 @@ public class FuncionarioApiController {
 	  }
 
 	
-    @PostMapping("/signin")
-    public ResponseEntity<String> authenticateUser(@RequestBody Funcionario loginDto){
-    	
-        return new ResponseEntity<>("User signed-in successfully!.", HttpStatus.OK);
-    }
 }

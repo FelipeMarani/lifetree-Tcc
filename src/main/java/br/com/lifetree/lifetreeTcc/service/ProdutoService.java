@@ -20,15 +20,15 @@ public class ProdutoService {
 	private  ProdutoRepository produtoRepository; 
 	private TpProdutoRepository tpprodutoRepository;
 	private McProdutoRepository mcprodutoRepository;
-	private ImagensService imagensService;
+	
 
 	//Injeção de dependência
-	public ProdutoService(ProdutoRepository produtoRepository , TpProdutoRepository tpprodutoRepository , McProdutoRepository mcProdutoRepository, ImagensService imagensService) {
+	public ProdutoService(ProdutoRepository produtoRepository , TpProdutoRepository tpprodutoRepository , McProdutoRepository mcProdutoRepository) {
 		super();
 		this.produtoRepository = produtoRepository;
 		this.tpprodutoRepository = tpprodutoRepository;
 		this.mcprodutoRepository = mcProdutoRepository;
-		this.imagensService = imagensService;
+		
 	}
 
 	public Produto findById(long id) {
