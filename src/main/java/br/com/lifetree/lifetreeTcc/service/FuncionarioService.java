@@ -1,23 +1,35 @@
 package br.com.lifetree.lifetreeTcc.service;
 
-import java.util.LinkedHashMap;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import br.com.lifetree.lifetreeTcc.model.entity.Funcionario;
+import br.com.lifetree.lifetreeTcc.model.entity.Produto;
 import br.com.lifetree.lifetreeTcc.repository.FuncionarioRepository;
+import br.com.lifetree.lifetreeTcc.repository.ProdutoRepository;
 import jakarta.transaction.Transactional;
 
 @Service
 public class FuncionarioService {
 
 	final FuncionarioRepository funcionarioRepository;
+	final ProdutoRepository produtoRepository;
 
-	public FuncionarioService(FuncionarioRepository _funcionarioRepository) {
+	public FuncionarioService(FuncionarioRepository _funcionarioRepository , ProdutoRepository _produtoRepository) {
+		super();
+		this.produtoRepository = _produtoRepository;
 		this.funcionarioRepository = _funcionarioRepository;
 	}
+<<<<<<< HEAD
 
+=======
+	
+	public Produto findById(long id) {
+		return produtoRepository.findById(id).get();
+	}
+	
+>>>>>>> 3b71856251a367145d8ec9ef3e6b86df48909d29
 	@Transactional
 	public Funcionario save(Funcionario funcionario) {
 		return funcionarioRepository.save(funcionario);
@@ -82,6 +94,18 @@ public class FuncionarioService {
 		_funcionario.setAcesso("INATIVO");
 		funcionarioRepository.save(_funcionario);
 	}
+	
+	public void inativarProdFunc(Produto produto) {
+
+		Produto _produto = produto;
+
+		_produto.setPreco(0.0);
+		_produto.setQuantidade(0);
+		_produto.setDestaque("NÃO");
+		_produto.setStatusProd("INATIVO");
+		produtoRepository.save(_produto);
+	}
+	
 
 //	public void reativar
 

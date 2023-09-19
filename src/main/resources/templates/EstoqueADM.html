@@ -67,7 +67,8 @@
                 <th scope="col">Preço</th>
                 <th scope="col">Tipo de Produto</th>
                 <th scope="col">Status</th>
-                <th scope="col">Editar</th>     
+                <th scope="col">Editar</th>   
+                <th scope="col">Inativar</th>   
             </tr>
 
     <tbody>
@@ -79,12 +80,21 @@
 						<td th:text="${produto.preco}"></td>
 						<td th:text="${produto.tpProduto.tpProduto}"></td>
 						<td th:text="${produto.statusProd}"></td>
+<<<<<<< HEAD
 						<td>
 							<a th:href="@{/lifetree/produtos/EditarProdutoADM/{id}(id=${produto.id})}" class="btn btn-primary btn-sm pb-0">
 								Editar
+=======
+					<td><a th:href="@{/lifetree/funcionario/EditarProdutoADM/{id}(id=${produto.id})}" class="btn btn-primary btn-sm pb-0">
+							Editar
+>>>>>>> 3b71856251a367145d8ec9ef3e6b86df48909d29
 							</a>
-			
 						</td>
+						<td><a th:href="@{/lifetree/funcionario/inativarProdFunc/{id}(id=${produto.id})}" class="btn btn-primary btn-sm pb-0">
+							Inativar
+							</a>
+						</td>
+						
        </tr>
     </tbody>
       </thead>

@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import br.com.lifetree.lifetreeTcc.model.entity.Produto;
-import br.com.lifetree.lifetreeTcc.service.ImagensService;
 import br.com.lifetree.lifetreeTcc.service.McProdutoService;
 import br.com.lifetree.lifetreeTcc.service.ProdutoService;
 import br.com.lifetree.lifetreeTcc.service.TpProdutoService;
@@ -33,19 +32,19 @@ public class ProdutoController {
 	final ProdutoService produtoService;
 	final TpProdutoService tpProdutoService;
 	final McProdutoService mcProdutoService;
-	final ImagensService imagensService;
+	
 
 	// CASO O PRODUTO NÃO TENHA UMA IMAGEM CADASTRADA NO BANCO DE DADOS
 	private String semImagem = "/img/semImagem.png";
 	private String foto = "";
 
 	public ProdutoController(ProdutoService produtoService, TpProdutoService tpProdutoService,
-			McProdutoService mcProdutoService, ImagensService imagensService) {
+			McProdutoService mcProdutoService) {
 		super();
 		this.produtoService = produtoService;
 		this.tpProdutoService = tpProdutoService;
 		this.mcProdutoService = mcProdutoService;
-		this.imagensService = imagensService;
+		
 	}
 
 	// CARREGA A IMAGEM DO SERVIDOR NA PÁGINA DE ACORDO COM O "ID" DO PRODUTO
