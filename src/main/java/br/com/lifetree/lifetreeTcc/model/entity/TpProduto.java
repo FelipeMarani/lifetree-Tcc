@@ -8,13 +8,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="TpProduto")
+@Table(name = "TpProduto")
 public class TpProduto {
-	
+
 	@Id
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
+
 	@Column(name = "TpProduto")
 	private String tpProduto;
 
@@ -33,6 +33,5 @@ public class TpProduto {
 	public void setTpProduto(String tpProduto) {
 		this.tpProduto = tpProduto;
 	}
-	
 
 }

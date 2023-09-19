@@ -15,31 +15,27 @@ import br.com.lifetree.lifetreeTcc.service.McProdutoService;
 
 @RestController
 @RequestMapping("/marcaprodutos")
-@CrossOrigin(origins="*", maxAge = 3600, allowCredentials = "false")
+@CrossOrigin(origins = "*", maxAge = 3600, allowCredentials = "false")
 public class McProdutoController {
-	
-	//Criação do objeto de serviço 
-		final McProdutoService mcProdutoService;
-		
-		// INJEÇÃO DE DEPENDENCIA 
-		public McProdutoController(McProdutoService _McProdutoService) {
-			this.mcProdutoService = _McProdutoService;
-		}
-		
-		// ROTA POST
-		@PostMapping("/save")
-		public ResponseEntity<Object> saveMcProduto(McProduto mcProduto){
-			return ResponseEntity.status(HttpStatus.CREATED)
-					.body(mcProdutoService.save(mcProduto));		
-		}
-		
-		//ROTA GET 
-		@GetMapping("/all")
-		public ResponseEntity<List<McProduto>> getAllMcProduto(){
-			return ResponseEntity.status(HttpStatus.OK)
-					.body(mcProdutoService.findAll());
-		}
-		
-	
+
+	// Criação do objeto de serviço
+	final McProdutoService mcProdutoService;
+
+	// INJEÇÃO DE DEPENDENCIA
+	public McProdutoController(McProdutoService _McProdutoService) {
+		this.mcProdutoService = _McProdutoService;
+	}
+
+	// ROTA POST
+	@PostMapping("/save")
+	public ResponseEntity<Object> saveMcProduto(McProduto mcProduto) {
+		return ResponseEntity.status(HttpStatus.CREATED).body(mcProdutoService.save(mcProduto));
+	}
+
+	// ROTA GET
+	@GetMapping("/all")
+	public ResponseEntity<List<McProduto>> getAllMcProduto() {
+		return ResponseEntity.status(HttpStatus.OK).body(mcProdutoService.findAll());
+	}
 
 }

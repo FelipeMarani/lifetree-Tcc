@@ -10,26 +10,26 @@ import jakarta.transaction.Transactional;
 
 @Service
 public class McProdutoService {
-	
-	//objeto repository
+
+	// objeto repository
 	final McProdutoRepository mcProdutoRepository;
-	
-	//injeção de dependência
+
+	// injeção de dependência
 	public McProdutoService(McProdutoRepository _mcProdutoService) {
 		this.mcProdutoRepository = _mcProdutoService;
-		
+
 	}
-	
+
 	// Metodo Insert INTO MarcaDoProduto
 	@Transactional
-	public McProduto save (McProduto _mcProduto) {
+	public McProduto save(McProduto _mcProduto) {
 		return mcProdutoRepository.save(_mcProduto);
 	}
-	
+
 	// Metodo Select * From MarcaDoProduto
-		public List <McProduto> findAll(){
-			List<McProduto> lista = mcProdutoRepository.findAll();
-			return lista;
-		}
+	public List<McProduto> findAll() {
+		List<McProduto> lista = mcProdutoRepository.findAll();
+		return lista;
+	}
 
 }
