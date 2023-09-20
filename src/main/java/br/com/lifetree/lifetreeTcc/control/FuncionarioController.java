@@ -110,7 +110,7 @@ public class FuncionarioController {
 	}
 
 	@PostMapping("/atualizar/{id}")
-	public String atualizarProduto(@PathVariable("id") int id, ModelMap model) {
+	public String atualizarFuncionario(@PathVariable("id") int id, ModelMap model) {
 
 		Funcionario funcionario = funcionarioService.findById(id);
 
