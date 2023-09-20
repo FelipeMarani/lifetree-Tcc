@@ -83,7 +83,6 @@ public class FuncionarioService {
 	
 	@Transactional
 	public Funcionario saveNewFuncionario(Funcionario funcionario) {
-		funcionario.setAcesso("FUNC");
 		return funcionarioRepository.save(funcionario);
 	}
 

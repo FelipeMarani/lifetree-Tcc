@@ -32,7 +32,6 @@ public class ProdutoController {
 	final ProdutoService produtoService;
 	final TpProdutoService tpProdutoService;
 	final McProdutoService mcProdutoService;
-	
 
 	// CASO O PRODUTO NÃO TENHA UMA IMAGEM CADASTRADA NO BANCO DE DADOS
 	private String semImagem = "/img/semImagem.png";
@@ -44,7 +43,7 @@ public class ProdutoController {
 		this.produtoService = produtoService;
 		this.tpProdutoService = tpProdutoService;
 		this.mcProdutoService = mcProdutoService;
-		
+
 	}
 
 	// CARREGA A IMAGEM DO SERVIDOR NA PÁGINA DE ACORDO COM O "ID" DO PRODUTO
@@ -183,14 +182,15 @@ public class ProdutoController {
 
 		return "redirect:/lifetree/produtos/Estoque";
 	}
-	
-	
-	//ADM//
-	
+
+	// ADM//
+
 	@GetMapping("/EditarProdutoADM/{id}")
 	public String getEditarProdutoADM(@PathVariable("id") int id, ModelMap map) {
-		
+
 		Produto produto = produtoService.findById(id);
+		map.addAttribute("tpProdutos", tpProdutoService.findAll());
+		map.addAttribute("mcProdutos", mcProdutoService.findAll());
 		map.addAttribute("produto", produto);
 		return "EditarProdutoADM";
 	}
