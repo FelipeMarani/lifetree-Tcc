@@ -22,10 +22,6 @@ public class FuncionarioService {
 		this.funcionarioRepository = _funcionarioRepository;
 	}
 	
-	public Produto findById(long id) {
-		return produtoRepository.findById(id).get();
-	}
-	
 	@Transactional
 	public Funcionario save(Funcionario funcionario) {
 		return funcionarioRepository.save(funcionario);
@@ -60,6 +56,8 @@ public class FuncionarioService {
 		return 0;
 	}
 	
+	
+	
 	@Transactional
 	public void atualizarFunc(Funcionario funcionario) {
 		
@@ -79,6 +77,13 @@ public class FuncionarioService {
 	public List<Funcionario>ListarTodos(){
 		return funcionarioRepository.findAll();
 	}
+	
+	
+	//
+		public Funcionario ListarEmail(String email){
+			
+			return funcionarioRepository.findByEmail(email);
+		}
 	
 	@Transactional
 	public Funcionario saveNewFuncionario(Funcionario funcionario) {
