@@ -64,13 +64,8 @@ public class FuncionarioApiController {
 
 		return "redirect:/lifetree/funcionario/login";
 	}
-=======
+
 	
-	 @GetMapping("/tutorials")
-	  public ResponseEntity<List<Funcionario>> getAllFuncionarios(@RequestParam(required = false) String title) {
-	    try {
-	      List<Funcionario> tutorials = new ArrayList<Funcionario>();
->>>>>>> 3b71856251a367145d8ec9ef3e6b86df48909d29
 
 	@GetMapping("/tutorials")
 	public ResponseEntity<List<Funcionario>> getAllFuncionarios(@RequestParam(required = false) String title) {
@@ -90,7 +85,6 @@ public class FuncionarioApiController {
 		}
 	}
 
-<<<<<<< HEAD
 	@GetMapping("/produtosApi")
 	public ResponseEntity<List<Produto>> getAllProdutos(@RequestParam(required = false) String title2) {
 		try {
@@ -109,12 +103,4 @@ public class FuncionarioApiController {
 		}
 	}
 
-	@PostMapping("/signin")
-	public ResponseEntity<String> authenticateUser(@RequestBody Funcionario loginDto) {
-
-		return new ResponseEntity<>("User signed-in successfully!.", HttpStatus.OK);
-	}
-=======
-	
->>>>>>> 3b71856251a367145d8ec9ef3e6b86df48909d29
 }

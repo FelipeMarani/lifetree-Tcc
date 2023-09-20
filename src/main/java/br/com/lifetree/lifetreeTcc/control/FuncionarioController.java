@@ -78,7 +78,6 @@ public class FuncionarioController {
 		return "redirect:/lifetree/funcionario/login";
 	}
 
-	
 	@PostMapping("/save")
 	public String saveFuncionario(@ModelAttribute Funcionario funcionario) {
 
@@ -134,23 +133,16 @@ public class FuncionarioController {
 
 		return "redirect:/lifetree/funcionario/ListaFunc";
 	}
-<<<<<<< HEAD
-=======
-	
+
 	@PostMapping("/inativarProdFunc/{id}")
-	public String inativarProdFunc(
-			@PathVariable("id") int id, Produto produto, ModelMap model) {
-		
+	public String inativarProdFunc(@PathVariable("id") int id, Produto produto, ModelMap model) {
+
 		Produto produtos = produtoService.findById(id);
 
 		funcionarioService.inativarProdFunc(produtos);
 
 		return "redirect:/lifetree/funcionario/EstoqueADM";
 	}
-	
-	
-	
->>>>>>> 3b71856251a367145d8ec9ef3e6b86df48909d29
 
 	@GetMapping("/EditarFuncionario/{id}")
 	public String getEditarFuncionario(@PathVariable("id") int id, ModelMap map) {
@@ -160,15 +152,15 @@ public class FuncionarioController {
 
 		return "EditarFuncionario";
 	}
-	
-	//ADM////
+
+	// ADM////
 
 	@GetMapping("/EstoqueADM")
 	public String getEstoque(ModelMap model) {
 		model.addAttribute("produtos", produtoService.ListarTodos());
 		return "EstoqueADM";
 	}
-	
+
 	@GetMapping("/AdicionarProdutoADM")
 	public String getadicionarProdutosADM(ModelMap model) {
 		model.addAttribute("tpProdutos", tpProdutoService.findAll());
@@ -176,8 +168,5 @@ public class FuncionarioController {
 		model.addAttribute("produto", new Produto());
 		return "AdicionarProdutoADM";
 	}
-
-	
-
 
 }
