@@ -16,13 +16,12 @@ public class FuncionarioService {
 	final FuncionarioRepository funcionarioRepository;
 	final ProdutoRepository produtoRepository;
 
-	public FuncionarioService(FuncionarioRepository _funcionarioRepository , ProdutoRepository _produtoRepository) {
+	public FuncionarioService(FuncionarioRepository _funcionarioRepository, ProdutoRepository _produtoRepository) {
 		super();
 		this.produtoRepository = _produtoRepository;
 		this.funcionarioRepository = _funcionarioRepository;
 	}
 
-	
 	@Transactional
 	public Funcionario save(Funcionario funcionario) {
 		return funcionarioRepository.save(funcionario);
@@ -36,29 +35,22 @@ public class FuncionarioService {
 	@Transactional
 	public int acessar(String email, String senha) {
 		Funcionario funcionario = funcionarioRepository.findByEmail(email);
-
-		if (funcionario != null && funcionario.getAcesso().equals("ADMIN")) {
-
+		
+		if (funcionario != null) {
 			if (funcionario.getSenha().equals(senha)) {
-				return 1;
+				if (funcionario.getAcesso().equals("ADMIN")) {
+					return 1;
+				} else if (funcionario.getAcesso().equals("FUNC")) {
+					return 2;
+				}
 			}
-		} else if (funcionario != null && funcionario.getAcesso().equals("FUNC")) {
-
-			if (funcionario.getSenha().equals(senha)) {
-				return 2;
-			}
-		} else {
-			return 0;
 		}
 
 		return 0;
 	}
-	
-	
-	
+
 	@Transactional
 	public void atualizarFunc(Funcionario funcionario) {
-
 		funcionarioRepository.save(funcionario);
 
 	}
@@ -73,14 +65,13 @@ public class FuncionarioService {
 	public List<Funcionario> ListarTodos() {
 		return funcionarioRepository.findAll();
 	}
-	
-	
+
 	//
-		public Funcionario ListarEmail(String email){
-			
-			return funcionarioRepository.findByEmail(email);
-		}
-	
+	public Funcionario ListarEmail(String email) {
+
+		return funcionarioRepository.findByEmail(email);
+	}
+
 	@Transactional
 	public Funcionario saveNewFuncionario(Funcionario funcionario) {
 		return funcionarioRepository.save(funcionario);
@@ -95,7 +86,7 @@ public class FuncionarioService {
 		_funcionario.setAcesso("INATIVO");
 		funcionarioRepository.save(_funcionario);
 	}
-	
+
 	public void inativarProdFunc(Produto produto) {
 
 		Produto _produto = produto;
@@ -106,8 +97,5 @@ public class FuncionarioService {
 		_produto.setStatusProd("INATIVO");
 		produtoRepository.save(_produto);
 	}
-	
-
-//	public void reativar
 
 }
