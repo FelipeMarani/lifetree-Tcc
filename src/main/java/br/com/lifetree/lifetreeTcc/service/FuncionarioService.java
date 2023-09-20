@@ -21,15 +21,12 @@ public class FuncionarioService {
 		this.produtoRepository = _produtoRepository;
 		this.funcionarioRepository = _funcionarioRepository;
 	}
-<<<<<<< HEAD
 
-=======
 	
-	public Produto findById(long id) {
+	public Produto findByIdProduto(long id) {
 		return produtoRepository.findById(id).get();
 	}
 	
->>>>>>> 3b71856251a367145d8ec9ef3e6b86df48909d29
 	@Transactional
 	public Funcionario save(Funcionario funcionario) {
 		return funcionarioRepository.save(funcionario);

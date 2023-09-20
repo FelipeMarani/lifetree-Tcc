@@ -20,21 +20,15 @@ public class ProdutoService {
 	private ProdutoRepository produtoRepository;
 	private TpProdutoRepository tpprodutoRepository;
 	private McProdutoRepository mcprodutoRepository;
-	
 
-<<<<<<< HEAD
 	// Injeção de dependência
 	public ProdutoService(ProdutoRepository produtoRepository, TpProdutoRepository tpprodutoRepository,
-			McProdutoRepository mcProdutoRepository, ImagensService imagensService) {
-=======
-	//Injeção de dependência
-	public ProdutoService(ProdutoRepository produtoRepository , TpProdutoRepository tpprodutoRepository , McProdutoRepository mcProdutoRepository) {
->>>>>>> 3b71856251a367145d8ec9ef3e6b86df48909d29
+			McProdutoRepository mcProdutoRepository) {
 		super();
 		this.produtoRepository = produtoRepository;
 		this.tpprodutoRepository = tpprodutoRepository;
 		this.mcprodutoRepository = mcProdutoRepository;
-		
+
 	}
 
 	public Produto findById(long id) {
