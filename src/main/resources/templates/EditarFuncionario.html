@@ -44,19 +44,19 @@
             <h2>Funcionários</h2>
             <hr/>
         </div>
-
     
 
         <br>
         <br>
 		<form action="#" th:action="@{/lifetree/funcionario/atualizar/{id}(id=*{id})}" th:object="${funcionario}"
-			method="post">
+        
 		
-			<div class="desc-prod">
-				<strong>
-					<p>ID:<input class="Imput" type="text" th:field="*{id}" readonly /></p>
-				</strong>
-		
+        <div class="desc-prod">
+            <strong>
+                <p>ID:<input class="Imput" type="text" th:field="*{id}" readonly /></p>
+            </strong>
+            
+            method="post"></form>
 				<p>Nome do Funcionario<input class="Imput" type="text" th:field="*{Nome}"> </p>
 				<p>Senha <input class="Imput" type="text" th:field="*{Senha}"></p>
 				<p>Email <input class="Imput" type="text" th:field="*{Email}"></p>

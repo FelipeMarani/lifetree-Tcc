@@ -109,17 +109,6 @@ public class FuncionarioController {
 		return "CriarConta";
 	}
 
-	@PostMapping("/atualizar/{id}")
-	public String atualizarFuncionario(@PathVariable("id") int id, ModelMap model) {
-
-		Funcionario funcionario = funcionarioService.findById(id);
-
-		model.addAttribute("Funcionario", funcionario);
-
-		funcionarioService.atualizarFunc(funcionario);
-		return "redirect:/lifetree/funcionario/ListaFunc";
-	}
-
 	@GetMapping("/ListaFunc")
 	public String getLista(ModelMap map) {
 		map.addAttribute("funcionario", funcionarioService.ListarTodos());
@@ -134,15 +123,7 @@ public class FuncionarioController {
 		return "redirect:/lifetree/funcionario/ListaFunc";
 	}
 
-	@PostMapping("/inativarProdFunc/{id}")
-	public String inativarProdFunc(@PathVariable("id") int id, Produto produto, ModelMap model) {
-
-		Produto produtos = produtoService.findById(id);
-
-		funcionarioService.inativarProdFunc(produtos);
-
-		return "redirect:/lifetree/funcionario/EstoqueADM";
-	}
+	// ADM////
 
 	@GetMapping("/EditarFuncionario/{id}")
 	public String getEditarFuncionario(@PathVariable("id") int id, ModelMap map) {
@@ -153,7 +134,15 @@ public class FuncionarioController {
 		return "EditarFuncionario";
 	}
 
-	// ADM////
+	@PostMapping("/inativarProdFunc/{id}")
+	public String inativarProdFunc(@PathVariable("id") int id, Produto produto, ModelMap model) {
+
+		Produto produtos = produtoService.findById(id);
+
+		funcionarioService.inativarProdFunc(produtos);
+
+		return "redirect:/lifetree/funcionario/EstoqueADM";
+	}
 
 	@GetMapping("/EstoqueADM")
 	public String getEstoque(ModelMap model) {
@@ -167,6 +156,17 @@ public class FuncionarioController {
 		model.addAttribute("mcProdutos", mcProdutoService.findAll());
 		model.addAttribute("produto", new Produto());
 		return "AdicionarProdutoADM";
+	}
+
+	@PostMapping("/atualizar/{id}")
+	public String atualizarFuncionario(@PathVariable("id") int id, ModelMap model) {
+
+		Funcionario funcionario = funcionarioService.findById(id);
+
+		model.addAttribute("Funcionario", funcionario);
+
+		funcionarioService.atualizarFunc(funcionario);
+		return "redirect:/lifetree/funcionario/ListaFunc";
 	}
 
 }
