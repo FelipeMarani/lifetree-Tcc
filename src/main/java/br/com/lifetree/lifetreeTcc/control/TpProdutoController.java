@@ -15,33 +15,28 @@ import br.com.lifetree.lifetreeTcc.service.TpProdutoService;
 
 @RestController
 @RequestMapping("/tipodeprodutos")
-@CrossOrigin(origins="*", maxAge = 3600, allowCredentials = "false")
+@CrossOrigin(origins = "*", maxAge = 3600, allowCredentials = "false")
 public class TpProdutoController {
-	
-	
-	//Criação do objeto de serviço 
+
+	// Criação do objeto de serviço
 	final TpProdutoService tpProdutoService;
-	
-	//INJEÇÃO DE DEPENDENCIA 
-	
+
+	// INJEÇÃO DE DEPENDENCIA
+
 	public TpProdutoController(TpProdutoService _tpProdutoService) {
 		this.tpProdutoService = _tpProdutoService;
 	}
-	
-	// ROTA POST 
+
+	// ROTA POST
 	@PostMapping("/save")
-		public ResponseEntity<Object> saveTpProduto(TpProduto tpProduto){
-		return ResponseEntity.status(HttpStatus.CREATED)
-				.body(tpProdutoService.save(tpProduto));
-		
+	public ResponseEntity<Object> saveTpProduto(TpProduto tpProduto) {
+		return ResponseEntity.status(HttpStatus.CREATED).body(tpProdutoService.save(tpProduto));
+
 	}
-	
+
 	@GetMapping("/all")
-		public ResponseEntity<List<TpProduto>> getAllTpProduto(){
-		return ResponseEntity.status(HttpStatus.OK)
-				.body(tpProdutoService.findAll());
+	public ResponseEntity<List<TpProduto>> getAllTpProduto() {
+		return ResponseEntity.status(HttpStatus.OK).body(tpProdutoService.findAll());
 	}
-	
-	
 
 }

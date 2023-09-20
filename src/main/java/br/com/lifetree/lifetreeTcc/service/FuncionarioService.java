@@ -21,17 +21,17 @@ public class FuncionarioService {
 		this.produtoRepository = _produtoRepository;
 		this.funcionarioRepository = _funcionarioRepository;
 	}
+
 	
 	@Transactional
 	public Funcionario save(Funcionario funcionario) {
 		return funcionarioRepository.save(funcionario);
-		
+
 	}
-	
+
 	public Funcionario findById(long id) {
 		return funcionarioRepository.findById(id).get();
 	}
-
 
 	@Transactional
 	public int acessar(String email, String senha) {
@@ -40,19 +40,17 @@ public class FuncionarioService {
 		if (funcionario != null && funcionario.getAcesso().equals("ADMIN")) {
 
 			if (funcionario.getSenha().equals(senha)) {
-				return 1;}
-		}
-		else if (funcionario != null && funcionario.getAcesso().equals("FUNC")) {
+				return 1;
+			}
+		} else if (funcionario != null && funcionario.getAcesso().equals("FUNC")) {
 
 			if (funcionario.getSenha().equals(senha)) {
-				return 2;}
-		}
-		else {
+				return 2;
+			}
+		} else {
 			return 0;
 		}
-		
-		
-		
+
 		return 0;
 	}
 	
@@ -60,21 +58,19 @@ public class FuncionarioService {
 	
 	@Transactional
 	public void atualizarFunc(Funcionario funcionario) {
-		
+
 		funcionarioRepository.save(funcionario);
-		
-	
-		}
-	
-	
-	//filtro
-	public List<Funcionario> TodosFuncionarios(){
+
+	}
+
+	// filtro
+	public List<Funcionario> TodosFuncionarios() {
 		List<Funcionario> lista = funcionarioRepository.findAll();
 		return lista;
 	}
-	
-	//todos
-	public List<Funcionario>ListarTodos(){
+
+	// todos
+	public List<Funcionario> ListarTodos() {
 		return funcionarioRepository.findAll();
 	}
 	
@@ -90,7 +86,7 @@ public class FuncionarioService {
 		funcionario.setAcesso("FUNC");
 		return funcionarioRepository.save(funcionario);
 	}
-	
+
 	public void inativarFunc(Funcionario funcionario) {
 
 		Funcionario _funcionario = funcionario;
@@ -113,11 +109,6 @@ public class FuncionarioService {
 	}
 	
 
-	
-	
 //	public void reativar
-	
-	
 
 }
-

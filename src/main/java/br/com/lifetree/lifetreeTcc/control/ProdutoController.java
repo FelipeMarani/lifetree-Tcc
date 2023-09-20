@@ -1,6 +1,5 @@
 package br.com.lifetree.lifetreeTcc.control;
 
-
 import java.io.IOException;
 import java.util.Base64;
 import java.util.List;
@@ -27,7 +26,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @Controller
 @RequestMapping("/lifetree/produtos")
-@CrossOrigin(origins="*", maxAge = 3600, allowCredentials = "false")
+@CrossOrigin(origins = "*", maxAge = 3600, allowCredentials = "false")
 public class ProdutoController {
 
 	final ProdutoService produtoService;
@@ -38,9 +37,6 @@ public class ProdutoController {
 	// CASO O PRODUTO NÃO TENHA UMA IMAGEM CADASTRADA NO BANCO DE DADOS
 	private String semImagem = "/img/semImagem.png";
 	private String foto = "";
-
-
-
 
 	public ProdutoController(ProdutoService produtoService, TpProdutoService tpProdutoService,
 			McProdutoService mcProdutoService) {
@@ -60,7 +56,6 @@ public class ProdutoController {
 			throws ServletException, IOException {
 
 		produto = produtoService.findById(id);
-		
 
 		response.setContentType("+image/jpeg, image/jpg, image/png, image/gif");
 		if (produto.getImagem() != null) {
@@ -77,7 +72,7 @@ public class ProdutoController {
 
 //		List<Produto> produtos = produtoService.listar3Destaques();
 
-		//PARA EXIBIR UMA QUANTIDADE MAIOR DE PRODUTOS EM DESTAQUE
+		// PARA EXIBIR UMA QUANTIDADE MAIOR DE PRODUTOS EM DESTAQUE
 		List<Produto> produtos = produtoService.ListarTodos();
 
 		model.addAttribute("semImagem", semImagem);
@@ -85,7 +80,7 @@ public class ProdutoController {
 
 		return "home";
 	}
-	
+
 	@GetMapping("/todos-filtro")
 	public String mostrarTodos(ModelMap model) {
 		model.addAttribute("produtos", produtoService.ListarTodos());
@@ -93,8 +88,7 @@ public class ProdutoController {
 	}
 
 	@PostMapping("/todos-filtro")
-	public String mostrarTodosFiltro(ModelMap model, 
-			@RequestParam(value = "nomeProd", required = false) String nome) {
+	public String mostrarTodosFiltro(ModelMap model, @RequestParam(value = "nomeProd", required = false) String nome) {
 		if (nome.trim().equals("")) {
 			model.addAttribute("produtos", produtoService.ListarTodos());
 		} else {
@@ -103,37 +97,32 @@ public class ProdutoController {
 		return "redirect:/lifetree/produtos/Estoque";
 	}
 
-
-	//ROTA POST
+	// ROTA POST
 	@PostMapping("/save")
-	public String gravarProduto(
-			@RequestParam(value = "file", required = false) MultipartFile file,
-			Produto produto,  ModelMap model) {
+	public String gravarProduto(@RequestParam(value = "file", required = false) MultipartFile file, Produto produto,
+			ModelMap model) {
 		produtoService.gravarNovoProd(file, produto);
 		return "redirect:/lifetree/produtos/Estoque";
 	}
-	//arrumar aqui pra atualizar 
+
+	// arrumar aqui pra atualizar
 	@PostMapping("/atualizar/{id}")
-	public String atualizarProduto(
-			@RequestParam(value = "file", required = false) MultipartFile file,
+	public String atualizarProduto(@RequestParam(value = "file", required = false) MultipartFile file,
 			@PathVariable("id") int id, Produto produto, ModelMap model) {
-		
+
 		byte[] _foto = Base64.getDecoder().decode(foto);
-		
-			
+
 		produtoService.atualizarProd(file, produto, _foto);
-		
+
 		foto = "";
-		
 
 		return "redirect:/lifetree/produtos/Estoque";
 	}
 
-	//ROTA GET
-	@GetMapping ("/all")
-	public ResponseEntity<List<Produto>> getAllProduto(){
-		return ResponseEntity.status(HttpStatus.OK)
-				.body(produtoService.ListarTodos());
+	// ROTA GET
+	@GetMapping("/all")
+	public ResponseEntity<List<Produto>> getAllProduto() {
+		return ResponseEntity.status(HttpStatus.OK).body(produtoService.ListarTodos());
 	}
 
 	@GetMapping("/AdicionarProduto")
@@ -144,16 +133,17 @@ public class ProdutoController {
 		return "AdicionarProduto";
 	}
 
-	@GetMapping ("/Estoque")
-	public String getEstoque(ModelMap model){
-		model.addAttribute("produtos",  produtoService.ListarTodos());
+	@GetMapping("/Estoque")
+	public String getEstoque(ModelMap model) {
+		model.addAttribute("produtos", produtoService.ListarTodos());
 		return "Estoque";
-	} 
-	@GetMapping ("/Editarproduto")
-	public String getEditarProduto(ModelMap model){
-		model.addAttribute("produtos",  produtoService.ListarTodos());
+	}
+
+	@GetMapping("/Editarproduto")
+	public String getEditarProduto(ModelMap model) {
+		model.addAttribute("produtos", produtoService.ListarTodos());
 		return "Editarproduto";
-	} 
+	}
 
 	@GetMapping("/Editarproduto/{id}")
 	public String editarProduto(@PathVariable("id") int id, ModelMap model) {
@@ -175,13 +165,12 @@ public class ProdutoController {
 	}
 
 	@GetMapping("/inativar/{id}")
-	public String inativarProd(
-			@PathVariable("id") int id, ModelMap model) {
-		
+	public String inativarProd(@PathVariable("id") int id, ModelMap model) {
+
 		Produto produto = produtoService.findById(id);
-		
+
 		produtoService.inativarProd(produto);
-		
+
 		return "redirect:/lifetree/produtos/Estoque";
 	}
 
@@ -193,6 +182,17 @@ public class ProdutoController {
 		produtoService.reativarProd(produto);
 
 		return "redirect:/lifetree/produtos/Estoque";
+	}
+	
+	
+	//ADM//
+	
+	@GetMapping("/EditarProdutoADM/{id}")
+	public String getEditarProdutoADM(@PathVariable("id") int id, ModelMap map) {
+		
+		Produto produto = produtoService.findById(id);
+		map.addAttribute("produto", produto);
+		return "EditarProdutoADM";
 	}
 
 }
