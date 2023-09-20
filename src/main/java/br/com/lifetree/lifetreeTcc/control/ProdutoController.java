@@ -194,5 +194,17 @@ public class ProdutoController {
 		map.addAttribute("produto", produto);
 		return "EditarProdutoADM";
 	}
+	@PostMapping("/atualizarProdADM/{id}")
+	public String atualizarProdutoADm(@RequestParam(value = "file", required = false) MultipartFile file,
+			@PathVariable("id") int id, Produto produto, ModelMap model) {
+
+		byte[] _foto = Base64.getDecoder().decode(foto);
+
+		produtoService.atualizarProd(file, produto, _foto);
+
+		foto = "";
+
+		return "redirect:/lifetree/funcionario/EstoqueADM";
+	}
 
 }
