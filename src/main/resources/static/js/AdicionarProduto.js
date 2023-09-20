@@ -16,4 +16,24 @@ function preViewImg() {
 	
 }
   
-  
+function autoResize()
+{
+	objTextArea = document.getElementById('txtTextArea');
+	while (objTextArea.scrollHeight > objTextArea.offsetHeight)
+	{
+		objTextArea.rows += 1;
+	}
+}
+
+//const inputText = document.getElementById("input-text");
+// Função para ajustar a altura do textarea conforme o conteúdo
+//function adjustHeight() {
+  //  inputText.style.height = "auto"; // Redefine a altura para calcular o tamanho real
+  //  inputText.style.height = inputText.scrollHeight + "px"; // Define a altura com base no conteúdo
+//}
+
+// Adicione um ouvinte de evento de digitação para o textarea
+//inputText.addEventListener("input", adjustHeight);
+
+// Chame a função inicialmente para definir a altura correta
+//adjustHeight();

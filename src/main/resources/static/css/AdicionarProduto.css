@@ -112,6 +112,15 @@ section.module.box {
   margin-left: 50px;
   left: 200px;
 }
+#txtTextArea{
+  height: 5rem;
+  width: 220pt;
+  margin-bottom: 20px;
+  margin-left: 50px;
+  resize: none;
+  overflow: hidden;
+  transition: height 0.3s;
+}
 
 .Imput{
   height: 30px;
