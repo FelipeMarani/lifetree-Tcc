@@ -28,21 +28,14 @@ public class FuncionarioApiController {
 	FuncionarioService funcionarioService;
 	ProdutoService produtoService;
 
-<<<<<<< HEAD
-	public FuncionarioApiController(FuncionarioService _funcionarioService, ProdutoService produtoService) {
-
-=======
-	private String serverMessage = null;
-
 
 	public FuncionarioApiController(FuncionarioService _funcionarioService , ProdutoService produtoService) {
 		
->>>>>>> 3b71856251a367145d8ec9ef3e6b86df48909d29
 		this.funcionarioService = _funcionarioService;
 		this.produtoService = produtoService;
 
 	}
-<<<<<<< HEAD
+
 
 	private String serverMessage = null;
 
