@@ -38,13 +38,9 @@ public class FuncionarioApiController {
 
 	}
 
-	@GetMapping("/tutorials")
-	public ResponseEntity<List<Funcionario>> getAllFuncionarios(@RequestParam(required = false) String title) {
-		try {
-			List<Funcionario> tutorials = new ArrayList<Funcionario>();
 
 
-	private String serverMessage = null;
+	
 
 	@GetMapping("/login")
 	@ResponseBody
@@ -93,6 +89,7 @@ public class FuncionarioApiController {
 	}
 
 	@PostMapping("/funcionarioApi")
+	
 	public ResponseEntity<Funcionario> getOneFuncionario(@RequestParam(required = false) String title,
 			@RequestBody Funcionario funcionario) {
 
@@ -104,7 +101,7 @@ public class FuncionarioApiController {
 
 				Funcionario f2 = funcionarioService.ListarEmail(funcionario.getEmail());
 
-				return new ResponseEntity<Funcionario>(HttpStatus.OK).body(f2);
+				return new ResponseEntity<Funcionario>(f2 , HttpStatus.OK);
 				
 				
 			}else {}
