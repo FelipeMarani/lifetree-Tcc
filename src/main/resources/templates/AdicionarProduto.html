@@ -61,8 +61,8 @@
             <p>Nome do produto<input id="Names" class="Imput" type="text" th:field="*{nome}" maxlength="35"> </p>
             <p>Quantidade <input id="qtd" class="Imput"  type="number" th:field="*{quantidade}"></p>
             <p>Preço <input id="preco" class="Imput" type="text" th:field="*{preco}" ></p>
-           <!-- <p>Descrição do Produto <input id="txtTextArea" class="Imput" type="text" onkeydown="autoResize()" th:field="*{descricao}"/></p>-->
-          <p> Descrição do Produto</p> <textarea id="txtTextArea" onkeydown="autoResize()"></textarea>
+           <!-- <p>Descrição do Produto <input id="txtTextArea" class="Imput" type="text" onkeydown="autoResize()" /></p>-->
+          <p> Descrição do Produto</p> <textarea id="txtTextArea" onkeydown="autoResize()" th:field="*{descricao}"></textarea>
             <p>Código de Barra <input class="Imput" type="number" th:field="*{cod_barra}"/></p>
             <p>Tipo de produto
                 <select name="Tipo-produto"  th:field="*{tpProduto}" onChange="onstatechange(this)">
