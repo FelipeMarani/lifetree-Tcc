@@ -15,7 +15,7 @@ function preViewImg() {
 	}
 	
 }
-
+  
 const inputText = document.getElementById("txtTextArea");
 
 function adjustHeight() {
@@ -31,4 +31,3 @@ input.addEventListener("input", function () {
 	const valor = names.value;
 	const letrasRestantes = 35 - valor.length;
 });
-  
