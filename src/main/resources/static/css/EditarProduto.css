@@ -19,8 +19,8 @@ header {
 }
 
 #preView{
-  margin-top: -22%;
-  margin-left: 37%;
+  margin-top: -25%;
+  margin-left: 36%;
   position: absolute;
   width: 450px; /* Define a largura */
   height: 450px;
@@ -31,8 +31,8 @@ header {
 
 
 #uploadImage{
-  margin-top: 20px;
-  margin-left: 60%;
+  margin-top: -30px;
+  margin-left: 53.1%;
 }
 
 
@@ -198,6 +198,15 @@ header {
   display: block;
   margin-bottom: 20px;
 
+}
+
+#txtTextArea{ 
+  width: 220pt;
+  margin-bottom: 20px;
+  margin-left: 50px;
+  resize: none;
+  overflow: hidden;
+  transition: height 0.3s;
 }
 
 .check{

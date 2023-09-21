@@ -20,20 +20,14 @@ header {
   display: flex;
   justify-content: space-between;
   margin: auto 10px;
-  margin-top: 5px;
-  align-items: center;
-}
-
-.logo {
-  margin-top: 5px;
-  align-items: center;
+  margin-top: 4px;
 }
 
 #logo {
   height: 7px;
   padding: 7px 2%;
   height: 80px;
-  margin-top: -50px;
+  margin-top: -44px;
 }
 
 .logo h2 {
@@ -42,7 +36,7 @@ header {
   color: white;
   text-align: center;
   display: flex;
-  margin-top: 10%;
+  margin-top: 25px;
   margin-left: 20px;
 }
 
@@ -53,7 +47,7 @@ header {
   margin-top: 85px;
   text-align: center;
   display: flex;
-  margin-top: 5px;
+  margin-top: 25px;
   margin-left: 20px;
   margin-right: 10px
 }
@@ -61,6 +55,7 @@ header {
 .icon-header img {
   height: 40px;
   width: 40px;
+  margin-top: 10px;
 }
 
 .main {
@@ -113,7 +108,6 @@ section.module.box {
   left: 200px;
 }
 #txtTextArea{
-  height: 5rem;
   width: 220pt;
   margin-bottom: 20px;
   margin-left: 50px;
@@ -147,6 +141,7 @@ section.module.box {
 }
 
 .form-label {
+  color: #ccc;
   margin-top: -35rem;
   margin-left: 62%;
 }
@@ -250,3 +245,8 @@ section.module.box {
   margin-top: 360px;
 }
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button{
+  -webkit-appearance: none;
+
+}
