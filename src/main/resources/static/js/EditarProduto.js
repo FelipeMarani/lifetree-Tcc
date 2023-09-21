@@ -15,4 +15,20 @@ function preViewImg() {
 	}
 	
 }
+
+const inputText = document.getElementById("txtTextArea");
+
+function adjustHeight() {
+  inputText.style.height = "auto"; 
+    inputText.style.height = inputText.scrollHeight + "px"; 
+}
+
+inputText.addEventListener("input", adjustHeight);
+
+adjustHeight();
+var names = document.getElementById("Names");
+input.addEventListener("input", function () {
+	const valor = names.value;
+	const letrasRestantes = 35 - valor.length;
+});
   
