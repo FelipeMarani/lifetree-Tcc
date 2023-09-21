@@ -52,7 +52,7 @@
 
             <br>
             <br>
-            <form action="#" th:action="@{/lifetree/funcionario/atualizar/{id}(id=*{id})}" th:object="${funcionario}" method="post" >
+            <form action="#" th:action="@{/lifetree/funcionario/atualizar}" th:object="${funcionario}" method="post" >
                 <div class="desc-prod">
                 <strong>
                     <p>ID:<input class="Imput" type="text" th:field="*{id}" readonly /></p>

@@ -1,115 +1,127 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/EditarProduto.css">
-    
+
     <title>Editar Produto</title>
 </head>
+
 <body>
-    <header>    
+    <header>
         <div class="info-header">
             <div class="logo">
-            <h2>Editar Produto</h2>
-            <img src="/img/arvorelogo.png" id="logo">
-        </div>
-        <div class="icon-header">
-            <img src="/img/adm icon.png" alt="ADM">
-            <h2>Funcionário</h2>
-         </div>
+                <h2>Editar Produto</h2>
+                <img src="/img/arvorelogo.png" id="logo">
+            </div>
+            <div class="icon-header">
+                <img src="/img/adm icon.png" alt="ADM">
+                <h2>Funcionário</h2>
+            </div>
         </div>
     </header> <!--header acabou-->
 
     <section class="main">
 
-   
 
-    <div class="sidebar">
-        <strong>
-          <h1>Painel de Controle</h1>
-        </strong>
-   
-      <a href="/lifetree/produtos/AdicionarProduto">Adicionar Produto</a>
-      <a href="/lifetree/produtos/Estoque">Estoque</a>
-  
-        <br>
-        <hr>
 
-        <img src="/src/main/resources/static/img/arvorelogo.png" id="arvore">
+        <div class="sidebar">
+            <strong>
+                <h1>Painel de Controle</h1>
+            </strong>
 
-      </div><!--side bar-->
+            <a href="/lifetree/produtos/AdicionarProduto">Adicionar Produto</a>
+            <a href="/lifetree/produtos/Estoque">Estoque</a>
 
-    <section class="module box">
-        <div class="title">
-            <h2>Editar produto</h2>
-            <hr>
-        </div>
-
-        <div class="informations">
-
-        <form action="#" th:action="@{/lifetree/produtos/atualizar/{id}(id=*{id})}" enctype="multipart/form-data" th:object="${produto}" method="post">
-            <div class="form-group1">
-              
-   
-            </div>
-            <div class="desc-prod">
-                <strong><p>ID:<input class="Imput" type="text" th:field="*{id}" readonly/></p></strong>
-                <strong><p>Status do Produto<input class="Imput" type="text" th:field="*{statusProd}" readonly/></p></strong>
-
-            <p>Nome do produto<input class="Imput" type="text" th:field="*{nome}"> </p>
-            <p>Quantidade <input class="Imput" type="number" th:field="*{quantidade}" maxlength="10"></p>
-            <p>Preço <input class="Imput" type="text" th:field="*{preco}"></p>
-            <p>Descrição do Produto <input class="Imput" type="text" th:field="*{descricao}"/></p>
-            <p>Código de Barra <input class="Imput" type="number" th:field="*{cod_barra}"/></p>
-            <p>Tipo de produto
-                <select name="Tipo-produto"  th:field="*{tpProduto}" onChange="onstatechange(this)">
-                    <option value="0">Escolha os tipos de produtos</option>
-                    <option th:each="tpProduto: ${tpProdutos}" 
-                            th:text="${tpProduto.tpProduto}" th:value="${tpProduto.id}">
-                    </option>	
-                </select>
-            </p>
             <br>
-            <p>Marca do produto
-                <select name="categoria"  th:field="*{mcProduto}" onChange="onstatechange(this)">
-                    <option value="0">Escolha uma marca do produto</option>
-                    <option th:each="mcProduto : ${mcProdutos}" 
-                            th:text="${mcProduto.Marca}" th:value="${mcProduto.id}">
-                    </option>	
-                </select>   
-                    <br>
-                    <br>
+            <hr>
 
-                     
-            <div class="form-group-col-md-8">
-                
-                <img id="preView" alt="..." th:src="*{Imagem} ? @{${'/lifetree/produtos/show/image/' + produto.id}} :${semImagem}">
-                <label for="uploadImage" class="form-label">Imagem escolhida</label>
+            <img src="/img/arvorelogo.png" id="arvore">
+
+        </div><!--side bar-->
+
+        <section class="module box">
+            <div class="title">
+                <h2>Editar produto</h2>
+                <hr>
             </div>
 
-            <div class="form-group-col-md-4">
-                <input class="form-control" type="file" onchange="preViewImg();" name="file" accept="image/*" id="uploadImage">
-            </div>
-            
-            
-        
-        </div>
-        
-        </div>
-        
+            <div class="informations">
 
-        <div class="button">
-            <button type="submit" id="botão">Editar</button>
-      
-            
-        </div>
-              </form>
-        
+                <form action="#" th:action="@{/lifetree/produtos/atualizar/{id}(id=*{id})}"
+                    enctype="multipart/form-data" th:object="${produto}" method="post">
+                    <div class="form-group1">
+
+
+                    </div>
+                    <div class="desc-prod">
+                        <strong>
+                            <p>ID:<input class="Imput" type="text" th:field="*{id}" readonly /></p>
+                        </strong>
+                        <strong>
+                            <p>Status do Produto<input class="Imput" type="text" th:field="*{statusProd}" readonly />
+                            </p>
+                        </strong>
+
+                        <p>Nome do produto<input class="Imput" type="text" th:field="*{nome}"> </p>
+                        <p>Quantidade <input class="Imput" type="number" th:field="*{quantidade}" maxlength="10"></p>
+                        <p>Preço <input class="Imput" type="text" th:field="*{preco}"></p>
+                        <p> Descrição do Produto</p> <textarea id="txtTextArea" onkeydown="autoResize()"
+                            th:field="*{descricao}"></textarea>
+                        <p>Código de Barra <input class="Imput" type="number" th:field="*{cod_barra}" /></p>
+                        <p>Tipo de produto
+                            <select name="Tipo-produto" th:field="*{tpProduto}" onChange="onstatechange(this)">
+                                <option value="0">Escolha os tipos de produtos</option>
+                                <option th:each="tpProduto: ${tpProdutos}" th:text="${tpProduto.tpProduto}"
+                                    th:value="${tpProduto.id}">
+                                </option>
+                            </select>
+                        </p>
+                        <br>
+                        <p>Marca do produto
+                            <select name="categoria" th:field="*{mcProduto}" onChange="onstatechange(this)">
+                                <option value="0">Escolha uma marca do produto</option>
+                                <option th:each="mcProduto : ${mcProdutos}" th:text="${mcProduto.Marca}"
+                                    th:value="${mcProduto.id}">
+                                </option>
+                            </select>
+                            <br>
+                            <br>
+
+
+                        <div class="form-group-col-md-8">
+
+                            <img id="preView" alt="..."
+                                th:src="*{Imagem} ? @{${'/lifetree/produtos/show/image/' + produto.id}} :${semImagem}">
+                            <label for="uploadImage" class="form-label">Imagem escolhida</label>
+                        </div>
+
+                        <div class="form-group-col-md-4">
+                            <input class="form-control" type="file" onchange="preViewImg();" name="file"
+                                accept="image/*" id="uploadImage">
+                        </div>
+
+
+
+                    </div>
+
+            </div>
+
+
+            <div class="button">
+                <button type="submit" id="botão">Editar</button>
+
+
+            </div>
+            </form>
+
+        </section>
+
     </section>
-
-</section>
     <script src="/js/EditarProduto.js"></script>
 </body>
+
 </html>

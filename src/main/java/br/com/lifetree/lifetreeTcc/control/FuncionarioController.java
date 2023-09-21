@@ -156,13 +156,14 @@ public class FuncionarioController {
 		return "AdicionarProdutoADM";
 	}
 
-	@PostMapping("/atualizar/{id}")
-	public String atualizarFuncionario(@PathVariable("id") int id, ModelMap model) {
+	@PostMapping("/atualizar")
+	public String atualizarFuncionario(
+			@ModelAttribute("funcionario") Funcionario funcionario) {
 
-		Funcionario funcionario = funcionarioService.findById(id);
+		//Funcionario funcionario = funcionarioService.findById(id);
 
-		model.addAttribute("Funcionario", funcionario);
-
+		//model.addAttribute("funcionario", funcionario);
+		
 		funcionarioService.atualizarFunc(funcionario);
 		return "redirect:/lifetree/funcionario/ListaFunc";
 	}
