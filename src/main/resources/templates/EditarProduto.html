@@ -56,12 +56,13 @@
                 <strong><p>ID:<input class="Imput" type="text" th:field="*{id}" readonly/></p></strong>
                 <strong><p>Status do Produto<input class="Imput" type="text" th:field="*{statusProd}" readonly/></p></strong>
 
-            <p>Nome do produto<input class="Imput" type="text" th:field="*{nome}"> </p>
-            <p>Quantidade <input class="Imput" type="number" th:field="*{quantidade}" maxlength="10"></p>
-            <p>Preço <input class="Imput" type="text" th:field="*{preco}"></p>
-            <p>Descrição do Produto <input class="Imput" type="text" th:field="*{descricao}"/></p>
-            <p>Código de Barra <input class="Imput" type="number" th:field="*{cod_barra}"/></p>
-            <p>Tipo de produto
+                <p>Nome do produto<input id="Names" class="Imput" type="text" th:field="*{nome}" maxlength="35"> </p>
+                <p>Quantidade <input id="qtd" class="Imput"  type="number" th:field="*{quantidade}"></p>
+                <p>Preço <input id="preco" class="Imput" type="text" th:field="*{preco}" ></p>
+               <!-- <p>De scrição do Produto <input id="txtTextArea" class="Imput" type="text" onkeydown="autoResize()" th:field="*{descricao}"/></p>-->
+              <p> Descrição do Produto</p> <textarea id="txtTextArea" onkeydown="autoResize()"></textarea>
+                <p>Código de Barra <input class="Imput" type="number" th:field="*{cod_barra}"/></p>
+                <p>Tipo de produto
                 <select name="Tipo-produto"  th:field="*{tpProduto}" onChange="onstatechange(this)">
                     <option value="0">Escolha os tipos de produtos</option>
                     <option th:each="tpProduto: ${tpProdutos}" 
@@ -84,7 +85,7 @@
             <div class="form-group-col-md-8">
                 
                 <img id="preView" alt="..." th:src="*{Imagem} ? @{${'/lifetree/produtos/show/image/' + produto.id}} :${semImagem}">
-                <label for="uploadImage" class="form-label">Imagem escolhida</label>
+                <label for="uploadImage" class="form-label"></label>
             </div>
 
             <div class="form-group-col-md-4">
