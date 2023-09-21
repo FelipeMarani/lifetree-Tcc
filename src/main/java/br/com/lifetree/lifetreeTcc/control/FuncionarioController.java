@@ -1,6 +1,5 @@
 package br.com.lifetree.lifetreeTcc.control;
 
-import java.util.Base64;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -21,6 +20,7 @@ import br.com.lifetree.lifetreeTcc.service.FuncionarioService;
 import br.com.lifetree.lifetreeTcc.service.McProdutoService;
 import br.com.lifetree.lifetreeTcc.service.ProdutoService;
 import br.com.lifetree.lifetreeTcc.service.TpProdutoService;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/lifetree/funcionario")
@@ -63,18 +63,24 @@ public class FuncionarioController {
 	}
 
 	@PostMapping("/logar")
-	public String Acessar(@RequestParam("email") String email, @RequestParam("senha") String senha, ModelMap model) {
+	public String Acessar(ModelMap map,
+			@RequestParam("email") String email, 
+			@RequestParam("senha") String senha,  HttpSession session) {
+		
+		Funcionario funclogado = funcionarioService.acessar(email, senha);
 
-		int acessar = funcionarioService.acessar(email, senha);
-
-		if (acessar == 2) {
-			return "redirect:/lifetree/produtos/Estoque";
-		} else if (acessar == 1) {
-			return "redirect:/lifetree/funcionario/ListaFunc";
+		if (funclogado != null) {
+			session.setAttribute("funclogado", funclogado);
+			if (funclogado.getAcesso().equals("FUNC")) {
+				return "redirect:/lifetree/produtos/Estoque";
+			} else if (funclogado.getAcesso().equals("ADMIN")) {
+				return "redirect:/lifetree/funcionario/ListaFunc";
+			}
 		}
-
+	
 		return "redirect:/lifetree/funcionario/login";
 	}
+	
 
 	@PostMapping("/save")
 	public String saveFuncionario(@ModelAttribute Funcionario funcionario) {

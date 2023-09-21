@@ -33,21 +33,18 @@ public class FuncionarioService {
 	}
 
 	@Transactional
-	public int acessar(String email, String senha) {
+	public Funcionario acessar(String email, String senha) {
 		Funcionario funcionario = funcionarioRepository.findByEmail(email);
 		
 		if (funcionario != null) {
 			if (funcionario.getSenha().equals(senha)) {
-				if (funcionario.getAcesso().equals("ADMIN")) {
-					return 1;
-				} else if (funcionario.getAcesso().equals("FUNC")) {
-					return 2;
-				}
+				return funcionario;
 			}
 		}
 
-		return 0;
+		return null;
 	}
+	
 
 	@Transactional
 	public void atualizarFunc(Funcionario funcionario) {
