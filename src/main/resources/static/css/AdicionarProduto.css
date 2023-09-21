@@ -113,7 +113,6 @@ section.module.box {
   left: 200px;
 }
 #txtTextArea{
-  height: 5rem;
   width: 220pt;
   margin-bottom: 20px;
   margin-left: 50px;
@@ -146,6 +145,7 @@ section.module.box {
 }
 
 .form-label {
+  color: #ccc;
   margin-top: -35rem;
   margin-left: 62%;
 }

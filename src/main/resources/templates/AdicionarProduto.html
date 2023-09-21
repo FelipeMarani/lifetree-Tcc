@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/AdicionarProduto.css">
-    
+ <link rel="stylesheet" href="/css/AdicionarProduto.css">
+ 
     <title>Adicionar Produto</title>
 </head>
 <body>
@@ -58,9 +58,9 @@
                 class="rounded mx-auto d-block img-fluid" />
             </div>
             <div class="desc-prod">
-            <p>Nome do produto<input class="Imput" type="text" th:field="*{nome}"> </p>
-            <p>Quantidade <input class="Imput" type="number" th:field="*{quantidade}" maxlength="10"></p>
-            <p>Preço <input class="Imput" type="text" th:field="*{preco}"></p>
+            <p>Nome do produto<input id="Names" class="Imput" type="text" th:field="*{nome}" maxlength="35"> </p>
+            <p>Quantidade <input id="qtd" class="Imput"  type="number" th:field="*{quantidade}"></p>
+            <p>Preço <input id="preco" class="Imput" type="text" th:field="*{preco}" ></p>
            <!-- <p>Descrição do Produto <input id="txtTextArea" class="Imput" type="text" onkeydown="autoResize()" th:field="*{descricao}"/></p>-->
           <p> Descrição do Produto</p> <textarea id="txtTextArea" onkeydown="autoResize()"></textarea>
             <p>Código de Barra <input class="Imput" type="number" th:field="*{cod_barra}"/></p>
@@ -85,7 +85,7 @@
             <input class="check" type ="checkbox" value ="SIM" checked id="checkbox" th:field="*{destaque}"></label> 
                      
            <div class="form-group col-md-4">
-                <label for="uploadImage" class="form-label">Insira uma foto para o produto</label>
+                <label for="uploadImage" class="form-label">.</label>
                 <input class="form-control" type="file" onchange="preViewImg();" name="file" accept="image/*" id="uploadImage">
             </div> 
             
@@ -103,6 +103,7 @@
     </section>
 
 </section>
-    <script src="/js/AdicionarProduto.js"></script>
+   <script src="/js/AdicionarProduto.js"></script>
+   
 </body>
 </html>
