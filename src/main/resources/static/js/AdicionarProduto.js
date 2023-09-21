@@ -14,26 +14,21 @@ function preViewImg() {
 
 	}
 	
+	
 }
-  
-function autoResize()
-{
-	objTextArea = document.getElementById('txtTextArea');
-	while (objTextArea.scrollHeight > objTextArea.offsetHeight)
-	{
-		objTextArea.rows += 1;
-	}
+const inputText = document.getElementById("txtTextArea");
+
+function adjustHeight() {
+  inputText.style.height = "auto"; 
+    inputText.style.height = inputText.scrollHeight + "px"; 
 }
 
-//const inputText = document.getElementById("input-text");
-// Função para ajustar a altura do textarea conforme o conteúdo
-//function adjustHeight() {
-  //  inputText.style.height = "auto"; // Redefine a altura para calcular o tamanho real
-  //  inputText.style.height = inputText.scrollHeight + "px"; // Define a altura com base no conteúdo
-//}
+inputText.addEventListener("input", adjustHeight);
 
-// Adicione um ouvinte de evento de digitação para o textarea
-//inputText.addEventListener("input", adjustHeight);
+adjustHeight();
+var names = document.getElementById("Names");
+input.addEventListener("input", function () {
+	const valor = names.value;
+	const letrasRestantes = 35 - valor.length;
+});
 
-// Chame a função inicialmente para definir a altura correta
-//adjustHeight();
