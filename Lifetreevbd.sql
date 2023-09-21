@@ -137,16 +137,6 @@ create table Produto
 		references mcProduto(id)
 )
 
-create table Estoque
-(	id bigint identity,
-	Nome varchar(100)not null,
-	Preco decimal(10,2)not null,
-	Quantidade int,
-	cod_barra varchar(13) unique not null,
-	StatusProd varchar(20), -- NORMAL ou BAIXO
-
-	primary key(id),
-)
 
 create table Imagem(
 	id bigint identity,
