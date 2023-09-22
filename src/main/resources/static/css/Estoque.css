@@ -305,7 +305,7 @@ header {
 
 .sidebar li.profile .name,
 .sidebar li.profile .designation{
-  font-size: 15px;
+  font-size:17px;
   font-weight: 400;
   color:var(--color-white);
   white-space: nowrap;
