@@ -5,7 +5,7 @@ window.onload = function(){
 
     closeBtn.addEventListener("click",function(){
         sidebar.classList.toggle("open")
-        menuBtnChange()
+        menuBtnChange();
     })
 
     searchBtn.addEventListener("click",function(){
