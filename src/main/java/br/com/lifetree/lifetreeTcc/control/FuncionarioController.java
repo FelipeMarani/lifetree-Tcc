@@ -84,6 +84,8 @@ public class FuncionarioController {
 
 	@PostMapping("/save")
 	public String saveFuncionario(@ModelAttribute Funcionario funcionario) {
+		
+		funcionario.setAcesso("FUNC");
 
 		funcionarioService.saveNewFuncionario(funcionario);
 
