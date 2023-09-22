@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <title>Responsive Sidebar</title>
+  <!-- Link Styles -->
+  <link rel="stylesheet" href="style.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo_details">
+      <i class="bx bxl-audible icon"></i>
+      <div class="logo_name">Painel de Controle</div>
+      <i class="bx bx-menu" id="btn"></i>
+    </div>
+    <ul class="nav-list">
+      <li>
+        <a href="#">
+          <i class="bx bx-add-to-queue"></i>
+          <span class="link_name">Adicionar Produto</span>
+        </a>
+        <span class="tooltip">Adicionar Produto</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class="bx bx-bar-chart-alt-2"></i>
+          <span class="link_name">Estoque</span>
+        </a>
+        <span class="tooltip">Estoque</span>
+      </li>
+
+      
+
+      
+      <li class="profile">
+        <div class="profile_details">
+          <div class="profile_content">
+            <div class="name">João</div>
+            <div class="designation">ADMIN</div>
+          </div>
+        </div>
+        <i class="bx bx-log-out" id="log_out"></i>
+      </li>
+    </ul>
+  </div>
+
+
+  
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
