@@ -26,23 +26,23 @@
                     <label for="Nome">Nome</label>
                     <input type="text" name="name" id="Nome" th:field="*{Nome}" class="input required" placeholder="Nome Completo" oninput="nomeValidate()" required>  
 
-                <!--EMAIL (CAMPO 4)-->
+                <!--EMAIL (CAMPO 1)-->
                     <label for="Email">Email</label>
                     
                     <input type="email" name="email" id="email" th:field="*{email}" class="input required" placeholder="Insira o seu Email" onkeyup ="emailValidate()" required>
                     
                     
-                 <!--(CAMPO 5)--> 
+                 <!--(CAMPO 2)--> 
                     <label for="Email2">Confirme seu email</label>  
                     <input type="email" id="email2" class="input required" placeholder="Confirme o email" oninput="compareEmail()" required> 
                 <!--EMAIL-->
 
-                <!--SENHA (CAMPO 6)-->
+                <!--SENHA (CAMPO 3)-->
                     <label for="Senha">Crie uma senha</label>
-                    <input type="password" name="password" id="password" th:field="*{Senha}" class="input required" placeholder="Crie uma senha" oninput="mainPasswordValidate()" required>
+                    <input type="password" name="password" id="password" th:field="*{Senha}" class="input required" placeholder="Crie uma senha" oninput="mainPasswordValidate()"required>
               
                
-                <!--(CAMPO 7)-->    
+                <!--(CAMPO 4)-->    
                     <label for="Senha2">Confirme sua senha</label>
                     <input type="password" name="password2" id="password2" class="input required" placeholder="Confirme sua senha" oninput="comparePassword()" required>
                 <!--SENHA-->

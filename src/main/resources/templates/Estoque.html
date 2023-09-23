@@ -9,41 +9,59 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Estoque</title>
 </head>
 
 <body>
-
-
     <header>
         <div class="info-header">
             <div class="logo">
                 <h2>Estoque</h2>
-                <img src="/img/arvorelogo.png" id="logo">
+                <img src="/img/Logo.png" id="logo">
             </div>
 
             <div class="icon-header">
-                <img src="/img/adm icon.png" alt="ADM">
-                <h1>Funcionário</h1>
+                <img src="/img/Adm-Icon.png" alt="ADM">
+                <h1><span th:text="${session.funclogado.nome}"></span></h1>
             </div>
         </div>
     </header> <!--header acabou-->
 
     <section class="main">
         <div class="sidebar">
-            <h1>Painel de Controle</h1>
-            <a href="/lifetree/produtos/AdicionarProduto">Adicionar Produto</a>
-            <a href="/lifetree/produtos/Estoque">Estoque</a>
-            <br>
-            <hr>
-        </div><!--side bar-->
+            <div class="logo_details">
+              <i class="bx bxl-audible icon"></i>
+              <div class="logo_name">Painel de Controle</div>
+              <i class="bx bx-menu" id="btn"></i>
+            </div>
+            <ul class="nav-list">
+              <li>
+                <a href="/lifetree/produtos/AdicionarProduto">
+                  <i class="bx bx-add-to-queue"></i>
+                  <span class="link_name">Adicionar Produto</span>
+                </a>
+                <span class="tooltip">Adicionar Produto</span>
+              </li>
 
-        <div class="addProduto">
-            <h1>Produtos</h1>
-        </div>
-        <br>
-        
-     
+              <li>
+                <a href="/lifetree/produtos/Estoque">
+                  <i class="bx bx-bar-chart-alt-2"></i>
+                  <span class="link_name">Estoque</span>
+                </a>
+                <span class="tooltip">Estoque</span>
+              </li>    
+              <li class="profile">
+                <div class="profile_details">
+                  <div class="profile_content">
+                    <div class="name">Marcela</div>
+                    <div class="designation">FUNC</div>
+                  </div>
+                </div>
+                <i class="bx bx-log-out" id="log_out"></i>
+              </li>
+            </ul>
+          </div>
     </section>
 
     <div class="api" th:action="@{/lifetree/produtos/all}" th:object="${produto}" method="get">        
@@ -78,10 +96,6 @@
     </tbody>
       </thead>
     </div>
-
-
-<script src="/js/script.js"></script>
-
+    <script src="/js/Sidebar.js"></script>
 </body>
-
 </html>

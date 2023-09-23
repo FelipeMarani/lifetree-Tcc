@@ -15,33 +15,12 @@ function removeError (index) {
     spans[index].style.display = 'none';
 }
 
-//Validação do campo nome (caracteres)
-function nomeValidate(){
-    if(campos[0].value.length < 8)
+// Validação dos campos de Email
+function emailValidate(){
+    if(!emailRegex.test(campos[0].value))
     {
         setError(0);
-    } else{
+    } else {
         removeError(0);
     }
 }
-
-// Validação Telefone (Mascara)
-function telefoneValidate(){
-    $('#tel').mask('(99) 99999-9999');
-    removeError(1);
-}
-
-// Validação dos campos de Email
-function emailValidate(){
-    if(!emailRegex.test(campos[2].value))
-    {
-        setError(2);
-    } else {
-        removeError(2);
-    }
-}
-
-
-
-
-

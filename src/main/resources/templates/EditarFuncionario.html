@@ -15,11 +15,12 @@
         <div class="info-header">
             <div class="logo">
                 <h2>Editar Funcionário</h2>
-                <img src="/img/arvorelogo.png" id="logo">
+                <img src="/img/Logo.png" id="logo">
             </div>
             <div class="icon-header">
-                <img src="/img/adm icon.png" alt="ADM">
-                <h2>Funcionário</h2>
+                <img src="/img/Adm-Icon.png" alt="ADM">
+                <h1><span th:text="${session.funclogado.nome}"></span></h1>
+                <h1><span th:text="${session.funclogado.acesso}"></span></h1>
             </div>
         </div>
     </header>
@@ -45,14 +46,14 @@
 
         <section class="module box">
             <div class="title">
-                <h2>Funcionários</h2>
-                <hr />
+                <h2>Editar Funcionários</h2>
+                <hr/>
             </div>
 
 
             <br>
             <br>
-            <form action="#" th:action="@{/lifetree/funcionario/atualizar/{id}(id=*{id})}" th:object="${funcionario}" method="post" >
+            <form action="#" th:action="@{/lifetree/funcionario/atualizar}" th:object="${funcionario}" method="post" >
                 <div class="desc-prod">
                 <strong>
                     <p>ID:<input class="Imput" type="text" th:field="*{id}" readonly /></p>
