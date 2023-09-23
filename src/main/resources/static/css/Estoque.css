@@ -9,6 +9,12 @@
   --color-body:#e4e9f7;
   --color-light:#e0e0e0;
 }
+#barrapesq{
+  margin-top: 50px;
+  margin-left: 50px;
+  width: 120px;
+  
+}
 
 *{
    margin: 0;

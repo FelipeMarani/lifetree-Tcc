@@ -89,9 +89,9 @@ public class ProdutoController {
 	@PostMapping("/todos-filtro")
 	public String mostrarTodosFiltro(ModelMap model, @RequestParam(value = "nomeProd", required = false) String nome) {
 		if (nome.trim().equals("")) {
-			model.addAttribute("produtos", produtoService.ListarTodos());
-		} else {
 			model.addAttribute("produtos", produtoService.listarTodosFiltro(nome));
+		} else {
+			return "redirect:/lifetree/produtos/Estoque";
 		}
 		return "redirect:/lifetree/produtos/Estoque";
 	}
