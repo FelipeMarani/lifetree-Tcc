@@ -67,23 +67,6 @@ header {
     margin-left: 20px;
 }
 
-.icon-header h1 {
-   font-size: 15px;
-   float: right;
-   color: white;
-   margin-top: 10px;
-   text-align: center;
-   display: flex;
-   margin-top: 15%;
-   margin-left: 10px;
-}
-
-.icon-header img {
-   height: 40px;
-   width: 40px;
-   margin-top: 10px;
-}
-
 .addProduto h1{
   margin-top: 50%;
   margin-left: 50%;
@@ -104,6 +87,8 @@ header {
    display: flex;
    overflow: auto;
 }
+
+
 
 .sidebar{
   min-height: 100vh;
