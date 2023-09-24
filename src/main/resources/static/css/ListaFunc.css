@@ -2,11 +2,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow: hidden;
 }
-.tabletable-stripedtable-hovermy-5border-top{
 
-  overflow: scroll;
-}
 
 html,body {
   height: 100%;
@@ -88,62 +86,6 @@ header {
   background-color: rgb(212, 225, 212);
 }
 
-
-.sidebar {
-  width: 17%;
-  height: 100%;
-  background-color: #d2d2db;
-  padding: 0 8px;
-}
-
-.sidebar h1 {
-  color: black;
-  font-size: 20px;
-  margin-left: 20%;
-  margin-top: 20px;
-}
-
-.sidebar a {
-  display: block;
-  text-decoration: none;
-  font-size: 17px;
-  margin-top: 35px;
-  margin-left: 30px;
-  color: black;
-
-}
-
-.nome h1{
-    margin-top: 25%;
-    margin-left: 25%;
-   
-}
-
-.container{
-    background-color: #d2d2db;
-    margin-left: 5%;
-    margin-top: 10%;
-    height: 39%;
-    width:30%;
-   
-    display: flex;
-    flex-direction: column;
-}
-
-.container-items{
-    display: inline-flex;
-}
-
-.container-items img{
-    height: 15px;
-    width: 15px;
-    margin: 30px;
-}
-
-.container-items h4{
-  margin-top: 3%;
-  margin-left: 10%;
-}
 
 :root{
   --color-default:#038c5a;
