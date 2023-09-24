@@ -4,6 +4,13 @@
   box-sizing: border-box;
 }
 
+:root{
+  --color-default:#038c5a;
+  --color-white:#fff;
+  --color-body:#e4e9f7;
+  --color-light:#e0e0e0;
+}
+
 html,body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: rgb(212, 225, 212);
