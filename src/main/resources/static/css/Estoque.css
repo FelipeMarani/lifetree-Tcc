@@ -16,6 +16,10 @@
   box-sizing: border-box;
   overflow: hidden;
 }
+#background-color{
+  background-color: rgb(212, 225, 212);
+  height: 100%;
+}
 
 html,
 body {

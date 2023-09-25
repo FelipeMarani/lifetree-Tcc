@@ -17,10 +17,12 @@ header {
   height: 80px;
 }
 .api {
+  margin-top: -9%;
   margin-left: 25%;
   width: 60%;
-  height: 50%;
-  margin-top: -40%;
+  height: 60%;
+  display: flex;
+  overflow: auto;
 }
 
 #logo {
@@ -84,6 +86,23 @@ header {
 .main {
   background-color: rgb(212, 225, 212);
 }
+
+
+.barrapesquisa {
+  margin-left: 68%;
+  margin-top: 10%;
+}
+.barrapesquisa a {
+  margin-top: -5px;
+  height: 35px;
+  width: 120px;
+}
+#barrapesq {
+  width: 200px;
+  height: 35px;
+  border-radius: 5px;
+}
+
 
 :root {
   --color-default: #038c5a;

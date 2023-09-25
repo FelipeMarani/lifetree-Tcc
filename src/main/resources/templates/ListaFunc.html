@@ -70,9 +70,15 @@
 							<h1 class="designation"><span th:text="${session.funclogado.acesso}"></span></h1>
 						</div>
 					</div>
-					<i class="bx bx-log-out" id="log_out"></i>
+					<i class="bx bx-log-out" id="log_out">Sair</i>
 				</li>
 			</ul>
+		</div>
+
+		<div class="barrapesquisa">
+			<input type="text" id="barrapesq" autofocus placeholder=" Pesquisar no sistema">
+			<a type="submit" class="btn btn-success" id="inputBarraPesc"
+				th:href="@{/lifetree/produtos/todos-filtro}">Buscar</a>
 		</div>
 
 		<div class="api" th:action="@{/lifetree/funcionario/all}" th:object="${funcionario}" method="get">
@@ -105,9 +111,6 @@
 				</tbody>
 				</thead>
 		</div>
-
-
-
 		</div>
 	</section>
 
