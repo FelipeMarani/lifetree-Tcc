@@ -2,123 +2,130 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/Estoque.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Estoque</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/Estoque.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
+    crossorigin="anonymous"></script>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <title>Estoque ADM</title>
 </head>
 
 <body>
 
 
-    <header>
+  <header>
 
-        <div class="info-header">
-            <div class="logo">
-                <h2>Estoque</h2>
-                <img src="/img/Logo.png" id="logo">
+    <div class="info-header">
+      <div class="logo">
+        <h2>Estoque</h2>
+        <img src="/img/logo.png" id="logo">
+      </div>
+    </div>
+  </header> <!--header acabou-->
+
+  <section class="main">
+    <div class="sidebar">
+      <div class="logo_details">
+        <i class="bx bxl-audible icon"></i>
+        <div class="logo_name">Painel de Controle</div>
+        <i class="bx bx-menu" id="btn"></i>
+      </div>
+      <ul class="nav-list">
+        <li>
+          <a href="/lifetree/funcionario/AdicionarProdutoADM">
+            <i class="bx bx-add-to-queue"></i>
+            <span class="link_name">Adicionar Produto</span>
+          </a>
+          <span class="tooltip">Adicionar Produto</span>
+        </li>
+
+        <li>
+          <a href="/lifetree/funcionario/EstoqueADM">
+            <i class="bx bx-bar-chart-alt-2"></i>
+            <span class="link_name">Estoque</span>
+          </a>
+          <span class="tooltip">Estoque</span>
+        </li>
+
+        <li>
+          <a href="/lifetree/funcionario/ListaFunc">
+            <i class="bx bx-user"></i>
+            <span class="link_name">Funcionários</span>
+          </a>
+          <span class="tooltip">Funcionários</span>
+        </li>
+
+        <li class="profile">
+          <div class="profile_details">
+            <div class="profile_content">
+              <h1 class="name"><span th:text="${session.funclogado.nome}"></span></h1>
+              <h1 class="designation"><span th:text="${session.funclogado.acesso}"></span></h1>
             </div>
-        </div>
-    </header> <!--header acabou-->
-
-    <section class="main">
-        <div class="sidebar">
-            <div class="logo_details">
-              <i class="bx bxl-audible icon"></i>
-              <div class="logo_name">Painel de Controle</div>
-              <i class="bx bx-menu" id="btn"></i>
-            </div>
-            <ul class="nav-list">
-              <li>
-                <a href="/lifetree/funcionario/AdicionarProdutoADM">
-                  <i class="bx bx-add-to-queue"></i>
-                  <span class="link_name">Adicionar Produto</span>
-                </a>
-                <span class="tooltip">Adicionar Produto</span>
-              </li>
-
-              <li>
-                <a href="/lifetree/funcionario/EstoqueADM">
-                  <i class="bx bx-bar-chart-alt-2"></i>
-                  <span class="link_name">Estoque</span>
-                </a>
-                <span class="tooltip">Estoque</span>
-              </li>    
-
-              <li>
-                <a href="/lifetree/funcionario/ListaFunc">
-                  <i class="bx bx-user"></i>
-                  <span class="link_name">Funcionários</span>
-                </a>
-                <span class="tooltip">Funcionários</span>
-              </li>
-
-              <li class="profile">
-                <div class="profile_details">
-                  <div class="profile_content">
-                  <h1 class="name"><span th:text="${session.funclogado.nome}"></span></h1>
-                  <h1 class="designation"><span th:text="${session.funclogado.acesso}"></span></h1>
-                  </div>
-                </div>
-                <i class="bx bx-log-out" id="log_out"></i>
-              </li>
-            </ul>
           </div>
-
-        
-        <!-- <div class="infClick">
-			<form th:action="@{/lifetree/funcionario/todos-filtro}" method="post">         
-				<input type="text" id="barraP" name="nomeProd"> 
-            <input type="button" id="pesquisaP" value="Pesquisar">
-            </form> -->
-        </div>
-    </section>
-
-    <div class="api" th:action="@{/lifetree/funcionario/all}" th:object="${produto}" method="get">        
-    <table class="table table-striped table-hover my-5 border-top">
-
-        <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Código de Barras</th>
-                <th scope="col">Quantidade</th>
-                <th scope="col">Preço</th>
-                <th scope="col">Tipo de Produto</th>
-                <th scope="col">Status</th>
-                <th scope="col">Editar</th>   
-                <th scope="col">Inativar</th>   
-            </tr>
-
-    <tbody>
-       <tr th:each="produto : ${produtos}">
-						<td scope="row" th:text="${produto.id}"></td>
-						<td th:text="${produto.nome}"></td>
-						<td th:text="${produto.cod_barra}"></td>
-                        <td th:text="${produto.quantidade}"></td> <!--linkar com a quantidade-->
-						<td th:text="${produto.preco}"></td>
-						<td th:text="${produto.tpProduto.tpProduto}"></td>
-						<td th:text="${produto.statusProd}"></td>
-					<td><a th:href="@{/lifetree/produtos/EditarProdutoADM/{id}(id=${produto.id})}" class="btn  btn-success btn-sm pb-0">
-							Editar
-							</a>
-						</td>
-						<td><a th:href="@{/lifetree/funcionario/inativarProdFunc/{id}(id=${produto.id})}" class="btn  btn-success btn-sm pb-0">
-							Inativar
-							</a>
-						</td>
-						
-       </tr>
-    </tbody>
-      </thead>
+          <i class="bx bx-log-out" id="log_out" href="/lifetree/funcionario/login">Sair</i>
+        </li>
+      </ul>
     </div>
 
-<script src="/js/Sidebar.js"></script>
+
+    <div class="barrapesquisa">
+      <input type="text" id="barrapesq" autofocus placeholder=" Pesquisar no sistema">
+      <a type="submit" class="btn btn-success" id="inputBarraPesc"
+        th:href="@{/lifetree/produtos/todos-filtro}">Buscar</a>
+    </div>
+    </div>
+  </section>
+
+
+
+  <div class="api" th:action="@{/lifetree/funcionario/all}" th:object="${produto}" method="get">
+    <table class="table table-striped table-hover my-5 border-top">
+
+
+
+
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Quantidade</th>
+          <th scope="col">Preço</th>
+          <th scope="col">Tipo de Produto</th>
+          <th scope="col">Status</th>
+          <th scope="col">Editar</th>
+          <th scope="col">Inativar</th>
+        </tr>
+
+      <tbody>
+        <tr th:each="produto : ${produtos}">
+          <td scope="row" th:text="${produto.id}"></td>
+          <td th:text="${produto.nome}"></td>
+          <td th:text="${produto.quantidade}"></td>
+          <td th:text="${produto.preco}"></td>
+          <td th:text="${produto.tpProduto.tpProduto}"></td>
+          <td th:text="${produto.statusProd}"></td>
+          <td><a th:href="@{/lifetree/produtos/EditarProdutoADM/{id}(id=${produto.id})}"
+              class="btn  btn-success btn-sm pb-0">
+              Editar
+            </a>
+          </td>
+          <td><a th:href="@{/lifetree/funcionario/inativarProdFunc/{id}(id=${produto.id})}"
+              class="btn  btn-success btn-sm pb-0">Inativar</a></td>
+
+        </tr>
+      </tbody>
+      </thead>
+  </div>
+
+  <script src="/js/Sidebar.js"></script>
 
 </body>
 
