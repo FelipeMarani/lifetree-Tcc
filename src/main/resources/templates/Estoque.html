@@ -93,8 +93,8 @@
         <tr th:each="produto : ${produtos}">
           <td scope="row" th:text="${produto.id}"></td>
           <td th:text="${produto.nome}"></td>
-          <td th:text="${produto.preco}"></td>
           <td th:text="${produto.quantidade}"></td>
+          <td th:text="${produto.preco}"></td>
           <td th:text="${produto.tpProduto.tpProduto}"></td>
           <td th:text="${produto.statusProd}"></td>
           <td><a th:href="@{/lifetree/produtos/Editarproduto/{id}(id=${produto.id})}"
