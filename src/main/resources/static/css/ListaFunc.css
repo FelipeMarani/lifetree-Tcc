@@ -97,12 +97,13 @@ header {
   height: 35px;
   width: 120px;
 }
-#barrapesq {
-  width: 200px;
-  height: 35px;
-  border-radius: 5px;
+#button-pesquisa {
+
 }
 
+.barrapesquisa button{
+  color: var(--color-default);
+}
 
 :root {
   --color-default: #038c5a;

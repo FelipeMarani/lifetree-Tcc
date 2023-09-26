@@ -43,11 +43,6 @@ public class ProdutoService {
 		return produtoRepository.findByNomeContaining(nome);
 	}
 
-	// public List<Produto> listarStatus() {
-	// return produtoRepository.listarProdutosAtivos("Ativo");
-	//
-	// }
-
 	@Transactional
 	public void inativarProd(Produto produto) {
 

@@ -91,18 +91,7 @@ public class FuncionarioController {
 
 		return "redirect:/lifetree/funcionario/login";
 	}
-
-	@PostMapping("/todos-filtro")
-	public String mostrarTodosFiltro(ModelMap model, @RequestParam(value = "nomeProd", required = false) String nome) {
-
-		if (nome.trim().equals("")) {
-			model.addAttribute("produtos", produtoService.ListarTodos());
-		} else {
-			model.addAttribute("produtos", produtoService.listarTodosFiltro(nome));
-		}
-		return "redirect:/lifetree/funcionario/EstoqueADM";
-	}
-
+	
 	@GetMapping("/loginfuncionario")
 	public String getLoginFuncionario(ModelMap model) {
 		model.addAttribute("funcionario", new Funcionario());

@@ -75,11 +75,13 @@
 			</ul>
 		</div>
 
-		<div class="barrapesquisa">
-			<input type="text" name="funcionario" id="barrapesq" autofocus placeholder=" Pesquisar no sistema">
-			<a type="submit" class="btn btn-success" id="inputBarraPesc"
-				th:href="@{/lifetree/produtos/todos-filtro}">Buscar</a>
-		</div>
+		<form action="#" th:action="@{/lifetree/funcionario/FiltroFunc}" class="row g-3 mx-5 mt-2" method="post">
+
+			<div class="barrapesquisa">
+				<input type="text" name="funcionario" id="barrapesq" autofocus placeholder=" Pesquisar no sistema">
+				<button type="submit" class="btn btn-success" id="button-pesquisa">Buscar</a>
+			</div>
+		</form>
 
 		<div class="api" th:action="@{/lifetree/funcionario/all}" th:object="${funcionario}" method="get">
 			<table class="table table-striped table-hover my-5 border-top">
