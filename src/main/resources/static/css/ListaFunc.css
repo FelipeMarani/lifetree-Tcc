@@ -17,7 +17,7 @@ header {
   height: 80px;
 }
 .api {
-  margin-top: -9%;
+  margin-top: -8%;
   margin-left: 25%;
   width: 60%;
   height: 60%;
@@ -89,20 +89,24 @@ header {
 
 
 .barrapesquisa {
-  margin-left: 68%;
-  margin-top: 10%;
+  width: 300px;
+  align-items: center;
+  text-align: center;
+
 }
-.barrapesquisa a {
-  margin-top: -5px;
+#barrapesq {
+
+  margin-left: 80rem;
+  margin-top: 11.1%;
+  width: 200px;
   height: 35px;
-  width: 120px;
-}
-#button-pesquisa {
-
+  border-radius: 10px;
 }
 
-.barrapesquisa button{
-  color: var(--color-default);
+#inputBarraPesc{
+  margin-top: -5px;
+  border-radius: 10px;
+  height: 34px;
 }
 
 :root {
