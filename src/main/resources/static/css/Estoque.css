@@ -71,7 +71,7 @@ header {
 
 .barrapesquisa {
   margin-top: 10%;
-  margin-left: 53%;
+  margin-left: 55%;
   align-items: center;
   text-align: center;
 }
@@ -90,6 +90,7 @@ header {
 }
 
 .api {
+  margin-top: 30px;
   margin-left: 25%;
   width: 60%;
   height: 60%;
