@@ -33,7 +33,7 @@ public class FuncionarioService {
 	}
 
 	@Transactional
-	public int acessar(String email, String senha) {
+	public Funcionario acessar(String email, String senha) {
 		Funcionario funcionario = funcionarioRepository.findByEmail(email);
 		
 		if (funcionario != null) {
@@ -61,6 +61,10 @@ public class FuncionarioService {
 	// todos
 	public List<Funcionario> ListarTodos() {
 		return funcionarioRepository.findAll();
+	}
+	
+	public List<Funcionario> FiltroFunc(){
+		return funcionarioRepository.findByNomeContaining(null);
 	}
 
 	//

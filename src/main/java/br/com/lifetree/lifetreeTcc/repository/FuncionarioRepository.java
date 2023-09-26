@@ -17,7 +17,7 @@ public interface FuncionarioRepository extends JpaRepository<Funcionario, Long> 
 	Funcionario findByEmail(String email);
 	
 	@Query("SELECT p FROM Funcionario p WHERE p.nome like %?1%")
-	List<Funcionario> listFuncionarioFiltro(@Param("nome") String nome);
+	List<Funcionario> Filtro(@Param("nome") String nome);
 	
 	List<Funcionario> findByNomeContaining(String nome);
 	

@@ -4,16 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.lifetree.lifetreeTcc.model.entity.Funcionario;
@@ -58,25 +55,25 @@ public class FuncionarioApiController {
 		}
 	}
 
-	@PostMapping("/funcionarioApi")
-	public ResponseEntity<Funcionario> getOneFuncionario(@RequestParam(required = false) String title,
-			@RequestBody Funcionario funcionario) {
-
-		try {
-			int resposta = funcionarioService.acessar(funcionario.getEmail(), funcionario.getSenha());
-
-			if (resposta == 1) {
-
-				Funcionario f2 = funcionarioService.ListarEmail(funcionario.getEmail());
-
-				return new ResponseEntity<Funcionario>(f2, HttpStatus.OK);
-
-			}
-		} catch (Exception e) {
-			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-		return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-	}
+//	@PostMapping("/funcionarioApi")
+//	public ResponseEntity<Funcionario> getOneFuncionario(@RequestParam(required = false) String title,
+//			@RequestBody Funcionario funcionario) {
+//
+//		try {
+//			int resposta = funcionarioService.acessar(String email(), String senha());
+//
+//			if (resposta == 1) {
+//
+//				Funcionario f2 = funcionarioService.ListarEmail(funcionario.getEmail());
+//
+//				return new ResponseEntity<Funcionario>(f2, HttpStatus.OK);
+//
+//			}
+//		} catch (Exception e) {
+//			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+//		}
+//		return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+//	}
 
 	@PostMapping("/produtosApi")
 	public ResponseEntity<List<Produto>> getAllProdutos(@RequestParam(required = false) String title2) {

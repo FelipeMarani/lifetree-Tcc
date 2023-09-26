@@ -128,6 +128,27 @@ public class FuncionarioController {
 
 		return "redirect:/lifetree/funcionario/ListaFunc";
 	}
+	
+	@GetMapping("/FiltroFunc")
+	public String MostrarFiltroFunc(ModelMap map) {
+		
+		map.addAttribute("funcionario", funcionarioService.ListarTodos());
+		return "FiltroFuc";
+		
+	}
+	
+	@PostMapping("/FiltroFunc")
+	 public String MostrarFiltro(ModelMap map,
+			 @RequestParam(value = "funcionario", required = false) String funcionario) {
+		
+		if(funcionario.trim().equals("")) {
+			map.addAttribute("funcionario", funcionarioService.ListarTodos());
+		}else {
+			
+			map.addAttribute("funcionario", funcionarioService.FiltroFunc());
+		}
+		return "FiltroFuc";
+	}
 
 	// ADM////
 
@@ -167,10 +188,6 @@ public class FuncionarioController {
 	@PostMapping("/atualizar")
 	public String atualizarFuncionario(
 			@ModelAttribute("funcionario") Funcionario funcionario) {
-
-		//Funcionario funcionario = funcionarioService.findById(id);
-
-		//model.addAttribute("funcionario", funcionario);
 		
 		funcionarioService.atualizarFunc(funcionario);
 		return "redirect:/lifetree/funcionario/ListaFunc";
