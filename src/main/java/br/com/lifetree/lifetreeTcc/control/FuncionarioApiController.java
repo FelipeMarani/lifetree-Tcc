@@ -38,31 +38,7 @@ public class FuncionarioApiController {
 
 	}
 
-	@GetMapping("/login")
-	@ResponseBody
-	public String getLogin(ModelMap model) {
-
-		model.addAttribute("funcionario", new Funcionario());
-		model.addAttribute("serverMessage", serverMessage);
-		return "login";
-
-	}
-
-	@PostMapping("/logar")
-	public String Acessar(@RequestParam("email") String email, @RequestParam("senha") String senha, ModelMap model) {
-
-		int acessar = funcionarioService.acessar(email, senha);
-
-		if (acessar == 2) {
-
-			return "redirect:/lifetree/produtos/Estoque";
-		} else if (acessar == 1) {
-
-			return "redirect:/lifetree/funcionario/ListaFunc";
-		}
-
-		return "redirect:/lifetree/funcionario/login";
-	}
+	
 
 	@GetMapping("/tutorials")
 	public ResponseEntity<List<Funcionario>> getAllFuncionarios(@RequestParam(required = false) String title) {
@@ -102,7 +78,7 @@ public class FuncionarioApiController {
 		return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
-	@GetMapping("/produtosApi")
+	@PostMapping("/produtosApi")
 	public ResponseEntity<List<Produto>> getAllProdutos(@RequestParam(required = false) String title2) {
 		try {
 			List<Produto> produtosApi = new ArrayList<Produto>();
