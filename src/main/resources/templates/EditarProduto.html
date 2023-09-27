@@ -49,6 +49,14 @@
 				</a>
 				<span class="tooltip">Estoque</span>
 			  </li>
+
+			  <li>
+				<a href="/lifetree/funcionario/login">
+				  <i class="bx bx-log-out" id="log_out"></i>
+				  <span class="link_name">Sair</span>
+				</a>
+				<span class="tooltip">Sair</span>
+			  </li>
 		
 			  <li class="profile">
 				<div class="profile_details">
@@ -57,7 +65,6 @@
 					<h1 class="designation"><span th:text="${session.funclogado.acesso}"></span></h1>
 				  </div>
 				</div>
-				<i class="bx bx-log-out" id="log_out" href="/lifetree/funcionario/login">Sair</i>
 			  </li>
 			</ul>
 		  </div>
@@ -141,7 +148,6 @@
 
 	</section>
 	<script src="/js/EditarProduto.js"></script>
-
 	<script src="/js/Sidebar.js"></script>
 
 </body>

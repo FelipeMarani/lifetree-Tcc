@@ -166,7 +166,7 @@ section.module.box {
   padding: 20px 20px;
   border-radius: 5px;
   margin-left: 23%;
-  margin-top: 7%;
+  margin-top: 3%;
   background-color: #f2f2f2;
 }
 
@@ -373,13 +373,14 @@ section.module.box {
 .sidebar li a::after {
   content: "";
   position: absolute;
-  width: 100%;
+  width: 80%;
   height: 100%;
   transform: scaleX(0);
   background-color: var(--color-white);
-  border-radius: 5px;
+  border-radius: 0px 5px 5px 0px;
   transition: transform 0.3s ease-in-out;
   transform-origin: left;
+  margin-left: 17px;
   z-index: -2;
 }
 
