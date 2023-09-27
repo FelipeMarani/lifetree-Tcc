@@ -94,8 +94,8 @@ public class ProdutoService {
 //
 //		TpProduto tpproduto = tpprodutoRepository.findByTpProduto(produto.getTpProduto().getTpProduto());
 
-		System.out.println("fi" + file.getSize());
-		System.out.println("fo" + foto.length);
+//		System.out.println("fi" + file.getSize());
+//		System.out.println("fo" + foto.length);
 
 		if (file.getSize() == 0 && foto.length == 0) {
 			_produto.setImagem(null);
@@ -132,10 +132,6 @@ public class ProdutoService {
 	public List<Produto> ListarTodosProd() {
 		List<Produto> lista = produtoRepository.findAll();
 		return lista;
-	}
-
-	public List<Produto> listarProdutosAtivos() {
-		return produtoRepository.findByStatusProd("ATIVO");
 	}
 
 	public List<Produto> listarProdutosFiltro(String nomeProd) {
