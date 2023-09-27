@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="/lifetree-Tcc/src/main/resources/static/css/AdicionarProduto.css">
+	<link rel="stylesheet" href="/css/AdicionarProduto.css">
 	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 	<title>Adicionar Produto</title>
 </head>
@@ -46,6 +46,14 @@
 				</a>
 				<span class="tooltip">Estoque</span>
 			  </li>
+
+			  <li>
+				<a href="/lifetree/funcionario/login">
+				  <i class="bx bx-log-out" id="log_out"></i>
+				  <span class="link_name">Sair</span>
+				</a>
+				<span class="tooltip">Sair</span>
+			  </li>
 		
 			  <li class="profile">
 				<div class="profile_details">
@@ -54,7 +62,6 @@
 					<h1 class="designation"><span th:text="${session.funclogado.acesso}"></span></h1>
 				  </div>
 				</div>
-				<i class="bx bx-log-out" id="log_out" href="/lifetree/funcionario/login">Sair</i>
 			  </li>
 			</ul>
 		  </div>
@@ -119,7 +126,7 @@
 
 	</section>
 	<script src="/js/AdicionarProduto.js"></script>
-	<script src="/lifetree-Tcc/src/main/resources/static/js/Sidebar.js"></script>
+	<script src="/js/Sidebar.js"></script>
 
 </body>
 </html>
