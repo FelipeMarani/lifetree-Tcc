@@ -55,25 +55,26 @@ public class FuncionarioApiController {
 		}
 	}
 
-//	@PostMapping("/funcionarioApi")
-//	public ResponseEntity<Funcionario> getOneFuncionario(@RequestParam(required = false) String title,
-//			@RequestBody Funcionario funcionario) {
-//
-//		try {
-//			int resposta = funcionarioService.acessar(String email(), String senha());
-//
-//			if (resposta == 1) {
-//
-//				Funcionario f2 = funcionarioService.ListarEmail(funcionario.getEmail());
-//
-//				return new ResponseEntity<Funcionario>(f2, HttpStatus.OK);
-//
-//			}
-//		} catch (Exception e) {
-//			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-//		}
-//		return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-//	}
+	@PostMapping("/funcionarioApi")
+	public ResponseEntity<Funcionario> getOneFuncionario(@RequestParam(required = false) String title,
+			@RequestParam("email") String email, 
+			@RequestParam("senha") String senha,
+			@RequestBody Funcionario funcionario) {
+
+		try {
+
+			Funcionario func = funcionarioService.acessar(email, senha);
+
+			if (func != null) {
+
+				return new ResponseEntity<Funcionario>(func, HttpStatus.OK);
+
+			}
+		} catch (Exception e) {
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+	}
 
 	@PostMapping("/produtosApi")
 	public ResponseEntity<List<Produto>> getAllProdutos(@RequestParam(required = false) String title2) {

@@ -68,7 +68,7 @@ public class FuncionarioService {
 	}
 
 	//
-	public Funcionario ListarEmail(String email) {
+	public Funcionario findByEmail(String email) {
 
 		return funcionarioRepository.findByEmail(email);
 	}
