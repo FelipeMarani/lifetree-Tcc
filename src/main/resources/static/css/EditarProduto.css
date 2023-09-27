@@ -4,15 +4,7 @@
   box-sizing: border-box;
 }
 
-:root {
-  --color-default: #038c5a;
-  --color-white: #fff;
-  --color-body: #e4e9f7;
-  --color-light: #e0e0e0;
-}
-
-html,
-body {
+html{
   font-family: Arial, Helvetica, sans-serif;
   background-color: rgb(212, 225, 212);
 }
@@ -60,7 +52,7 @@ header {
   height: 7px;
   padding: 7px 2%;
   height: 80px;
-  margin-top: -50px;
+  margin-top: -44px;
 }
 
 .logo h2 {
@@ -69,7 +61,7 @@ header {
   color: white;
   text-align: center;
   display: flex;
-  margin-top: 10%;
+  margin-top: 25px;
   margin-left: 20px;
 }
 
@@ -78,8 +70,7 @@ header {
   display: flex;
   justify-content: space-between;
   margin: auto 10px;
-  margin-top: 5px;
-  align-items: center;
+  margin-top: 4px;
 }
 .logo {
   margin-top: 5px;
@@ -174,8 +165,8 @@ section.module.box {
   margin: 20px 0;
   padding: 20px 20px;
   border-radius: 5px;
-  margin-left: 5%;
-  margin-top: 50px;
+  margin-left: 23%;
+  margin-top: 7%;
   background-color: #f2f2f2;
 }
 
@@ -241,6 +232,13 @@ section.module.box {
 .botão:hover {
   background-color: #42dd9d;
   transition: 0.2s;
+}
+
+:root {
+  --color-default: #038c5a;
+  --color-white: #fff;
+  --color-body: #e4e9f7;
+  --color-light: #e0e0e0;
 }
 
 .sidebar {
@@ -359,7 +357,8 @@ section.module.box {
 }
 
 .sidebar li a {
-  margin-left: -20px;
+  margin-top: 5px;
+  margin-left: 0px;
   display: flex;
   height: 100%;
   width: 100%;
@@ -416,6 +415,7 @@ section.module.box {
   line-height: 35px;
   font-size: 18px;
   border-radius: 5px;
+  margin-left: 20px;
 }
 
 .sidebar li.profile {
