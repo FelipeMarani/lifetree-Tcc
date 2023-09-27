@@ -104,7 +104,7 @@ public class FuncionarioController {
 		return "CriarConta";
 	}
 
-	@GetMapping("/ListaFunc")
+	@GetMapping("/ListaFunc_")
 	public String getLista(ModelMap map) {
 		map.addAttribute("funcionario", funcionarioService.ListarTodos());
 		return "ListaFunc";
@@ -118,7 +118,7 @@ public class FuncionarioController {
 		return "redirect:/lifetree/funcionario/ListaFunc";
 	}
 	
-	@GetMapping("/FiltroFunc")
+	@GetMapping("/Filtro_Func")
 	public String MostrarFiltroFunc(ModelMap map) {
 		
 		map.addAttribute("funcionario", funcionarioService.ListarTodos());
@@ -126,18 +126,39 @@ public class FuncionarioController {
 		
 	}
 	
-	@PostMapping("/FiltroFunc")
-	 public String MostrarFiltro(ModelMap map,
-			 @RequestParam(value = "funcionario", required = false) String funcionario) {
+//	@PostMapping("/FiltroFunc")
+//	 public String MostrarFiltro(ModelMap map,
+//			 @RequestParam(value = "funcionario", required = false) String funcionario) {
+//		
+//		if(funcionario.trim().equals("")) {
+//			map.addAttribute("funcionario", funcionarioService.ListarTodos());
+//		}else {
+//			
+//			map.addAttribute("funcionario", funcionarioService.FiltroFunc());
+//		}
+//		return "FiltroFuc";
+//	}
+	
+	@GetMapping("/ListaFunc")
+	public String verFuncionarios(ModelMap model,
+			@RequestParam(value = "funcionario", required = false) String nome) {
 		
-		if(funcionario.trim().equals("")) {
-			map.addAttribute("funcionario", funcionarioService.ListarTodos());
-		}else {
-			
-			map.addAttribute("funcionario", funcionarioService.FiltroFunc());
+		List<Funcionario> funcionarios = null;
+		
+		if (nome == null) {
+			funcionarios = funcionarioService.TodosFuncionarios();
+			model.addAttribute("funcionarios", funcionarios);
+		} else {
+			funcionarios = funcionarioService.FiltroFunc(nome);
+			model.addAttribute("funcionarios", funcionarios);
 		}
-		return "FiltroFuc";
+
+		serverMessage = null;
+
+		// INDICA A PÁGINA QUE SERÁ CARREGADA NA EXECUÇÃO DO MÉTODO
+		return "ListaFunc";
 	}
+	
 
 	// ADM////
 

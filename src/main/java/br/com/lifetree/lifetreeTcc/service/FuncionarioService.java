@@ -63,8 +63,8 @@ public class FuncionarioService {
 		return funcionarioRepository.findAll();
 	}
 	
-	public List<Funcionario> FiltroFunc(){
-		return funcionarioRepository.findByNomeContaining(null);
+	public List<Funcionario> FiltroFunc(String nome){
+		return funcionarioRepository.findByNomeContaining(nome);
 	}
 
 	//
