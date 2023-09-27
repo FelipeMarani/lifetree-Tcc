@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/src/main/resources/static/css/Estoque.css">
+  <link rel="stylesheet" href="/css/Estoque.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
@@ -51,67 +51,72 @@
         <span class="tooltip">Estoque</span>
       </li>
 
+
+
+
+
       <li class="profile">
         <div class="profile_details">
           <div class="profile_content">
             <h1 class="name"><span th:text="${session.funclogado.nome}"></span></h1>
             <h1 class="designation"><span th:text="${session.funclogado.acesso}"></span></h1>
-          </div>
-        </div>
       <li>
-      <a href ="/lifetree/funcionario/login">
-      <i class="bx bx-log-out" id="log_out">Sair</i>
-      </a>
-        
+        <a href="/lifetree/funcionario/login">
+          <i class="bx bx-log-out" id="log_out"></i>
+          <span class="link_name">Sair</span>
+        </a>
+        <span class="tooltip">Sair</span>
       </li>
-    </ul>
+
   </div>
-</section>
+  </div>
+  </li>
+  </ul>
+  </div>
+  </section>
 
   <div id="background-color">
+    <div class="barrapesquisa">
+      <input type="search" id="barrapesq" autofocus placeholder=" Pesquisar no sistema">
+      <button type="submit" class="btn btn-success" id="inputBarraPesc"
+        th:href="@{/lifetree/produtos/todos-filtro}">Buscar</button>
+    </div>
 
 
 
-  <div class="barrapesquisa">
-    <input type="search" id="barrapesq" autofocus placeholder=" Pesquisar no sistema">
-    <button type="submit" class="btn btn-success" id="inputBarraPesc" th:href="@{/lifetree/produtos/todos-filtro}">Buscar</button>
+    <div class="api" th:action="@{/lifetree/produtos/all}" th:object="${produto}" method="get">
+      <table class="table table-striped table-hover my-5 border-top">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Quantidade</th>
+            <th scope="col">Preço</th>
+            <th scope="col">Tipo de Produto</th>
+            <th scope="col">Status</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Inativar</th>
+          </tr>
+
+        <tbody>
+          <tr th:each="produto : ${produtos}">
+            <td scope="row" th:text="${produto.id}"></td>
+            <td th:text="${produto.nome}"></td>
+            <td th:text="${produto.quantidade}"></td>
+            <td th:text="${produto.preco}"></td>
+            <td th:text="${produto.tpProduto.tpProduto}"></td>
+            <td th:text="${produto.statusProd}"></td>
+            <td><a th:href="@{/lifetree/produtos/Editarproduto/{id}(id=${produto.id})}"
+                class="btn btn-success btn-sm pb-0">Editar</a></td>
+            <td><a th:href="@{/lifetree/produtos/inativar/{id}(id=${produto.id})}"
+                class="btn btn-success btn-sm pb-0">Inativar</a></td>
+          </tr>
+        </tbody>
+        </thead>
+    </div>
+
+    <script src="/js/Sidebar.js"></script>
   </div>
-  
-
-
-  <div class="api" th:action="@{/lifetree/produtos/all}" th:object="${produto}" method="get">
-    <table class="table table-striped table-hover my-5 border-top">
-      <thead>
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Nome</th>
-          <th scope="col">Quantidade</th>
-          <th scope="col">Preço</th>
-          <th scope="col">Tipo de Produto</th>
-          <th scope="col">Status</th>
-          <th scope="col">Editar</th>
-          <th scope="col">Inativar</th>
-        </tr>
-
-      <tbody>
-        <tr th:each="produto : ${produtos}">
-          <td scope="row" th:text="${produto.id}"></td>
-          <td th:text="${produto.nome}"></td>
-          <td th:text="${produto.quantidade}"></td>
-          <td th:text="${produto.preco}"></td>
-          <td th:text="${produto.tpProduto.tpProduto}"></td>
-          <td th:text="${produto.statusProd}"></td>
-          <td><a th:href="@{/lifetree/produtos/Editarproduto/{id}(id=${produto.id})}"
-              class="btn btn-success btn-sm pb-0">Editar</a></td>
-          <td><a th:href="@{/lifetree/produtos/inativar/{id}(id=${produto.id})}"
-              class="btn btn-success btn-sm pb-0">Inativar</a></td>
-        </tr>
-      </tbody>
-      </thead>
-  </div>
-
-  <script src="/src/main/resources/static/js/Sidebar.js"></script>
-</div>
 </body>
 
 </html>

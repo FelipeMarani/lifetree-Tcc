@@ -68,11 +68,17 @@
 						<div class="profile_content">
 							<h1 class="name"><span th:text="${session.funclogado.nome}"></span></h1>
 							<h1 class="designation"><span th:text="${session.funclogado.acesso}"></span></h1>
-						</div>
-					</div>
-					<i class="bx bx-log-out" id="log_out">Sair</i>
+				<li>
+					<a href="/lifetree/funcionario/login">
+						<i class="bx bx-log-out" id="log_out"></i>
+						<span class="link_name">Sair</span>
+					</a>
+
 				</li>
-			</ul>
+		</div>
+		</div>
+		</li>
+		</ul>
 		</div>
 
 		<form action="#" th:action="@{/lifetree/funcionario/ListaFunc}" class="row g-3 mx-5 mt-2" method="get">

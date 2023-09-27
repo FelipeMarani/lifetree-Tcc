@@ -390,7 +390,7 @@ section.module.box {
 .sidebar li a::after {
     content: "";
     position: absolute;
-    width: 50px%=;
+    width: 80%;
     height: 100%;
     transform: scaleX(0);
     background-color: var(--color-white);
