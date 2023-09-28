@@ -26,45 +26,60 @@
 
     <section class="main">
 
-        <div class="sidebar">
-            <div class="logo_details">
-                <i class="bx bxl-audible icon"></i>
-                <div class="logo_name">Painel de Controle</div>
-                <i class="bx bx-menu" id="btn"></i>
-            </div>
-            <ul class="nav-list">
-                <li>
-                    <a href="/lifetree/produtos/AdicionarProduto">
-                        <i class="bx bx-add-to-queue"></i>
-                        <span class="link_name">Adicionar Produto</span>
-                    </a>
-                    <span class="tooltip">Adicionar Produto</span>
-                </li>
+		<div class="sidebar">
+			<div class="logo_details">
+				<i class="bx bxl-audible icon"></i>
+				<div class="logo_name">Painel de Controle</div>
+				<i class="bx bx-menu" id="btn"></i>
+			</div>
+			<ul class="nav-list">
+				<li>
+					<a href="/lifetree/funcionario/AdicionarProdutoADM">
+						<i class="bx bx-add-to-queue"></i>
+						<span class="link_name">Adicionar Produto</span>
+					</a>
+					<span class="tooltip">Adicionar Produto</span>
+				</li>
 
-                <li>
-                    <a href="/lifetree/produtos/Estoque">
-                        <i class="bx bx-bar-chart-alt-2"></i>
-                        <span class="link_name">Estoque</span>
-                    </a>
-                    <span class="tooltip">Estoque</span>
-                </li>
+				<li>
+					<a href="/lifetree/funcionario/EstoqueADM">
+						<i class="bx bx-bar-chart-alt-2"></i>
+						<span class="link_name">Estoque</span>
+					</a>
+					<span class="tooltip">Estoque</span>
+				</li>
 
-                <li class="profile">
-                    <div class="profile_details">
-                        <div class="profile_content">
-                            <h1 class="name"><span th:text="${session.funclogado.nome}"></span></h1>
-                            <h1 class="designation"><span th:text="${session.funclogado.acesso}"></span></h1>
-                        </div>
-                    </div>
-                    <i class="bx bx-log-out" id="log_out" href="/lifetree/funcionario/login">Sair</i>
-                </li>
+				<li>
+					<a href="/lifetree/funcionario/ListaFunc">
+						<i class="bx bx-user"></i>
+						<span class="link_name">Funcionários</span>
+					</a>
+					<span class="tooltip">Funcionários</span>
+				</li>
+
+				<li>
+					<a href="/lifetree/funcionario/login">
+					  <i class="bx bx-log-out" id="log_out"></i>
+					  <span class="link_name">Sair</span>
+					</a>
+					<span class="tooltip">Sair</span>
+				  </li>
+
+				<li class="profile">
+					<div class="profile_details">
+						<div class="profile_content">
+							<h1 class="name"><span th:text="${session.funclogado.nome}"></span></h1>
+							<h1 class="designation"><span th:text="${session.funclogado.acesso}"></span></h1>
+						</div>
+					</div>
+				</li\>		
             </ul>
-        </div>
+		</div>  
 
         <section class="module box">
             <div class="title">
                 <h2>Editar Funcionários</h2>
-                <hr />
+                <hr/>
             </div>
 
 
