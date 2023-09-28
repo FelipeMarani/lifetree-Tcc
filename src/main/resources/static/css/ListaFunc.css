@@ -17,7 +17,7 @@ header {
   height: 80px;
 }
 .api {
-  margin-top: -5%;
+  margin-top: -7%;
   margin-left: 25%;
   width: 60%;
   height: 60%;
@@ -96,16 +96,16 @@ header {
 }
 #barrapesq {
   margin-left: 81rem;
-  margin-top: 11.1%;
+  margin-top: 8.60%;
   width: 200px;
   height: 35px;
   border-radius: 10px;
 }
 
 #inputBarraPesc{
-  margin-top: -5px;
+  margin-top: -7px;
   border-radius: 10px;
-  height: 34px;
+  height: 35px;
 }
 
 :root {
