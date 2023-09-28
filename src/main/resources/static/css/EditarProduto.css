@@ -39,13 +39,11 @@ header {
   position: static;
 }
 
-.form-label {
-  margin-left: 65%;
-}
+
 
 .form-control {
   margin-top: 2rem;
-  margin-left: 51.5%;
+  margin-left: 50%;
 }
 
 #logo {
@@ -123,8 +121,8 @@ header {
   margin-top: 5px;
 }
 
-#button {
-  margin-left: 50px;
+#botão {
+  margin-left: 3rem;
 }
 
 .logo {
@@ -166,7 +164,7 @@ section.module.box {
   padding: 20px 20px;
   border-radius: 5px;
   margin-left: 23%;
-  margin-top: 3%;
+  margin-top: 5%;
   background-color: #f2f2f2;
 }
 

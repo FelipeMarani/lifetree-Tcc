@@ -17,12 +17,6 @@
 				<h2>Editar Produto</h2>
 				<img src="/img/arvorelogo.png" id="logo">
 			</div>
-			<div class="icon-header">
-				<img src="/img/adm icon.png" alt="ADM">
-				<h1><span th:text="${session.funclogado.nome}"></span></h1>
-				<h1><span th:text="${session.funclogado.acesso}"></span></h1>
-			</div>
-		</div>
 	</header> <!--header acabou-->
 
 	<section class="main">
@@ -95,9 +89,7 @@
 						<p>Nome do produto<input class="Imput" type="text" th:field="*{nome}"> </p>
 						<p>Quantidade <input class="Imput" type="number" th:field="*{quantidade}" maxlength="10"></p>
 						<p>Preço <input class="Imput" type="text" th:field="*{preco}"></p>
-						<p> Descrição do Produto</p> <textarea id="txtTextArea" onkeydown="autoResize()"
-							th:field="*{descricao}"></textarea>
-						<p>Código de Barra <input class="Imput" type="number" th:field="*{cod_barra}" /></p>
+						<p> Descrição do Produto</p> <textarea id="txtTextArea" onkeydown="autoResize()"th:field="*{descricao}"></textarea>
 						<p>Tipo de produto
 							<select name="Tipo-produto" th:field="*{tpProduto}" onChange="onstatechange(this)">
 								<option value="0">Escolha os tipos de produtos</option>
@@ -122,16 +114,12 @@
 
 							<img id="preView" alt="..."
 								th:src="*{Imagem} ? @{${'/lifetree/produtos/show/image/' + produto.id}} :${semImagem}">
-							<label for="uploadImage" class="form-label">Imagem escolhida</label>
 						</div>
 
 						<div class="form-group-col-md-4">
 							<input class="form-control" type="file" onchange="preViewImg();" name="file"
 								accept="image/*" id="uploadImage">
 						</div>
-
-
-
 					</div>
 
 			</div>
