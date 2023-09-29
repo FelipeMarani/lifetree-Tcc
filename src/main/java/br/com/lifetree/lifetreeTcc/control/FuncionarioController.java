@@ -126,18 +126,6 @@ public class FuncionarioController {
 		
 	}
 	
-//	@PostMapping("/FiltroFunc")
-//	 public String MostrarFiltro(ModelMap map,
-//			 @RequestParam(value = "funcionario", required = false) String funcionario) {
-//		
-//		if(funcionario.trim().equals("")) {
-//			map.addAttribute("funcionario", funcionarioService.ListarTodos());
-//		}else {
-//			
-//			map.addAttribute("funcionario", funcionarioService.FiltroFunc());
-//		}
-//		return "FiltroFuc";
-//	}
 	
 	@GetMapping("/ListaFunc")
 	public String verFuncionarios(ModelMap model,

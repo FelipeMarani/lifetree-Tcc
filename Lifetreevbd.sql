@@ -137,18 +137,6 @@ create table Produto
 		references mcProduto(id)
 )
 
-
-create table Imagem(
-	id bigint identity,
-	nomeImg varchar(100)not null,
-	Img varbinary(max)not null,
-	StatusImg varchar(20)not null,
-	produto_id bigint not null,
-	primary key(id),
-	foreign key(produto_id)
-	references Produto(id)
-	)
-
 create table Form_Pagamento
 (	id bigint identity,
 	Fm_pagamento varchar(50)not null,

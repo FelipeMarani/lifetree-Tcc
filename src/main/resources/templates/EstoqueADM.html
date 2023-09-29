@@ -83,49 +83,53 @@
   </section>
 
   <div id="background-color">
+  <form action="#" th:action="@{/lifetree/funcionario/ListaProd}" class="row g-3 mx-5 mt-2" method="get">
 
     <div class="barrapesquisa">
-      <input type="search" id="barrapesq" autofocus placeholder=" Pesquisar no sistema">
+      <input type="search" id="barrapesq" autofocus placeholder=" Pesquisar no sistema" name="produto">
       <button type="submit" class="btn btn-success" id="inputBarraPesc"
-        th:href="@{/lifetree/produtos/todos-filtro}">Buscar</button>
+        >Buscar</button>
     </div>
 
-    <div class="api" th:action="@{/lifetree/funcionario/all}" th:object="${produto}" method="get">
-      <table class="table table-striped table-hover my-5 border-top">
-        <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Quantidade</th>
-            <th scope="col">Preço</th>
-            <th scope="col">Tipo de Produto</th>
-            <th scope="col">Status</th>
-            <th scope="col">Editar</th>
-            <th scope="col">Inativar</th>
-          </tr>
+  </form>
+  <!--th:action="@{/lifetree/funcionario/all}" th:object="${produto}" method="get"-->
 
-        <tbody>
-          <tr th:each="produto : ${produtos}">
-            <td scope="row" th:text="${produto.id}"></td>
-            <td th:text="${produto.nome}"></td>
-            <td th:text="${produto.quantidade}"></td>
-            <td th:text="${produto.preco}"></td>
-            <td th:text="${produto.tpProduto.tpProduto}"></td>
-            <td th:text="${produto.statusProd}"></td>
-            <td><a th:href="@{/lifetree/produtos/EditarProdutoADM/{id}(id=${produto.id})}"
-                class="btn  btn-success btn-sm pb-0">
-                Editar
-              </a>
-            </td>
-            <td><a th:href="@{/lifetree/funcionario/inativarProdFunc/{id}(id=${produto.id})}"
-                class="btn  btn-success btn-sm pb-0">Inativar</a></td>
-          </tr>
-        </tbody>
-        </thead>
+  <div class="api">
+    <table class="table table-striped table-hover my-5 border-top">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Quantidade</th>
+          <th scope="col">Preço</th>
+          <th scope="col">Tipo de Produto</th>
+          <th scope="col">Status</th>
+          <th scope="col">Editar</th>
+          <th scope="col">Inativar</th>
+        </tr>
+
+      <tbody>
+        <tr th:each="produto : ${produtos}">
+          <td scope="row" th:text="${produto.id}"></td>
+          <td th:text="${produto.nome}"></td>
+          <td th:text="${produto.quantidade}"></td>
+          <td th:text="${produto.preco}"></td>
+          <td th:text="${produto.tpProduto.tpProduto}"></td>
+          <td th:text="${produto.statusProd}"></td>
+          <td><a th:href="@{/lifetree/produtos/EditarProdutoADM/{id}(id=${produto.id})}"
+              class="btn  btn-success btn-sm pb-0">
+              Editar
+            </a>
+          </td>
+          <td><a th:href="@{/lifetree/funcionario/inativarProdFunc/{id}(id=${produto.id})}"
+              class="btn  btn-success btn-sm pb-0">Inativar</a></td>
+        </tr>
+      </tbody>
+      </thead>
     </div>
-    
-    <script src="/js/Sidebar.js"></script>
-  </div>
+
+      <script src="/js/Sidebar.js"></script>
+
 </body>
 
 </html>

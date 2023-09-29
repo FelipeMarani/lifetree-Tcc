@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 
 import br.com.lifetree.lifetreeTcc.model.entity.Funcionario;
-import br.com.lifetree.lifetreeTcc.model.entity.Produto;
+
 
 @Repository
 public interface FuncionarioRepository extends JpaRepository<Funcionario, Long> {

@@ -37,10 +37,17 @@ public class ProdutoService {
 
 	public List<Produto> ListarTodos() {
 		return produtoRepository.findAll();
+	
+	
 	}
-
+	
+	
+	
+	//Aqui pesquisar
 	public List<Produto> listarTodosFiltro(String nome) {
 		return produtoRepository.findByNomeContaining(nome);
+	
+	
 	}
 
 	@Transactional
@@ -134,7 +141,5 @@ public class ProdutoService {
 		return lista;
 	}
 
-	public List<Produto> listarProdutosFiltro(String nomeProd) {
-		return produtoRepository.listarProdutosFiltro(nomeProd);
-	}
+	
 }

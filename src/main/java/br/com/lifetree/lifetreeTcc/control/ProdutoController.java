@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import br.com.lifetree.lifetreeTcc.model.entity.Funcionario;
 import br.com.lifetree.lifetreeTcc.model.entity.Produto;
 import br.com.lifetree.lifetreeTcc.service.McProdutoService;
 import br.com.lifetree.lifetreeTcc.service.ProdutoService;
@@ -80,21 +81,8 @@ public class ProdutoController {
 		return "home";
 	}
 
-	@GetMapping("/todos-filtro")
-	public String mostrarTodos(ModelMap model) {
-		model.addAttribute("produtos", produtoService.ListarTodos());
-		return "todos-produtos-filtro";
-	}
-
-	@PostMapping("/todos-filtro")
-	public String mostrarTodosFiltro(ModelMap model, @RequestParam(value = "nomeProd", required = false) String nome) {
-		if (nome.trim().equals("")) {
-			model.addAttribute("produtos", produtoService.listarTodosFiltro(nome));
-		} else {
-			return "redirect:/lifetree/produtos/Estoque";
-		}
-		return "redirect:/lifetree/produtos/Estoque";
-	}
+	
+	
 
 	// ROTA POST
 	@PostMapping("/save")
@@ -132,11 +120,7 @@ public class ProdutoController {
 		return "AdicionarProduto";
 	}
 
-	@GetMapping("/Estoque")
-	public String getEstoque(ModelMap model) {
-		model.addAttribute("produtos", produtoService.ListarTodos());
-		return "Estoque";
-	}
+	
 
 	@GetMapping("/Editarproduto")
 	public String getEditarProduto(ModelMap model) {
@@ -206,5 +190,30 @@ public class ProdutoController {
 
 		return "redirect:/lifetree/funcionario/EstoqueADM";
 	}
+
+
+// aqi 
+//@GetMapping("/FiltroProd")
+//	public String getEstoque(ModelMap model) {
+//		model.addAttribute("produto", produtoService.ListarTodos());
+//		return "FiltroProd";
+//	}
+//	
+//	@GetMapping("/FiltroProd")
+//	public String verProdutos(ModelMap model,
+//			@RequestParam(value = "produto", required = false) String nome) {
+//		
+//		List<Produto> produtos = null;
+//		
+//		if (nome == null) {
+//			produtos = produtoService.ListarTodos();
+//			model.addAttribute("produtos", produtos);
+//		} else {
+//			produtos = produtoService.listarTodosFiltro(nome);
+//			model.addAttribute("produtos", produtos);
+//		}
+//
+//		return "Estoque";
+//	}
 
 }
