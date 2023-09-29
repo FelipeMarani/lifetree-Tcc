@@ -124,7 +124,6 @@ create table Produto
 	Preco decimal(10,2)not null,
 	Imagem varbinary(MAX),
 	Quantidade int,
-	cod_barra varchar(13) unique not null,
 	Destaque varchar(3),
 	StatusProd varchar(20),
 	tpProduto_id bigint not null,
