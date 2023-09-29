@@ -192,28 +192,27 @@ public class ProdutoController {
 	}
 
 
-// aqi 
-//@GetMapping("/FiltroProd")
-//	public String getEstoque(ModelMap model) {
-//		model.addAttribute("produto", produtoService.ListarTodos());
-//		return "FiltroProd";
-//	}
-//	
-//	@GetMapping("/FiltroProd")
-//	public String verProdutos(ModelMap model,
-//			@RequestParam(value = "produto", required = false) String nome) {
-//		
-//		List<Produto> produtos = null;
-//		
-//		if (nome == null) {
-//			produtos = produtoService.ListarTodos();
-//			model.addAttribute("produtos", produtos);
-//		} else {
-//			produtos = produtoService.listarTodosFiltro(nome);
-//			model.addAttribute("produtos", produtos);
-//		}
-//
-//		return "Estoque";
-//	}
+@GetMapping("/Estoque")
+	public String getEstoque(ModelMap model) {
+		model.addAttribute("produto", produtoService.ListarTodos());
+		return "Estoque";
+	}
+	
+	@GetMapping("/FiltroProd")
+	public String verProdutos(ModelMap model,
+			@RequestParam(value = "produto", required = false) String nome) {
+		
+		List<Produto> produtos = null;
+		
+		if (nome == null) {
+			produtos = produtoService.ListarTodos();
+			model.addAttribute("produtos", produtos);
+		} else {
+			produtos = produtoService.listarTodosFiltro(nome);
+			model.addAttribute("produtos", produtos);
+		}
+
+		return "Estoque";
+	}
 
 }
