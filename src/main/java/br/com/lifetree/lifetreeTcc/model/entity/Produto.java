@@ -23,7 +23,6 @@ public class Produto {
 	private double preco;
 	@Column(name = "Quantidade")
 	private int quantidade;
-	private String cod_barra;
 	@Column(name = "Destaque")
 	private String destaque;
 	@Column(name = "StatusProd")
@@ -71,14 +70,6 @@ public class Produto {
 
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
-	}
-
-	public String getCod_barra() {
-		return cod_barra;
-	}
-
-	public void setCod_barra(String cod_barra) {
-		this.cod_barra = cod_barra;
 	}
 
 	public String getDestaque() {
