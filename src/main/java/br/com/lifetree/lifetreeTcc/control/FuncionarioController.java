@@ -156,7 +156,7 @@ public class FuncionarioController {
 		return "EditarFuncionario";
 	}
 
-	@PostMapping("/inativarProdAdm/{id}")
+	@GetMapping("/inativarProdAdm/{id}")
 	public String inativarProdFunc(@PathVariable("id") int id, Produto produto, ModelMap model) {
 
 		Produto produtos = produtoService.findById(id);
