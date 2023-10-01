@@ -102,6 +102,7 @@
 						<th scope="col">Senha</th>
 						<th scope="col">Cargo</th>
 						<th scope="col">Editar</th>
+						<th scope="col">Inativar</th>
 
 					</tr>
 				<tbody>
@@ -116,6 +117,8 @@
 							<a th:href="@{/lifetree/funcionario/EditarFuncionario/{id}(id=${funcionario.id})}"
 								class="btn btn-success btn-sm pb-0">Editar</a>
 						</td>
+						<td><a th:href="@{/lifetree/funcionario/inativar/{id}(id=${funcionario.id})}"
+							class="btn  btn-success btn-sm pb-0">Inativar</a></td>
 					</tr>
 
 				</tbody>

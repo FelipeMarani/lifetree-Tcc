@@ -110,9 +110,11 @@ public class FuncionarioController {
 		return "ListaFunc";
 	}
 
-	@PostMapping("/inativar/{id}")
-	public String inativarFunc(@PathVariable("id") int id, Funcionario funcionario, ModelMap model) {
+	@GetMapping("/inativar/{id}")
+	public String inativarFunc(@PathVariable("id") int id,ModelMap model) {
 
+		Funcionario funcionario = funcionarioService.findById(id);
+		
 		funcionarioService.inativarFunc(funcionario);
 
 		return "redirect:/lifetree/funcionario/ListaFunc";
