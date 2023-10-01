@@ -36,10 +36,7 @@ public class FuncionarioApiController {
 		this.produtoService = produtoService;
 
 	}
-
-	
-
-	@GetMapping("/tutorials")
+	@GetMapping("/ListaFunc")
 	public ResponseEntity<List<Funcionario>> getAllFuncionarios(@RequestParam(required = false) String title) {
 		try {
 			List<Funcionario> tutorials = new ArrayList<Funcionario>();
@@ -57,11 +54,10 @@ public class FuncionarioApiController {
 		}
 	}
 	
-	@PostMapping("/logar")
-	public ResponseEntity<Funcionario> Acessar(ModelMap map, @RequestParam("email") String email,
-			@RequestParam("senha") String senha, HttpSession session) {
+	@PostMapping("/logarApi")
+	public ResponseEntity<Funcionario> Acessar(ModelMap map, @RequestBody Funcionario _funcionario, HttpSession session) {
 		try {
-			Funcionario funcionario = funcionarioService.acessar(email, senha);
+			Funcionario funcionario = funcionarioService.acessar(_funcionario.getEmail(), _funcionario.getSenha());
 
 			if (funcionario != null) {
 				return new ResponseEntity<>(funcionario, HttpStatus.OK);
@@ -74,25 +70,25 @@ public class FuncionarioApiController {
 		}
 	}
 
-//	@PostMapping("/funcionarioApi")
-//	public ResponseEntity<Funcionario> getOneFuncionario(
-//			@RequestBody Funcionario funcionario) {
-//
-//		try {
-//			int resposta = funcionarioService.logarApp(funcionario.getEmail(), funcionario.getSenha());
-//
-//			if (resposta == 1) {
-//
-//				Funcionario f2 = funcionarioService.findByEmail(funcionario.getEmail());
-//
-//				return new ResponseEntity<Funcionario>(f2, HttpStatus.OK);
-//
-//			}
-//		} catch (Exception e) {
-//			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-//		}
-//		return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-//	}
+	@PostMapping("/funcionarioApi")
+	public ResponseEntity<Funcionario> getOneFuncionario(
+			@RequestBody Funcionario funcionario) {
+
+		try {
+			int resposta = funcionarioService.logarApp(funcionario.getEmail(), funcionario.getSenha());
+
+			if (resposta == 1) {
+
+				Funcionario f2 = funcionarioService.findByEmail(funcionario.getEmail());
+
+				return new ResponseEntity<Funcionario>(f2, HttpStatus.OK);
+
+			}
+		} catch (Exception e) {
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+	}
 
 	@PostMapping("/produtosApi")
 	public ResponseEntity<List<Produto>> getAllProdutos(@RequestParam(required = false) String title2) {
