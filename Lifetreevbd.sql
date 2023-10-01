@@ -61,6 +61,8 @@ insert into tpProduto(TpProduto)
 values('Refrigerados');
 insert into tpProduto(TpProduto)
 values('Promoções');
+insert into tpProduto(TpProduto)
+values('Grãos');
 
 
 create table mcProduto
@@ -115,6 +117,10 @@ insert into mcProduto(Marca)
 values('Campbell s')
 insert into mcProduto(Marca)
 values('Grupo Bimbo')
+insert into mcProduto(Marca)
+values('Mãe Terra')
+insert into mcProduto(Marca)
+values('Max Titaniun')
 
 
 

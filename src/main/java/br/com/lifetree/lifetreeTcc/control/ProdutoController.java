@@ -85,10 +85,16 @@ public class ProdutoController {
 
 	// ROTA POST
 	@PostMapping("/save")
-	public String gravarProduto(@RequestParam(value = "file", required = false) MultipartFile file, Produto produto,
+	public String gravarProdutoFunc(@RequestParam(value = "file", required = false) MultipartFile file, Produto produto,
 			ModelMap model) {
 		produtoService.gravarNovoProd(file, produto);
 		return "redirect:/lifetree/produtos/Estoque";
+	}
+	@PostMapping("/saveADM")
+	public String gravarProdutoAdm(@RequestParam(value = "file", required = false) MultipartFile file, Produto produto,
+			ModelMap model) {
+		produtoService.gravarNovoProd(file, produto);
+		return "redirect:/lifetree/funcionario/EstoqueADM";
 	}
 
 	// arrumar aqui pra atualizar
@@ -197,8 +203,25 @@ public class ProdutoController {
 		return "Estoque";
 	}
 	
-	@GetMapping("/FiltroProd")
-	public String verProdutos(ModelMap model,
+	@GetMapping("/FiltroProdAdm")
+	public String verProdutosAdm(ModelMap model,
+			@RequestParam(value = "produto", required = false) String nome) {
+		
+		List<Produto> produtos = null;
+		
+		if (nome == null) {
+			produtos = produtoService.ListarTodos();
+			model.addAttribute("produtos", produtos);
+		} else {
+			produtos = produtoService.listarTodosFiltro(nome);
+			model.addAttribute("produtos", produtos);
+		}
+
+		return "EstoqueADM";
+	}
+	
+	@GetMapping("/FiltroProdFunc")
+	public String verProdutosFunc(ModelMap model,
 			@RequestParam(value = "produto", required = false) String nome) {
 		
 		List<Produto> produtos = null;
@@ -213,5 +236,6 @@ public class ProdutoController {
 
 		return "Estoque";
 	}
+
 
 }
