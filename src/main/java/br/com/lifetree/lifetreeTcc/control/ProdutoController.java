@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import br.com.lifetree.lifetreeTcc.model.entity.Funcionario;
 import br.com.lifetree.lifetreeTcc.model.entity.Produto;
 import br.com.lifetree.lifetreeTcc.service.McProdutoService;
 import br.com.lifetree.lifetreeTcc.service.ProdutoService;
@@ -81,9 +80,6 @@ public class ProdutoController {
 		return "home";
 	}
 
-	
-	
-
 	// ROTA POST
 	@PostMapping("/save")
 	public String gravarProdutoFunc(@RequestParam(value = "file", required = false) MultipartFile file, Produto produto,
@@ -91,6 +87,7 @@ public class ProdutoController {
 		produtoService.gravarNovoProd(file, produto);
 		return "redirect:/lifetree/produtos/Estoque";
 	}
+
 	@PostMapping("/saveADM")
 	public String gravarProdutoAdm(@RequestParam(value = "file", required = false) MultipartFile file, Produto produto,
 			ModelMap model) {
@@ -125,8 +122,6 @@ public class ProdutoController {
 		model.addAttribute("produto", new Produto());
 		return "AdicionarProduto";
 	}
-
-	
 
 	@GetMapping("/Editarproduto")
 	public String getEditarProduto(ModelMap model) {
@@ -184,6 +179,7 @@ public class ProdutoController {
 		map.addAttribute("produto", produto);
 		return "EditarProdutoADM";
 	}
+
 	@PostMapping("/atualizarProdADM/{id}")
 	public String atualizarProdutoADm(@RequestParam(value = "file", required = false) MultipartFile file,
 			@PathVariable("id") int id, Produto produto, ModelMap model) {
@@ -197,19 +193,17 @@ public class ProdutoController {
 		return "redirect:/lifetree/funcionario/EstoqueADM";
 	}
 
-
-@GetMapping("/Estoque")
+	@GetMapping("/Estoque")
 	public String getEstoque(ModelMap model) {
 		model.addAttribute("produto", produtoService.ListarTodos());
 		return "Estoque";
 	}
-	
+
 	@GetMapping("/FiltroProdAdm")
-	public String verProdutosAdm(ModelMap model,
-			@RequestParam(value = "produto", required = false) String nome) {
-		
+	public String verProdutosAdm(ModelMap model, @RequestParam(value = "produto", required = false) String nome) {
+
 		List<Produto> produtos = null;
-		
+
 		if (nome == null) {
 			produtos = produtoService.ListarTodos();
 			model.addAttribute("produtos", produtos);
@@ -220,13 +214,12 @@ public class ProdutoController {
 
 		return "EstoqueADM";
 	}
-	
+
 	@GetMapping("/FiltroProdFunc")
-	public String verProdutosFunc(ModelMap model,
-			@RequestParam(value = "produto", required = false) String nome) {
-		
+	public String verProdutosFunc(ModelMap model, @RequestParam(value = "produto", required = false) String nome) {
+
 		List<Produto> produtos = null;
-		
+
 		if (nome == null) {
 			produtos = produtoService.ListarTodos();
 			model.addAttribute("produtos", produtos);
@@ -237,6 +230,5 @@ public class ProdutoController {
 
 		return "Estoque";
 	}
-
 
 }

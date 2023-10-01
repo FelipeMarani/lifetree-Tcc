@@ -29,56 +29,52 @@
   </header>
   <!--header acabou-->
 
-  <div class="sidebar">
-    <div class="logo_details">
-      <i class="bx bxl-audible icon"></i>
-      <div class="logo_name">Painel de Controle</div>
-      <i class="bx bx-menu" id="btn"></i>
-    </div>
-    <ul class="nav-list">
-      <li>
-        <a href="/lifetree/produtos/AdicionarProduto">
-          <i class="bx bx-add-to-queue"></i>
-          <span class="link_name">Adicionar Produto</span>
-        </a>
-        <span class="tooltip">Adicionar Produto</span>
-      </li>
+  <section class="main">
+    <div class="sidebar">
+      <div class="logo_details">
+        <i class="bx bxl-audible icon"></i>
+        <div class="logo_name">Painel de Controle</div>
+        <i class="bx bx-menu" id="btn"></i>
+      </div>
+      <ul class="nav-list">
+        <li>
+          <a href="/lifetree/produtos/AdicionarProduto">
+            <i class="bx bx-add-to-queue"></i>
+            <span class="link_name">Adicionar Produto</span>
+          </a>
+          <span class="tooltip">Adicionar Produto</span>
+        </li>
 
-      <li>
-        <a href="/lifetree/produtos/Estoque">
-          <i class="bx bx-bar-chart-alt-2"></i>
-          <span class="link_name">Estoque</span>
-        </a>
-        <span class="tooltip">Estoque</span>
-      </li>
+        <li>
+          <a href="/lifetree/produtos/Estoque">
+            <i class="bx bx-bar-chart-alt-2"></i>
+            <span class="link_name">Estoque</span>
+          </a>
+          <span class="tooltip">Estoque</span>
+        </li>
 
-      <li>
-        <a href="/lifetree/funcionario/login">
-          <i class="bx bx-log-out" id="log_out"></i>
-          <span class="link_name">Sair</span>
-        </a>
-        <span class="tooltip">Sair</span>
-      </li>
+        <li>
+          <a href="/lifetree/funcionario/login">
+            <i class="bx bx-log-out" id="log_out"></i>
+            <span class="link_name">Sair</span>
+          </a>
+          <span class="tooltip">Sair</span>
+        </li>
 
-      <li class="profile">
-        <div class="profile_details">
-          <div class="profile_content">
-            <h1 class="name"><span th:text="${session.funclogado.nome}"></span></h1>
-            <h1 class="designation"><span th:text="${session.funclogado.acesso}"></span></h1>
+        <li class="profile">
+          <div class="profile_details">
+            <div class="profile_content">
+              <h1 class="name"><span th:text="${session.funclogado.nome}"></span></h1>
+              <h1 class="designation"><span th:text="${session.funclogado.acesso}"></span></h1>
+            </div>
           </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-
-
+        </li>
+      </ul>
+    </div>
   </section>
 
-
 <div id="background-color">
-
-
-  <form action="#" th:action="@{lifetree/produtos/Estoque}" class="row g-3 mx-5 mt-2" method="get">
+  <form action="#" th:action="@{lifetree/produtos/FiltroProdFunc}" class="row g-3 mx-5 mt-2" method="get">
     <div class="barrapesquisa">
       <input type="search" name="produto" id="barrapesq" autofocus placeholder=" Pesquisar no sistema">
       <button type="submit" class="btn btn-success" id="inputBarraPesc">Buscar</button>
@@ -86,9 +82,7 @@
     </div>
   </form>
 
-
   <div class="api">
-
   <table class="table table-striped table-hover my-5 border-top">
     <thead>
       <tr>
@@ -102,21 +96,24 @@
         <th scope="col">Inativar</th>
       </tr>
 
-    <tbody>
-      <tr th:each="produto : ${produtos}">
-        <td scope="row" th:text="${produto.id}"></td>
-        <td th:text="${produto.nome}"></td>
-        <td th:text="${produto.quantidade}"></td>
-        <td th:text="${produto.preco}"></td>
-        <td th:text="${produto.tpProduto.tpProduto}"></td>
-        <td th:text="${produto.statusProd}"></td>
-        <td><a th:href="@{/lifetree/produtos/Editarproduto/{id}(id=${produto.id})}"
-            class="btn btn-success btn-sm pb-0">Editar</a></td>
-        <td><a th:href="@{/lifetree/produtos/inativar/{id}(id=${produto.id})}"
-            class="btn btn-success btn-sm pb-0">Inativar</a></td>
-      </tr>
-    </tbody>
-    </thead>
+      <tbody>
+        <tr th:each="produto : ${produtos}">
+          <td scope="row" th:text="${produto.id}"></td>
+          <td th:text="${produto.nome}"></td>
+          <td th:text="${produto.quantidade}"></td>
+          <td th:text="${produto.preco}"></td>
+          <td th:text="${produto.tpProduto.tpProduto}"></td>
+          <td th:text="${produto.statusProd}"></td>
+          <td><a th:href="@{/lifetree/produtos/EditarProduto/{id}(id=${produto.id})}"
+              class="btn  btn-success btn-sm pb-0">
+              Editar
+            </a>
+          </td>
+          <td><a th:href="@{/lifetree/funcionario/inativar/{id}(id=${produto.id})}"
+              class="btn  btn-success btn-sm pb-0">Inativar</a></td>
+        </tr>
+      </tbody>
+      </thead>
   </div>
   </div>
 

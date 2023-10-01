@@ -35,7 +35,7 @@ public class FuncionarioService {
 	@Transactional
 	public Funcionario acessar(String email, String senha) {
 		Funcionario funcionario = funcionarioRepository.findByEmail(email);
-		
+
 		if (funcionario != null) {
 			if (funcionario.getSenha().equals(senha)) {
 				return funcionario;
@@ -44,31 +44,6 @@ public class FuncionarioService {
 
 		return null;
 	}
-	
-	
-	
-	@Transactional
-	public int logarApp(String email, String senha) {
-		Funcionario funcionario = funcionarioRepository.findByEmail(email);
-	if (funcionario != null && funcionario.getAcesso().equals("ADMIN")) {
-
-		if (funcionario.getSenha().equals(senha)) {
-			return 1;}
-	}
-	else if (funcionario != null && funcionario.getAcesso().equals("FUNC")) {
-
-		if (funcionario.getSenha().equals(senha)) {
-			return 2;}
-	}
-	else {
-		return 0;
-	}
-	
-	
-	
-	return 0;
-}
-	
 
 	@Transactional
 	public void atualizarFunc(Funcionario funcionario) {
@@ -86,8 +61,8 @@ public class FuncionarioService {
 	public List<Funcionario> ListarTodos() {
 		return funcionarioRepository.findAll();
 	}
-	
-	public List<Funcionario> FiltroFunc(String nome){
+
+	public List<Funcionario> FiltroFunc(String nome) {
 		return funcionarioRepository.findByNomeContaining(nome);
 	}
 

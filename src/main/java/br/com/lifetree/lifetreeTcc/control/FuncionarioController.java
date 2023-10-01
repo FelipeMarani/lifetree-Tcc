@@ -63,10 +63,9 @@ public class FuncionarioController {
 	}
 
 	@PostMapping("/logar")
-	public String Acessar(ModelMap map,
-			@RequestParam("email") String email, 
-			@RequestParam("senha") String senha,  HttpSession session) {
-		
+	public String Acessar(ModelMap map, @RequestParam("email") String email, @RequestParam("senha") String senha,
+			HttpSession session) {
+
 		Funcionario funclogado = funcionarioService.acessar(email, senha);
 
 		if (funclogado != null) {
@@ -77,21 +76,20 @@ public class FuncionarioController {
 				return "redirect:/lifetree/funcionario/ListaFunc";
 			}
 		}
-	
+
 		return "redirect:/lifetree/funcionario/login";
 	}
-	
 
 	@PostMapping("/save")
 	public String saveFuncionario(@ModelAttribute Funcionario funcionario) {
-		
+
 		funcionario.setAcesso("FUNC");
 
 		funcionarioService.saveNewFuncionario(funcionario);
 
 		return "redirect:/lifetree/funcionario/login";
 	}
-	
+
 	@GetMapping("/loginfuncionario")
 	public String getLoginFuncionario(ModelMap model) {
 		model.addAttribute("funcionario", new Funcionario());
@@ -111,30 +109,28 @@ public class FuncionarioController {
 	}
 
 	@GetMapping("/inativar/{id}")
-	public String inativarFunc(@PathVariable("id") int id,ModelMap model) {
+	public String inativarFunc(@PathVariable("id") int id, ModelMap model) {
 
 		Funcionario funcionario = funcionarioService.findById(id);
-		
+
 		funcionarioService.inativarFunc(funcionario);
 
 		return "redirect:/lifetree/funcionario/ListaFunc";
 	}
-	
+
 	@GetMapping("/Filtro_Func")
 	public String MostrarFiltroFunc(ModelMap map) {
-		
+
 		map.addAttribute("funcionario", funcionarioService.ListarTodos());
 		return "FiltroFuc";
-		
+
 	}
-	
-	
+
 	@GetMapping("/ListaFunc")
-	public String verFuncionarios(ModelMap model,
-			@RequestParam(value = "funcionario", required = false) String nome) {
-		
+	public String verFuncionarios(ModelMap model, @RequestParam(value = "funcionario", required = false) String nome) {
+
 		List<Funcionario> funcionarios = null;
-		
+
 		if (nome == null) {
 			funcionarios = funcionarioService.TodosFuncionarios();
 			model.addAttribute("funcionarios", funcionarios);
@@ -148,7 +144,6 @@ public class FuncionarioController {
 		// INDICA A PÁGINA QUE SERÁ CARREGADA NA EXECUÇÃO DO MÉTODO
 		return "ListaFunc";
 	}
-	
 
 	// ADM////
 
@@ -161,7 +156,7 @@ public class FuncionarioController {
 		return "EditarFuncionario";
 	}
 
-	@PostMapping("/inativarProdFunc/{id}")
+	@PostMapping("/inativarProdAdm/{id}")
 	public String inativarProdFunc(@PathVariable("id") int id, Produto produto, ModelMap model) {
 
 		Produto produtos = produtoService.findById(id);
@@ -186,9 +181,8 @@ public class FuncionarioController {
 	}
 
 	@PostMapping("/atualizar")
-	public String atualizarFuncionario(
-			@ModelAttribute("funcionario") Funcionario funcionario) {
-		
+	public String atualizarFuncionario(@ModelAttribute("funcionario") Funcionario funcionario) {
+
 		funcionarioService.atualizarFunc(funcionario);
 		return "redirect:/lifetree/funcionario/ListaFunc";
 	}
