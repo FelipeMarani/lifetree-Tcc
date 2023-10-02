@@ -76,6 +76,7 @@ header {
 }
 
 #barrapesq {
+  pedding: left 0.10;
   margin-top: 6.35%;
   width: 200px;
   height: 35px;

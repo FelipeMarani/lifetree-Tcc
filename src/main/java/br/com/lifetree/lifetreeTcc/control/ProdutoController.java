@@ -66,20 +66,6 @@ public class ProdutoController {
 		response.getOutputStream().close();
 	}
 
-	@GetMapping("/home")
-	public String home(ModelMap model) {
-
-//		List<Produto> produtos = produtoService.listar3Destaques();
-
-		// PARA EXIBIR UMA QUANTIDADE MAIOR DE PRODUTOS EM DESTAQUE
-		List<Produto> produtos = produtoService.ListarTodos();
-
-		model.addAttribute("semImagem", semImagem);
-		model.addAttribute("produtos", produtos);
-
-		return "home";
-	}
-
 	// ROTA POST
 	@PostMapping("/save")
 	public String gravarProdutoFunc(@RequestParam(value = "file", required = false) MultipartFile file, Produto produto,
@@ -195,7 +181,7 @@ public class ProdutoController {
 
 	@GetMapping("/Estoque")
 	public String getEstoque(ModelMap model) {
-		model.addAttribute("produto", produtoService.ListarTodos());
+		model.addAttribute("produtos", produtoService.ListarTodos());
 		return "Estoque";
 	}
 
@@ -216,7 +202,7 @@ public class ProdutoController {
 	}
 
 	@GetMapping("/FiltroProdFunc")
-	public String verProdutosFunc(ModelMap model, @RequestParam(value = "produto", required = false) String nome) {
+	public String verProdutosFunc(ModelMap model, @RequestParam(value = "nome", required = false) String nome) {
 
 		List<Produto> produtos = null;
 
