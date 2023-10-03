@@ -90,7 +90,7 @@ public class FuncionarioApiController {
 //		return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 //	}
 
-	@PostMapping("/produtosApi")
+	@GetMapping("/produtosApi")
 	public ResponseEntity<List<Produto>> getAllProdutos(@RequestParam(required = false) String title2) {
 		try {
 			List<Produto> produtosApi = new ArrayList<Produto>();
