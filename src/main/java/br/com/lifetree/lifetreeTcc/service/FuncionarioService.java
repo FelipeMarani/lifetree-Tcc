@@ -82,7 +82,7 @@ public class FuncionarioService {
 
 		Funcionario _funcionario = funcionario;
 
-		_funcionario.setAcesso("INATIVO");
+		_funcionario.setAcesso("");
 		funcionarioRepository.save(_funcionario);
 	}
 
