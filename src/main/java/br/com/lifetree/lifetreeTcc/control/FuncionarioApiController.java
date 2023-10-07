@@ -70,31 +70,9 @@ public class FuncionarioApiController {
 		}
 	}
 
-<<<<<<< HEAD
 	
-=======
-//	@PostMapping("/funcionarioApi")
-//	public ResponseEntity<Funcionario> getOneFuncionario(
-//			@RequestBody Funcionario funcionario) {
-//
-//		try {
-//			int resposta = funcionarioService.logarApp(funcionario.getEmail(), funcionario.getSenha());
-//
-//			if (resposta == 1) {
-//
-//				Funcionario f2 = funcionarioService.findByEmail(funcionario.getEmail());
-//
-//				return new ResponseEntity<Funcionario>(f2, HttpStatus.OK);
-//
-//			}
-//		} catch (Exception e) {
-//			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-//		}
-//		return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-//	}
->>>>>>> a9f2953269f0b78d445dba7d78ef8708773828f7
 
-	@PostMapping("/produtosApi")
+	@GetMapping("/produtosApi")
 	public ResponseEntity<List<Produto>> getAllProdutos(@RequestParam(required = false) String title2) {
 		try {
 			List<Produto> produtosApi = new ArrayList<Produto>();
