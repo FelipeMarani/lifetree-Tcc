@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/EditarFuncionario.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Editar Funcionário</title>
+</head>
+
+<body>
+    <header>
+        <div class="info-header">
+            <div class="logo">
+                <h2>Editar Funcionário</h2>
+                <img src="/img/Logo.png" id="logo">
+            </div>
+
+        </div>
+    </header>
+    <!--header acabou-->
+
+
+    <section class="main">
+
+		<div class="sidebar">
+			<div class="logo_details">
+				<i class="bx bxl-audible icon"></i>
+				<div class="logo_name">Painel de Controle</div>
+				<i class="bx bx-menu" id="btn"></i>
+			</div>
+			<ul class="nav-list">
+				<li>
+					<a href="/lifetree/funcionario/AdicionarProdutoADM">
+						<i class="bx bx-add-to-queue"></i>
+						<span class="link_name">Adicionar Produto</span>
+					</a>
+					<span class="tooltip">Adicionar Produto</span>
+				</li>
+
+				<li>
+					<a href="/lifetree/funcionario/EstoqueADM">
+						<i class="bx bx-bar-chart-alt-2"></i>
+						<span class="link_name">Estoque</span>
+					</a>
+					<span class="tooltip">Estoque</span>
+				</li>
+
+				<li>
+					<a href="/lifetree/funcionario/ListaFunc">
+						<i class="bx bx-user"></i>
+						<span class="link_name">Funcionários</span>
+					</a>
+					<span class="tooltip">Funcionários</span>
+				</li>
+
+				<li>
+					<a href="/lifetree/funcionario/login">
+					  <i class="bx bx-log-out" id="log_out"></i>
+					  <span class="link_name">Sair</span>
+					</a>
+					<span class="tooltip">Sair</span>
+				  </li>
+
+				<li class="profile">
+					<div class="profile_details">
+						<div class="profile_content">
+							<h1 class="name"><span th:text="${session.funclogado.nome}"></span></h1>
+							<h1 class="designation"><span th:text="${session.funclogado.acesso}"></span></h1>
+						</div>
+					</div>
+				</li\>		
+            </ul>
+		</div>  
+
+        <section class="module box">
+            <div class="title">
+                <h2>Editar Funcionários</h2>
+                <hr/>
+            </div>
+
+
+            <br>
+            <br>
+            <form action="#" th:action="@{/lifetree/funcionario/atualizar}" th:object="${funcionario}" method="post">
+                <div class="desc-prod">
+                    <strong>
+                        <p>ID:<input class="Imput" type="text" th:field="*{id}" readonly /></p>
+                    </strong>
+
+                    <p>Nome do Funcionario<input class="Imput" type="text" th:field="*{nome}"> </p>
+                    <p>Senha <input class="Imput" type="text" th:field="*{senha}"></p>
+                    <p>Email <input class="Imput" type="text" th:field="*{email}"></p>
+                    <p>Nivel de Acesso <input class="Imput" type="text" th:field="*{acesso}" /></p>
+                </div>
+
+                <div class="button">
+                    <button type="submit" id="botão">Editar</button>
+
+
+                </div>
+
+            </form>
+        </section>
+
+    </section>
+    <script src="/js/EditarProduto.js"></script>
+    <script src="/js/Sidebar.js"></script>
+</body>
+
+
+<!--<p>Código de Barra <input class="Imput" type="number" th:field="*{cod_barra}" /></p>-->
+</html>

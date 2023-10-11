@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/css/ListaFunc.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+		integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+		integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
+		crossorigin="anonymous"></script>
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+	<title>Funcionários</title>
+</head>
+
+<body>
+	<header>
+
+		<div class="info-header">
+			<div class="logo">
+				<h2>Funcionarios disponiveis</h2>
+				<img src="/img/Logo.png" id="logo">
+			</div>
+		</div>
+	</header>
+	<!--header acabou-->
+
+	<section class="main">
+
+		<div class="sidebar">
+			<div class="logo_details">
+				<i class="bx bxl-audible icon"></i>
+				<div class="logo_name">Painel de Controle</div>
+				<i class="bx bx-menu" id="btn"></i>
+			</div>
+			<ul class="nav-list">
+				<li>
+					<a href="/lifetree/funcionario/AdicionarProdutoADM">
+						<i class="bx bx-add-to-queue"></i>
+						<span class="link_name">Adicionar Produto</span>
+					</a>
+					<span class="tooltip">Adicionar Produto</span>
+				</li>
+
+				<li>
+					<a href="/lifetree/funcionario/EstoqueADM">
+						<i class="bx bx-bar-chart-alt-2"></i>
+						<span class="link_name">Estoque</span>
+					</a>
+					<span class="tooltip">Estoque</span>
+				</li>
+
+				<li>
+					<a href="/lifetree/funcionario/ListaFunc">
+						<i class="bx bx-user"></i>
+						<span class="link_name">Funcionários</span>
+					</a>
+					<span class="tooltip">Funcionários</span>
+				</li>
+
+				<li>
+					<a href="/lifetree/funcionario/login">
+					  <i class="bx bx-log-out" id="log_out"></i>
+					  <span class="link_name">Sair</span>
+					</a>
+					<span class="tooltip">Sair</span>
+				  </li>
+
+				<li class="profile">
+					<div class="profile_details">
+						<div class="profile_content">
+							<h1 class="name"><span th:text="${session.funclogado.nome}"></span></h1>
+							<h1 class="designation"><span th:text="${session.funclogado.acesso}"></span></h1>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+		<form action="#" th:action="@{/lifetree/funcionario/ListaFunc}" class="row g-3 mx-5 mt-2" method="get">
+
+			<div class="barrapesquisa">
+				<input type="search" name="funcionario" id="barrapesq" autofocus placeholder=" Pesquisar no sistema">
+				<button type="submit" class="btn btn-success" id="inputBarraPesc">Buscar</button>
+
+			</div>
+		</form>
+
+		<div class="api">
+			<table class="table table-striped table-hover my-5 border-top">
+
+				<thead>
+					<tr>
+						<th scope="col">ID</th>
+						<th scope="col">Nome</th>
+						<th scope="col">Email</th>
+						<th scope="col">Senha</th>
+						<th scope="col">Cargo</th>
+						<th scope="col">Editar</th>
+						<th scope="col">Inativar</th>
+
+					</tr>
+				<tbody>
+
+					<tr th:each="funcionario : ${funcionarios}">
+						<td scope="row" th:text="${funcionario.id}"></td>
+						<td th:text="${funcionario.Nome}"></td>
+						<td th:text="${funcionario.Email}"></td>
+						<td th:text="${funcionario.Senha}"></td>
+						<td th:text="${funcionario.acesso}"></td>
+						<td>
+							<a th:href="@{/lifetree/funcionario/EditarFuncionario/{id}(id=${funcionario.id})}"
+								class="btn btn-success btn-sm pb-0">Editar</a>
+						</td>
+						<td><a th:href="@{/lifetree/funcionario/inativar/{id}(id=${funcionario.id})}"
+							class="btn  btn-success btn-sm pb-0">Inativar</a></td>
+					</tr>
+
+				</tbody>
+				</thead>
+		</div>
+		</div>
+	</section>
+
+	<script src="/js/Sidebar.js"></script>
+</body>
+
+</html>
