@@ -62,19 +62,32 @@
   <div class="container">
     <h2>Lista de Livros</h2>
     <div class="livro">
-      <img>
-      <div class="livro" th:each="livro : ${livros}">
+      <img src="imagem1.jpg" alt="Livro 1">
       <div class="livro-info">
-        <h3 th: text="${livro.nome}"></h3>
-        <p th: text="${livro.autor.nome}"></p>
-        <p th: text="${livro.editora.nome}"></p>
-        <p th: text="${livro.preco}"></p>
+        <h3>Título do Livro 1</h3>
+        <p>Autor: Autor do Livro 1</p>
+        <p>Editora: Editora do Livro 1</p>
+        <p>Preço: R$19.99</p>
       </div>
       <div class="livro-btns">
         <button class="btn">Editar</button>
         <button class="btn btn-danger">Excluir</button>
       </div>
     </div>
+    <div class="livro">
+      <img src="imagem2.jpg" alt="Livro 2">
+      <div class="livro-info">
+        <h3>Título do Livro 2</h3>
+        <p>Autor: Autor do Livro 2</p>
+        <p>Editora: Editora do Livro 2</p>
+        <p>Preço: R$24.99</p>
+      </div>
+      <div class="livro-btns">
+        <button class="btn">Editar</button>
+        <button class="btn btn-danger">Excluir</button>
+      </div>
     </div>
+    <!-- Adicione mais divs .livro conforme necessário para exibir mais livros -->
+  </div>
 </body>
 </html>
