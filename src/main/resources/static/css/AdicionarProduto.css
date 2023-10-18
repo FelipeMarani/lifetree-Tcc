@@ -37,7 +37,7 @@ header {
   height: 7px;
   padding: 7px 2%;
   height: 80px;
-  margin-top: -57px;
+  margin-top: -45px;
 }
 
 .logo img {
@@ -50,9 +50,9 @@ header {
   font-size: 15px;
   float: right;
   color: white;
+  margin-top: 10%;
   text-align: center;
   display: flex;
-  margin-top: 18%;
   margin-left: 20px;
 }
 

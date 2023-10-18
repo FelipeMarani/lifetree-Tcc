@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crie sua conta</title>
-    <link rel="stylesheet" href="/css/CriarConta.css">
+    <link rel="stylesheet" href="/src/main/resources/static/css/CriarConta.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
 
@@ -33,23 +33,12 @@
             <input type="email" name="email" id="email" th:field="*{email}" class="input required"
                 placeholder="Insira o seu Email" onkeyup="emailValidate()" required>
 
-
-            <!--(CAMPO 2)-->
-            <label for="Email2">Confirme seu email</label>
-            <input type="email" id="email2" class="input required" placeholder="Confirme o email"
-                oninput="compareEmail()" required>
             <!--EMAIL-->
 
-            <!--SENHA (CAMPO 3)-->
+            <!--SENHA (CAMPO 2)-->
             <label for="Senha">Crie uma senha</label>
             <input type="password" name="password" id="password" th:field="*{Senha}" class="input required"
                 placeholder="Crie uma senha" oninput="mainPasswordValidate()" required>
-
-
-            <!--(CAMPO 4)-->
-            <label for="Senha2">Confirme sua senha</label>
-            <input type="password" name="password2" id="password2" class="input required"
-                placeholder="Confirme sua senha" oninput="comparePassword()" required>
             <!--SENHA-->
 
             <button type="submit" id="botão">Confirmar</button>
@@ -57,7 +46,7 @@
 
     </div>
     <footer>
-        <p> &copy; Life Tree</p>
+        <p> &copy;Life Tree</p>
 
     </footer>
     <div class="Imagem">
@@ -66,7 +55,7 @@
 
     </div>
 
-    <script src="/js/CriarConta.js"></script>
+    <script src="/src/main/resources/static/js/CriarConta.js"></script>
 </body>
 
 </html>
