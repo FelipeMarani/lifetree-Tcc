@@ -2,25 +2,94 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crie sua conta</title>
-    <link rel="stylesheet" href="/css/CriarConta.css">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/css/CriarConta.css">
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
+	<title>Cadastrar Funcionário</title>
 </head>
 
 <body>
-    <header>
-        <h1>Adicione o Funcionario para ter acesso ao nosso sistema</h1>
-    </header>
+	<header>
+		<div class="info-header">
+			<div class="logo">
+				<h2>Cadastrar Funcionário</h2>
+				<img src="/img/Logo.png" id="logo">
+			</div>
+		</div>
+	</header>
+	<!--header acabou-->
 
-    <div class="container">
+	<section class="main">
 
+		<div class="sidebar">
+			<div class="logo_details">
+				<i class="bx bxl-audible icon"></i>
+				<div class="logo_name">Painel de Controle</div>
+				<i class="bx bx-menu" id="btn"></i>
+			</div>
+			<ul class="nav-list">
+				<li>
+					<a href="/lifetree/funcionario/AdicionarProdutoADM">
+						<i class="bx bx-add-to-queue"></i>
+						<span class="link_name">Adicionar Produto</span>
+					</a>
+					<span class="tooltip">Adicionar Produto</span>
+				</li>
 
-        <form th:action="@{/lifetree/funcionario/save}" th:object="${funcionario}" method="post" id="form" class="form">
+				<li>
+					<a href="/lifetree/funcionario/EstoqueADM">
+						<i class="bx bx-bar-chart-alt-2"></i>
+						<span class="link_name">Estoque</span>
+					</a>
+					<span class="tooltip">Estoque</span>
+				</li>
+
+				<li>
+					<a href="/lifetree/funcionario/criarconta">
+						<i class="bx bx-user-plus"></i>
+						<span class="link_name">Cadastrar Funcionário</span>
+					</a>
+					<span class="tooltip">Cadastrar Funcionário</span>
+				</li>
+
+				<li>
+					<a href="/lifetree/funcionario/ListaFunc">
+						<i class="bx bx-user"></i>
+						<span class="link_name">Funcionários</span>
+					</a>
+					<span class="tooltip">Funcionários</span>
+				</li>
+
+				
+				<li>
+					<a href="/lifetree/funcionario/login">
+						<i class="bx bx-log-out" id="log_out"></i>
+						<span class="link_name">Sair</span>
+					</a>
+					<span class="tooltip">Sair</span>
+				</li>
+
+				<li class="profile">
+					<div class="profile_details">
+						<div class="profile_content">
+							<h1 class="name"><span th:text="${session.funclogado.nome}"></span></h1>
+							<h1 class="designation"><span th:text="${session.funclogado.acesso}"></span></h1>
+						</div>
+					</div>		
+				</li>
+			</ul>
+		</div>
+
+		<section class="module box">
+			<div class="title">
+				<h2>Cadastrar Funcionário</h2>
+				<hr>
+			</div>
+
+			<form th:action="@{/lifetree/funcionario/save}" th:object="${funcionario}" method="post" id="form" class="form">
 
             <!--NOME (CAMPO 0)-->
             <label for="Nome">Nome do Funcionario</label>
@@ -39,23 +108,20 @@
             <label for="Senha">Crie uma senha para o Funcionario</label>
             <input type="password" name="password" id="password" th:field="*{Senha}" class="input required"
                 placeholder="Crie uma senha" oninput="mainPasswordValidate()" required>
-            <!--SENHA-->
-
+            <div id="icon-password" onclick="showHide()"></div>
+                <!--SENHA-->
+            
+            
             <button type="submit" id="botão">Criar acesso ao Funcionario</button>
+            
         </form>
+        
+		</section>
+	</section>
 
-    </div>
-    <footer>
-        <p> &copy; Life Tree</p>
-
-    </footer>
-    <div class="Imagem">
-        <img src="/img/arvorelogo1.png" alt="Imagem" class="imagem-lateral">
-        <img src="/img/arvorelogo1.png" alt="Imagem" class="imagem-lateral2">
-
-    </div>
-
-    <script src="/src/main/resources/static/js/CriarConta.js"></script>
+	<script src="/js/CriarConta.js"></script>
+	<script src="/js/Sidebar.js"></script>
+    <script src="/js/ShowPassword.js"></script>
 </body>
 
 </html>

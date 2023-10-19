@@ -29,17 +29,6 @@ section {
 section h1 {
   margin-left: 70px;
 }
-#icon-password{
-  margin-top: -20px;
-  height: 30px;
-  width: 30px;
-  background-size: cover;
-  background: url('/src/main/resources/static/img/show.png');
-
-}#icon-password.hide{
-  background-size: cover;
-  background: url('/src/main/resources/static/img/hide.png');
-}
 
 input {
   border: 1px solid black;
@@ -80,24 +69,7 @@ button#botão {
   width: 50px;
 }
 
-.links {
-  text-decoration: none;
-  display: flex;
-  margin-left: 15px;
-  font-weight: 500;
-}
 
-.links a {
-  text-decoration: none;
-  color: black;
-  cursor: pointer;
-  font-style: oblique;
-}
-
-.links a:hover {
-  color: #038c5a;
-  transition: 0.5s;
-}
 
 .imagem-lateral {
   position: absolute;

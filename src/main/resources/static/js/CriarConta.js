@@ -2,6 +2,7 @@ const form = document.getElementById("form");
 const campos = document.querySelectorAll(".required");
 const spans = document.querySelectorAll(".span-required");
 const emailRegex = /^([a-z0-9_\.\-])+\@(([a-z0-9\-])+\.)+([a-z0-9]{2,4})+$/;
+
 // const senhaRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z$*&@#]{5,}$/;
 // const spans = document.querySelectorAll('.span-required');
 
@@ -59,3 +60,5 @@ function mainPasswordValidate() {
     removeError(2);
   }
 }
+
+
