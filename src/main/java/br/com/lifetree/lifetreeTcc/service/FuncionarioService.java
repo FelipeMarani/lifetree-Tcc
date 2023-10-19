@@ -48,6 +48,8 @@ public class FuncionarioService {
 	@Transactional
 	public void atualizarFunc(Funcionario funcionario) {
 		
+		funcionario.setAcesso("FUNC");
+
 		funcionarioRepository.save(funcionario);
 
 	}
@@ -81,8 +83,9 @@ public class FuncionarioService {
 	public void inativarFunc(Funcionario funcionario) {
 
 		Funcionario _funcionario = funcionario;
-
-		_funcionario.setAcesso("");
+		
+		_funcionario.setSenha("");
+		
 		funcionarioRepository.save(_funcionario);
 	}
 
