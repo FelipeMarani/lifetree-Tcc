@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crie sua conta</title>
-    <link rel="stylesheet" href="/src/main/resources/static/css/CriarConta.css">
+    <link rel="stylesheet" href="/css/CriarConta.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
 
@@ -14,7 +14,7 @@
 
 <body>
     <header>
-        <h1>Crie sua conta</h1>
+        <h1>Adicione o Funcionario para ter acesso ao nosso sistema</h1>
     </header>
 
     <div class="container">
@@ -23,30 +23,30 @@
         <form th:action="@{/lifetree/funcionario/save}" th:object="${funcionario}" method="post" id="form" class="form">
 
             <!--NOME (CAMPO 0)-->
-            <label for="Nome">Nome</label>
+            <label for="Nome">Nome do Funcionario</label>
             <input type="text" name="name" id="Nome" th:field="*{Nome}" class="input required"
                 placeholder="Nome Completo" oninput="nomeValidate()" required>
 
             <!--EMAIL (CAMPO 1)-->
-            <label for="Email">Email</label>
+            <label for="Email">Email do Funcionario</label>
 
             <input type="email" name="email" id="email" th:field="*{email}" class="input required"
-                placeholder="Insira o seu Email" onkeyup="emailValidate()" required>
+                placeholder="Insira um email" onkeyup="emailValidate()" required>
 
             <!--EMAIL-->
 
             <!--SENHA (CAMPO 2)-->
-            <label for="Senha">Crie uma senha</label>
+            <label for="Senha">Crie uma senha para o Funcionario</label>
             <input type="password" name="password" id="password" th:field="*{Senha}" class="input required"
                 placeholder="Crie uma senha" oninput="mainPasswordValidate()" required>
             <!--SENHA-->
 
-            <button type="submit" id="botão">Confirmar</button>
+            <button type="submit" id="botão">Criar acesso ao Funcionario</button>
         </form>
 
     </div>
     <footer>
-        <p> &copy;Life Tree</p>
+        <p> &copy; Life Tree</p>
 
     </footer>
     <div class="Imagem">

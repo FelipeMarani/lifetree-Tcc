@@ -87,7 +87,7 @@ public class FuncionarioController {
 
 		funcionarioService.saveNewFuncionario(funcionario);
 
-		return "redirect:/lifetree/funcionario/login";
+		return "redirect:/lifetree/funcionario/ListaFunc";
 	}
 
 	@GetMapping("/loginfuncionario")
