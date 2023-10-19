@@ -57,11 +57,11 @@ form{
   height: 30px;
   width: 30px;
   background-size: cover;
-  background: url('/src/main/resources/static/img/show.png');
+  background: url('/img/show.png');
 
 }#icon-password.hide{
   background-size: cover;
-  background: url('/src/main/resources/static/img/hide.png');
+  background: url('/img/hide.png');
 }
 
 
