@@ -13,6 +13,14 @@ create table Funcionario
 insert Funcionario(Nome, Email, Senha, NivelAcess)
 values('João Pedro', 'jpshawty@gmail.com', '123456Mln@', 'ADMIN')
 insert Funcionario(Nome, Email, Senha, NivelAcess)
+values('Diego ', 'diegolima123@gmail.com', 'Diego123', 'ADMIN')
+insert Funcionario(Nome, Email, Senha, NivelAcess)
+values('Felipe ', 'felipejs@gmail.com', '123456', 'ADMIN')
+insert Funcionario(Nome, Email, Senha, NivelAcess)
+values('Gustavo ', 'rocha@gmail.com', 'Rocha123456', 'ADMIN')
+insert Funcionario(Nome, Email, Senha, NivelAcess)
+values('Stiven ', 'Angel@gmail.com', 'Stiven567', 'ADMIN')
+insert Funcionario(Nome, Email, Senha, NivelAcess)
 values('Ana Silva', 'ana.silva@gmail.com', 'Senha1@', 'FUNC')
 insert Funcionario(Nome, Email, Senha, NivelAcess)
 values('Pedro Santos', 'pedro.santos@email.com', 'AbCdEfG1#', 'FUNC')
@@ -140,46 +148,5 @@ create table Produto
 		references tpProduto(id),
 	foreign key(mcProduto_id)
 		references mcProduto(id)
-)
-
-create table Form_Pagamento
-(	id bigint identity,
-	Fm_pagamento varchar(50)not null,
-	StatusPg varchar(20)null,
-	primary key(id)
-)
-insert Form_Pagamento(Fm_pagamento)
-values('Cart�o de Debito')
-insert Form_Pagamento(Fm_pagamento)
-values('Cart�o de Credito')
-insert Form_Pagamento(Fm_pagamento)
-values('Pix')
-insert Form_Pagamento(Fm_pagamento)
-values('Boleto 3x')
-insert Form_Pagamento(Fm_pagamento)
-values('Dinheiro')
-
-
-create table Venda
-(	id bigint identity,
-	TT_compra decimal(10,2)not null,
-	Dt_Venda date not null,
-	Pagamento_id bigint not null,
-	primary key(id),
-	foreign key(Pagamento_id) 
-		references Form_pagamento(id)
-)
-
-	create table ItemVenda(
-	id bigint identity,
-	Quant int not null,
-	StatusItem varchar(20) not null,
-	Produto_id bigint not null,
-	Venda_id bigint not null,
-	primary key(id),
-	foreign key(Produto_id)
-		references Produto(id),
-	foreign key(Venda_id)
-		references Venda(id)
 )
 

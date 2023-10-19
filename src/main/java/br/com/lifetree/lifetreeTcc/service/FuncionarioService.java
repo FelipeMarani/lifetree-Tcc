@@ -84,7 +84,8 @@ public class FuncionarioService {
 
 		Funcionario _funcionario = funcionario;
 		
-		_funcionario.setSenha("");
+		_funcionario.setSenha("INATIVO");
+		_funcionario.setAcesso("INATIVO");
 		
 		funcionarioRepository.save(_funcionario);
 	}
